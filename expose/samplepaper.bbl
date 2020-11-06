@@ -1,0 +1,37 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{blocktime}
+Ethereum average blocktime, \url{https://etherscan.io/chart/blocktime}
+
+\bibitem{gaslimit}
+Ethereum block gas limit, \url{https://etherscan.io/chart/gaslimit}
+
+\bibitem{gasprice}
+Ethereum gas price, \url{https://etherscan.io/chart/gasprice}
+
+\bibitem{uniswap_info}
+Uniswap protocol analytics, \url{https://info.uniswap.org/home}
+
+\bibitem{adams2020uniswap}
+Adams, H., Zinsmeister, N., Robinson, D.: Uniswap v2 core. URl:
+  https://uniswap.org/whitepaper.pdf  (2020)
+
+\bibitem{eberhardt2017zokrates}
+Eberhardt, J.: Zokrates—a toolbox for zksnarks on ethereum. Ethereum
+  Foundation [online]:
+  https://ethereumfoundation.org/devcon3/sessions/verifiable-off-chaincomputation-for-smart-contracts/,(accessed
+  on 10-02-2018)  (2017)
+
+\bibitem{zksnarks_nutshell_2016}
+Foundation, E.: zksnarks in a nutshell (Dec 2016),
+  \url{https://blog.ethereum.org/2016/12/05/zksnarks-in-a-nutshell/}
+
+\bibitem{vbuterin_2018}
+Vbuterin: On-chain scaling to potentially ~500 tx/sec through mass tx
+  validation (Sep 2018),
+  \url{https://ethresear.ch/t/on-chain-scaling-to-potentially-500-tx-sec-through-mass-tx-validation/3477}
+
+\end{thebibliography}
