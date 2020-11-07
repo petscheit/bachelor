@@ -28,6 +28,8 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/hyphenat/hyphenat.sty
 INPUT /Users/paul/Documents/projects/bachelor/expose/samplepaper.aux
 INPUT /Users/paul/Documents/projects/bachelor/expose/samplepaper.aux
 OUTPUT /Users/paul/Documents/projects/bachelor/expose/samplepaper.aux

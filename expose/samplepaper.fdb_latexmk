@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex samplepaper"] 1604674496 "samplepaper.aux" "samplepaper.bbl" "samplepaper" 1604675050
+["bibtex samplepaper"] 1604676018 "samplepaper.aux" "samplepaper.bbl" "samplepaper" 1604676019
   "./splncs04.bst" 1604577844 32146 ee21ae2a29028dc8ad842a97200982c7 ""
   "mybibliography.bib" 1604674219 1548 bab5d42b8c3a937b084ff7edb54ce37c ""
-  "samplepaper.aux" 1604674914 997 ed19318f3ce498616d233d10e99d8ae1 ""
+  "samplepaper.aux" 1604676019 1035 e85468c2b40940e0abf3aead1323786c ""
   (generated)
   "samplepaper.bbl"
   "samplepaper.blg"
-["pdflatex"] 1604674913 "/Users/paul/Documents/projects/bachelor/expose/samplepaper.tex" "/Users/paul/Documents/projects/bachelor/expose/samplepaper.pdf" "samplepaper" 1604675050
-  "/Users/paul/Documents/projects/bachelor/expose/samplepaper.aux" 1604674914 997 ed19318f3ce498616d233d10e99d8ae1 ""
-  "/Users/paul/Documents/projects/bachelor/expose/samplepaper.tex" 1604675049 9418 ee0f2346595b1333c9a7dfe4389b76b2 ""
+["pdflatex"] 1604676018 "/Users/paul/Documents/projects/bachelor/expose/samplepaper.tex" "/Users/paul/Documents/projects/bachelor/expose/samplepaper.pdf" "samplepaper" 1604676019
+  "/Users/paul/Documents/projects/bachelor/expose/samplepaper.aux" 1604676019 1035 e85468c2b40940e0abf3aead1323786c ""
+  "/Users/paul/Documents/projects/bachelor/expose/samplepaper.tex" 1604676017 9488 0874ff2b4e65cc65d3d146b0763c27f0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1480098701 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1480098701 1288 655e228510b4c2a1abe905c368440826 ""
@@ -37,6 +37,7 @@
   "/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty" 1523134385 9063 d0a305975932762117cd1f06a582f896 ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty" 1523134385 2591 6404d0c7d28505fb38ce0d86c2e28ae7 ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty" 1523134385 3977 cb9221976ed8a183afad65b59aa8629a ""
+  "/usr/local/texlive/2018/texmf-dist/tex/latex/hyphenat/hyphenat.sty" 1480098831 5798 0437b031e663035b68539cf7ac7c8eeb ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1480098833 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/aliascnt.sty" 1480098836 2511 9250ac9a7cafca5bf9264add9b635239 ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty" 1480098836 12095 5337833c991d80788a43d3ce26bd1c46 ""
@@ -48,12 +49,12 @@
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1536670549 4220280 2a5cb8bb4f1e8cc32525b85dfe3ef429 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "llncs.cls" 1604577844 42249 b08ec23e994470d7d8fc268d245cf555 ""
-  "samplepaper.aux" 1604674914 997 ed19318f3ce498616d233d10e99d8ae1 ""
-  "samplepaper.bbl" 1604674497 1299 d38f44f0b4d53cf1650f06c825da33cf "bibtex samplepaper"
-  "samplepaper.tex" 1604675049 9418 ee0f2346595b1333c9a7dfe4389b76b2 ""
+  "samplepaper.aux" 1604676019 1035 e85468c2b40940e0abf3aead1323786c ""
+  "samplepaper.bbl" 1604676018 1299 d38f44f0b4d53cf1650f06c825da33cf "bibtex samplepaper"
+  "samplepaper.tex" 1604676017 9488 0874ff2b4e65cc65d3d146b0763c27f0 ""
   (generated)
+  "/Users/paul/Documents/projects/bachelor/expose/samplepaper.log"
   "samplepaper.aux"
   "samplepaper.pdf"
   "/Users/paul/Documents/projects/bachelor/expose/samplepaper.pdf"
   "samplepaper.log"
-  "/Users/paul/Documents/projects/bachelor/expose/samplepaper.log"
