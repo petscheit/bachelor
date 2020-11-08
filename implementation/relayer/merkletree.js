@@ -5,7 +5,7 @@ const { format } = require('crypto-js');
 
 
 let users = initializeUsers(4);
-let index = 0;
+let index = 1;
 // let users = ['a', 'b', 'a', 'd'];
 let balances = initializeBalances(256);
 
@@ -25,6 +25,10 @@ function addAddress(address) {
     return true
 }
 
+function addBalance(amount, nonce){
+
+}
+
 function calculateRoot(array){
     console.log(array)
     const tree = getTree(array);
@@ -33,10 +37,17 @@ function calculateRoot(array){
     return root
 }
 
-function getLeafProof(leaf, array){
+function getEmptyLeafProof(leaf, array){
     leaf = keccak(leaf);
     const tree = getTree(array);
     let proof = tree.getHexProof(leaf, index);
+    return proof;
+}
+
+function getLeafProof(leaf, array){
+    leaf = keccak(leaf);
+    const tree = getTree(array);
+    let proof = tree.getHexProof(leaf);
     return proof;
 }
 
@@ -48,6 +59,7 @@ function getTree(array){
 function initializeUsers(length){
     let users = new Array(length)
     for(var i = 0; i < users.length; i++) users[i] = "0x0000000000000000000000000000000000000000";
+    users[0] = "0xcc08e5636A9ceb03917C1ac7BbEda23aD57766F3" // the first address needs to be set, in order for sibling checks to work on chain
     return users;
 }
 
@@ -57,8 +69,17 @@ function initializeBalances(length){
     return balances;
 }
 
-function latestFreeProof(){
-    return '[\"' + getLeafProof("0x0000000000000000000000000000000000000000", users).toString().replace(",", "\",\"") + "\"], \"" + "0x5380c7b7ae81a58eb98d9c78de4a1fd7fd9535fc953ed2be602daaa41767312a\"";
+function getLeaves(array){
+    let tree = getTree(array);
+    console.log(tree.getHexLeaves())
+}
+
+function printProof(leaf, array){
+     return '[\"' + getEmptyProof(leaf, array).toString().replace(",", "\",\"") + "\"]"
+}
+
+function latestFreeUserProof(){
+    return '[\"' + getEmptyLeafProof("0x0000000000000000000000000000000000000000", users).toString().replace(",", "\",\"") + "\"], \"" + "0x5380c7b7ae81a58eb98d9c78de4a1fd7fd9535fc953ed2be602daaa41767312a\"";
 }
 
 async function syncEvents(){
@@ -73,5 +94,6 @@ async function syncEvents(){
     calculateRoot(users)
     await syncEvents()
     calculateRoot(users)
-    console.log(latestFreeProof())
+    console.log(latestFreeUserProof())
+    // getLeaves(users)
 })()
