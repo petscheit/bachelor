@@ -9864,10 +9864,88 @@
       "links": {},
       "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
       "transactionHash": "0xc63626da90e0f43ec3e9da7f7b72b640eef4e7560145ac45aa24ae6999232c12"
+    },
+    "1604869840564": {
+      "events": {
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event"
+        },
+        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_from",
+              "type": "address"
+            }
+          ],
+          "name": "Registered",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
+      "transactionHash": "0xc63626da90e0f43ec3e9da7f7b72b640eef4e7560145ac45aa24ae6999232c12"
+    },
+    "1604871541942": {
+      "events": {
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event"
+        },
+        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_from",
+              "type": "address"
+            }
+          ],
+          "name": "Registered",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
+      "transactionHash": "0xc63626da90e0f43ec3e9da7f7b72b640eef4e7560145ac45aa24ae6999232c12"
     }
   },
   "schemaVersion": "3.2.2",
-  "updatedAt": "2020-11-08T16:49:46.677Z",
+  "updatedAt": "2020-11-08T21:39:08.138Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

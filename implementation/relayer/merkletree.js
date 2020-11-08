@@ -3,114 +3,131 @@ const { getAccounts, getRegisterEvents, getDepositEvents } = require("./web3Help
 const { keccak } = require("./helpers");
 const Web3Utils = require('web3-utils');
 
-let users = initializeUsers(4);
-let index = 1;
-let balances = initializeBalances(4);
+class ZkMerkleTree {
 
-function addAddress(address) {
-    users[index] = address;
-    index++;
-    return true
-}
+    constructor(){
+        this.users;
+        this.balances;
+        this.index = 1;
+        this.emptyAddress = "0x0000000000000000000000000000000000000000";
+        this.userAmount = 4;
+        this.initilizeDatastructure()
+    }
 
-function getAddressIndex(address){
-    return users.indexOf(address);
-}
+    async init(){
+        await this.syncRegisterEvents();
+        await this.syncDepositEvents();
+    }
 
-function calculateUserRoot(){
-    const tree = getUserTree();
-    const root = tree.getRoot().toString('hex')
-    console.log("Root: ", root)
-    return root
-}
+    addAddress(address) {
+        this.users[this.index] = address;
+        this.index++;
+    }
 
-function calculateBalancesRoot(){
-    const tree = getBalanceTree();
-    const root = tree.getRoot().toString('hex')
-    console.log("Root: ", root)
-    return root
-}
+    addBalance(amount, index){
+        this.balances[index].amount = Number(amount);
+        return true;
+    }
 
-function getEmptyLeafProof(leaf){
-    console.log(leaf)
-    leaf = keccak(leaf);
-    const tree = getUserTree();
-    let proof = tree.getHexProof(leaf, index);
-    return proof;
-}
+    getAddressIndex(address){
+        return this.users.indexOf(address);
+    }
+
+    async syncDepositEvents(){
+        let events = await getDepositEvents();
+        for(let i = 0; i < events.length; i++){
+            const index = this.getAddressIndex(events[i].returnValues._from)
+            this.addBalance(events[i].returnValues.amount, index)
+        }
+        console.log("Deposits synced successfully!")
+        // console.log(this.balances)
+    }
+
+    async syncRegisterEvents(){
+        let events = await getRegisterEvents();
+        for(let i = 0; i < events.length; i++){
+            this.addAddress(events[i].returnValues._from)
+        }
+        console.log("Registrations synced successfully!")
+        // console.log(this.users)
+    }
+
+    getRegisterProof(){
+        const leaf = keccak(this.emptyAddress);
+        const tree = this.getTree("users");
+        let proof = tree.getHexProof(leaf, this.index);
+        this.printRegisterProof(proof, leaf)
+    }
+
+    getDepositProof(address){
+        let userIndex = this.getAddressIndex(address);
+        let userProof = this.getUserProofPath(address);
+        let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
+        this.printDepositProof(userProof, balanceProof, this.balances[userIndex].amount, this.balances[userIndex].nonce, address)
+
+    }
+
+    getUserProofPath(leaf){
+        leaf = keccak(leaf);
+        const tree = this.getTree("users");
+        let proof = tree.getHexProof(leaf);
+        return proof;
+    }
+
+    getBalanceProofPath(leaf, index){
+        leaf = keccak(keccak(Web3Utils.encodePacked(leaf.amount, leaf.nonce)));
+        const tree = this.getTree("balance");
+        let proof = tree.getHexProof(leaf, index);
+        return proof;
+    }
 
 
-function getUserTree(){
-    const leaves = users.map(x => keccak(x))
-    return new MerkleTree(leaves, keccak, { sortPairs: true })
-}
 
-function getUserLeafProof(leaf){
-    leaf = keccak(leaf);
-    const tree = getUserTree();
-    let proof = tree.getHexProof(leaf);
-    return proof;
-}
+    // HELPERS:
+    getTree(type){
+        if(type == "users"){
+            const leaves = this.users.map(x => keccak(x))
+            return new MerkleTree(leaves, keccak, { sortPairs: true })
+        } else {
+            const leaves = this.balances.map(x => keccak(Web3Utils.encodePacked(x.amount, x.nonce)))
+            return new MerkleTree(leaves, keccak, { sortPairs: true })
+        }
+    }
 
-function getBalanceTree(){
-    const leaves = balances.map(x => keccak(Web3Utils.encodePacked(x.amount, x.nonce)))
-    return new MerkleTree(leaves, keccak, { sortPairs: true })
-}
+    initilizeDatastructure(){
+        // initilize empty users
+        let users = new Array(this.userAmount);
+        for(var i = 0; i < users.length; i++) users[i] = this.emptyAddress;
+        users[0] = "0xcc08e5636A9ceb03917C1ac7BbEda23aD57766F3" // the first address needs to be set, in order for sibling checks to work on chain
+        // initialize empty balances
+        let balances = new Array(this.userAmount);
+        for(var i = 0; i < balances.length; i++) balances[i] = { amount: 0, nonce: 0 };
+        
+        this.users = users;
+        this.balances = balances
+    }
 
-function getBalanceLeafProof(leaf, index){
-    leaf = keccak(keccak(Web3Utils.encodePacked(leaf.amount, leaf.nonce)));
-    const tree = getBalanceTree();
-    let proof = tree.getHexProof(leaf, index);
-    return proof;
-}
+    printRegisterProof(proof, leaf){ // returns format that can be pasted into remix
+        console.log()
+        console.log("Registration Proof:")
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        console.log('[\"' + proof.toString().replace(",", "\",\"") + "\"], \"0x" + leaf.toString('hex') + "\"")
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    }
 
-function initializeUsers(length){
-    let users = new Array(length)
-    for(var i = 0; i < users.length; i++) users[i] = "0x0000000000000000000000000000000000000000";
-    users[0] = "0xcc08e5636A9ceb03917C1ac7BbEda23aD57766F3" // the first address needs to be set, in order for sibling checks to work on chain
-    return users;
-}
-
-function initializeBalances(length){
-    let balances = new Array(length)
-    for(var i = 0; i < balances.length; i++) balances[i] = { amount: 0, nonce: 0 };
-    return balances;
-}
-
-function latestFreeUserProof(){
-    return '[\"' + getEmptyLeafProof("0x0000000000000000000000000000000000000000").toString().replace(",", "\",\"") + "\"], \"" + "0x5380c7b7ae81a58eb98d9c78de4a1fd7fd9535fc953ed2be602daaa41767312a\"";
-}
-
-async function syncEvents(){
-    let events = await getRegisterEvents();
-    console.log(events)
-    for(let i = 0; i < events.length; i++){
-        addAddress(events[i].returnValues._from)
+    printDepositProof(userProof, balanceProof, amount, nonce, address){
+        console.log()
+        console.log("Deposit Proof for " + address + ":")
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        console.log('[\"' + userProof.toString().replace(",", "\",\"") + "\"], " +  '[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + amount + ", " + nonce)
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     }
 }
 
-async function getNextRegisterProof(){
-    await syncEvents()
-    console.log(latestFreeUserProof())
-}
-
-async function getDepositProof(address){
-    let userIndex = getAddressIndex(address);
-    console.log(userIndex)
-    let userProof = getUserLeafProof(address);
-    let balanceProof = getBalanceLeafProof(balances[userIndex], userIndex)
-    console.log(printProof(userProof) + ", " + printProof(balanceProof) + ", " + balances[userIndex].amount + ", " + balances[userIndex].nonce)
-}
-
-function printProof(proof){
-    return'[\"' + proof.toString().replace(",", "\",\"") + "\"]"
-}
-
 (async () => {
-    calculateUserRoot()
-    await getNextRegisterProof()
-    getDepositProof("0x31b878918679d9DA1DB277B1A2fD67Aa01032920")
-    console.log(await getDepositEvents())
+    let instance = new ZkMerkleTree();
+    await instance.init()
+    instance.getRegisterProof()
+    instance.getDepositProof("0x31b878918679d9DA1DB277B1A2fD67Aa01032920")
 })()
-
 
