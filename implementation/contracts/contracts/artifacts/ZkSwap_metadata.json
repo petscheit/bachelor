@@ -113,6 +113,39 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "userProof",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "balanceProof",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nonce",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "withdrawAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -139,10 +172,10 @@
 	},
 	"sources": {
 		"localhost/ZKSwap.sol": {
-			"keccak256": "0x218caa131d074b8288af69a91e9cbae78a4fb848b90c6adcd1704dde7e5f11de",
+			"keccak256": "0x3b5603a8fc8e9d30530280ac296214ecc00c0e6b2ceb7490743d43fa1246513c",
 			"urls": [
-				"bzz-raw://8bb4b7e038ec2af3832d2d105bcbd497c335b6f5048d6728a11d924ab0abd190",
-				"dweb:/ipfs/QmesjT9Jm8x3MkEhhhxrhrZ2bJLbahXH3uZR4zaedBfuQc"
+				"bzz-raw://67d7b95b65825873fe5d0bff23ac988ac0a20487f5d884a61af003601bdd5492",
+				"dweb:/ipfs/QmPxEPTcRA3y88cu98PpQmmxPKhxqykvfL9jujbqXdtGGt"
 			]
 		}
 	},

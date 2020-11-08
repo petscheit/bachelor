@@ -31,6 +31,19 @@ contract ZkSwap {
 		emit Deposit(msg.sender, amount + msg.value);
 	}
 
+	function withdraw(bytes32[] memory userProof, bytes32[] memory balanceProof, uint amount, uint nonce, uint withdrawAmount)
+		public
+		payable
+	{
+		require(verifyUserMerkle(userProof, keccak256(abi.encodePacked(msg.sender)))); // makes sure user is registered
+ 		require(verifyBalanceMerkle(balanceProof, keccak256(abi.encodePacked(amount, nonce)))); // checks if passed balance amount is correct
+		require(amount >= withdrawAmount);
+		(bool success, ) = msg.sender.call.value(withdrawAmount)("");
+        require(success, "Transfer failed.");
+		updateBalanceMerkle(balanceProof, keccak256(abi.encodePacked(amount - withdrawAmount, nonce)));
+		emit Deposit(msg.sender, amount - withdrawAmount);
+	}
+
 	function verifyUserMerkle(bytes32[] memory proof, bytes32 leaf) 
 		internal 
 		view
