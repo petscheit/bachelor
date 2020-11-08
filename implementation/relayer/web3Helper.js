@@ -22,3 +22,9 @@ module.exports.getRegisterEvents = async function(){
     let events = await instance.getPastEvents("Registered", { fromBlock: "earliest" });
     return events;
 }
+
+module.exports.getDepositEvents = async function(){
+    let instance = await getWeb3Instance();
+    let events = await instance.getPastEvents("Deposit", { fromBlock: "earliest" });
+    return events;
+}

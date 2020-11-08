@@ -1,59 +1,67 @@
 const { MerkleTree } = require('merkletreejs')
-const { getAccounts, getRegisterEvents } = require("./web3Helper");
+const { getAccounts, getRegisterEvents, getDepositEvents } = require("./web3Helper");
 const { keccak } = require("./helpers");
-const { format } = require('crypto-js');
-
+const Web3Utils = require('web3-utils');
 
 let users = initializeUsers(4);
 let index = 1;
-// let users = ['a', 'b', 'a', 'd'];
-let balances = initializeBalances(256);
+let balances = initializeBalances(4);
 
 function addAddress(address) {
-    if(index < 0) return false; //index has to be a natural number
-
-    if(index == 0){
-        if(users[0] !== "0x0000000000000000000000000000000000000000") return false; //entry is empty
-        users[0] = address;
-        index++;
-    } else {
-        if(users[index] !== "0x0000000000000000000000000000000000000000") return false //entry is empty
-        if(users[index - 1] === "0x0000000000000000000000000000000000000000") return false //previous entry is not empty
-        users[index] = address;
-        index++;
-    }
+    users[index] = address;
+    index++;
     return true
 }
 
-function addBalance(amount, nonce){
-
+function getAddressIndex(address){
+    return users.indexOf(address);
 }
 
-function calculateRoot(array){
-    console.log(array)
-    const tree = getTree(array);
+function calculateUserRoot(){
+    const tree = getUserTree();
     const root = tree.getRoot().toString('hex')
     console.log("Root: ", root)
     return root
 }
 
-function getEmptyLeafProof(leaf, array){
+function calculateBalancesRoot(){
+    const tree = getBalanceTree();
+    const root = tree.getRoot().toString('hex')
+    console.log("Root: ", root)
+    return root
+}
+
+function getEmptyLeafProof(leaf){
+    console.log(leaf)
     leaf = keccak(leaf);
-    const tree = getTree(array);
+    const tree = getUserTree();
     let proof = tree.getHexProof(leaf, index);
     return proof;
 }
 
-function getLeafProof(leaf, array){
+
+function getUserTree(){
+    const leaves = users.map(x => keccak(x))
+    return new MerkleTree(leaves, keccak, { sortPairs: true })
+}
+
+function getUserLeafProof(leaf){
     leaf = keccak(leaf);
-    const tree = getTree(array);
+    const tree = getUserTree();
     let proof = tree.getHexProof(leaf);
     return proof;
 }
 
-function getTree(array){
-    const leaves = array.map(x => keccak(x))
+function getBalanceTree(){
+    const leaves = balances.map(x => keccak(Web3Utils.encodePacked(x.amount, x.nonce)))
     return new MerkleTree(leaves, keccak, { sortPairs: true })
+}
+
+function getBalanceLeafProof(leaf, index){
+    leaf = keccak(keccak(Web3Utils.encodePacked(leaf.amount, leaf.nonce)));
+    const tree = getBalanceTree();
+    let proof = tree.getHexProof(leaf, index);
+    return proof;
 }
 
 function initializeUsers(length){
@@ -65,21 +73,12 @@ function initializeUsers(length){
 
 function initializeBalances(length){
     let balances = new Array(length)
-    for(var i = 0; i < balances.length; i++) balances[i] = { balance: 0, nonce: 0 };
+    for(var i = 0; i < balances.length; i++) balances[i] = { amount: 0, nonce: 0 };
     return balances;
 }
 
-function getLeaves(array){
-    let tree = getTree(array);
-    console.log(tree.getHexLeaves())
-}
-
-function printProof(leaf, array){
-     return '[\"' + getEmptyProof(leaf, array).toString().replace(",", "\",\"") + "\"]"
-}
-
 function latestFreeUserProof(){
-    return '[\"' + getEmptyLeafProof("0x0000000000000000000000000000000000000000", users).toString().replace(",", "\",\"") + "\"], \"" + "0x5380c7b7ae81a58eb98d9c78de4a1fd7fd9535fc953ed2be602daaa41767312a\"";
+    return '[\"' + getEmptyLeafProof("0x0000000000000000000000000000000000000000").toString().replace(",", "\",\"") + "\"], \"" + "0x5380c7b7ae81a58eb98d9c78de4a1fd7fd9535fc953ed2be602daaa41767312a\"";
 }
 
 async function syncEvents(){
@@ -90,10 +89,28 @@ async function syncEvents(){
     }
 }
 
-(async () => {
-    calculateRoot(users)
+async function getNextRegisterProof(){
     await syncEvents()
-    calculateRoot(users)
     console.log(latestFreeUserProof())
-    // getLeaves(users)
+}
+
+async function getDepositProof(address){
+    let userIndex = getAddressIndex(address);
+    console.log(userIndex)
+    let userProof = getUserLeafProof(address);
+    let balanceProof = getBalanceLeafProof(balances[userIndex], userIndex)
+    console.log(printProof(userProof) + ", " + printProof(balanceProof) + ", " + balances[userIndex].amount + ", " + balances[userIndex].nonce)
+}
+
+function printProof(proof){
+    return'[\"' + proof.toString().replace(",", "\",\"") + "\"]"
+}
+
+(async () => {
+    calculateUserRoot()
+    await getNextRegisterProof()
+    getDepositProof("0x31b878918679d9DA1DB277B1A2fD67Aa01032920")
+    console.log(await getDepositEvents())
 })()
+
+

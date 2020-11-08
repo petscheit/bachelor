@@ -18,6 +18,25 @@
 						"internalType": "address",
 						"name": "_from",
 						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Deposit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
 					}
 				],
 				"name": "Registered",
@@ -25,7 +44,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "addressBook",
+				"name": "balances",
 				"outputs": [
 					{
 						"internalType": "bytes32",
@@ -34,6 +53,34 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "userProof",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "balanceProof",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nonce",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -50,14 +97,21 @@
 					}
 				],
 				"name": "register",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "users",
 				"outputs": [
 					{
-						"internalType": "bool",
+						"internalType": "bytes32",
 						"name": "",
-						"type": "bool"
+						"type": "bytes32"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -85,10 +139,10 @@
 	},
 	"sources": {
 		"localhost/ZKSwap.sol": {
-			"keccak256": "0x27d51964863380ef41dc20bcd8e0cda1ec3f752faf285f053a1d6984973b92e1",
+			"keccak256": "0x218caa131d074b8288af69a91e9cbae78a4fb848b90c6adcd1704dde7e5f11de",
 			"urls": [
-				"bzz-raw://d5bb37cf68beacf4a10977ca36e725ab2ce0c2df2f42208d9683aec461fa5e31",
-				"dweb:/ipfs/QmRZXmV2iFkpyAaYf6Cnjo7GqZrtgV5DCSUPTiHFLqo8GT"
+				"bzz-raw://8bb4b7e038ec2af3832d2d105bcbd497c335b6f5048d6728a11d924ab0abd190",
+				"dweb:/ipfs/QmesjT9Jm8x3MkEhhhxrhrZ2bJLbahXH3uZR4zaedBfuQc"
 			]
 		}
 	},
