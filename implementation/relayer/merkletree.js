@@ -81,8 +81,6 @@ class ZkMerkleTree {
         return proof;
     }
 
-
-
     // HELPERS:
     getTree(type){
         if(type == "users"){
