@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import getWeb3 from "./helpers/getWeb3.js";
 import ZkSwap from "./contracts/ZkSwap.json";
 import { connect } from "react-redux";
+import { addAddress, addInstance } from "./redux/actions";
+// import { invokeListener } from "./helpers/stateSync";
 
 class App extends Component {
     constructor(props) {
@@ -20,7 +22,9 @@ class App extends Component {
               ZkSwap.abi,
               deployedNetwork.address,
             );
-            console.log(instance)
+
+            this.props.addAddress(accounts[0]);
+            this.props.addInstance(instance)
            
             // invokeListener(instance, accounts[0], web3);
         } catch (error) {
@@ -42,26 +46,23 @@ class App extends Component {
 
 // export default App;
 const mapStateToProps = state => {
-    // return {
-    //     account: state.user.account,
-    //     web3: state.web3.instance,
-    //     projectContract: state.web3.projectContract,
-    //     address: state.project.address,
-    // }
+    return {
+        // account: state.user.account,
+        // web3: state.web3.instance,
+        // projectContract: state.web3.projectContract,
+        // address: state.project.address,
+    }
 };
 
 const mapDispatchToProps = dispatch => ({
-  // addAccount: account => dispatch(addAccount(account)),
-  // addWeb3: instance => dispatch(addWeb3(instance)),
-  // addProjectCont: instance => dispatch(addProjectCont(instance)),
-  // addProjectAddress: address => dispatch(addProjectAddress(address)),
-//   addGroupedPaymentUnits: 
+  addAddress: address => dispatch(addAddress(address)),
+  addInstance: instance => dispatch(addInstance(instance)),
 })
 
 
-// export default connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-// )(App);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);
 
-export default App;
+// export default App;
