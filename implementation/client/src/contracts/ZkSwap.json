@@ -12084,9 +12084,9 @@
     "version": "0.6.0+commit.26b70077.Emscripten.clang"
   },
   "networks": {
-    "1604835982543": {
+    "1605010829181": {
       "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
           "anonymous": false,
           "inputs": [
             {
@@ -12094,291 +12094,17 @@
               "internalType": "address",
               "name": "_from",
               "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x5b43d7524424f4cb28d3dbe0d3aa700ad7eba3816aa2c111119f7cc2435fc786"
-    },
-    "1604836961841": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
+            },
             {
               "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
             }
           ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x5b43d7524424f4cb28d3dbe0d3aa700ad7eba3816aa2c111119f7cc2435fc786"
-    },
-    "1604837156639": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x5b43d7524424f4cb28d3dbe0d3aa700ad7eba3816aa2c111119f7cc2435fc786"
-    },
-    "1604844203888": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x65f14ebab99e5399485af6c4618e069d1c23083a12461da3985feab9002c64bf"
-    },
-    "1604844221914": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0xeea9016bbd51253ba2a0ac49612cf3599505ce2a6867c623db2a23a573cef357"
-    },
-    "1604844310781": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0xc392172f8418f602a00d6a6d0bd8efb067aa4683b94ae7c22059424e9e7b601a"
-    },
-    "1604845136032": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x6906308ade21a6fda0b793de1e5ac1787014308bf5641d80b6522c08a90eb3a0"
-    },
-    "1604846905329": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x0bf7257cca5419f817ff9b56b2ff2796f0649e42b7ac6f0363f478397ab21320"
-    },
-    "1604847210970": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0xe008af4fd91bcc1db7c0b93dc0e1207977d4d7ebee9d85316740c5c93f6a7d1c"
-    },
-    "1604847621692": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0xfc9bd0add307cb86b0c236092ad7c45899c74d10d6e710bbc1990cdb263cf734"
-    },
-    "1604851703380": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x0d3f6783ad7950aee7df76301d9b44d2c81cc5c18e760a59b3ea2b61acefbdbb"
-    },
-    "1604851840950": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x3815ffd33efe5d1be81fc04ac49c57caf3da6eed823ffb1715e8fb1f78e39665"
-    },
-    "1604852178116": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x92690ad601f04bd84c1de180eaac3173af416cdd75896e3d9baa0c87e69d8530"
-    },
-    "1604852937506": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
+          "name": "Deposit",
           "type": "event"
         },
-        "0x4e7dc65936b8a618a05d1cb987cae66bcb71512492045e74e5399d251208eb7b": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "bytes32",
-              "name": "bla",
-              "type": "bytes32"
-            }
-          ],
-          "name": "Test",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x6ad51bbc15aa353586353c1345455152f3c8346d8612491a096a274df36e6bbf"
-    },
-    "1604853290463": {
-      "events": {
         "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
           "anonymous": false,
           "inputs": [
@@ -12391,92 +12117,13 @@
           ],
           "name": "Registered",
           "type": "event"
-        },
-        "0x4e7dc65936b8a618a05d1cb987cae66bcb71512492045e74e5399d251208eb7b": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "bytes32",
-              "name": "bla",
-              "type": "bytes32"
-            }
-          ],
-          "name": "Test",
-          "type": "event"
         }
       },
       "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x08ae60efecfc51262a66e56ba12a0fa9f972bf96145d8ec58839086ab5a1e7e5"
+      "address": "0xcc242038Ee1Fa4DC5d12daBF3DedAD0853D2331B",
+      "transactionHash": "0xe123f7ec2ad95c57cc1e2113fbe72b0b655e5cba07b4d163ea0d5c75cfb89ceb"
     },
-    "1604853410568": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        },
-        "0x4e7dc65936b8a618a05d1cb987cae66bcb71512492045e74e5399d251208eb7b": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "bytes32",
-              "name": "bla",
-              "type": "bytes32"
-            }
-          ],
-          "name": "Test",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x08ae60efecfc51262a66e56ba12a0fa9f972bf96145d8ec58839086ab5a1e7e5"
-    },
-    "1604853730969": {
-      "events": {
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        },
-        "0x4e7dc65936b8a618a05d1cb987cae66bcb71512492045e74e5399d251208eb7b": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "bytes32",
-              "name": "bla",
-              "type": "bytes32"
-            }
-          ],
-          "name": "Test",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x08ae60efecfc51262a66e56ba12a0fa9f972bf96145d8ec58839086ab5a1e7e5"
-    },
-    "1604854179050": {
+    "1605021717781": {
       "events": {
         "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
           "anonymous": false,
@@ -12513,165 +12160,9 @@
       },
       "links": {},
       "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0xc63626da90e0f43ec3e9da7f7b72b640eef4e7560145ac45aa24ae6999232c12"
+      "transactionHash": "0x1aa8619d6d1b5d135ec772d19709075f88a7eee8da00caa44c2648d6b52231aa"
     },
-    "1604869840564": {
-      "events": {
-        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "amount",
-              "type": "uint256"
-            }
-          ],
-          "name": "Deposit",
-          "type": "event"
-        },
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0xc63626da90e0f43ec3e9da7f7b72b640eef4e7560145ac45aa24ae6999232c12"
-    },
-    "1604871541942": {
-      "events": {
-        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "amount",
-              "type": "uint256"
-            }
-          ],
-          "name": "Deposit",
-          "type": "event"
-        },
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0xc63626da90e0f43ec3e9da7f7b72b640eef4e7560145ac45aa24ae6999232c12"
-    },
-    "1604873401050": {
-      "events": {
-        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "amount",
-              "type": "uint256"
-            }
-          ],
-          "name": "Deposit",
-          "type": "event"
-        },
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x098f28a55da46cb02dd05a25090c21ef477267bda1cb136b5afc4bf5583203e8"
-    },
-    "1604873473337": {
-      "events": {
-        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "amount",
-              "type": "uint256"
-            }
-          ],
-          "name": "Deposit",
-          "type": "event"
-        },
-        "0x2d3734a8e47ac8316e500ac231c90a6e1848ca2285f40d07eaa52005e4b3a0e9": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "_from",
-              "type": "address"
-            }
-          ],
-          "name": "Registered",
-          "type": "event"
-        }
-      },
-      "links": {},
-      "address": "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d",
-      "transactionHash": "0x098f28a55da46cb02dd05a25090c21ef477267bda1cb136b5afc4bf5583203e8"
-    },
-    "1604873657826": {
+    "1605099208997": {
       "events": {
         "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
           "anonymous": false,
@@ -12711,8 +12202,8 @@
       "transactionHash": "0x1aa8619d6d1b5d135ec772d19709075f88a7eee8da00caa44c2648d6b52231aa"
     }
   },
-  "schemaVersion": "3.2.2",
-  "updatedAt": "2020-11-08T22:14:26.680Z",
+  "schemaVersion": "3.2.0",
+  "updatedAt": "2020-11-11T12:53:49.044Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
