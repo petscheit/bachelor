@@ -100,7 +100,7 @@ export const deposit = async function(amount) {
   console.log(proof)
   instance.methods.deposit(proof[0], proof[1], proof[2], proof[3]).send({
     from: address,
-    value: Web3.utils.toWei("1", "ether")
+    value: Web3.utils.toWei(amount, "ether")
   })
   .then(res => {
       // console.log(res)

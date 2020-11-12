@@ -5,11 +5,18 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
 
 class Deposit extends React.Component {
+    state = { amount: 0.0 };
+
     constructor(props) {
         super(props);
     }
+
+    handleChange = (e) => this.setState({ 
+		amount: e.target.value 
+	}) 
 
     render() {
         let classes = makeStyles((theme) => ({
@@ -19,8 +26,15 @@ class Deposit extends React.Component {
         }));
         return (
             <Box margin="small">
+                <TextField
+                    id="standard-number"
+                    label="Amount to deposit"
+                    type="number"
+                    value={this.state.amount} 
+				    onChange={this.handleChange}
+                />
                 <Button 
-                    onClick={() => { deposit(1) }}
+                    onClick={() => { deposit(this.state.amount.toString()) }}
                     variant="contained"
                     color="primary"
                     className={classes.button}

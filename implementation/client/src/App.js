@@ -6,9 +6,8 @@ import  TopNav from "./components/TopNav"
 import { connect } from "react-redux";
 import { addAddress, addInstance, addStateManager } from "./redux/actions";
 import StateManager from "./helpers/stateManager";
-import RegDepWrapper from "./components/RegDepWrapper";
-import Box from '@material-ui/core/Box';
-import Container from '@material-ui/core/Container';
+import AppContainer from "./components/AppContainer";
+
 
 class App extends Component {
     constructor(props) {
@@ -53,12 +52,7 @@ class App extends Component {
           <div>
               <TopNav />
               <div style={{marginTop: 64}}>
-                <Container background="light-2">
-                    <Box>
-                      <RegDepWrapper />
-
-                    </Box>
-                </Container>
+                <AppContainer />
               </div>
           </div>
         );
