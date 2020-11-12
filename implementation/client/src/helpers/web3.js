@@ -1,6 +1,7 @@
 import Web3 from "web3";
 import store from '../redux/store';
 import { addBalance, addRegistrationStatus } from "../redux/actions";
+import { ethToWeiString } from "./conversion";
 
 export const getWeb3 = () =>
   new Promise((resolve, reject) => {
@@ -100,7 +101,7 @@ export const deposit = async function(amount) {
   console.log(proof)
   instance.methods.deposit(proof[0], proof[1], proof[2], proof[3]).send({
     from: address,
-    value: Web3.utils.toWei(amount, "ether")
+    value: ethToWeiString(amount)
   })
   .then(res => {
       // console.log(res)

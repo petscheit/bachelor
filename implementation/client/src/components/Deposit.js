@@ -34,7 +34,7 @@ class Deposit extends React.Component {
 				    onChange={this.handleChange}
                 />
                 <Button 
-                    onClick={() => { deposit(this.state.amount.toString()) }}
+                    onClick={() => { deposit(this.state.amount) }}
                     variant="contained"
                     color="primary"
                     className={classes.button}

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Typography from '@material-ui/core/Typography';
-const Web3Utils = require('web3-utils');
+import { weiToEth } from "../helpers/conversion";
 
 class Balance extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class Balance extends React.Component {
     render() {
         return (
             <Typography style={{ flex: 1, textAlign: 'right' }}>
-                Balance:  { Web3Utils.fromWei(this.props.balance, "ether")} Eth   
+                Balance:  { weiToEth(this.props.balance)} Eth   
             </Typography>
         )
     }
