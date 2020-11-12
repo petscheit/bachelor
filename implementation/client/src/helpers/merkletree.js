@@ -77,7 +77,7 @@ class ZkMerkleTree {
         let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
         this.printDepositProof(userProof, balanceProof, this.balances[userIndex].amount, this.balances[userIndex].nonce, address)
         this.printWithdrawProof(userProof, balanceProof, this.balances[userIndex].amount, this.balances[userIndex].nonce, address)
-        return [userProof, balanceProof, this.balances[userIndex].amount, this.balances[userIndex].nonce, address]
+        return [userProof, balanceProof, this.balances[userIndex].amount.toString(), this.balances[userIndex].nonce.toString()]
     }
 
     getUserProofPath(leaf){

@@ -12,8 +12,7 @@ class StateManager {
         await this.merkle.init()
         this.addRegistrationStatus();
         this.addBalance();
-        // await invokeListener()
-
+        await invokeListener()
     }
 
     addRegistrationStatus() {
@@ -32,9 +31,6 @@ class StateManager {
         const address = store.getState().user.address;
         return this.merkle.getDepositProof(address);
     }
-
-    
-
 }
 
 export default StateManager;
