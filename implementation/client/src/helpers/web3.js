@@ -94,11 +94,9 @@ export const register = async function() {
 }
 
 export const deposit = async function(amount) {
-  console.log(amount)
   const address = store.getState().user.address;
   const instance = store.getState().contract.instance;
   const proof = store.getState().contract.stateManager.getDepositProof(address)
-  console.log(proof)
   instance.methods.deposit(proof[0], proof[1], proof[2], proof[3]).send({
     from: address,
     value: ethToWeiString(amount)
@@ -107,4 +105,19 @@ export const deposit = async function(amount) {
       // console.log(res)
   })
   .catch(err => console.log)
+}
+
+export const withdraw = async function(amount) {
+  amount = ethToWeiString(amount);
+  const address = store.getState().user.address;
+  const instance = store.getState().contract.instance;
+  const proof = store.getState().contract.stateManager.getWithdrawProof(address, amount)
+  instance.methods.withdraw(proof[0], proof[1], proof[2], proof[3], proof[4]).send({
+    from: address,
+  })
+  .then(res => {
+      console.log(res)
+  })
+  .catch(err => console.log)
+
 }

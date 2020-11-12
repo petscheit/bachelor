@@ -25,7 +25,6 @@ class StateManager {
 
     updateBalance(balance, address) {
         const updatedBalance = this.merkle.updateBalance(balance, address);
-        console.log(updatedBalance)
         store.dispatch(addBalance(updatedBalance))
     }
 
@@ -38,9 +37,12 @@ class StateManager {
         return this.merkle.getRegisterProof();
     }
 
-    getDepositProof() {
-        const address = store.getState().user.address;
+    getDepositProof(address) {
         return this.merkle.getDepositProof(address);
+    }
+
+    getWithdrawProof(address, amount) {
+        return this.merkle.getWithdrawProof(address, amount);
     }
 }
 

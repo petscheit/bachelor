@@ -85,6 +85,14 @@ class ZkMerkleTree {
         return [userProof, balanceProof, this.balances[userIndex].amount.toString(), this.balances[userIndex].nonce.toString()]
     }
 
+    getWithdrawProof(address, withdrawAmount) {
+        let userIndex = this.getAddressIndex(address);
+        let userProof = this.getUserProofPath(address);
+        let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
+        this.printWithdrawProof(userProof, balanceProof, this.balances[userIndex].amount, withdrawAmount, this.balances[userIndex].nonce, address)
+        return [userProof, balanceProof, this.balances[userIndex].amount.toString(), this.balances[userIndex].nonce.toString(), withdrawAmount.toString()]
+    }
+
     getUserProofPath(leaf){
         leaf = keccak(leaf);
         const tree = this.getTree("users");
@@ -139,11 +147,11 @@ class ZkMerkleTree {
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     }
 
-    printWithdrawProof(userProof, balanceProof, amount, nonce, address){
+    printWithdrawProof(userProof, balanceProof, amount, nonce, withdrawAmount, address){
         console.log()
         console.log("Deposit Proof for " + address + ":")
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        console.log('[\"' + userProof.toString().replace(",", "\",\"") + "\"], " +  '[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + amount + ", " + nonce + ", " + amount)
+        console.log('[\"' + userProof.toString().replace(",", "\",\"") + "\"], " +  '[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + amount + ", " + nonce + ", " + withdrawAmount)
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     }
 }

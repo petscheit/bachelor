@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Register from "./Register";
 import Deposit from "./Deposit";
+import Withdraw from "./Withdraw";
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -55,7 +56,7 @@ class AppWrapper extends React.Component {
                         <Box>
                             {this.state.value === 0 && <TabContainer><Deposit /> </TabContainer>}
                             {this.state.value === 1 && <TabContainer><Deposit /></TabContainer>}
-                            {this.state.value === 2 && <TabContainer><Deposit /></TabContainer>}
+                            {this.state.value === 2 && <TabContainer><Withdraw /></TabContainer>}
                         </Box>
                     </Container>
                 </div>
