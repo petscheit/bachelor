@@ -1,5 +1,6 @@
 import Web3 from "web3";
 import store from '../redux/store';
+import { addBalance, addRegistrationStatus } from "../redux/actions";
 
 export const getWeb3 = () =>
   new Promise((resolve, reject) => {
@@ -51,7 +52,6 @@ export const getDepositEvents = async function() {
 }
 
 export const invokeListener = async function() {
-    console.log("listener running")
     const instance = store.getState().contract.instance;
     let latestBlockNumber;
     instance.events.allEvents(
@@ -64,13 +64,14 @@ export const invokeListener = async function() {
                 throw error;
             }
             const caughtEvent = event.event;
-            console.log("hereee")
-            console.log(event)
-            // this seems to be the only way events are only triggered once. When using switch/case statement all events trigger for some reason
             if(caughtEvent === "Registered"){
-                console.log("Caught register")
+              if(event.returnValues["_from"] === store.getState().user.address){
+                  store.getState().contract.stateManager.updateRegistrationStatus(event.returnValues["_from"])
+              }
             } else if(caughtEvent === "Deposit"){
-                console.log("Caught deposit")
+              if(event.returnValues["_from"] === store.getState().user.address){
+                store.getState().contract.stateManager.updateBalance(Number(event.returnValues.amount), event.returnValues["_from"])
+              }
             }
             latestBlockNumber = event.blockNumber;
         }
@@ -84,7 +85,7 @@ export const register = async function() {
       from: store.getState().user.address
   })
   .then(res => {
-      console.log(res)
+      // console.log(res)
   })
   .catch(err => console.log)
 
@@ -102,7 +103,7 @@ export const deposit = async function(amount) {
     value: Web3.utils.toWei("1", "ether")
   })
   .then(res => {
-      console.log(res)
+      // console.log(res)
   })
   .catch(err => console.log)
 }

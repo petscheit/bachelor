@@ -11,7 +11,7 @@ class StateManager {
     async initialSync() {
         await this.merkle.init()
         this.addRegistrationStatus();
-        this.addBalance();
+        this.addBalanceFromHistory();
         await invokeListener()
     }
 
@@ -19,8 +19,19 @@ class StateManager {
         store.dispatch(addRegistration(this.merkle.isUserRegistered(store.getState().user.address)))
     }
 
-    addBalance() {
+    addBalanceFromHistory() {
         store.dispatch(addBalance(this.merkle.getBalance(store.getState().user.address)))
+    }
+
+    updateBalance(balance, address) {
+        const updatedBalance = this.merkle.updateBalance(balance, address);
+        console.log(updatedBalance)
+        store.dispatch(addBalance(updatedBalance))
+    }
+
+    updateRegistrationStatus(address) {
+        this.merkle.addAddress(address);
+        store.dispatch(addRegistration(true));
     }
 
     getRegisterProof() {

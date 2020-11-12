@@ -27,11 +27,16 @@ class ZkMerkleTree {
 
     addBalance(amount, index) {
         this.balances[index].amount = Number(amount);
-        return true;
     }
 
     getBalance(address) {
         return this.balances[this.getAddressIndex(address)]
+    }
+
+    updateBalance(amount, address) {
+        const index = this.getAddressIndex(address);    
+        this.addBalance(amount, index);
+        return this.getBalance(address);
     }
 
     getAddressIndex(address){

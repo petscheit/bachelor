@@ -9,26 +9,16 @@ class Balance extends React.Component {
     }
 
     render() {
-        if(this.props.balance) {
-            console.log(typeof this.props.balance.toString())
-            console.log(this.props.balance.amount.toString())
-            console.log(this.props)
-            return (
-                <Typography style={{ flex: 1, textAlign: 'right' }}>
-                    Balance:  { Web3Utils.fromWei(this.props.balance.amount.toString(), "ether")} Eth   
-                </Typography>
-            )
-        }
         return (
             <Typography style={{ flex: 1, textAlign: 'right' }}>
-                Balance:  0 Eth    
+                Balance:  { Web3Utils.fromWei(this.props.balance, "ether")} Eth   
             </Typography>
         )
     }
 }
 const mapStateToProps = (state) => {
     return {
-        balance: state.user.balance,
+        balance: state.user.balance != null ? state.user.balance.amount.toString() : "0",
     }
 }
 
