@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { register } from "../helpers/web3.js";
+import { deposit } from "../helpers/web3.js";
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
-class Register extends React.Component {
+class Deposit extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -20,12 +20,12 @@ class Register extends React.Component {
         return (
             <Box margin="small">
                 <Button 
-                    onClick={() => { register() }}
+                    onClick={() => { deposit(1) }}
                     variant="contained"
                     color="primary"
                     className={classes.button}
                 >
-                    Register
+                    Deposit
                 </Button>
             </Box>
         )
@@ -33,11 +33,11 @@ class Register extends React.Component {
 }
 const mapStateToProps = (state) => {
     return {
-        // isRegistered: state.user.isRegistered,
-        // stateManager: state.contract.stateManager
+        isRegistered: state.user.isRegistered,
+        stateManager: state.contract.stateManager
     }
 }
 
 export default connect(
     mapStateToProps
-)(Register);
+)(Deposit);

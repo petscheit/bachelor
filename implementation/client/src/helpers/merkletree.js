@@ -53,7 +53,9 @@ class ZkMerkleTree {
     }
 
     async syncRegisterEvents(){
+        console.log("syncing...")
         let events = await getRegisterEvents();
+        console.log(events)
         for(let i = 0; i < events.length; i++){
             this.addAddress(events[i].returnValues._from)
         }
@@ -75,6 +77,7 @@ class ZkMerkleTree {
         let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
         this.printDepositProof(userProof, balanceProof, this.balances[userIndex].amount, this.balances[userIndex].nonce, address)
         this.printWithdrawProof(userProof, balanceProof, this.balances[userIndex].amount, this.balances[userIndex].nonce, address)
+        return [userProof, balanceProof, this.balances[userIndex].amount, this.balances[userIndex].nonce, address]
     }
 
     getUserProofPath(leaf){

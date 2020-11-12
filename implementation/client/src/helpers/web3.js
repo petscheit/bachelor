@@ -38,6 +38,8 @@ export const getWeb3 = () =>
 
 export const getRegisterEvents = async function() {
     const instance = store.getState().contract.instance;
+    console.log(instance)
+    // console.log(instance.currentProvider())
     let events = await instance.getPastEvents("Registered", { fromBlock: "earliest" });
     return events;
 }
@@ -48,8 +50,9 @@ export const getDepositEvents = async function() {
     return events;
 }
 
-export const invokeListener = async function(instance) {
+export const invokeListener = async function() {
     console.log("listener running")
+    const instance = store.getState().contract.instance;
     let latestBlockNumber;
     instance.events.allEvents(
         {
@@ -64,7 +67,7 @@ export const invokeListener = async function(instance) {
             console.log("hereee")
             console.log(event)
             // this seems to be the only way events are only triggered once. When using switch/case statement all events trigger for some reason
-            if(caughtEvent === "Register"){
+            if(caughtEvent === "Registered"){
                 console.log("Caught register")
             } else if(caughtEvent === "Deposit"){
                 console.log("Caught deposit")
@@ -74,15 +77,32 @@ export const invokeListener = async function(instance) {
     )
 }
 
-export const register = async function(proof) {
-    const instance = store.getState().contract.instance;
-    return instance.methods.register(proof[0], proof[1]).send({ 
-        from: store.getState().user.address 
-    })
-    .then(res => {
-        console.log(res)
-    })
-    .catch(err => console.log)
+export const register = async function() {
+  const instance = store.getState().contract.instance;
+  const proof = store.getState().contract.stateManager.getRegisterProof()
+  return instance.methods.register(proof[0], proof[1]).send({ 
+      from: store.getState().user.address
+  })
+  .then(res => {
+      console.log(res)
+  })
+  .catch(err => console.log)
 
 
+}
+
+export const deposit = async function(amount) {
+  console.log(amount)
+  const address = store.getState().user.address;
+  const instance = store.getState().contract.instance;
+  const proof = store.getState().contract.stateManager.getDepositProof(address)
+  console.log(proof)
+  instance.methods.deposit(proof[0], proof[1], proof[2], proof[3]).send({
+    from: address,
+    value: Web3.utils.toWei("1", "ether")
+  })
+  .then(res => {
+      console.log(res)
+  })
+  .catch(err => console.log)
 }

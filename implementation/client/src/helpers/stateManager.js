@@ -10,8 +10,10 @@ class StateManager {
 
     async initialSync() {
         await this.merkle.init()
-        this.addRegistrationStatus()
-        this.addBalance()
+        this.addRegistrationStatus();
+        this.addBalance();
+        // await invokeListener()
+
     }
 
     addRegistrationStatus() {
@@ -22,8 +24,13 @@ class StateManager {
         store.dispatch(addBalance(this.merkle.getBalance(store.getState().user.address)))
     }
 
-    async register() {
-        const proof = this.merkle.getRegisterProof();
+    getRegisterProof() {
+        return this.merkle.getRegisterProof();
+    }
+
+    getDepositProof() {
+        const address = store.getState().user.address;
+        return this.merkle.getDepositProof(address);
     }
 
     

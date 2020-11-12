@@ -5,9 +5,10 @@ import ZkSwap from "./contracts/ZkSwap.json";
 import  TopNav from "./components/TopNav"
 import { connect } from "react-redux";
 import { addAddress, addInstance, addStateManager } from "./redux/actions";
-import { ZkMerkleTree } from "./helpers/merkletree.js";
 import StateManager from "./helpers/stateManager";
-import Register from "./components/Register";
+import RegDepWrapper from "./components/RegDepWrapper";
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
 
 class App extends Component {
     constructor(props) {
@@ -33,7 +34,6 @@ class App extends Component {
             await stateManager.initialSync();
             this.props.addStateManager(stateManager)
 
-            // await sync.invokeListener(instance);
         } catch (error) {
         // Catch any errors for any of the above operations.
         alert(
@@ -46,25 +46,24 @@ class App extends Component {
 
 
     render() {
-      const { classes } = this.props;
         if (!this.props.instance || !this.props.address) {
           return <div>Loading Web3, accounts, and contract...</div>;
         }
         return (
-            // <Router>
-                <div>
-                    <TopNav />
-                    <div style={{marginTop: 64}}>
-                        <Register />
-                    </div>
-                </div>
+          <div>
+              <TopNav />
+              <div style={{marginTop: 64}}>
+                <Container background="light-2">
+                    <Box>
+                      <RegDepWrapper />
 
-
-            // </Router>
+                    </Box>
+                </Container>
+              </div>
+          </div>
         );
     }
 }
-
 
 // export default App;
 const mapStateToProps = state => {
