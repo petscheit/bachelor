@@ -7,7 +7,7 @@ module.exports = {
   // see <http://truffleframework.com/docs/advanced/configuration>
   // for more details on how to specify configuration options!
   //
-    contracts_build_directory: path.join(__dirname, "../client/src/contracts"),
+    contracts_build_directory: path.join(__dirname, "contracts/build"),
     networks: {
         development: {
         host: "localhost",     // Localhost (default: none)

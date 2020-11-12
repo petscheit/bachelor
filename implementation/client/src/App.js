@@ -1,14 +1,18 @@
 import "./App.css";
 import React, { Component } from "react";
-import getWeb3 from "./helpers/getWeb3.js";
+import { getWeb3 } from "./helpers/web3.js";
 import ZkSwap from "./contracts/ZkSwap.json";
+import  TopNav from "./components/TopNav"
 import { connect } from "react-redux";
-import { addAddress, addInstance } from "./redux/actions";
-// import { invokeListener } from "./helpers/stateSync";
+import { addAddress, addInstance, addStateManager } from "./redux/actions";
+import { ZkMerkleTree } from "./helpers/merkletree.js";
+import StateManager from "./helpers/stateManager";
+import Register from "./components/Register";
 
 class App extends Component {
     constructor(props) {
         super(props);
+        this.stateManager = null;
     }
 
     componentDidMount = async () => {
@@ -23,10 +27,13 @@ class App extends Component {
               deployedNetwork.address,
             );
 
-            this.props.addAddress(accounts[0]);
-            this.props.addInstance(instance)
-           
-            // invokeListener(instance, accounts[0], web3);
+            await this.props.addAddress(accounts[0]);
+            await this.props.addInstance(instance)
+            const stateManager = new StateManager()
+            await stateManager.initialSync();
+            this.props.addStateManager(stateManager)
+
+            // await sync.invokeListener(instance);
         } catch (error) {
         // Catch any errors for any of the above operations.
         alert(
@@ -39,7 +46,22 @@ class App extends Component {
 
 
     render() {
-      return("yeahhh")
+      const { classes } = this.props;
+        if (!this.props.instance || !this.props.address) {
+          return <div>Loading Web3, accounts, and contract...</div>;
+        }
+        return (
+            // <Router>
+                <div>
+                    <TopNav />
+                    <div style={{marginTop: 64}}>
+                        <Register />
+                    </div>
+                </div>
+
+
+            // </Router>
+        );
     }
 }
 
@@ -47,16 +69,15 @@ class App extends Component {
 // export default App;
 const mapStateToProps = state => {
     return {
-        // account: state.user.account,
-        // web3: state.web3.instance,
-        // projectContract: state.web3.projectContract,
-        // address: state.project.address,
+        address: state.user.address,
+        instance: state.contract.instance,
     }
 };
 
 const mapDispatchToProps = dispatch => ({
   addAddress: address => dispatch(addAddress(address)),
   addInstance: instance => dispatch(addInstance(instance)),
+  addStateManager: instance => dispatch(addStateManager(instance))
 })
 
 
