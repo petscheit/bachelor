@@ -54,7 +54,7 @@ class AppWrapper extends React.Component {
                     </AppBar>
                     <Container background="light-2">
                         <Box>
-                            {this.state.value === 0 && <TabContainer><Deposit /> </TabContainer>}
+                            {this.state.value === 0 && <TabContainer>TRADE </TabContainer>}
                             {this.state.value === 1 && <TabContainer><Deposit /></TabContainer>}
                             {this.state.value === 2 && <TabContainer><Withdraw /></TabContainer>}
                         </Box>
