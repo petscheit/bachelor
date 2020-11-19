@@ -1,1 +1,4 @@
 node_modules
+
+client/src/contracts
+contracts/contracts/build
