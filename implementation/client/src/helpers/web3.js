@@ -1,45 +1,5 @@
-import Web3 from "web3";
-import { getWeb3 } from "./getWeb3"
 import store from '../redux/store';
-import { addBalance, addRegistrationStatus } from "../redux/actions";
 import { ethToWeiString } from "./conversion";
-import IERC20 from "../contracts/IERC20.json";
-
-// export const getWeb3 = () =>
-//   new Promise((resolve, reject) => {
-//     // Wait for loading completion to avoid race conditions with web3 injection timing.
-//     window.addEventListener("load", async () => {
-//       // Modern dapp browsers...
-//       if (window.ethereum) {
-//         const web3 = new Web3(window.ethereum);
-//         try {
-//           // Request account access if needed
-//           await window.ethereum.enable();
-//           // Acccounts now exposed
-//           resolve(web3);
-//         } catch (error) {
-//           reject(error);
-//         }
-//       }
-//       // Legacy dapp browsers...
-//       else if (window.web3) {
-//         // Use Mist/MetaMask's provider.
-//         const web3 = window.web3;
-//         console.log("Injected web3 detected.");
-//         resolve(web3);
-//       }
-//       // Fallback to localhost; use dev console port by default...
-//       else {
-//         const provider = new Web3.providers.HttpProvider(
-//           "http://127.0.0.1:8545"
-//         );
-//         const web3 = new Web3(provider);
-//         console.log("No web3 instance injected, using Local web3.");
-//         resolve(web3);
-//       }
-//     });
-// });
-
 
 export const getRegisterEvents = async function() {
     const instance = store.getState().contract.instance;
@@ -73,7 +33,8 @@ export const invokeListener = async function() {
               }
             } else if(caughtEvent === "Deposit"){
               if(event.returnValues["_from"] === store.getState().user.address){
-                store.getState().contract.stateManager.updateBalance(Number(event.returnValues.etherAmount), Number(event.returnValues.tokenAmount), event.returnValues["_from"])
+                console.log(event)
+                store.getState().contract.stateManager.updateBalance(Number(event.returnValues.etherAmount).toFixed(), Number(event.returnValues.tokenAmount).toFixed(), event.returnValues["_from"])
               }
             }
             latestBlockNumber = event.blockNumber;
@@ -140,8 +101,6 @@ export const withdraw = async function(amount, token) {
   } else if(token == 1){ //bat
     return withdrawERC20(amount, token)
   }
-  
-
 }
 
 const withdrawEth = function(amount) {
