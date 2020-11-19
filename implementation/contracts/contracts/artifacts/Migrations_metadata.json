@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.6.6+commit.6c089d02"
+		"version": "0.6.12+commit.27d51765"
 	},
 	"language": "Solidity",
 	"output": {
@@ -51,10 +51,14 @@
 			}
 		],
 		"devdoc": {
-			"methods": {}
+			"kind": "dev",
+			"methods": {},
+			"version": 1
 		},
 		"userdoc": {
-			"methods": {}
+			"kind": "user",
+			"methods": {},
+			"version": 1
 		}
 	},
 	"settings": {
@@ -75,6 +79,7 @@
 	"sources": {
 		"localhost/Migrations.sol": {
 			"keccak256": "0xdafe59a98205ba8889cd295e6e3cee4b741abfc91f43f6bba8bef739b3978392",
+			"license": "MIT",
 			"urls": [
 				"bzz-raw://7d56941ef77b8c2e6b952b0e12babf72dfdc75a4064fec423e1f3b1d31f7b672",
 				"dweb:/ipfs/QmPHLHa5ApVbJu8LyKF6xmmJVAg53Qac7KVZWRbkrXJVYx"
