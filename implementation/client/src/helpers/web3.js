@@ -72,7 +72,6 @@ export const invokeListener = async function() {
               }
             } else if(caughtEvent === "Deposit"){
               if(event.returnValues["_from"] === store.getState().user.address){
-                console.log(event)
                 store.getState().contract.stateManager.updateBalance(Number(event.returnValues.etherAmount), Number(event.returnValues.tokenAmount), event.returnValues["_from"])
               }
             }
@@ -97,7 +96,7 @@ export const register = async function() {
 
 export const deposit = async function(amount, token) {
   if(token == 0){ //ether
-    return depositETH(amount, token)
+    return depositEth(amount, token)
   } else if(token == 1){ //bat
     return depositERC20(amount, token)
   }
@@ -107,7 +106,7 @@ const depositERC20 = async function(amount, token) {
 
 }
 
-const depositETH = async function(amount) {
+const depositEth = async function(amount) {
   const address = store.getState().user.address;
   const instance = store.getState().contract.instance;
   const proof = store.getState().contract.stateManager.getDepositProof(address)
@@ -130,17 +129,26 @@ const getERC20Instance = async function() {
   );
 }
 
-export const withdraw = async function(amount) {
+export const withdraw = async function(amount, token) {
   amount = ethToWeiString(amount);
+  if(token == 0){ //ether
+    return withdrawEth(amount, token)
+  } else if(token == 1){ //bat
+    // return withdrawERC20(amount, token)
+  }
+  
+
+}
+
+const withdrawEth = function(amount) {
   const address = store.getState().user.address;
   const instance = store.getState().contract.instance;
   const proof = store.getState().contract.stateManager.getWithdrawProof(address, amount)
-  instance.methods.withdraw(proof[0], proof[1], proof[2], proof[3], proof[4]).send({
+  instance.methods.withdrawEth(proof[0], proof[1], proof[2], proof[3], proof[4], proof[5]).send({
     from: address,
   })
   .then(res => {
       console.log(res)
   })
   .catch(err => console.log)
-
 }

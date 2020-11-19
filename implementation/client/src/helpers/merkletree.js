@@ -26,7 +26,6 @@ class ZkMerkleTree {
     }
 
     addBalance(ether, token, index) {
-        console.log(index)
         this.balances[index].ether = Number(ether);
         this.balances[index].token = Number(token);
     }
@@ -36,7 +35,6 @@ class ZkMerkleTree {
     }
 
     updateBalance(ether, token, address) {
-        console.log(address)
         const index = this.getAddressIndex(address);    
         this.addBalance(ether, token, index);
         return this.getBalance(address);

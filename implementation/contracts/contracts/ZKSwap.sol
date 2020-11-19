@@ -59,21 +59,15 @@ contract ZkSwap {
 
 	}
 
-	function withdraw(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount)
+	function withdrawEth(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount)
 		public
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
-		// if(type == uint8(CurrencyType.Ether)){
-			require(ethAmount >= withdrawAmount);
-			updateBalanceMerkle(balanceProof, keccak256(abi.encodePacked(ethAmount - withdrawAmount, tokenAmount, nonce)));
-			emit Deposit(msg.sender, ethAmount - withdrawAmount, tokenAmount);
-			(bool success, ) = msg.sender.call.value(withdrawAmount)("");
-        require(success, "Transfer failed.");
-		// } else if(type == uint8(CurrecyType.Bat)){
-		// 	require(tokenAmount >= withdrawAmount);
-		// }
-
-		
+		require(ethAmount >= withdrawAmount);
+		updateBalanceMerkle(balanceProof, keccak256(abi.encodePacked(ethAmount - withdrawAmount, tokenAmount, nonce)));
+		emit Deposit(msg.sender, ethAmount - withdrawAmount, tokenAmount);
+		(bool success, ) = msg.sender.call.value(withdrawAmount)("");
+        require(success, "Transfer failed.");		
 	}
 
 
