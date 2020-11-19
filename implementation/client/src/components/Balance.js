@@ -11,14 +11,15 @@ class Balance extends React.Component {
     render() {
         return (
             <Typography style={{ flex: 1, textAlign: 'right' }}>
-                Balance:  { weiToEth(this.props.balance)} Eth   
+                Balance:  { weiToEth(this.props.etherBalance)} Eth,  { weiToEth(this.props.batBalance) } Bat   
             </Typography>
         )
     }
 }
 const mapStateToProps = (state) => {
     return {
-        balance: state.user.balance != null ? state.user.balance.amount.toString() : "0",
+        etherBalance: state.user.balance != null ? state.user.balance.ether.toString() : "0",
+        batBalance: state.user.balance != null ? state.user.balance.token.toString() : "0",
     }
 }
 

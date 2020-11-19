@@ -2,6 +2,7 @@ import Web3 from "web3";
 import store from '../redux/store';
 import { addBalance, addRegistrationStatus } from "../redux/actions";
 import { ethToWeiString } from "./conversion";
+import ERC20 from "../contracts/ERC20.json";
 
 export const getWeb3 = () =>
   new Promise((resolve, reject) => {
@@ -71,7 +72,8 @@ export const invokeListener = async function() {
               }
             } else if(caughtEvent === "Deposit"){
               if(event.returnValues["_from"] === store.getState().user.address){
-                store.getState().contract.stateManager.updateBalance(Number(event.returnValues.amount), event.returnValues["_from"])
+                console.log(event)
+                store.getState().contract.stateManager.updateBalance(Number(event.returnValues.etherAmount), Number(event.returnValues.tokenAmount), event.returnValues["_from"])
               }
             }
             latestBlockNumber = event.blockNumber;
@@ -93,18 +95,39 @@ export const register = async function() {
 
 }
 
-export const deposit = async function(amount) {
+export const deposit = async function(amount, token) {
+  if(token == 0){ //ether
+    return depositETH(amount, token)
+  } else if(token == 1){ //bat
+    return depositERC20(amount, token)
+  }
+}
+
+const depositERC20 = async function(amount, token) {
+
+}
+
+const depositETH = async function(amount) {
   const address = store.getState().user.address;
   const instance = store.getState().contract.instance;
   const proof = store.getState().contract.stateManager.getDepositProof(address)
-  instance.methods.deposit(proof[0], proof[1], proof[2], proof[3]).send({
+  return instance.methods.depositEth(proof[0], proof[1], proof[2], proof[3], proof[4]).send({
     from: address,
     value: ethToWeiString(amount)
   })
-  .then(res => {
-      // console.log(res)
-  })
   .catch(err => console.log)
+}
+
+const getERC20Instance = async function() {
+  let web3 = await getWeb3();
+  const address = store.getState().user.address;
+  const networkId = await web3.eth.net.getId();
+  const deployedNetwork = ERC20.networks[networkId];
+  console.log(deployedNetwork)
+  const instance = new web3.eth.Contract(
+    ERC20.abi,
+    deployedNetwork.address,
+  );
 }
 
 export const withdraw = async function(amount) {

@@ -6,14 +6,14 @@ import "./openzeppelin/token/ERC20/IERC20.sol";
 contract ZkSwap {
 
 	bytes32 public users = 0xe3d4879dd9a5530315210a62ccfcb361e4d19093e27212732cbb24d43774df2a; // initial root with 1 set account and 3 zero accounts
-	bytes32 public balances = 0x21ddb9a356815c3fac1026b6dec5df3124afbadb485c9ba5a3e3398a04b7ba85;
+	bytes32 public balances = 0x266f52b16165e9e2253be106c3774931e09bc1aff98955a74814788fbaba6b7f;
 	address public erc20;
 	enum CurrecyType { Ether, Bat }
 
-	modifier canUpdateBalance(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint batAmount, uint nonce)
+	modifier canUpdateBalance(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce)
 	{
 		require(verifyUserMerkle(userProof, keccak256(abi.encodePacked(msg.sender)))); // makes sure sender is registered
- 		require(verifyBalanceMerkle(balanceProof, keccak256(abi.encodePacked(ethAmount, batAmount, nonce)))); // checks if passed balance amount is correct
+ 		require(verifyBalanceMerkle(balanceProof, keccak256(abi.encodePacked(ethAmount, tokenAmount, nonce)))); // checks if passed balance amount is correct
 		_;
 	}
 
@@ -24,7 +24,7 @@ contract ZkSwap {
 	}
 
 	event Registered(address _from);
-	event Deposit(address _from, uint etherAmount, uint batAmount);
+	event Deposit(address _from, uint etherAmount, uint tokenAmount);
 	
     event Debug(uint amount);
 
@@ -43,34 +43,34 @@ contract ZkSwap {
 	    emit Debug(IERC20(erc20).totalSupply());
 	}
 	
-	function depositEth(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint batAmount, uint nonce)
+	function depositEth(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce)
 		public
 		payable
-		canUpdateBalance(userProof, balanceProof, ethAmount, batAmount, nonce)
+		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
-		updateBalanceMerkle(balanceProof, keccak256(abi.encodePacked(ethAmount + msg.value, batAmount, nonce)));
-		emit Deposit(msg.sender, ethAmount + msg.value, batAmount);
+		updateBalanceMerkle(balanceProof, keccak256(abi.encodePacked(ethAmount + msg.value, tokenAmount, nonce)));
+		emit Deposit(msg.sender, ethAmount + msg.value, tokenAmount);
 	}
 
-	function depositERC20(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint batAmount, uint nonce)
+	function depositERC20(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce)
 		public
-		canUpdateBalance(userProof, balanceProof, ethAmount, batAmount, nonce)
+		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
 
 	}
 
-	function withdraw(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint batAmount, uint nonce, uint withdrawAmount)
+	function withdraw(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount)
 		public
-		canUpdateBalance(userProof, balanceProof, ethAmount, batAmount, nonce)
+		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
 		// if(type == uint8(CurrencyType.Ether)){
 			require(ethAmount >= withdrawAmount);
-			updateBalanceMerkle(balanceProof, keccak256(abi.encodePacked(ethAmount - withdrawAmount, batAmount, nonce)));
-			emit Deposit(msg.sender, ethAmount - withdrawAmount, batAmount);
+			updateBalanceMerkle(balanceProof, keccak256(abi.encodePacked(ethAmount - withdrawAmount, tokenAmount, nonce)));
+			emit Deposit(msg.sender, ethAmount - withdrawAmount, tokenAmount);
 			(bool success, ) = msg.sender.call.value(withdrawAmount)("");
         require(success, "Transfer failed.");
 		// } else if(type == uint8(CurrecyType.Bat)){
-		// 	require(batAmount >= withdrawAmount);
+		// 	require(tokenAmount >= withdrawAmount);
 		// }
 
 		

@@ -25,17 +25,20 @@ class ZkMerkleTree {
         this.index++;
     }
 
-    addBalance(amount, index) {
-        this.balances[index].amount = Number(amount);
+    addBalance(ether, token, index) {
+        console.log(index)
+        this.balances[index].ether = Number(ether);
+        this.balances[index].token = Number(token);
     }
 
     getBalance(address) {
         return this.balances[this.getAddressIndex(address)]
     }
 
-    updateBalance(amount, address) {
+    updateBalance(ether, token, address) {
+        console.log(address)
         const index = this.getAddressIndex(address);    
-        this.addBalance(amount, index);
+        this.addBalance(ether, token, index);
         return this.getBalance(address);
     }
 
@@ -51,7 +54,7 @@ class ZkMerkleTree {
         let events = await getDepositEvents();
         for(let i = 0; i < events.length; i++){
             const index = this.getAddressIndex(events[i].returnValues._from)
-            this.addBalance(events[i].returnValues.amount, index)
+            this.addBalance(events[i].returnValues.etherAmount, events[i].returnValues.tokenAmount, index)
         }
         console.log("Deposits synced successfully!")
         // console.log(this.balances)
@@ -80,17 +83,18 @@ class ZkMerkleTree {
         let userIndex = this.getAddressIndex(address);
         let userProof = this.getUserProofPath(address);
         let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
-        this.printDepositProof(userProof, balanceProof, this.balances[userIndex].amount, this.balances[userIndex].nonce, address)
-        this.printWithdrawProof(userProof, balanceProof, this.balances[userIndex].amount, this.balances[userIndex].nonce, address)
-        return [userProof, balanceProof, this.balances[userIndex].amount.toString(), this.balances[userIndex].nonce.toString()]
+        console.log(this.balances[userIndex])
+        this.printDepositProof(userProof, balanceProof, this.balances[userIndex].ether, this.balances[userIndex].token, this.balances[userIndex].nonce, address)
+        this.printWithdrawProof(userProof, balanceProof, this.balances[userIndex].ether, this.balances[userIndex].token, this.balances[userIndex].nonce, address)
+        return [userProof, balanceProof, this.balances[userIndex].ether.toString(), this.balances[userIndex].token.toString(), this.balances[userIndex].nonce.toString()]
     }
 
     getWithdrawProof(address, withdrawAmount) {
         let userIndex = this.getAddressIndex(address);
         let userProof = this.getUserProofPath(address);
         let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
-        this.printWithdrawProof(userProof, balanceProof, this.balances[userIndex].amount, withdrawAmount, this.balances[userIndex].nonce, address)
-        return [userProof, balanceProof, this.balances[userIndex].amount.toString(), this.balances[userIndex].nonce.toString(), withdrawAmount.toString()]
+        this.printWithdrawProof(userProof, balanceProof, this.balances[userIndex].ether, this.balances[userIndex].token, withdrawAmount, this.balances[userIndex].nonce, address)
+        return [userProof, balanceProof, this.balances[userIndex].ether.toString(), this.balances[userIndex].token.toString(), this.balances[userIndex].nonce.toString(), withdrawAmount.toString()]
     }
 
     getUserProofPath(leaf){
@@ -101,7 +105,7 @@ class ZkMerkleTree {
     }
 
     getBalanceProofPath(leaf, index){
-        leaf = keccak(keccak(Web3Utils.encodePacked(leaf.amount, leaf.nonce)));
+        leaf = keccak(keccak(Web3Utils.encodePacked(leaf.ether, leaf.token, leaf.nonce)));
         const tree = this.getTree("balance");
         let proof = tree.getHexProof(leaf, index);
         return proof;
@@ -113,9 +117,23 @@ class ZkMerkleTree {
             const leaves = this.users.map(x => keccak(x))
             return new MerkleTree(leaves, keccak, { sortPairs: true })
         } else {
-            const leaves = this.balances.map(x => keccak(Web3Utils.encodePacked(x.amount, x.nonce)))
+            const leaves = this.balances.map(x => keccak(Web3Utils.encodePacked(x.ether, x.token, x.nonce)))
             return new MerkleTree(leaves, keccak, { sortPairs: true })
         }
+    }
+
+    // this function is only used for recalculating the new merkle roots that are stored in the contract when changing the merkle tree
+    calcInitialRoots(){
+        let tree = this.getTree("users");
+        let root = tree.getRoot().toString('hex')
+
+
+        console.log("Root Users: ", root)
+
+        tree = this.getTree("balances");
+        root = tree.getRoot().toString('hex')
+
+        console.log("Root Balances: ", root)
     }
 
     initilizeDatastructure(){
@@ -125,7 +143,7 @@ class ZkMerkleTree {
         users[0] = "0xcc08e5636A9ceb03917C1ac7BbEda23aD57766F3" // the first address needs to be set, in order for sibling checks to work on chain
         // initialize empty balances
         let balances = new Array(this.userAmount);
-        for(var i = 0; i < balances.length; i++) balances[i] = { amount: 0, nonce: 0 };
+        for(var i = 0; i < balances.length; i++) balances[i] = { ether: 0, token: 0, nonce: 0 };
         
         this.users = users;
         this.balances = balances

@@ -6,16 +6,24 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
 
 class Deposit extends React.Component {
-    state = { amount: 0.0 };
+    state = { amount: 0.0, token: 0 };
 
     constructor(props) {
         super(props);
     }
 
-    handleChange = (e) => this.setState({ 
+    handleAmountChange = (e) => this.setState({ 
 		amount: e.target.value 
+    })
+    
+    handleTokenChange = (e) => this.setState({ 
+		token: e.target.value 
 	}) 
 
     render() {
@@ -26,15 +34,27 @@ class Deposit extends React.Component {
         }));
         return (
             <Box margin="small">
+                 <FormControl className={classes.formControl}>
+                    <InputLabel id="demo-simple-select-label">Token</InputLabel>
+                    <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={this.state.token}
+                    onChange={this.handleTokenChange}
+                    >
+                        <MenuItem value={0}>Ether</MenuItem>
+                        <MenuItem value={1}>Bat</MenuItem>
+                    </Select>
+                </FormControl>
                 <TextField
                     id="standard-number"
                     label="Amount to deposit"
                     type="number"
                     value={this.state.amount} 
-				    onChange={this.handleChange}
+				    onChange={this.handleAmountChange}
                 />
                 <Button 
-                    onClick={() => { deposit(this.state.amount) }}
+                    onClick={() => { deposit(this.state.amount, this.state.token) }}
                     variant="contained"
                     color="primary"
                     className={classes.button}
