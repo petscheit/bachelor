@@ -1,6 +1,7 @@
 import {
     ADD_BALANCE,
     ADD_INSTANCE,
+    ADD_ERC,
     ADD_ADDRESS,
     ADD_REGISTRATION_STATUS,
     ADD_STATE_MANAGER
@@ -8,6 +9,13 @@ import {
 
 export const addInstance = (instance) => ({
     type: ADD_INSTANCE,
+    payload: {
+        instance
+    }
+})
+
+export const addERC = (instance) => ({
+    type: ADD_ERC,
     payload: {
         instance
     }

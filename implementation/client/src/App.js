@@ -1,10 +1,11 @@
 import "./App.css";
 import React, { Component } from "react";
-import { getWeb3 } from "./helpers/web3.js";
+import { getWeb3 } from "./helpers/getWeb3.js";
 import ZkSwap from "./contracts/ZkSwap.json";
+import IERC20 from "./contracts/IERC20.json";
 import  TopNav from "./components/TopNav"
 import { connect } from "react-redux";
-import { addAddress, addInstance, addStateManager } from "./redux/actions";
+import { addAddress, addInstance, addStateManager, addERC } from "./redux/actions";
 import StateManager from "./helpers/stateManager";
 import AppContainer from "./components/AppContainer";
 
@@ -26,7 +27,12 @@ class App extends Component {
               ZkSwap.abi,
               deployedNetwork.address,
             );
+            const tokenInstance = new web3.eth.Contract(
+              IERC20.abi,
+              "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d"
+            );
 
+            this.props.addERC(tokenInstance)
             await this.props.addAddress(accounts[0]);
             await this.props.addInstance(instance)
             const stateManager = new StateManager()
@@ -70,7 +76,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   addAddress: address => dispatch(addAddress(address)),
   addInstance: instance => dispatch(addInstance(instance)),
-  addStateManager: instance => dispatch(addStateManager(instance))
+  addStateManager: instance => dispatch(addStateManager(instance)),
+  addERC: instance => dispatch(addERC(instance))
 })
 
 

@@ -12,7 +12,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 
 class Deposit extends React.Component {
-    state = { amount: 0.0, token: 0 };
+    state = { amount: 0.0, token: 1 };
 
     constructor(props) {
         super(props);
