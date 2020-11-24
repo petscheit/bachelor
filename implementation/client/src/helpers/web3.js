@@ -1,6 +1,7 @@
 import store from '../redux/store';
 import { ethToWeiString } from "./conversion";
 
+
 export const getRegisterEvents = async function() {
     const instance = store.getState().contract.instance;
     // console.log(instance.currentProvider())
@@ -33,8 +34,7 @@ export const invokeListener = async function() {
               }
             } else if(caughtEvent === "Deposit"){
               if(event.returnValues["_from"] === store.getState().user.address){
-                console.log(event)
-                store.getState().contract.stateManager.updateBalance(Number(event.returnValues.etherAmount).toFixed(), Number(event.returnValues.tokenAmount).toFixed(), event.returnValues["_from"])
+                store.getState().contract.stateManager.updateBalance(event.returnValues.etherAmount, event.returnValues.tokenAmount, event.returnValues["_from"])
               }
             }
             latestBlockNumber = event.blockNumber;

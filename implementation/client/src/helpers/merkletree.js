@@ -1,8 +1,8 @@
 import store from '../redux/store';
 const { MerkleTree } = require('merkletreejs')
 const { getRegisterEvents, getDepositEvents } = require("./web3");
-const { keccak } = require("./crypto");
-const Web3Utils = require('web3-utils');
+const { soliditySha256 } = require("./crypto");
+const { stringToIntBigNum } = require("./conversion")
 
 class ZkMerkleTree {
 
@@ -26,8 +26,8 @@ class ZkMerkleTree {
     }
 
     addBalance(ether, token, index) {
-        this.balances[index].ether = Number(ether);
-        this.balances[index].token = Number(token);
+        this.balances[index].ether = stringToIntBigNum(ether);
+        this.balances[index].token = stringToIntBigNum(token);
     }
 
     getBalance(address) {
@@ -70,7 +70,7 @@ class ZkMerkleTree {
     }
 
     getRegisterProof(){
-        const leaf = keccak(this.emptyAddress);
+        const leaf = soliditySha256(this.emptyAddress);
         const tree = this.getTree("users");
         let proof = tree.getHexProof(leaf, this.index);
         this.printRegisterProof(proof, leaf)
@@ -78,11 +78,11 @@ class ZkMerkleTree {
     }
 
     getDepositProof(address){
+        console.log(address)
         let userIndex = this.getAddressIndex(address);
         let userProof = this.getUserProofPath(address);
         let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
         this.printDepositProof(userProof, balanceProof, this.balances[userIndex].ether, this.balances[userIndex].token, this.balances[userIndex].nonce, address)
-        this.printWithdrawProof(userProof, balanceProof, this.balances[userIndex].ether, this.balances[userIndex].token, this.balances[userIndex].nonce, address)
         return [userProof, balanceProof, this.balances[userIndex].ether.toString(), this.balances[userIndex].token.toString(), this.balances[userIndex].nonce.toString()]
     }
 
@@ -90,32 +90,33 @@ class ZkMerkleTree {
         let userIndex = this.getAddressIndex(address);
         let userProof = this.getUserProofPath(address);
         let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
-        this.printWithdrawProof(userProof, balanceProof, this.balances[userIndex].ether, this.balances[userIndex].token, withdrawAmount, this.balances[userIndex].nonce, address)
+        this.printWithdrawProof(userProof, balanceProof, this.balances[userIndex].ether, this.balances[userIndex].token, this.balances[userIndex].nonce, withdrawAmount, address)
         return [userProof, balanceProof, this.balances[userIndex].ether.toString(), this.balances[userIndex].token.toString(), this.balances[userIndex].nonce.toString(), withdrawAmount.toString()]
     }
 
     getUserProofPath(leaf){
-        leaf = keccak(leaf);
+        leaf = soliditySha256(leaf);
         const tree = this.getTree("users");
         let proof = tree.getHexProof(leaf);
         return proof;
     }
 
     getBalanceProofPath(leaf, index){
-        leaf = keccak(keccak(Web3Utils.encodePacked(leaf.ether, leaf.token, leaf.nonce)));
+        leaf = soliditySha256([leaf.ether, leaf.token, leaf.nonce]);
         const tree = this.getTree("balance");
         let proof = tree.getHexProof(leaf, index);
+        console.log(proof)
         return proof;
     }
 
     // HELPERS:
     getTree(type){
         if(type == "users"){
-            const leaves = this.users.map(x => keccak(x))
-            return new MerkleTree(leaves, keccak, { sortPairs: true })
+            const leaves = this.users.map(x => soliditySha256(x))
+            return new MerkleTree(leaves, soliditySha256, { sortPairs: true })
         } else {
-            const leaves = this.balances.map(x => keccak(Web3Utils.encodePacked(x.ether, x.token, x.nonce)))
-            return new MerkleTree(leaves, keccak, { sortPairs: true })
+            const leaves = this.balances.map(leaf => soliditySha256([leaf.ether, leaf.token, leaf.nonce]))
+            return new MerkleTree(leaves, soliditySha256, { sortPairs: true })
         }
     }
 
@@ -124,13 +125,12 @@ class ZkMerkleTree {
         let tree = this.getTree("users");
         let root = tree.getRoot().toString('hex')
 
-
-        console.log("Root Users: ", root)
+        console.log("Root Users: ", "0x" + root)
 
         tree = this.getTree("balances");
         root = tree.getRoot().toString('hex')
 
-        console.log("Root Balances: ", root)
+        console.log("Root Balances: ", "0x" + root)
     }
 
     initilizeDatastructure(){
@@ -150,23 +150,23 @@ class ZkMerkleTree {
         console.log()
         console.log("Registration Proof:")
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        console.log('[\"' + proof.toString().replace(",", "\",\"") + "\"], \"0x" + leaf.toString('hex') + "\"")
+        console.log('[\"' + proof.toString().replace(",", "\",\"") + "\"], \"" + leaf.toString('hex') + "\"")
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     }
 
-    printDepositProof(userProof, balanceProof, amount, nonce, address){
+    printDepositProof(userProof, balanceProof, ether, token, nonce, address){
         console.log()
         console.log("Deposit Proof for " + address + ":")
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        console.log('[\"' + userProof.toString().replace(",", "\",\"") + "\"], " +  '[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + amount + ", " + nonce)
+        console.log('[\"' + userProof.toString().replace(",", "\",\"") + "\"], " +  '[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + ether + ", " + token + ", " + nonce)
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     }
 
-    printWithdrawProof(userProof, balanceProof, amount, nonce, withdrawAmount, address){
+    printWithdrawProof(userProof, balanceProof, ether, token, nonce, withdrawAmount, address){
         console.log()
-        console.log("Deposit Proof for " + address + ":")
+        console.log("Withdraw Proof for " + address + ":")
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        console.log('[\"' + userProof.toString().replace(",", "\",\"") + "\"], " +  '[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + amount + ", " + nonce + ", " + withdrawAmount)
+        console.log('[\"' + userProof.toString().replace(",", "\",\"") + "\"], " +  '[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + ether + ", " + token + ", " + nonce + ", " + withdrawAmount)
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     }
 }

@@ -1,4 +1,5 @@
 import { ZkMerkleTree } from "./merkletree.js";
+import { stringToIntBigNum } from "./conversion";
 import store from '../redux/store';
 import { invokeListener, register } from "./web3";
 import { addRegistration, addBalance } from "../redux/actions";
@@ -24,7 +25,7 @@ class StateManager {
     }
 
     updateBalance(ether, token, address) {
-        const updatedBalance = this.merkle.updateBalance(ether, token, address);
+        const updatedBalance = this.merkle.updateBalance(stringToIntBigNum(ether), stringToIntBigNum(token), address);
         store.dispatch(addBalance(updatedBalance))
     }
 
