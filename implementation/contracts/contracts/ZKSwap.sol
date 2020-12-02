@@ -5,7 +5,7 @@ import "./openzeppelin/token/ERC20/IERC20.sol";
 
 contract ZkSwap {
 
-	bytes32 public users = 0x29e05bc698e8425146e79d33ec8c3f5a82a4009918716c2a91ada54ce977b3bd; // initial root with 1 set account and 3 zero accounts
+	bytes32 public users = 0xe5425043ec286e19667f244de46c46f85e91713c2778a0d60508cf2f3e0773fb; // initial root with 1 set account and 3 zero accounts
 	bytes32 public balances = 0x2a6a0b55abf1014b619d8be55afb8567f90c2af0b2f85ca9bd7c1cfa9eb8d0a0;
 	address public erc20;
 	enum CurrecyType { Ether, Bat }
@@ -31,16 +31,10 @@ contract ZkSwap {
 	function register(bytes32[] memory proof, bytes32 oldLeaf)
 	 	public 
 	{
-		require(checkInputs(proof, oldLeaf));
-		require(verifyUserMerkle(proof, oldLeaf));
+		require(checkInputs(proof, oldLeaf), "Inputs not valid!");
+		require(verifyUserMerkle(proof, oldLeaf), "User proof not valid!");
 		updateUserMerkle(proof, sha256(abi.encodePacked(msg.sender)));
 		emit Registered(msg.sender);
-	}
-	
-	function getSupply()
-	    public
-	{
-	    emit Debug(IERC20(erc20).totalSupply());
 	}
 	
 	function depositEth(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce)
@@ -121,14 +115,7 @@ contract ZkSwap {
 
         for (uint256 i = 0; i < proof.length; i++) {
             bytes32 proofElement = proof[i];
-
-            if (computedHash <= proofElement) {
-                // Hash(current computed hash + current element of the proof)
-                computedHash = sha256(abi.encodePacked(computedHash, proofElement));
-            } else {
-                // Hash(current element of the proof + current computed hash)
-                computedHash = sha256(abi.encodePacked(proofElement, computedHash));
-            }
+            computedHash = sha256(abi.encodePacked(computedHash, proofElement));
         }
 		return computedHash;
 	}

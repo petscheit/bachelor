@@ -113,10 +113,10 @@ class ZkMerkleTree {
     getTree(type){
         if(type == "users"){
             const leaves = this.users.map(x => soliditySha256(x))
-            return new MerkleTree(leaves, soliditySha256, { sortPairs: true })
+            return new MerkleTree(leaves, soliditySha256, { sortPairs: false })
         } else {
             const leaves = this.balances.map(leaf => soliditySha256([leaf.ether, leaf.token, leaf.nonce]))
-            return new MerkleTree(leaves, soliditySha256, { sortPairs: true })
+            return new MerkleTree(leaves, soliditySha256, { sortPairs: false })
         }
     }
 
@@ -124,7 +124,7 @@ class ZkMerkleTree {
     calcInitialRoots(){
         let tree = this.getTree("users");
         let root = tree.getRoot().toString('hex')
-
+        console.log(tree.getHexLayers())
         console.log("Root Users: ", "0x" + root)
 
         tree = this.getTree("balances");

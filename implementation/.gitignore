@@ -2,3 +2,11 @@ node_modules
 
 client/src/contracts
 contracts/contracts/build
+
+zokrates/abi.json
+zokrates/out
+zokrates/out.ztf
+zokrates/proving.key
+zokrates/verification.key
+zokrates/witness
+zokrates/verifier.sol

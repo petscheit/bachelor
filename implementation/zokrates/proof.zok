@@ -1,0 +1,9 @@
+import "hashes/sha256/512bitPadded" as sha256
+
+def main() -> u32[8]:
+    u32[2][8] proof = [[0x41a5cdef, 0xd306be6d, 0x82a6d9dc, 0xfb552c58, 0x4cd96f57, 0xd420a45d, 0xf551d964, 0xa1a0e928],[0x4d755387, 0x7a80ec8d, 0x79a23171, 0x3605b91f, 0x4207522d, 0x7c452062, 0xce173eb9, 0xf61a02c8]]
+    u32[8] computedHash = [0xde47c9b2, 0x7eb8d300, 0xdbb5f2c3, 0x53e632c3, 0x93262cf0, 0x6340c4fa, 0x7f1b40c4, 0xcbd36f90]
+    for field i in 0..2 do
+        computedHash = sha256(computedHash, proof[i])
+    endfor
+    return computedHash
