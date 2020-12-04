@@ -17,9 +17,10 @@ module.exports = {
             const ether = new BN(hashValue[0].toString(), 10);
             const token = new BN(hashValue[1].toString(), 10);
             const nonce = new BN(hashValue[2].toString(), 10);
+            const zero = new BN("0", 10) // we currently need this for ZoKrates compatibility
             return abi.soliditySHA256(
-                [ "uint", "uint", "uint"],
-                [ ether, token, nonce ]
+                [ "uint", "uint", "uint", "uint"],
+                [ ether, token, nonce, zero ]
             ).toString('hex')
         }
         else { // merkle tree merge hashes 

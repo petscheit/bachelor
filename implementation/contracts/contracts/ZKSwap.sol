@@ -6,14 +6,14 @@ import "./openzeppelin/token/ERC20/IERC20.sol";
 contract ZkSwap {
 
 	bytes32 public users = 0x29e05bc698e8425146e79d33ec8c3f5a82a4009918716c2a91ada54ce977b3bd; // initial root with 1 set account and 3 zero accounts
-	bytes32 public balances = 0x2a6a0b55abf1014b619d8be55afb8567f90c2af0b2f85ca9bd7c1cfa9eb8d0a0;
+	bytes32 public balances = 0x477076aeafdb714b192777b770ecb909ea1a7fa9db8dc3b5944eb392f23b6753;
 	address public erc20;
 	enum CurrecyType { Ether, Bat }
 
 	modifier canUpdateBalance(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce)
 	{
 		require(verifyUserMerkle(userProof, sha256(abi.encodePacked(msg.sender)))); // makes sure sender is registered
- 		require(verifyBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount, nonce)))); // checks if passed balance amount is correct
+ 		require(verifyBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount, nonce, uint(0))))); // checks if passed balance amount is correct
 		_;
 	}
 
