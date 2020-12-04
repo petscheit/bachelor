@@ -1,4 +1,9 @@
 node_modules
 
-client/src/contracts
+client/src/contracts/*.json
 contracts/contracts/build
+
+zokrates/out
+zokrates/out.ztf
+zokrates/witness
+zokrates/abi.json

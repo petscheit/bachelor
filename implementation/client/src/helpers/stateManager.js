@@ -11,6 +11,7 @@ class StateManager {
 
     async initialSync() {
         await this.merkle.init()
+        // this.merkle.calcInitialRoots()
         this.addRegistrationStatus();
         this.addBalanceFromHistory();
         await invokeListener()

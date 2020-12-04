@@ -1,0 +1,40 @@
+import "hashes/sha256/512bitPadded" as sha256
+import "hashes/sha256/1024bitPadded" as sha256_4
+import "utils/casts/u32_to_field" as to_field
+import "utils/pack/u32/nonStrictUnpack256" as to_u32_8
+
+struct Trade {
+        u32[8] ethAmount 
+        u32[8] tokenAmount 
+        u32[8] nonce
+        u32[8] ethNew
+        u32[8] tokenNew
+}
+
+
+
+// u32[2][8] proof, u32[8] root, Trade trade
+
+def computeMerkle(u32[2][8] proof, u32[8] leaf) -> u32[8]:
+	u32[8] computedHash = leaf
+	for field i in 0..2 do
+                computedHash = if to_field(computedHash[0]) <= to_field(proof[i][0]) then sha256(computedHash, proof[i]) else sha256(proof[i], computedHash) fi
+        endfor
+	return computedHash 
+// Question:
+// Is it sound logic that the first u32 of a hash result decides which one is larger? I think since the integers are to be concatted later and the 
+
+
+def hashBalance(field etherAmount, field tokenAmount, field nonce) -> u32[8]:
+	u32[8] padding = [0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000]
+	return sha256_4(to_u32_8(etherAmount), to_u32_8(tokenAmount), to_u32_8(nonce), padding)
+
+
+def main() -> bool:
+        u32[2][8] proof = [[0x38723a2e,0x5e8a17aa,0x7950dc00,0x8209944e,0x898f69a7,0xbd10a23c,0x839d341e,0x935fd5ca], [0xa43aa6b3,0xc453fcd7,0x89237756,0x1bf9dd95,0x1ec81bdf,0x6622d07f,0x5cc4f707,0x49cc8598]]
+        u32[8] root = [0x477076ae,0xafdb714b,0x192777b7,0x70ecb909,0xea1a7fa9,0xdb8dc3b5,0x944eb392,0xf23b6753]
+        u32[8] leaf = hashBalance(0,0,0)
+        assert(computeMerkle(proof, leaf) == root)
+        return true
+ 
+//  , 0, 0, 0
