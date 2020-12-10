@@ -11,7 +11,7 @@ class ZkMerkleTree {
         this.balances = null;
         this.index = 1;
         this.emptyAddress = "0x0000000000000000000000000000000000000000";
-        this.userAmount = 4;
+        this.userAmount = 32768;
         this.initilizeDatastructure()
     }
 
@@ -78,7 +78,6 @@ class ZkMerkleTree {
     }
 
     getDepositProof(address){
-        console.log(address)
         let userIndex = this.getAddressIndex(address);
         let userProof = this.getUserProofPath(address);
         let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
@@ -105,7 +104,6 @@ class ZkMerkleTree {
         leaf = soliditySha256([leaf.ether, leaf.token, leaf.nonce]);
         const tree = this.getTree("balance");
         let proof = tree.getHexProof(leaf, index);
-        console.log(proof)
         return proof;
     }
 
