@@ -4,6 +4,7 @@ const commander = require("commander");
 const serverConfig = require("./config");
 const ZkMerkleTree = require("./merkletree.js") 
 const { getContractInstance } = require("./web3");
+const assert = require('assert').strict;
 
 commander
     .option("-h, --host <type>", "ip of relayer")
@@ -22,6 +23,7 @@ class Transactor {
     this.port = port;
     this.host = host
     this.app = express();    
+    this.tradePool = [];
   }
 
   async init() {
@@ -62,33 +64,46 @@ class Transactor {
         res.send(err);
       }
     });
+
+    this.app.post("/trade", (req, res) => {
+      try {
+        assert.ok(this.merkle.checkTrade(req.body))
+        this.tradePool.push(req.body)
+        res.status(200);
+        res.send()
+        console.log(this.tradePool)
+      } catch (err) {
+        console.error("Post /trade", err.message);
+        res.status(400);
+        res.send(err);
+      }
+    })
   }
 
   async invokeListener() {
     const instance = await getContractInstance();
     let latestBlockNumber;
-      instance.events.allEvents(
-        {
-            fromBlock: latestBlockNumber
-        },
-        async (error, event) => {
-          if (error) {
-              console.error(error.msg);
-              throw error;
-          }
-          console.log("caughtEvent!")
-          const caughtEvent = event.event;
-          if(caughtEvent === "Registered"){
-            this.merkle.addAddress(event.returnValues["_from"])
-          } else if(caughtEvent === "Deposit"){
-            this.merkle.updateBalance(event.returnValues.etherAmount, event.returnValues.tokenAmount, event.returnValues["_from"])
-            this.merkle.calcInitialRoots()
-          }
-          latestBlockNumber = event.blockNumber;
+    instance.events.allEvents(
+      {
+          fromBlock: latestBlockNumber
+      },
+      async (error, event) => {
+        if (error) {
+            console.error(error.msg);
+            throw error;
         }
-      )
+        console.log("caughtEvent!")
+        const caughtEvent = event.event;
+        if(caughtEvent === "Registered"){
+          this.merkle.addAddress(event.returnValues["_from"])
+        } else if(caughtEvent === "Deposit"){
+          this.merkle.updateBalance(event.returnValues.etherAmount, event.returnValues.tokenAmount, event.returnValues["_from"])
+          this.merkle.calcInitialRoots()
+        }
+        latestBlockNumber = event.blockNumber;
+      }
+    )
   }
-
 
   listen() {
     this.app.listen(config.port, () => {

@@ -56,6 +56,21 @@ class ZkMerkleTree {
         console.log("Registrations synced successfully!")
     }
 
+    checkTrade(trade) { // this method is used by the transactor to ensure no invalid orders are added, which would cost the transactor gas. 
+                        // These checks are the same ones checked in the zkSNARK programm
+        //check signature here aswell
+        if(trade.direction === 0) {
+            if(trade.ethAmount >= trade.deltaEth && trade.tokenAmount <= trade.deltaToken){
+                return true;
+            }
+        } else if(trade.direction === 1){
+            if(trade.ethAmount <= trade.deltaEth && trade.tokenAmount >= trade.deltaToken){
+                return true;
+            }
+        }
+        return false;
+    }
+
     // HELPERS:
     getTree(type){
         if(type == "users"){
