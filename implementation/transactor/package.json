@@ -1,0 +1,24 @@
+{
+  "name": "relayer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cp ../contracts/contracts/build/ZkSwap.json contracts/ZkSwap.json  && cp ../contracts/contracts/build/IERC20.json contracts/IERC20.json  && cp ../contracts/contracts/build/Migrations.json contracts/Migrations.json && node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bn.js": "^5.1.3",
+    "commander": "^6.2.0",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.0.0",
+    "ethereumjs-abi": "^0.6.8",
+    "express": "^4.17.1",
+    "keccak256": "^1.0.2",
+    "merkletreejs": "^0.2.11",
+    "web3": "^1.3.0",
+    "web3-utils": "^1.3.0"
+  }
+}

@@ -7,3 +7,5 @@ zokrates/out
 zokrates/out.ztf
 zokrates/witness
 zokrates/abi.json
+
+transactor/contracts/*
