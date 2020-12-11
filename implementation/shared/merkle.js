@@ -1,6 +1,5 @@
-import store from '../redux/store';
 const { MerkleTree } = require('merkletreejs')
-const { getRegisterEvents, getDepositEvents } = require("./web3");
+const { getRegisterEvents, getDepositEvents } = require("../helpers/web3");
 const { soliditySha256 } = require("./crypto");
 const { stringToIntBigNum } = require("./conversion")
 
@@ -25,86 +24,40 @@ class ZkMerkleTree {
         this.index++;
     }
 
-    addBalance(ether, token, index) {
-        this.balances[index].ethAmount = stringToIntBigNum(ether);
-        this.balances[index].tokenAmount = stringToIntBigNum(token);
+    addBalance(ethAmount, tokenAmount, index) {
+        this.balances[index].ethAmount = stringToIntBigNum(ethAmount);
+        this.balances[index].tokenAmount = stringToIntBigNum(tokenAmount);
     }
 
     getBalance(address) {
         return this.balances[this.getAddressIndex(address)]
     }
 
-    updateBalance(ether, token, address) {
-        const index = this.getAddressIndex(address);    
-        this.addBalance(ether, token, index);
-        return this.getBalance(address);
-    }
-
     getAddressIndex(address){
         return this.users.indexOf(address);
     }
 
-    isUserRegistered(address) {
-        return this.getAddressIndex(address) != -1;
+    updateBalance(ethAmount, token, address) {
+        const index = this.getAddressIndex(address);    
+        this.addBalance(ethAmount, token, index);
+        return this.getBalance(address);
     }
 
     async syncDepositEvents(){
         let events = await getDepositEvents();
         for(let i = 0; i < events.length; i++){
             const index = this.getAddressIndex(events[i].returnValues._from)
-            this.addBalance(events[i].returnValues.etherAmount, events[i].returnValues.tokenAmount, index)
+            this.addBalance(events[i].returnValues.ethAmount, events[i].returnValues.tokenAmount, index)
         }
         console.log("Deposits synced successfully!")
-        // console.log(this.balances)
     }
 
     async syncRegisterEvents(){
-        console.log("syncing...")
         let events = await getRegisterEvents();
-        console.log(events)
         for(let i = 0; i < events.length; i++){
             this.addAddress(events[i].returnValues._from)
         }
         console.log("Registrations synced successfully!")
-        // console.log(this.users)
-    }
-
-    getRegisterProof(){
-        const leaf = soliditySha256(this.emptyAddress);
-        const tree = this.getTree("users");
-        let proof = tree.getHexProof(leaf, this.index);
-        this.printRegisterProof(proof, leaf)
-        return [proof, leaf]
-    }
-
-    getDepositProof(address){
-        let userIndex = this.getAddressIndex(address);
-        let userProof = this.getUserProofPath(address);
-        let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
-        this.printDepositProof(userProof, balanceProof, this.balances[userIndex].ether, this.balances[userIndex].token, this.balances[userIndex].nonce, address)
-        return [userProof, balanceProof, this.balances[userIndex].ethAmount.toString(), this.balances[userIndex].tokenAmount.toString(), this.balances[userIndex].nonce.toString()]
-    }
-
-    getWithdrawProof(address, withdrawAmount) {
-        let userIndex = this.getAddressIndex(address);
-        let userProof = this.getUserProofPath(address);
-        let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
-        this.printWithdrawProof(userProof, balanceProof, this.balances[userIndex].ether, this.balances[userIndex].token, this.balances[userIndex].nonce, withdrawAmount, address)
-        return [userProof, balanceProof, this.balances[userIndex].ethAmount.toString(), this.balances[userIndex].tokenAmount.toString(), this.balances[userIndex].nonce.toString(), withdrawAmount.toString()]
-    }
-
-    getUserProofPath(leaf){
-        leaf = soliditySha256(leaf);
-        const tree = this.getTree("users");
-        let proof = tree.getHexProof(leaf);
-        return proof;
-    }
-
-    getBalanceProofPath(leaf, index){
-        leaf = soliditySha256([leaf.ethAmount, leaf.tokenAmount, leaf.nonce]);
-        const tree = this.getTree("balance");
-        let proof = tree.getHexProof(leaf, index);
-        return proof;
     }
 
     // HELPERS:
@@ -152,28 +105,21 @@ class ZkMerkleTree {
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     }
 
-    printDepositProof(userProof, balanceProof, ether, token, nonce, address){
+    printDepositProof(userProof, balanceProof, ethAmount, token, nonce, address){
         console.log()
         console.log("Deposit Proof for " + address + ":")
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        console.log('[\"' + userProof.toString().replace(",", "\",\"") + "\"], " +  '[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + ether + ", " + token + ", " + nonce)
+        console.log('[\"' + userProof.toString().replace(",", "\",\"") + "\"], " +  '[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + ethAmount + ", " + token + ", " + nonce)
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     }
 
-    printWithdrawProof(userProof, balanceProof, ether, token, nonce, withdrawAmount, address){
+    printWithdrawProof(userProof, balanceProof, ethAmount, token, nonce, withdrawAmount, address){
         console.log()
         console.log("Withdraw Proof for " + address + ":")
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        console.log('[\"' + userProof.toString().replace(",", "\",\"") + "\"], " +  '[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + ether + ", " + token + ", " + nonce + ", " + withdrawAmount)
+        console.log('[\"' + userProof.toString().replace(",", "\",\"") + "\"], " +  '[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + ethAmount + ", " + token + ", " + nonce + ", " + withdrawAmount)
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     }
 }
 
-// (async () => {
-//     let instance = new ZkMerkleTree();
-//     await instance.init()
-//     instance.getRegisterProof()
-//     instance.getDepositProof("0x31b878918679d9DA1DB277B1A2fD67Aa01032920")
-// })()
-
-export { ZkMerkleTree };
+exports.ZkMerkleTree = ZkMerkleTree

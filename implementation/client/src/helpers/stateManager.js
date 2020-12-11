@@ -1,4 +1,4 @@
-import { ZkMerkleTree } from "./merkletree.js";
+import { ClientTree } from "./clientMerkle.js";
 import { stringToIntBigNum } from "./conversion";
 import store from '../redux/store';
 import { invokeListener, register } from "./web3";
@@ -6,7 +6,7 @@ import { addRegistration, addBalance } from "../redux/actions";
 
 class StateManager {
     constructor(){
-        this.merkle = new ZkMerkleTree(); 
+        this.merkle = new ClientTree(); 
     }
 
     async initialSync() {
@@ -40,6 +40,7 @@ class StateManager {
     }
 
     getDepositProof(address) {
+        // this.merkle.getMultiProof()
         return this.merkle.getDepositProof(address);
     }
 
