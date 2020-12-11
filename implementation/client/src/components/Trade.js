@@ -29,7 +29,7 @@ class Trade extends React.Component {
     }) 
     
     buildTradeObject = () => {
-        console.log(this.state)
+        console.log(this.props)
         if(this.state.token === 0) {
             const ethDelta = ethIntToWeiBN(this.state.amount)
             const tokenDelta = ethDelta * this.state.baseRate;
@@ -38,8 +38,9 @@ class Trade extends React.Component {
                 tokenAmount: this.props.balance.tokenAmount.toString(), 
                 nonce: this.props.balance.nonce, 
                 direction: this.state.token,
-                ethDelta: ethDelta.toString(), 
-                tokenDelta: tokenDelta.toString()
+                deltaEth: ethDelta.toString(), 
+                deltaToken: tokenDelta.toString(),
+                address: this.props.address,
             }
         } else {
             const tokenDelta = ethIntToWeiBN(this.state.amount);
@@ -49,8 +50,9 @@ class Trade extends React.Component {
                 tokenAmount: this.props.balance.tokenAmount.toString(), 
                 nonce: this.props.balance.nonce,
                 direction: this.state.token,
-                ethDelta: ethDelta.toString(), 
-                tokenDelta: tokenDelta.toString()
+                deltaEth: ethDelta.toString(), 
+                deltaToken: tokenDelta.toString(),
+                address: this.props.address,
             }
         }
     }
@@ -101,7 +103,8 @@ const mapStateToProps = (state) => {
     return {
         isRegistered: state.user.isRegistered,
         stateManager: state.contract.stateManager,
-        balance: state.user.balance
+        balance: state.user.balance,
+        address: state.user.address,
     }
 }
 
