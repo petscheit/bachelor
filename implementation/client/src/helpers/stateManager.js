@@ -1,4 +1,4 @@
-import { ClientTree } from "./clientMerkle.js";
+import { ClientMerkle } from "./clientMerkle.js";
 import { stringToIntBigNum } from "./conversion";
 import store from '../redux/store';
 import { invokeListener, register } from "./web3";
@@ -6,7 +6,7 @@ import { addRegistration, addBalance } from "../redux/actions";
 
 class StateManager {
     constructor(){
-        this.merkle = new ClientTree(); 
+        this.merkle = new ClientMerkle(); 
     }
 
     async initialSync() {
