@@ -26,8 +26,8 @@ class ZkMerkleTree {
     }
 
     addBalance(ether, token, index) {
-        this.balances[index].ether = stringToIntBigNum(ether);
-        this.balances[index].token = stringToIntBigNum(token);
+        this.balances[index].ethAmount = stringToIntBigNum(ether);
+        this.balances[index].tokenAmount = stringToIntBigNum(token);
     }
 
     getBalance(address) {
@@ -82,7 +82,7 @@ class ZkMerkleTree {
         let userProof = this.getUserProofPath(address);
         let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
         this.printDepositProof(userProof, balanceProof, this.balances[userIndex].ether, this.balances[userIndex].token, this.balances[userIndex].nonce, address)
-        return [userProof, balanceProof, this.balances[userIndex].ether.toString(), this.balances[userIndex].token.toString(), this.balances[userIndex].nonce.toString()]
+        return [userProof, balanceProof, this.balances[userIndex].ethAmount.toString(), this.balances[userIndex].tokenAmount.toString(), this.balances[userIndex].nonce.toString()]
     }
 
     getWithdrawProof(address, withdrawAmount) {
@@ -90,7 +90,7 @@ class ZkMerkleTree {
         let userProof = this.getUserProofPath(address);
         let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
         this.printWithdrawProof(userProof, balanceProof, this.balances[userIndex].ether, this.balances[userIndex].token, this.balances[userIndex].nonce, withdrawAmount, address)
-        return [userProof, balanceProof, this.balances[userIndex].ether.toString(), this.balances[userIndex].token.toString(), this.balances[userIndex].nonce.toString(), withdrawAmount.toString()]
+        return [userProof, balanceProof, this.balances[userIndex].ethAmount.toString(), this.balances[userIndex].tokenAmount.toString(), this.balances[userIndex].nonce.toString(), withdrawAmount.toString()]
     }
 
     getUserProofPath(leaf){
@@ -101,7 +101,7 @@ class ZkMerkleTree {
     }
 
     getBalanceProofPath(leaf, index){
-        leaf = soliditySha256([leaf.ether, leaf.token, leaf.nonce]);
+        leaf = soliditySha256([leaf.ethAmount, leaf.tokenAmount, leaf.nonce]);
         const tree = this.getTree("balance");
         let proof = tree.getHexProof(leaf, index);
         return proof;
@@ -113,7 +113,7 @@ class ZkMerkleTree {
             const leaves = this.users.map(x => soliditySha256(x))
             return new MerkleTree(leaves, soliditySha256, { sortPairs: true })
         } else {
-            const leaves = this.balances.map(leaf => soliditySha256([leaf.ether, leaf.token, leaf.nonce]))
+            const leaves = this.balances.map(leaf => soliditySha256([leaf.ethAmount, leaf.tokenAmount, leaf.nonce]))
             return new MerkleTree(leaves, soliditySha256, { sortPairs: true })
         }
     }
@@ -138,7 +138,7 @@ class ZkMerkleTree {
         users[0] = "0xcc08e5636A9ceb03917C1ac7BbEda23aD57766F3" // the first address needs to be set, in order for sibling checks to work on chain
         // initialize empty balances
         let balances = new Array(this.userAmount);
-        for(var i = 0; i < balances.length; i++) balances[i] = { ether: 0, token: 0, nonce: 0 };
+        for(var i = 0; i < balances.length; i++) balances[i] = { ethAmount: 0, tokenAmount: 0, nonce: 0 };
         
         this.users = users;
         this.balances = balances
