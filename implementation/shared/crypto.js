@@ -14,8 +14,8 @@ module.exports = {
             ).toString('hex')
         } 
         else if(Array.isArray(hashValue)) { // balances
-            const ether = new BN(hashValue[0].toString(), 10);
-            const token = new BN(hashValue[1].toString(), 10);
+            const ether = hashValue[0];
+            const token = hashValue[1];
             const nonce = new BN(hashValue[2].toString(), 10);
             const zero = new BN("0", 10) // we currently need this for ZoKrates compatibility
             return abi.soliditySHA256(

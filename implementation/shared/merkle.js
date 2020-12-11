@@ -2,6 +2,7 @@ const { MerkleTree } = require('merkletreejs')
 const { getRegisterEvents, getDepositEvents } = require("../helpers/web3");
 const { soliditySha256 } = require("./crypto");
 const { stringToIntBigNum } = require("./conversion")
+const BN = require('bn.js');
 
 class ZkMerkleTree {
 
@@ -91,7 +92,7 @@ class ZkMerkleTree {
         users[0] = "0xcc08e5636A9ceb03917C1ac7BbEda23aD57766F3" // the first address needs to be set, in order for sibling checks to work on chain
         // initialize empty balances
         let balances = new Array(this.userAmount);
-        for(var i = 0; i < balances.length; i++) balances[i] = { ethAmount: 0, tokenAmount: 0, nonce: 0 };
+        for(var i = 0; i < balances.length; i++) balances[i] = { ethAmount: new BN(0, 10), tokenAmount: new BN(0, 10), nonce: 0 };
         
         this.users = users;
         this.balances = balances
