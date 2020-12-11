@@ -34,7 +34,7 @@ export const invokeListener = async function() {
               }
             } else if(caughtEvent === "Deposit"){
               if(event.returnValues["_from"] === store.getState().user.address){
-                store.getState().contract.stateManager.updateBalance(event.returnValues.etherAmount, event.returnValues.tokenAmount, event.returnValues["_from"])
+                store.getState().contract.stateManager.updateBalance(event.returnValues.ethAmount, event.returnValues.tokenAmount, event.returnValues["_from"])
               }
             }
             latestBlockNumber = event.blockNumber;

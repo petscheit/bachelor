@@ -24,7 +24,7 @@ contract ZkSwap {
 	}
 
 	event Registered(address _from);
-	event Deposit(address _from, uint etherAmount, uint tokenAmount);
+	event Deposit(address _from, uint ethAmount, uint tokenAmount);
 	
     event Debug(uint amount);
 
