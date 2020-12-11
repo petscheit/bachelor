@@ -18,8 +18,8 @@ class Balance extends React.Component {
 }
 const mapStateToProps = (state) => {
     return {
-        etherBalance: state.user.balance.ethAmount.toString(),
-        tokenBalance: state.user.balance.tokenAmount.toString(),
+        etherBalance: state.user.balance ? state.user.balance.ethAmount.toString() : "0",
+        tokenBalance: state.user.balance ? state.user.balance.tokenAmount.toString() : "0",
     }
 }
 
