@@ -5,10 +5,15 @@ export const weiToEth = (num) => {
     return Web3Utils.fromWei(num.toString(), "ether")
 }
 
+
 export const ethToWeiString = (num) => {
     return Web3Utils.toWei(num.toString(), "ether")
 }
 
 export const stringToIntBigNum = (num) => {
-    return new BN(num, 10)
+    return new BN(num.toString(), 10)
+}
+
+export const ethIntToWeiBN = (num) => {
+    return Web3Utils.toWei(new BN(num, 10), "ether")
 }
