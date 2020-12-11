@@ -31,7 +31,7 @@ class App extends Component {
               IERC20.abi,
               "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d"
             );
-
+            
             this.props.addERC(tokenInstance)
             await this.props.addAddress(accounts[0]);
             await this.props.addInstance(instance)
@@ -51,7 +51,7 @@ class App extends Component {
 
 
     render() {
-        if (!this.props.instance || !this.props.address) {
+        if (!this.props.instance || !this.props.address || !this.props.balance) {
           return <div>Loading Web3, accounts, and contract...</div>;
         }
         return (
@@ -70,6 +70,7 @@ const mapStateToProps = state => {
     return {
         address: state.user.address,
         instance: state.contract.instance,
+        balance: state.user.balance
     }
 };
 
