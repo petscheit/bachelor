@@ -2,8 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const commander = require("commander");
 const serverConfig = require("./config");
-const ZkMerkleTree = require("./merkletree.js") 
-const { getContractInstance } = require("./web3");
+const TransactorMerkle = require("./helpers/transactorMerkle.js") 
+const { getContractInstance } = require("./helpers/web3");
 const assert = require('assert').strict;
 
 commander
@@ -19,7 +19,7 @@ const config = {
 
 class Transactor {
   constructor(port, host){
-    this.merkle = new ZkMerkleTree();
+    this.merkle = new TransactorMerkle();
     this.port = port;
     this.host = host
     this.app = express();    
@@ -70,7 +70,9 @@ class Transactor {
         assert.ok(this.merkle.checkTrade(req.body))
         this.tradePool.push(req.body)
         res.status(200);
-        res.send()
+        res.json({
+          result: "Success!"
+        })
         console.log(this.tradePool)
       } catch (err) {
         console.error("Post /trade", err.message);

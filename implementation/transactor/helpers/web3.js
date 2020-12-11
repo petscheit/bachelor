@@ -1,4 +1,4 @@
-const ZkSwap = require("./contracts/ZkSwap.json")
+const ZkSwap = require("../contracts/ZkSwap.json")
 const getWeb3 = require("./getWeb3.js")
 
 const getRegisterEvents = async function() {
