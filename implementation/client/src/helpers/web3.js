@@ -1,5 +1,5 @@
 import store from '../redux/store';
-import { ethToWeiString } from "./conversion";
+import { ethToWeiString } from "../shared/conversion";
 
 
 export const getRegisterEvents = async function() {

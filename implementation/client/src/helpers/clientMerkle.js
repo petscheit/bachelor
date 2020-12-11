@@ -1,12 +1,10 @@
 const { soliditySha256 } = require("../shared/crypto");
-const BN = require('bn.js');
 const { ZkMerkleTree } = require('../shared/merkle')
-console.log(ZkMerkleTree)
+
 class ClientMerkle extends ZkMerkleTree {
 
     constructor(){
         super();
-        console.log(this.balances)
     }
 
     isUserRegistered(address) {

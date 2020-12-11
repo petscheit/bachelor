@@ -11,7 +11,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import { broadcastTrade } from "../helpers/transactor";
-import { ethIntToWeiBN } from "../helpers/conversion";
+import { ethIntToWeiBN } from "../shared/conversion";
 
 class Trade extends React.Component {
     state = { amount: 0.0, token: 0, baseRate: 20.4 }; // Baserate: Ether to token

@@ -1,5 +1,5 @@
 import { ClientMerkle } from "./clientMerkle.js";
-import { stringToIntBigNum } from "./conversion";
+import { stringToIntBigNum } from "../shared/conversion";
 import store from '../redux/store';
 import { invokeListener, register } from "./web3";
 import { addRegistration, addBalance } from "../redux/actions";
