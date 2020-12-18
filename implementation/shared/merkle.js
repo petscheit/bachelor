@@ -11,7 +11,7 @@ class ZkMerkleTree {
         this.balances = null;
         this.index = 1;
         this.emptyAddress = "0x0000000000000000000000000000000000000000";
-        this.userAmount = 32768;
+        this.userAmount = 256;
         this.initilizeDatastructure()
     }
 
@@ -38,9 +38,9 @@ class ZkMerkleTree {
         return this.users.indexOf(address);
     }
 
-    updateBalance(ethAmount, token, address) {
+    updateBalance(ethAmount, tokenAmount, address) {
         const index = this.getAddressIndex(address);    
-        this.addBalance(ethAmount, token, index);
+        this.addBalance(ethAmount, tokenAmount, index);
         return this.getBalance(address);
     }
 

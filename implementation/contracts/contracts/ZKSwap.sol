@@ -5,8 +5,8 @@ import "./openzeppelin/token/ERC20/IERC20.sol";
 
 contract ZkSwap {
 
-	bytes32 public users = 0x85a0b1afb5f59e955afb111295b5b8a2278df1d4a7d98fdac42c383d786a577d; // initial root with 1 set account and 3 zero accounts
-	bytes32 public balances = 0xe68dcb980af47613209141e435c285df30b3925853e4fe68d1c474cac5c7e7b3;
+	bytes32 public users = 0x113f6d6d1b1bf24631064680373348b5004288de46820619289926eb64f8b838; // initial root with 1 set account and 3 zero accounts
+	bytes32 public balances = 0x9888c069c7dec5713aa8bc435c9c6c02b909c7e17201989b68a5a5fadb71aa8b;
 	address public erc20;
 	enum CurrecyType { Ether, Bat }
 
@@ -138,12 +138,14 @@ contract ZkSwap {
 		pure
 		returns (bool)
 	{
-		bytes32 emptyLeafPairHash = 0x4d7553877a80ec8d79a231713605b91f4207522d7c452062ce173eb9f61a02c8;
-		require(leaf == sha256(abi.encodePacked(address(0x0)))); // makes sure the oldLeaf is empty => Not overwriting another account
-		require(
-			(proof[0] != sha256(abi.encodePacked(address(0x0))) && proof[1] == emptyLeafPairHash) || // if the leaf pair is not empty, the following pair must be a emptyLeafPairHash
-			(proof[0] == sha256(abi.encodePacked(address(0x0))) && proof[1] != emptyLeafPairHash) // if the leafPait is empty, the next hash pait cant be empty
-		);
+		//this doesn't work, need to rethink this
+		// bytes32 emptyLeafPairHash = 0x4d7553877a80ec8d79a231713605b91f4207522d7c452062ce173eb9f61a02c8;
+		bytes32 zeroAddress = 0xde47c9b27eb8d300dbb5f2c353e632c393262cf06340c4fa7f1b40c4cbd36f90;
+		require(leaf == zeroAddress); // makes sure the oldLeaf is empty => Not overwriting another account
+		// require(
+		// 	(proof[0] != zeroAddress && proof[1] == emptyLeafPairHash) || // if the leaf pair is not empty, the following pair must be a emptyLeafPairHash
+		// 	(proof[0] == zeroAddress && proof[1] != emptyLeafPairHash) // if the leafPait is empty, the next hash pait cant be empty
+		// );
 		return true;
 	}
 }
