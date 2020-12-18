@@ -5,6 +5,7 @@ const serverConfig = require("./config");
 const TransactorMerkle = require("./helpers/transactorMerkle.js") 
 const { getContractInstance } = require("./helpers/web3");
 const assert = require('assert').strict;
+const ZokratesHelper = require("./helpers/zokrates");
 
 commander
     .option("-h, --host <type>", "ip of relayer")
@@ -22,8 +23,10 @@ class Transactor {
     this.merkle = new TransactorMerkle();
     this.port = port;
     this.host = host
-    this.app = express();    
+    this.app = express();
+    this.zokratesHelper = new ZokratesHelper();   
     this.tradePool = [];
+    this.tradePoolLeafIndex = [];
   }
 
   async init() {
@@ -65,15 +68,33 @@ class Transactor {
       }
     });
 
+    this.app.get("/multi", (req, res) => {
+      // try {
+        res.status(200);
+        const proofData = this.merkle.getMulti(this.tradePoolLeafIndex)
+        this.zokratesHelper.prepareTrade(this.tradePool, proofData[0], proofData[1])
+
+        res.json({
+          result: this.zokratesHelper.computeWitness()
+        });
+      // } catch (err) {
+      //   console.error("GET /", err.message);
+      //   res.status(400);
+      //   res.send(err);
+      // }
+    });
+
     this.app.post("/trade", (req, res) => {
       try {
         assert.ok(this.merkle.checkTrade(req.body))
         this.tradePool.push(req.body)
+        this.tradePoolLeafIndex.push(this.merkle.getAddressIndex(req.body.address))
         res.status(200);
         res.json({
           result: "Success!"
         })
         console.log(this.tradePool)
+        console.log(this.tradePoolLeafIndex)
       } catch (err) {
         console.error("Post /trade", err.message);
         res.status(400);
@@ -94,12 +115,11 @@ class Transactor {
             console.error(error.msg);
             throw error;
         }
-        console.log("caughtEvent!")
         const caughtEvent = event.event;
         if(caughtEvent === "Registered"){
           this.merkle.addAddress(event.returnValues["_from"])
         } else if(caughtEvent === "Deposit"){
-          this.merkle.updateBalance(event.returnValues.etherAmount, event.returnValues.tokenAmount, event.returnValues["_from"])
+          this.merkle.updateBalance(event.returnValues.ethAmount, event.returnValues.tokenAmount, event.returnValues["_from"])
           this.merkle.calcInitialRoots()
         }
         latestBlockNumber = event.blockNumber;
