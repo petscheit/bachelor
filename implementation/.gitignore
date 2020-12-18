@@ -20,3 +20,12 @@ transactor/zokrates_circuits/proving.key
 transactor/zokrates_circuits/verification.key
 transactor/zokrates_circuits/abi.json
 transactor/zokrates_circuits/witness
+
+mimcTools/venv
+mimcTools/node_modules
+mimcTools/out
+mimcTools/out.ztf
+mimcTools/proving.key
+mimcTools/verification.key
+mimcTools/witness
+mimcTools/abi.json
