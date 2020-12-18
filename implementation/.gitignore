@@ -1,6 +1,8 @@
 node_modules
 
 client/src/contracts/*.json
+client/src/shared/*
+
 contracts/contracts/build
 
 zokrates/out
@@ -9,3 +11,12 @@ zokrates/witness
 zokrates/abi.json
 
 transactor/contracts/*
+transactor/shared/*
+
+transactor/zokrates_circuits/out
+transactor/zokrates_circuits/out.ztf
+transactor/zokrates_circuits/proof.json
+transactor/zokrates_circuits/proving.key
+transactor/zokrates_circuits/verification.key
+transactor/zokrates_circuits/abi.json
+transactor/zokrates_circuits/witness
