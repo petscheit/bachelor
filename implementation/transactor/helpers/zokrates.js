@@ -6,22 +6,23 @@ class ZokratesHelper {
         this.trades = [];
         this.proof = [];
         this.proofFlags = [];
-        this.witnessCommand = ' | zokrates compute-witness --input ./zokrates_circuits/out --output ./zokrates_circuits/witnes --light --abi --abi_spec ./zokrates_circuits/abi.json --stdin'
+        this.witnessCommand = ' | zokrates compute-witness --input ./zokrates_circuits/out --output ./zokrates_circuits/witness --light --abi --abi_spec ./zokrates_circuits/abi.json --stdin'
     }
 
-    prepareTrade(trades, proof, proofFlags){
+    prepareTrade(trades, proof, proofFlags, root){
         this.trades = trades.map(trade => this.buildZokratesTradeStruct(trade));
         this.proofFlags = proofFlags;
         this.proof = proof;
+        this.root = root;
         console.log(proof)
     }
 
     buildProofString(){
-        return "echo " + `\"${JSON.stringify([this.trades, this.proof, this.proofFlags]).replace(/"/g, `\\"`)}\"`;
+        return "echo " + `\"${JSON.stringify([this.trades, this.proof, this.proofFlags, this.root]).replace(/"/g, `\\"`)}\"`;
     }
 
-    computeWitness(){
-        exec(this.buildProofString() + this.witnessCommand, (err, stdout, stderr) => {
+    async computeWitness(){
+        return await exec(this.buildProofString() + this.witnessCommand, (err, stdout, stderr) => {
             if (err) {
                 console.error(`exec error: ${err}`);
                 return;

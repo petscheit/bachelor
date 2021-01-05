@@ -72,10 +72,10 @@ class Transactor {
       // try {
         res.status(200);
         const proofData = this.merkle.getMulti(this.tradePoolLeafIndex)
-        this.zokratesHelper.prepareTrade(this.tradePool, proofData[0], proofData[1])
-
+        this.zokratesHelper.prepareTrade(this.tradePool, proofData[0], proofData[1], proofData[2])
+        let result = this.zokratesHelper.computeWitness()
         res.json({
-          result: this.zokratesHelper.computeWitness()
+          result: result
         });
       // } catch (err) {
       //   console.error("GET /", err.message);

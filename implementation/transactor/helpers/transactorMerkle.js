@@ -50,10 +50,10 @@ class TransactorMerkle extends ZkMerkleTree {
         const proofLeafs = indices.map(i => soliditySha256([this.balances[i].ethAmount, this.balances[i].tokenAmount, this.balances[i].nonce]))
         const proof = tree.getHexMultiProof(indices)
         const proofFlags = tree.getProofFlags(indices, tree.getMultiProof(indices))
-        console.log(proofFlags.length)
         const paddedProof = this.addPadding(proof, proofFlags.length).map(leaf => this.toEigthBytesArray(leaf))
         const verifiedLocal = tree.verifyMultiProof(root, indices, proofLeafs, tree.getDepth(), proof)
-        return [paddedProof, proofFlags]
+        console.log(root)
+        return [paddedProof, proofFlags, this.toEigthBytesArray(root)]
     }
 
     toEigthBytesArray(leaf){
