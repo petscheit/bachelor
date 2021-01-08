@@ -29,7 +29,7 @@ class Trade extends React.Component {
     }) 
     
     buildTradeObject = () => {
-        const toWei = toBN(1000000000000);
+        const toWei = toBN(100000000000);
         if(this.state.token === 0) {
             const ethDelta = toBN(this.state.amount.toFixed(6) * 10000000); //Mwei
             const tokenDelta = toBN(Math.round((this.state.amount * (1 / this.state.baseRate)) * 10000000));
