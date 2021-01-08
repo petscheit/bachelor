@@ -34,8 +34,8 @@ class Trade extends React.Component {
             const ethDelta = toBN(this.state.amount.toFixed(6) * 10000000); //Mwei
             const tokenDelta = toBN(Math.round((this.state.amount * (1 / this.state.baseRate)) * 10000000));
             return {
-                ethAmount: this.props.balance.ethAmount.toString()(), 
-                tokenAmount: this.props.balance.tokenAmount.toString(), 
+                ethAmount: this.props.balance.ethAmount.toJSON(), 
+                tokenAmount: this.props.balance.tokenAmount.toJSON(), 
                 nonce: this.props.balance.nonce, 
                 direction: this.state.token,
                 deltaEth: ethDelta.imul(toWei).toJSON(), //wei
@@ -47,8 +47,8 @@ class Trade extends React.Component {
             const tokenDelta = toBN(this.state.amount.toFixed(6) * 10000000); //Mwei
             const ethDelta = toBN(Math.round((this.state.amount * (1 / this.state.baseRate)) * 10000000)); // converted to Mwei, ensures we only use 6 decimal places
             return {
-                ethAmount: this.props.balance.ethAmount.toString(), 
-                tokenAmount: this.props.balance.tokenAmount.toString(), 
+                ethAmount: this.props.balance.ethAmount.toJSON(), 
+                tokenAmount: this.props.balance.tokenAmount.toJSON(), 
                 nonce: this.props.balance.nonce,
                 direction: this.state.token,
                 deltaEth: ethDelta.imul(toWei).toJSON(), 
