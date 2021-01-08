@@ -1,5 +1,5 @@
 const { soliditySha256 } = require("../shared/crypto");
-const { stringToIntBigNum } = require("../shared/conversion");
+const { toBN } = require("../shared/conversion");
 const { ZkMerkleTree } = require('../shared/merkle');
 
 class TransactorMerkle extends ZkMerkleTree {
@@ -37,10 +37,10 @@ class TransactorMerkle extends ZkMerkleTree {
     }
 
     convertTradeToBN(trade){
-        trade['ethAmount'] = stringToIntBigNum(trade['ethAmount'])
-        trade['tokenAmount'] = stringToIntBigNum(trade['tokenAmount'])
-        trade['deltaEth'] = stringToIntBigNum(trade['deltaEth'])
-        trade['deltaToken'] = stringToIntBigNum(trade['deltaToken'])
+        trade['ethAmount'] = toBN(trade['ethAmount'])
+        trade['tokenAmount'] = toBN(trade['tokenAmount'])
+        trade['deltaEth'] = toBN(trade['deltaEth'])
+        trade['deltaToken'] = toBN(trade['deltaToken'])
         return trade
     }
 

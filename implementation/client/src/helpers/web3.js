@@ -1,5 +1,5 @@
 import store from '../redux/store';
-import { ethToWeiString } from "../shared/conversion";
+import { ethToWei } from "../shared/conversion";
 
 
 export const getRegisterEvents = async function() {
@@ -69,12 +69,12 @@ const depositERC20 = async function(amount) {
   const instance = store.getState().contract.instance;
   const erc20Instance = store.getState().contract.erc;
   const proof = store.getState().contract.stateManager.getDepositProof(address)
-  await erc20Instance.methods.approve("0x139EB3Ed38B393AaD7f26D24E641dA218961F567", ethToWeiString(amount))
+  await erc20Instance.methods.approve("0x139EB3Ed38B393AaD7f26D24E641dA218961F567", ethToWei(amount))
   .send({
     from: address,
   })
   .then(res => console.log)
-  return instance.methods.depositERC20(proof[0], proof[1], proof[2], proof[3], proof[4], ethToWeiString(amount)).send({
+  return instance.methods.depositERC20(proof[0], proof[1], proof[2], proof[3], proof[4], ethToWei(amount)).send({
     from: address,
   })
   .then(
@@ -88,14 +88,14 @@ const depositEth = async function(amount) {
   const proof = store.getState().contract.stateManager.getDepositProof(address)
   return instance.methods.depositEth(proof[0], proof[1], proof[2], proof[3], proof[4]).send({
     from: address,
-    value: ethToWeiString(amount)
+    value: ethToWei(amount)
   })
   .catch(err => console.log)
 }
 
 
 export const withdraw = async function(amount, token) {
-  amount = ethToWeiString(amount);
+  amount = ethToWei(amount);
   if(token == 0){ //ether
     return withdrawEth(amount, token)
   } else if(token == 1){ //bat

@@ -1,5 +1,5 @@
 import { ClientMerkle } from "./clientMerkle.js";
-import { stringToIntBigNum } from "../shared/conversion";
+import { toBN } from "../shared/conversion";
 import store from '../redux/store';
 import { invokeListener, register } from "./web3";
 import { addRegistration, addBalance } from "../redux/actions";
@@ -26,7 +26,7 @@ class StateManager {
     }
 
     updateBalance(ether, token, address) {
-        const updatedBalance = this.merkle.updateBalance(stringToIntBigNum(ether), stringToIntBigNum(token), address);
+        const updatedBalance = this.merkle.updateBalance(toBN(ether), toBN(token), address);
         store.dispatch(addBalance(updatedBalance))
     }
 

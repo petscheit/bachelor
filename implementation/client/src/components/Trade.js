@@ -11,10 +11,10 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import { broadcastTrade } from "../helpers/transactor";
-import { ethIntToWeiBN } from "../shared/conversion";
+import { ethIntToWeiBN, ethToWei, toBN } from "../shared/conversion";
 
 class Trade extends React.Component {
-    state = { amount: 0.0, token: 0, baseRate: 20.4 }; // Baserate: Ether to token
+    state = { amount: 0.0, token: 0, baseRate: 20.4 }; // Baserate: Ether to token in WEI
 
     constructor(props) {
         super(props);
@@ -29,29 +29,30 @@ class Trade extends React.Component {
     }) 
     
     buildTradeObject = () => {
-        console.log(this.props)
+        const toWei = toBN(1000000000000);
         if(this.state.token === 0) {
-            const ethDelta = ethIntToWeiBN(this.state.amount)
-            const tokenDelta = ethDelta * this.state.baseRate;
+            const ethDelta = toBN(this.state.amount.toFixed(6) * 10000000); //Mwei
+            const tokenDelta = toBN(Math.round((this.state.amount * (1 / this.state.baseRate)) * 10000000));
             return {
-                ethAmount: this.props.balance.ethAmount.toString(), 
+                ethAmount: this.props.balance.ethAmount.toString()(), 
                 tokenAmount: this.props.balance.tokenAmount.toString(), 
                 nonce: this.props.balance.nonce, 
                 direction: this.state.token,
-                deltaEth: ethDelta.toString(), 
-                deltaToken: tokenDelta.toString(),
+                deltaEth: ethDelta.imul(toWei).toJSON(), //wei
+                deltaToken: tokenDelta.imul(toWei).toJSON(),
                 address: this.props.address,
             }
         } else {
-            const tokenDelta = ethIntToWeiBN(this.state.amount);
-            const ethDelta = tokenDelta * (1 / this.state.baseRate);
+            
+            const tokenDelta = toBN(this.state.amount.toFixed(6) * 10000000); //Mwei
+            const ethDelta = toBN(Math.round((this.state.amount * (1 / this.state.baseRate)) * 10000000)); // converted to Mwei, ensures we only use 6 decimal places
             return {
                 ethAmount: this.props.balance.ethAmount.toString(), 
                 tokenAmount: this.props.balance.tokenAmount.toString(), 
                 nonce: this.props.balance.nonce,
                 direction: this.state.token,
-                deltaEth: ethDelta.toString(), 
-                deltaToken: tokenDelta.toString(),
+                deltaEth: ethDelta.imul(toWei).toJSON(), 
+                deltaToken: tokenDelta.imul(toWei).toJSON(),
                 address: this.props.address,
             }
         }
@@ -85,7 +86,7 @@ class Trade extends React.Component {
 				    onChange={this.handleAmountChange}
                 />
                 <Typography component="div" style={{ padding: 8 * 3 }}>
-                    Min received: { this.state.token === 0 ? this.state.amount * this.state.baseRate : this.state.amount * (1 / this.state.baseRate) }
+                    Min received: { this.state.token === 0 ? (this.state.amount * this.state.baseRate).toFixed(6) : (this.state.amount * (1 / this.state.baseRate)).toFixed(6) }
                 </Typography>
                 <Button 
                     onClick={() => { broadcastTrade(this.buildTradeObject())}}

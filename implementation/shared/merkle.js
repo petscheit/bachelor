@@ -1,7 +1,7 @@
 const { MerkleTree } = require('merkletreejs')
 const { getRegisterEvents, getDepositEvents } = require("../helpers/web3");
 const { soliditySha256 } = require("./crypto");
-const { stringToIntBigNum } = require("./conversion")
+const { toBN } = require("./conversion")
 const BN = require('bn.js');
 
 class ZkMerkleTree {
@@ -26,8 +26,8 @@ class ZkMerkleTree {
     }
 
     addBalance(ethAmount, tokenAmount, index) {
-        this.balances[index].ethAmount = stringToIntBigNum(ethAmount);
-        this.balances[index].tokenAmount = stringToIntBigNum(tokenAmount);
+        this.balances[index].ethAmount = toBN(ethAmount);
+        this.balances[index].tokenAmount = toBN(tokenAmount);
     }
 
     getBalance(address) {

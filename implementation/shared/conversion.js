@@ -5,19 +5,27 @@ const weiToEth = (num) => {
     return Web3Utils.fromWei(num.toString(), "ether")
 }
 
-const ethToWeiString = (num) => {
+const ethToWei = (num) => {
     return Web3Utils.toWei(num.toString(), "ether")
 }
 
-const stringToIntBigNum = (num) => {
+const toBN = (num) => {
+    if(num instanceof String){
+        return new BN(num, 10)
+    }
     return new BN(num.toString(), 10)
 }
 
 const ethIntToWeiBN = (num) => {
-    return Web3Utils.toWei(new BN(num, 10), "ether")
+     if(num instanceof String){
+        return Web3Utils.toWei(new BN(num, 10), "ether")
+    }
+    console.log(typeof num.toString())
+    console.log(num.toString())
+    return Web3Utils.toWei(new BN(num.toString(), 10), "ether")
 }
 
 exports.weiToEth = weiToEth;
-exports.ethToWeiString = ethToWeiString;
-exports.stringToIntBigNum = stringToIntBigNum;
+exports.ethToWei = ethToWei;
+exports.toBN = toBN;
 exports.ethIntToWeiBN= ethIntToWeiBN;
