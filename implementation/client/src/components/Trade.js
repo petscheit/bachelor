@@ -32,7 +32,8 @@ class Trade extends React.Component {
         const toWei = toBN(100000000000);
         if(this.state.token === 0) {
             const ethDelta = toBN(this.state.amount.toFixed(6) * 10000000); //Mwei
-            const tokenDelta = toBN(Math.round((this.state.amount * (1 / this.state.baseRate)) * 10000000));
+            const tokenDelta = toBN(Math.round((this.state.amount * this.state.baseRate) * 10000000));
+            console.log(tokenDelta.imul(toWei).toString())
             return {
                 ethAmount: this.props.balance.ethAmount.toJSON(), 
                 tokenAmount: this.props.balance.tokenAmount.toJSON(), 
@@ -57,7 +58,7 @@ class Trade extends React.Component {
             }
         }
     }
-
+1225490200000000000
     render() {
         let classes = makeStyles((theme) => ({
             button: {
