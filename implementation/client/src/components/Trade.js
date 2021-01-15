@@ -11,54 +11,63 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import { broadcastTrade } from "../helpers/transactor";
-import { ethIntToWeiBN, ethToWei, toBN } from "../shared/conversion";
+import { ethIntToWeiBN, ethToWei, toBN, ethToMwei, mweiToEth } from "../shared/conversion";
 
 class Trade extends React.Component {
-    state = { amount: 0.0, token: 0, baseRate: 20.4 }; // Baserate: Ether to token in WEI
+    state = { amount: 0, token: 0, baseRate: 20.4 }; // Baserate: Ether to token in WEI
 
     constructor(props) {
         super(props);
     }
 
-    handleAmountChange = (e) => this.setState({ 
-		amount: Number(e.target.value)
-    })
+   handleAmountChange = (e) => {
+        if(e.target.value != ""){
+            this.setState({ 
+                amount: ethToMwei(Number(e.target.value).toFixed(6))
+            }) 
+        } else {
+            this.setState({ 
+                amount: 0
+            }) 
+        }
+    }
     
     handleTokenChange = (e) => this.setState({ 
 		token: Number(e.target.value)
     }) 
     
     buildTradeObject = () => {
-        const toWei = toBN(100000000000);
         if(this.state.token === 0) {
-            const ethDelta = toBN(this.state.amount.toFixed(6) * 10000000); //Mwei
-            const tokenDelta = toBN(Math.round((this.state.amount * this.state.baseRate) * 10000000));
-            console.log(tokenDelta.imul(toWei).toString())
+            const ethDelta = toBN(this.state.amount); //Mwei
+            const tokenDelta = toBN((this.state.amount * this.state.baseRate).toFixed(0));
             return {
                 ethAmount: this.props.balance.ethAmount.toJSON(), 
                 tokenAmount: this.props.balance.tokenAmount.toJSON(), 
                 nonce: this.props.balance.nonce, 
                 direction: this.state.token,
-                deltaEth: ethDelta.imul(toWei).toJSON(), //wei
-                deltaToken: tokenDelta.imul(toWei).toJSON(),
+                deltaEth: ethDelta.toJSON(), //wei
+                deltaToken: tokenDelta.toJSON(),
                 address: this.props.address,
             }
         } else {
             
-            const tokenDelta = toBN(this.state.amount.toFixed(6) * 10000000); //Mwei
-            const ethDelta = toBN(Math.round((this.state.amount * (1 / this.state.baseRate)) * 10000000)); // converted to Mwei, ensures we only use 6 decimal places
+            const tokenDelta = toBN(this.state.amount); 
+            console.log(this.state.amount)
+            console.log(this.state.baseRate)
+            console.log(toBN((this.state.amount / this.state.baseRate).toFixed()))
+            const ethDelta = toBN((this.state.amount / this.state.baseRate).toFixed());
+            console.log(ethDelta.toString())
             return {
                 ethAmount: this.props.balance.ethAmount.toJSON(), 
                 tokenAmount: this.props.balance.tokenAmount.toJSON(), 
                 nonce: this.props.balance.nonce,
                 direction: this.state.token,
-                deltaEth: ethDelta.imul(toWei).toJSON(), 
-                deltaToken: tokenDelta.imul(toWei).toJSON(),
+                deltaEth: ethDelta.toJSON(), 
+                deltaToken: tokenDelta.toJSON(),
                 address: this.props.address,
             }
         }
     }
-1225490200000000000
     render() {
         let classes = makeStyles((theme) => ({
             button: {
@@ -82,12 +91,12 @@ class Trade extends React.Component {
                 <TextField
                     id="standard-number"
                     label="Amount to trade"
-                    type="Number"
-                    value={this.state.amount} 
+                    type="number"
+                    value={mweiToEth(this.state.amount)} 
 				    onChange={this.handleAmountChange}
                 />
                 <Typography component="div" style={{ padding: 8 * 3 }}>
-                    Min received: { this.state.token === 0 ? (this.state.amount * this.state.baseRate).toFixed(6) : (this.state.amount * (1 / this.state.baseRate)).toFixed(6) }
+                    Min received: { this.state.token === 0 ? mweiToEth((this.state.amount * this.state.baseRate).toFixed()) : mweiToEth((this.state.amount / this.state.baseRate).toFixed()) }
                 </Typography>
                 <Button 
                     onClick={() => { broadcastTrade(this.buildTradeObject())}}

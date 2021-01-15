@@ -1,5 +1,5 @@
 import store from '../redux/store';
-import { ethToWei } from "../shared/conversion";
+import { ethToWei, weiToMwei, mweiToWei } from "../shared/conversion";
 
 
 export const getRegisterEvents = async function() {
@@ -23,21 +23,23 @@ export const invokeListener = async function() {
             fromBlock: latestBlockNumber
         },
         async (error, event) => {
-            if (error) {
-                console.error(error.msg);
-                throw error;
+          if (error) {
+              console.error(error.msg);
+              throw error;
+          }
+          const caughtEvent = event.event;
+          if(caughtEvent === "Registered"){
+            if(event.returnValues["_from"] === store.getState().user.address){
+                store.getState().contract.stateManager.updateRegistrationStatus(event.returnValues["_from"])
             }
-            const caughtEvent = event.event;
-            if(caughtEvent === "Registered"){
-              if(event.returnValues["_from"] === store.getState().user.address){
-                  store.getState().contract.stateManager.updateRegistrationStatus(event.returnValues["_from"])
-              }
-            } else if(caughtEvent === "Deposit"){
-              if(event.returnValues["_from"] === store.getState().user.address){
-                store.getState().contract.stateManager.updateBalance(event.returnValues.ethAmount, event.returnValues.tokenAmount, event.returnValues["_from"])
-              }
+          } else if(caughtEvent === "Deposit"){
+            if(event.returnValues["_from"] === store.getState().user.address){
+              console.log(event)
+              console.log(event.returnValues.ethAmount)
+              store.getState().contract.stateManager.updateBalance(event.returnValues.ethAmount, event.returnValues.tokenAmount, event.returnValues["_from"])
             }
-            latestBlockNumber = event.blockNumber;
+          }
+          latestBlockNumber = event.blockNumber;
         }
     )
 }
@@ -69,12 +71,12 @@ const depositERC20 = async function(amount) {
   const instance = store.getState().contract.instance;
   const erc20Instance = store.getState().contract.erc;
   const proof = store.getState().contract.stateManager.getDepositProof(address)
-  await erc20Instance.methods.approve("0x139EB3Ed38B393AaD7f26D24E641dA218961F567", ethToWei(amount))
+  await erc20Instance.methods.approve("0x139EB3Ed38B393AaD7f26D24E641dA218961F567", amount)
   .send({
     from: address,
   })
   .then(res => console.log)
-  return instance.methods.depositERC20(proof[0], proof[1], proof[2], proof[3], proof[4], ethToWei(amount)).send({
+  return instance.methods.depositERC20(proof[0], proof[1], proof[2], proof[3], proof[4], amount).send({
     from: address,
   })
   .then(
@@ -88,14 +90,13 @@ const depositEth = async function(amount) {
   const proof = store.getState().contract.stateManager.getDepositProof(address)
   return instance.methods.depositEth(proof[0], proof[1], proof[2], proof[3], proof[4]).send({
     from: address,
-    value: ethToWei(amount)
+    value: mweiToWei(amount)
   })
   .catch(err => console.log)
 }
 
 
 export const withdraw = async function(amount, token) {
-  amount = ethToWei(amount);
   if(token == 0){ //ether
     return withdrawEth(amount, token)
   } else if(token == 1){ //bat
@@ -107,6 +108,7 @@ const withdrawEth = function(amount) {
   const address = store.getState().user.address;
   const instance = store.getState().contract.instance;
   const proof = store.getState().contract.stateManager.getWithdrawProof(address, amount)
+  console.log(proof)
   instance.methods.withdrawEth(proof[0], proof[1], proof[2], proof[3], proof[4], proof[5]).send({
     from: address,
   })
@@ -117,6 +119,7 @@ const withdrawEth = function(amount) {
 }
 
 const withdrawERC20 = function(amount) {
+  console.log(amount)
   const address = store.getState().user.address;
   const instance = store.getState().contract.instance;
   const proof = store.getState().contract.stateManager.getWithdrawProof(address, amount)

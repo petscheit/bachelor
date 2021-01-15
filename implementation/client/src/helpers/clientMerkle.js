@@ -1,5 +1,6 @@
 const { soliditySha256 } = require("../shared/crypto");
 const { ZkMerkleTree } = require('../shared/merkle')
+const { mweiToWei } = require('../shared/conversion')
 
 class ClientMerkle extends ZkMerkleTree {
 
@@ -31,7 +32,7 @@ class ClientMerkle extends ZkMerkleTree {
         let userIndex = super.getAddressIndex(address);
         let userProof = this.getUserProofPath(address);
         let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
-        super.printWithdrawProof(userProof, balanceProof, this.balances[userIndex].ethAmount.toString(), this.balances[userIndex].tokenAmount.toString(), this.balances[userIndex].nonce, withdrawAmount, address)
+        super.printWithdrawProof(userProof, balanceProof, mweiToWei(this.balances[userIndex].ethAmount.toString()), mweiToWei(this.balances[userIndex].tokenAmount.toString()), this.balances[userIndex].nonce, mweiToWei(withdrawAmount), address)
         return [userProof, balanceProof, this.balances[userIndex].ethAmount.toString(), this.balances[userIndex].tokenAmount.toString(), this.balances[userIndex].nonce.toString(), withdrawAmount.toString()]
     }
 
@@ -49,5 +50,6 @@ class ClientMerkle extends ZkMerkleTree {
         return proof;
     }
 }
+
 
 export { ClientMerkle };

@@ -1,5 +1,5 @@
 const { soliditySha256 } = require("../shared/crypto");
-const { toBN } = require("../shared/conversion");
+const { hexToBN } = require("../shared/conversion");
 const { ZkMerkleTree } = require('../shared/merkle');
 
 class TransactorMerkle extends ZkMerkleTree {
@@ -8,15 +8,20 @@ class TransactorMerkle extends ZkMerkleTree {
         super()
     }
 
-    checkTrade(trade) { // this method is used by the transactor to ensure no invalid orders are added, which would cost the transactor gas. 
+    checkTrade(trade, currentPrice) { // this method is used by the transactor to ensure no invalid orders are added, which would cost the transactor gas. 
                         // These checks are the same ones checked in the zkSNARK programm
         //check signature here aswell
         trade = this.convertTradeToBN(trade)
-
         if (!this.verifyBalanceLeaf(trade)) return false // ensures that where passed are in merkletree
-
+        if(!this.ensureCorrectPrice(trade, 20.4)) return false;
+        console.log("herrre")
+        console.log(trade.ethAmount.toString())
+        console.log(trade.deltaEth.toString())
         if(trade.direction === 0) {
+            console.log("masde ittt")
+            console.log(trade.ethAmount.gte(trade.deltaEth))
             if(trade.ethAmount.gte(trade.deltaEth)){
+
                 return true;
             }
         } else if(trade.direction === 1){
@@ -31,17 +36,24 @@ class TransactorMerkle extends ZkMerkleTree {
         const tree = super.getTree("balance");
         const root = tree.getHexRoot();
         const leaf = soliditySha256([trade.ethAmount, trade.tokenAmount, trade.nonce]);
+        console.log(leaf)
         const index = super.getAddressIndex(trade.address);
         const proof = tree.getHexProof(leaf, index);
         return tree.verify(proof, leaf, root)
     }
 
     convertTradeToBN(trade){
-        trade['ethAmount'] = toBN(trade['ethAmount'])
-        trade['tokenAmount'] = toBN(trade['tokenAmount'])
-        trade['deltaEth'] = toBN(trade['deltaEth'])
-        trade['deltaToken'] = toBN(trade['deltaToken'])
+        trade['ethAmount'] = hexToBN(trade['ethAmount'])
+        trade['tokenAmount'] = hexToBN(trade['tokenAmount'])
+        trade['deltaEth'] = hexToBN(trade['deltaEth'])
+        trade['deltaToken'] = hexToBN(trade['deltaToken'])
         return trade
+    }
+
+    ensureCorrectPrice(trade, correctPrice) {
+        console.log(Math.round((trade.deltaToken / trade.deltaEth)*10000)/10000)
+        if(Math.round((trade.deltaToken / trade.deltaEth)*10000)/10000 === correctPrice) return true;
+        return false;
     }
 
     getMulti(indices) {

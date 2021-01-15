@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Typography from '@material-ui/core/Typography';
-import { weiToEth } from "../shared/conversion";
+import { mweiToEth } from "../shared/conversion";
 
 class Balance extends React.Component {
     constructor(props) {
@@ -9,9 +9,10 @@ class Balance extends React.Component {
     }
 
     render() {
+        console.log(this.props.etherBalance)
         return (
             <Typography style={{ flex: 1, textAlign: 'right' }}>
-                Balance:  { weiToEth(this.props.etherBalance)} Eth,  { weiToEth(this.props.tokenBalance) } Bat   
+                Balance:  { mweiToEth(this.props.etherBalance)} Eth,  { mweiToEth(this.props.tokenBalance) } Bat   
             </Typography>
         )
     }
@@ -26,3 +27,7 @@ const mapStateToProps = (state) => {
 export default connect(
     mapStateToProps
 )(Balance);
+
+
+
+// 10000000000000000000

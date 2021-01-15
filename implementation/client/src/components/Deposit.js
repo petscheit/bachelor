@@ -10,17 +10,27 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
+import { ethToMwei, mweiToEth } from "../shared/conversion";
+
 
 class Deposit extends React.Component {
-    state = { amount: 0.0, token: 1 };
+    state = { amount: 0, token: 1 };
 
     constructor(props) {
         super(props);
     }
 
-    handleAmountChange = (e) => this.setState({ 
-		amount: e.target.value 
-    })
+    handleAmountChange = (e) => {
+        if(e.target.value != ""){
+            this.setState({ 
+                amount: ethToMwei(Number(e.target.value).toFixed(6))
+            }) 
+        } else {
+            this.setState({ 
+                amount: 0
+            }) 
+        }
+    }
     
     handleTokenChange = (e) => this.setState({ 
 		token: e.target.value 
@@ -50,7 +60,7 @@ class Deposit extends React.Component {
                     id="standard-number"
                     label="Amount to deposit"
                     type="number"
-                    value={this.state.amount} 
+                    value={mweiToEth(this.state.amount)} 
 				    onChange={this.handleAmountChange}
                 />
                 <Button 

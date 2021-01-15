@@ -6,28 +6,37 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import { weiToEth } from "../shared/conversion";
+import { ethToMwei, mweiToEth } from "../shared/conversion";
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 
 class Withdraw extends React.Component {
-    state = { amount: 0.0, token: 0 };
+    state = { amount: 0, token: 0 };
 
     constructor(props) {
         super(props);
     }
 
-    handleChange = (e) => this.setState({ 
-		amount: e.target.value 
-    }) 
+    handleAmountChange = (e) => {
+        if(e.target.value != ""){
+            this.setState({ 
+                amount: ethToMwei(Number(e.target.value).toFixed(6))
+            }) 
+        } else {
+            this.setState({ 
+                amount: 0
+            }) 
+        }
+    }
     
     handleTokenChange = (e) => this.setState({ 
 		token: e.target.value 
 	}) 
 
     render() {
+        console.log(this.state)
         let classes = makeStyles((theme) => ({
             button: {
                 margin: theme.spacing(1),
@@ -51,8 +60,8 @@ class Withdraw extends React.Component {
                     id="standard-number"
                     label="Amount to withdraw"
                     type="number"
-                    value={this.state.amount} 
-                    onChange={this.handleChange}
+                    value={(mweiToEth(this.state.amount))} 
+                    onChange={this.handleAmountChange}
                 />
                 <Button 
                     onClick={() => { withdraw(this.state.amount, this.state.token) }}

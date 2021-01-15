@@ -8,23 +8,27 @@ contract ZkSwap {
 	bytes32 public users = 0x113f6d6d1b1bf24631064680373348b5004288de46820619289926eb64f8b838; // initial root with 1 set account and 3 zero accounts
 	bytes32 public balances = 0x9888c069c7dec5713aa8bc435c9c6c02b909c7e17201989b68a5a5fadb71aa8b;
 	address public erc20;
+	address public verifier;
 	enum CurrecyType { Ether, Bat }
 
 	modifier canUpdateBalance(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce)
 	{
-		require(verifyUserMerkle(userProof, sha256(abi.encodePacked(msg.sender)))); // makes sure sender is registered
- 		require(verifyBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount, nonce, uint(0))))); // checks if passed balance amount is correct
+		require(verifyUserMerkle(userProof, sha256(abi.encodePacked(msg.sender))), "User merkle couldn't be reproduced!"); // makes sure sender is registered
+ 		require(verifyBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount, nonce, uint(0)))), "Balance merkle couldn't be reproduced!"); // checks if passed balance amount is correct
 		_;
 	}
 
-	constructor(address ercAddr)
+	constructor(address ercAddr, address verifierAddr)
         public
     {
 		erc20 = ercAddr;
+		verifier = verifierAddr;
 	}
 
 	event Registered(address _from);
 	event Deposit(address _from, uint ethAmount, uint tokenAmount);
+
+	event BalanceUpdate(address _from, uint ethAmount, uint tokenAmount, uint nonce);
 	
     event Debug(uint amount);
 
@@ -42,14 +46,36 @@ contract ZkSwap {
 	{
 	    emit Debug(IERC20(erc20).totalSupply());
 	}
+
+	function verifyTrade(uint[] calldata ethAmount, uint[] calldata tokenAmount, uint[] calldata nonce, address[] calldata from, bytes32 shaHash, bytes32 newBalanceRoot)
+		external
+	{
+		// check verifier
+		assert(checkTradeData(ethAmount, tokenAmount, nonce, from, shaHash));
+		// check msg.value OR ERC20 allowance if needed
+		// transfer ERC20 funds to contract
+		// update root
+		// emit balances
+	}
+
+	function checkTradeData(uint[] memory ethAmount, uint[] memory tokenAmount, uint[] memory nonce, address[] memory from, bytes32 shaHash)
+		internal
+		returns (bool)
+	{
+		bytes32[] memory _hashes;
+		for(uint i = 0; i < ethAmount.length; i++){
+			_hashes[i] = sha256(abi.encodePacked(ethAmount[i], tokenAmount[i], nonce[i], from[i]));
+		}
+		return sha256(abi.encodePacked(_hashes[0], _hashes[1], _hashes[2])) == shaHash;
+	}
 	
 	function depositEth(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce)
 		public
 		payable
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
-		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount + msg.value, tokenAmount, nonce, uint(0))));
-		emit Deposit(msg.sender, ethAmount + msg.value, tokenAmount);
+		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount + (msg.value / 1000000), tokenAmount, nonce, uint(0))));
+		emit Deposit(msg.sender, ethAmount + (msg.value / 1000000), tokenAmount);
 	}
 
 	function depositERC20(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint depositAmount)
@@ -81,7 +107,6 @@ contract ZkSwap {
 		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount - withdrawAmount, nonce, uint(0))));
 		emit Deposit(msg.sender, ethAmount, tokenAmount - withdrawAmount);
 	}
-
 
 	function verifyUserMerkle(bytes32[] memory proof, bytes32 leaf) 
 		internal 

@@ -11,10 +11,10 @@ class StateManager {
 
     async initialSync() {
         await this.merkle.init()
-        // this.merkle.calcInitialRoots()
         this.addRegistrationStatus();
         this.addBalanceFromHistory();
         await invokeListener()
+        // this.merkle.calcInitialRoots()
     }
 
     addRegistrationStatus() {
@@ -40,7 +40,6 @@ class StateManager {
     }
 
     getDepositProof(address) {
-        // this.merkle.getMultiProof()
         return this.merkle.getDepositProof(address);
     }
 

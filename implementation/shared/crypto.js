@@ -18,7 +18,7 @@ module.exports = {
             const token = hashValue[1];
             const nonce = new BN(hashValue[2].toString(), 10);
             const zero = new BN("0", 10) // we currently need this for ZoKrates compatibility
-            return abi.soliditySHA256(
+            return "0x" + abi.soliditySHA256(
                 [ "uint", "uint", "uint", "uint"],
                 [ ether, token, nonce, zero ]
             ).toString('hex')

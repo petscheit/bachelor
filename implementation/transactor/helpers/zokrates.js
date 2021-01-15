@@ -22,6 +22,7 @@ class ZokratesHelper {
     }
 
     async computeWitness(){
+        console.log("computing witness...")
         return await exec(this.buildProofString() + this.witnessCommand, (err, stdout, stderr) => {
             if (err) {
                 console.error(`exec error: ${err}`);
@@ -40,8 +41,18 @@ class ZokratesHelper {
             deltaEth: trade.deltaEth.toString(10),
             deltaToken: trade.deltaToken.toString(10),
             nonce: trade.nonce.toString(),
-            direction: trade.direction.toString()
+            direction: trade.direction.toString(),
+            address: this.toEightBytesArray(trade.address)
         }
+    }
+
+    toEigthBytesArray(leaf){
+        let newLeaf = new Array(8);
+        if(leaf.substring(0,2) == "0x") leaf = leaf.split("0x")[1]
+        for(let i = 0; i < leaf.length; i += 8){
+            newLeaf[i/8] = "0x" + leaf.substring(i, i + 8)
+        }
+        return newLeaf
     }
 }
 

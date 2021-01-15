@@ -1,7 +1,7 @@
 const { MerkleTree } = require('merkletreejs')
 const { getRegisterEvents, getDepositEvents } = require("../helpers/web3");
 const { soliditySha256 } = require("./crypto");
-const { toBN } = require("./conversion")
+const { toBN, weiToMwei } = require("./conversion")
 const BN = require('bn.js');
 
 class ZkMerkleTree {

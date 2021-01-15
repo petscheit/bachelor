@@ -1,6 +1,7 @@
 
 
 export const broadcastTrade = async (tradeArgs) => {
+    console.log(tradeArgs.deltaEth.toString())
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
