@@ -2,6 +2,7 @@
 pragma solidity ^0.6.0;
 
 import "./openzeppelin/token/ERC20/IERC20.sol";
+import "./verifier.sol";
 
 contract ZkSwap {
 
@@ -9,6 +10,11 @@ contract ZkSwap {
 	bytes32 public balances = 0x9888c069c7dec5713aa8bc435c9c6c02b909c7e17201989b68a5a5fadb71aa8b;
 	address public erc20;
 	address public verifier;
+
+	uint private tradePoolExpiration; // variable used for tracking blocknumber for trade pool sealing;
+	uint public minAmountOut;
+
+
 	enum CurrecyType { Ether, Bat }
 
 	modifier canUpdateBalance(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce)
@@ -26,7 +32,7 @@ contract ZkSwap {
 	}
 
 	event Registered(address _from);
-	event Deposit(address _from, uint ethAmount, uint tokenAmount);
+	event Deposit(address _from, uint ethAmount, uint tokenAmount, uint nonce);
 
 	event BalanceUpdate(address _from, uint ethAmount, uint tokenAmount, uint nonce);
 	
@@ -47,18 +53,39 @@ contract ZkSwap {
 	    emit Debug(IERC20(erc20).totalSupply());
 	}
 
-	function verifyTrade(uint[] calldata ethAmount, uint[] calldata tokenAmount, uint[] calldata nonce, address[] calldata from, bytes32 shaHash, bytes32 newBalanceRoot)
+	function verifyTrade(
+		uint[] calldata ethAmount, 
+		uint[] calldata tokenAmount, 
+		uint[] calldata nonce, 
+		address[] calldata from, 
+		uint[2] calldata a,
+		uint[2][2] calldata b,
+		uint[2] calldata c, 
+		uint[16] calldata input // [0:8]: root, [8:16]: data hash
+	)
 		external
-	{
-		// check verifier
-		assert(checkTradeData(ethAmount, tokenAmount, nonce, from, shaHash));
+		payable
+	{		
+		// check inputs maybe?
+		assert(checkTradeData(ethAmount, tokenAmount, nonce, from, concatHashes(input[8], input[9], input[10], input[11], input[12], input[13], input[14], input[15]))); // ensures inputs where used as zokrates inputs
+		assert(Verifier(verifier).verifyTx(a, b, c, input)); // zkSnark verification
+		emitNewBalances(ethAmount, tokenAmount, nonce, from);
+		balances = concatHashes(input[0], input[1], input[2], input[3], input[4], input[5], input[6], input[7]);
 		// check msg.value OR ERC20 allowance if needed
 		// transfer ERC20 funds to contract
 		// update root
 		// emit balances
 	}
 
-	function checkTradeData(uint[] memory ethAmount, uint[] memory tokenAmount, uint[] memory nonce, address[] memory from, bytes32 shaHash)
+	function emitNewBalances(uint[] memory ethAmount, uint[] memory tokenAmount, uint[] memory nonce, address[] memory from)
+		private
+	{
+		for(uint i = 0; i < ethAmount.length; i++) {
+			emit Deposit(from[i], ethAmount[i], tokenAmount[i], nonce[i]);
+		}
+	}
+
+	function checkTradeData(uint[] memory ethAmount, uint[] memory tokenAmount, uint[] memory nonce, address[] memory from, bytes32 shaHash) // reimplement for dynamic array size
 		internal
 		returns (bool)
 	{
@@ -75,16 +102,16 @@ contract ZkSwap {
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
 		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount + (msg.value / 1000000), tokenAmount, nonce, uint(0))));
-		emit Deposit(msg.sender, ethAmount + (msg.value / 1000000), tokenAmount);
+		emit Deposit(msg.sender, ethAmount + (msg.value / 1000000), tokenAmount, nonce);
 	}
 
 	function depositERC20(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint depositAmount)
 		public
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
-		IERC20(erc20).transferFrom(msg.sender, address(this), depositAmount);
+		IERC20(erc20).transferFrom(msg.sender, address(this), depositAmount * 1000000);
 		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount + depositAmount, nonce, uint(0))));
-		emit Deposit(msg.sender, ethAmount, tokenAmount + depositAmount);
+		emit Deposit(msg.sender, ethAmount, tokenAmount + depositAmount, nonce);
 	}
 
 	function withdrawEth(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount)
@@ -93,8 +120,8 @@ contract ZkSwap {
 	{
 		require(ethAmount >= withdrawAmount);
 		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount - withdrawAmount, tokenAmount, nonce, uint(0))));
-		emit Deposit(msg.sender, ethAmount - withdrawAmount, tokenAmount);
-		(bool success, ) = msg.sender.call.value(withdrawAmount)("");
+		emit Deposit(msg.sender, ethAmount - withdrawAmount, tokenAmount, nonce);
+		(bool success, ) = msg.sender.call.value(withdrawAmount * 1000000)("");
         require(success, "Transfer failed.");		
 	}
 
@@ -103,9 +130,9 @@ contract ZkSwap {
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
 		require(tokenAmount >= withdrawAmount);
-		IERC20(erc20).transfer(msg.sender, withdrawAmount);
+		IERC20(erc20).transfer(msg.sender, withdrawAmount * 1000000);
 		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount - withdrawAmount, nonce, uint(0))));
-		emit Deposit(msg.sender, ethAmount, tokenAmount - withdrawAmount);
+		emit Deposit(msg.sender, ethAmount, tokenAmount - withdrawAmount, nonce);
 	}
 
 	function verifyUserMerkle(bytes32[] memory proof, bytes32 leaf) 
@@ -158,6 +185,22 @@ contract ZkSwap {
 		return computedHash;
 	}
 
+	function concatHashes(uint a, uint b, uint c, uint d, uint e, uint f, uint g, uint h) //734 gas
+        private
+        returns (bytes32)
+    {
+        uint256 result; 
+        result = result | a << 224;
+		result = result | b << 192;
+		result = result | c << 160;
+		result = result | d << 128;
+		result = result | e << 96;
+		result = result | f << 64;
+		result = result | g << 32;
+		result = result | h;
+       return bytes32(result);
+    }
+
 	function checkInputs(bytes32[] memory proof, bytes32 leaf)
 		internal
 		pure
@@ -174,3 +217,8 @@ contract ZkSwap {
 		return true;
 	}
 }
+
+
+// TODO
+// -SafeMath
+// Ensure inputs maybe?

@@ -71,11 +71,10 @@ const depositERC20 = async function(amount) {
   const instance = store.getState().contract.instance;
   const erc20Instance = store.getState().contract.erc;
   const proof = store.getState().contract.stateManager.getDepositProof(address)
-  await erc20Instance.methods.approve("0x139EB3Ed38B393AaD7f26D24E641dA218961F567", amount)
+  await erc20Instance.methods.approve("0x328fAb8128A089d9b12c7c90AD08B4432f5a6290", mweiToWei(amount))
   .send({
     from: address,
   })
-  .then(res => console.log)
   return instance.methods.depositERC20(proof[0], proof[1], proof[2], proof[3], proof[4], amount).send({
     from: address,
   })
@@ -83,6 +82,7 @@ const depositERC20 = async function(amount) {
     res => console.log
   )
 }
+// 10000000000000000
 
 const depositEth = async function(amount) {
   const address = store.getState().user.address;
