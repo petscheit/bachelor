@@ -14,9 +14,6 @@ class TransactorMerkle extends ZkMerkleTree {
         trade = this.convertTradeToBN(trade)
         if (!this.verifyBalanceLeaf(trade)) return false // ensures that where passed are in merkletree
         if(!this.ensureCorrectPrice(trade, 20.4)) return false;
-        console.log("herrre")
-        console.log(trade.ethAmount.toString())
-        console.log(trade.deltaEth.toString())
         if(trade.direction === 0) {
             console.log("masde ittt")
             console.log(trade.ethAmount.gte(trade.deltaEth))
@@ -36,7 +33,6 @@ class TransactorMerkle extends ZkMerkleTree {
         const tree = super.getTree("balance");
         const root = tree.getHexRoot();
         const leaf = soliditySha256([trade.ethAmount, trade.tokenAmount, trade.nonce]);
-        console.log(leaf)
         const index = super.getAddressIndex(trade.address);
         const proof = tree.getHexProof(leaf, index);
         return tree.verify(proof, leaf, root)
@@ -61,11 +57,20 @@ class TransactorMerkle extends ZkMerkleTree {
         const root = tree.getHexRoot();
         const proofLeafs = indices.map(i => soliditySha256([this.balances[i].ethAmount, this.balances[i].tokenAmount, this.balances[i].nonce]))
         const proof = tree.getHexMultiProof(indices)
+
         const proofFlags = tree.getProofFlags(indices, tree.getMultiProof(indices))
         const paddedProof = this.addPadding(proof, proofFlags.length).map(leaf => this.toEigthBytesArray(leaf))
         const verifiedLocal = tree.verifyMultiProof(root, indices, proofLeafs, tree.getDepth(), proof)
         console.log(root)
+        console.log("Verified locally:", verifiedLocal)
         return [paddedProof, proofFlags, this.toEigthBytesArray(root)]
+    }
+
+    calcNewRoot(balances, indexes) {
+        console.log(balances)
+        for(let i = 0; i < indexes.lenght; i++){
+            
+        }
     }
 
     toEigthBytesArray(leaf){

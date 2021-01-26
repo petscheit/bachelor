@@ -101,8 +101,8 @@ contract ZkSwap {
 		payable
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
-		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount + (msg.value / 1000000), tokenAmount, nonce, uint(0))));
-		emit Deposit(msg.sender, ethAmount + (msg.value / 1000000), tokenAmount, nonce);
+		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount + (msg.value / 1000000), tokenAmount, nonce + 1, uint(0))));
+		emit Deposit(msg.sender, ethAmount + (msg.value / 1000000), tokenAmount, nonce + 1);
 	}
 
 	function depositERC20(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint depositAmount)
@@ -110,8 +110,8 @@ contract ZkSwap {
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
 		IERC20(erc20).transferFrom(msg.sender, address(this), depositAmount * 1000000);
-		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount + depositAmount, nonce, uint(0))));
-		emit Deposit(msg.sender, ethAmount, tokenAmount + depositAmount, nonce);
+		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount + depositAmount, nonce + 1, uint(0))));
+		emit Deposit(msg.sender, ethAmount, tokenAmount + depositAmount, nonce + 1);
 	}
 
 	function withdrawEth(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount)
@@ -119,8 +119,8 @@ contract ZkSwap {
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
 		require(ethAmount >= withdrawAmount);
-		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount - withdrawAmount, tokenAmount, nonce, uint(0))));
-		emit Deposit(msg.sender, ethAmount - withdrawAmount, tokenAmount, nonce);
+		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount - withdrawAmount, tokenAmount, nonce + 1, uint(0))));
+		emit Deposit(msg.sender, ethAmount - withdrawAmount, tokenAmount, nonce + 1);
 		(bool success, ) = msg.sender.call.value(withdrawAmount * 1000000)("");
         require(success, "Transfer failed.");		
 	}
@@ -131,8 +131,8 @@ contract ZkSwap {
 	{
 		require(tokenAmount >= withdrawAmount);
 		IERC20(erc20).transfer(msg.sender, withdrawAmount * 1000000);
-		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount - withdrawAmount, nonce, uint(0))));
-		emit Deposit(msg.sender, ethAmount, tokenAmount - withdrawAmount, nonce);
+		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount - withdrawAmount, nonce + 1, uint(0))));
+		emit Deposit(msg.sender, ethAmount, tokenAmount - withdrawAmount, nonce + 1);
 	}
 
 	function verifyUserMerkle(bytes32[] memory proof, bytes32 leaf) 

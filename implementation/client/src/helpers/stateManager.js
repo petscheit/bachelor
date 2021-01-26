@@ -25,8 +25,8 @@ class StateManager {
         store.dispatch(addBalance(this.merkle.getBalance(store.getState().user.address)))
     }
 
-    updateBalance(ether, token, address) {
-        const updatedBalance = this.merkle.updateBalance(toBN(ether), toBN(token), address);
+    updateBalance(ether, token, nonce, address) {
+        const updatedBalance = this.merkle.updateBalance(toBN(ether), toBN(token), nonce, address);
         store.dispatch(addBalance(updatedBalance))
     }
 

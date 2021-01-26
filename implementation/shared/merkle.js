@@ -25,9 +25,10 @@ class ZkMerkleTree {
         this.index++;
     }
 
-    addBalance(ethAmount, tokenAmount, index) {
+    addBalance(ethAmount, tokenAmount, nonce, index) {
         this.balances[index].ethAmount = toBN(ethAmount);
         this.balances[index].tokenAmount = toBN(tokenAmount);
+        this.balances[index].nonce = nonce;
     }
 
     getBalance(address) {
@@ -38,9 +39,9 @@ class ZkMerkleTree {
         return this.users.indexOf(address);
     }
 
-    updateBalance(ethAmount, tokenAmount, address) {
+    updateBalance(ethAmount, tokenAmount, nonce, address) {
         const index = this.getAddressIndex(address);    
-        this.addBalance(ethAmount, tokenAmount, index);
+        this.addBalance(ethAmount, tokenAmount, nonce, index);
         return this.getBalance(address);
     }
 
@@ -48,7 +49,7 @@ class ZkMerkleTree {
         let events = await getDepositEvents();
         for(let i = 0; i < events.length; i++){
             const index = this.getAddressIndex(events[i].returnValues._from)
-            this.addBalance(events[i].returnValues.ethAmount, events[i].returnValues.tokenAmount, index)
+            this.addBalance(events[i].returnValues.ethAmount, events[i].returnValues.tokenAmount, events[i].returnValues.nonce, index)
         }
         console.log("Deposits synced successfully!")
     }

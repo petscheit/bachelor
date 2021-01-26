@@ -1,5 +1,5 @@
 const TransactorMerkle = require("./transactorMerkle") 
-const { getContractInstance } = require("./web3");
+const { getContractInstance, verifyTrade } = require("./web3");
 const ZokratesHelper = require("./zokrates");
 const Aggregator = require("./aggregator");
 const assert = require('assert').strict;
@@ -35,7 +35,7 @@ class Transactor {
         if(caughtEvent === "Registered"){
           this.merkle.addAddress(event.returnValues["_from"])
         } else if(caughtEvent === "Deposit"){
-          this.merkle.updateBalance(event.returnValues.ethAmount, event.returnValues.tokenAmount, event.returnValues["_from"])
+          this.merkle.updateBalance(event.returnValues.ethAmount, event.returnValues.tokenAmount, event.returnValues.nonce, event.returnValues["_from"])
           this.merkle.calcInitialRoots()
         }
         latestBlockNumber = event.blockNumber;
@@ -57,8 +57,17 @@ class Transactor {
     // this.zokratesHelper.prepareTrade(this.tradePool, proofData[0], proofData[1], proofData[2])
     // const result = this.zokratesHelper.computeWitness()
     // console.log(result)
-    this.aggregator.start(this.tradePool)
+    const balances = this.aggregator.start(this.tradePool);
+    const proofData = this.merkle.getMulti(this.tradePoolLeafIndex);
+    this.zokratesHelper.prepareTrade(balances[0], balances[1], proofData[0], proofData[1], proofData[2])
+    this.zokratesHelper.computeWitness()
+      .then(proofObject => {
+        console.log(proofObject)
+        console.log("we are doneeeee, this time for reaal")
+        const balancesTxObject = this.aggregator.buildBalanceTxObject(balances[1])
+        verifyTrade(balancesTxObject, proofObject)
 
+      })
   }
 }
 

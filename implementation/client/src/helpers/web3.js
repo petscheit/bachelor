@@ -36,7 +36,7 @@ export const invokeListener = async function() {
             if(event.returnValues["_from"] === store.getState().user.address){
               console.log(event)
               console.log(event.returnValues.ethAmount)
-              store.getState().contract.stateManager.updateBalance(event.returnValues.ethAmount, event.returnValues.tokenAmount, event.returnValues["_from"])
+              store.getState().contract.stateManager.updateBalance(event.returnValues.ethAmount, event.returnValues.tokenAmount, event.returnValues.nonce, event.returnValues["_from"])
             }
           }
           latestBlockNumber = event.blockNumber;
