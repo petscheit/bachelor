@@ -3,16 +3,6 @@ import "hashes/sha256/1024bitPadded" as sha256_4
 import "utils/casts/u32_to_field" as to_field
 import "utils/pack/u32/nonStrictUnpack256" as to_u32_8
 
-struct Trade {
-	field ethAmount 
-	field tokenAmount 
-	field nonce
-	field deltaEth
-	field deltaToken
-	field direction // 0: -eth, +token  1: -token, +eth
-	u32[5] address
-}
-
 struct Balance {
 	field ethAmount
 	field tokenAmount
@@ -20,33 +10,10 @@ struct Balance {
 	u32[5] address
 }
 
-def checkEthSell(Trade trade) -> Balance: 
-	bool valid = trade.ethAmount >= trade.deltaEth      
-	Balance res = if valid \
-			then Balance { ethAmount: trade.ethAmount - trade.deltaEth, tokenAmount: trade.tokenAmount + trade.deltaToken, nonce: trade.nonce + 1, address: trade.address } \
-			else Balance { ethAmount: trade.ethAmount, tokenAmount: trade.tokenAmount, nonce: trade.nonce, address: trade.address } fi
-	return res
-
-def checkTokenSell(Trade trade) -> Balance:
-	bool valid = trade.tokenAmount >= trade.deltaToken
-	Balance res = if valid \
-			then Balance { ethAmount: trade.ethAmount + trade.deltaEth, tokenAmount: trade.tokenAmount - trade.deltaToken, nonce: trade.nonce + 1, address: trade.address } \
-			else Balance { ethAmount: trade.ethAmount, tokenAmount: trade.tokenAmount, nonce: trade.nonce, address: trade.address } fi
-	return res
-
 def hashPair(u32[8] a, u32[8] b) -> (u32[8]):
 	return if to_field(a[0]) <= to_field(b[0]) then sha256(a, b) else sha256(b, a) fi
 
-def hashLeafs(Trade[3] trades) -> (u32[3][8]):
-	u32[3][8] res = [[0x00000000;8];3] // TODO use proper sha2 spec padding
-	u32[8] padding = [0x00000000;8]
-	for field i in 0..3 do
-		u32[8] temp = sha256_4(to_u32_8(trades[i].ethAmount), to_u32_8(trades[i].tokenAmount), to_u32_8(trades[i].nonce), padding)
-		res[i] = temp
-	endfor
-	return res
-
-def hashLeafs(Balance[3] balances) -> (u32[3][8]):
+def hashLeafs(Balance[3] balances) -> (u32[3][8]): // TODO: use sha-2 spec padding
 	u32[3][8] res = [[0x00000000;8];3]
 	u32[8] padding = [0x00000000;8]
 	for field i in 0..3 do
@@ -87,18 +54,15 @@ def hashFinalBalances(Balance[3] balances) -> (u32[8]):
 		sha256_4(to_u32_8(balances[2].ethAmount), to_u32_8(balances[2].tokenAmount), to_u32_8(balances[2].nonce), [...balances[2].address, ...paddingAddress]), \
 		dummyBlock)
 
-def updateBalances(Trade[3] trades) -> (Balance[3]):
-	Balance[3] balances = [Balance{ ethAmount: 0, tokenAmount: 0, nonce: 0, address: [0x00000000; 5] };3]
-	for field i in 0..3 do
-		Balance bal= if trades[i].direction == 0 then checkEthSell(trades[i]) else checkTokenSell(trades[i]) fi
-		balances[i] = bal
-	endfor
-	return balances
-
-def main(private Trade[3] trades, private u32[9][8] proof, private bool[9] proofFlags, u32[8] root) -> (Balance[3], u32[8], u32[8]):
-	u32[9][8] leafsPadded = [...hashLeafs(trades), ...[[0x00000000;8];6]] // we need to pass empty leafs for this to compile. The proof flags will ensure that these values are never used for hashing
+def main(private Balance[3] oldBalances, private Balance[3] newBalances, private u32[9][8] proof, private bool[9] proofFlags, private u32[8] root) -> (u32[8], u32[8]):
+	u32[9][8] leafsPadded = [...hashLeafs(oldBalances), ...[[0x00000000;8];6]] // we need to pass empty leafs for this to compile. The proof flags will ensure that these values are never used for hashing
 	assert(root == verifyMultiProof(leafsPadded, proof, proofFlags)) // passed trades contain correct balances. First check OK
-	Balance[3] balances = updateBalances(trades)
-	u32[9][8] newLeafsPadded = [...hashLeafs(trades), ...[[0x00000000;8];6]]
+	u32[9][8] newLeafsPadded = [...hashLeafs(newBalances), ...[[0x00000000;8];6]]
 	u32[8] newRoot = verifyMultiProof(newLeafsPadded, proof, proofFlags)
-	return balances, newRoot, hashFinalBalances(balances)
+	return newRoot, hashFinalBalances(newBalances)
+
+
+// TODO:
+// - Signatures
+// - Nonce check
+// - Price check
