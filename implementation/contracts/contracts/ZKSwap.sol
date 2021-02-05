@@ -7,12 +7,13 @@ import "./verifier.sol";
 contract ZkSwap {
 
 	bytes32 public users = 0x113f6d6d1b1bf24631064680373348b5004288de46820619289926eb64f8b838; // initial root with 1 set account and 3 zero accounts
-	bytes32 public balances = 0x9888c069c7dec5713aa8bc435c9c6c02b909c7e17201989b68a5a5fadb71aa8b;
+	bytes32 public balances = 0x92f4853bec2930dcf538f3d620cf297bdcbce51afc7b69b6563fc977afdefd7f;
 	address public erc20;
 	address public verifier;
 
 	uint private tradePoolExpiration; // variable used for tracking blocknumber for trade pool sealing;
-	uint public minAmountOut;
+	uint public setEthAmount = 1000000000000;
+	uint public setTokenAmout = 20400000000000;
 
 
 	enum CurrecyType { Ether, Bat }
@@ -20,7 +21,7 @@ contract ZkSwap {
 	modifier canUpdateBalance(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce)
 	{
 		require(verifyUserMerkle(userProof, sha256(abi.encodePacked(msg.sender))), "User merkle couldn't be reproduced!"); // makes sure sender is registered
- 		require(verifyBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount, nonce, uint(0)))), "Balance merkle couldn't be reproduced!"); // checks if passed balance amount is correct
+ 		require(verifyBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount, nonce))), "Balance merkle couldn't be reproduced!"); // checks if passed balance amount is correct
 		_;
 	}
 
@@ -37,15 +38,6 @@ contract ZkSwap {
 	event BalanceUpdate(address _from, uint ethAmount, uint tokenAmount, uint nonce);
 	
     event Debug(uint amount);
-
-	function register(bytes32[] memory proof, bytes32 oldLeaf)
-	 	public 
-	{
-		require(checkInputs(proof, oldLeaf));
-		require(verifyUserMerkle(proof, oldLeaf));
-		updateUserMerkle(proof, sha256(abi.encodePacked(msg.sender)));
-		emit Registered(msg.sender);
-	}
 	
 	function getSupply()
 	    public
@@ -61,19 +53,18 @@ contract ZkSwap {
 		uint[2] calldata a,
 		uint[2][2] calldata b,
 		uint[2] calldata c, 
-		uint[16] calldata input // [0:8]: root, [8:16]: data hash
+		uint[4] calldata input // [0:8]: root, [8:16]: data hash, could hash the root aswell, would reduce validation iteration by 1
 	)
 		external
 		payable
 	{		
 		// check inputs maybe?
-		assert(checkTradeData(ethAmount, tokenAmount, nonce, from, concatHashes(input[8], input[9], input[10], input[11], input[12], input[13], input[14], input[15]))); // ensures inputs where used as zokrates inputs
+		assert(checkTradeData(ethAmount, tokenAmount, nonce, from, concatHashes(input[2], input[3]))); // ensures inputs where used as zokrates inputs
 		assert(Verifier(verifier).verifyTx(a, b, c, input)); // zkSnark verification
-		emitNewBalances(ethAmount, tokenAmount, nonce, from);
-		balances = concatHashes(input[0], input[1], input[2], input[3], input[4], input[5], input[6], input[7]);
+		// emitNewBalances(ethAmount, tokenAmount, nonce, from);
+		balances = concatHashes(input[0], input[1]);
 		// check msg.value OR ERC20 allowance if needed
 		// transfer ERC20 funds to contract
-		// update root
 		// emit balances
 	}
 
@@ -89,11 +80,20 @@ contract ZkSwap {
 		internal
 		returns (bool)
 	{
-		bytes32[] memory _hashes;
+		bytes32[] memory _hashes = new bytes32[](3);
 		for(uint i = 0; i < ethAmount.length; i++){
 			_hashes[i] = sha256(abi.encodePacked(ethAmount[i], tokenAmount[i], nonce[i], from[i]));
 		}
 		return sha256(abi.encodePacked(_hashes[0], _hashes[1], _hashes[2])) == shaHash;
+	}
+
+	function register(bytes32[] memory proof, bytes32 oldLeaf)
+	 	public 
+	{
+		require(checkInputs(proof, oldLeaf));
+		require(verifyUserMerkle(proof, oldLeaf));
+		updateUserMerkle(proof, sha256(abi.encodePacked(msg.sender)));
+		emit Registered(msg.sender);
 	}
 	
 	function depositEth(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce)
@@ -101,7 +101,7 @@ contract ZkSwap {
 		payable
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
-		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount + (msg.value / 1000000), tokenAmount, nonce + 1, uint(0))));
+		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount + (msg.value / 1000000), tokenAmount, nonce + 1)));
 		emit Deposit(msg.sender, ethAmount + (msg.value / 1000000), tokenAmount, nonce + 1);
 	}
 
@@ -110,7 +110,7 @@ contract ZkSwap {
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
 		IERC20(erc20).transferFrom(msg.sender, address(this), depositAmount * 1000000);
-		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount + depositAmount, nonce + 1, uint(0))));
+		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount + depositAmount, nonce + 1)));
 		emit Deposit(msg.sender, ethAmount, tokenAmount + depositAmount, nonce + 1);
 	}
 
@@ -119,7 +119,7 @@ contract ZkSwap {
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
 		require(ethAmount >= withdrawAmount);
-		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount - withdrawAmount, tokenAmount, nonce + 1, uint(0))));
+		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount - withdrawAmount, tokenAmount, nonce + 1)));
 		emit Deposit(msg.sender, ethAmount - withdrawAmount, tokenAmount, nonce + 1);
 		(bool success, ) = msg.sender.call.value(withdrawAmount * 1000000)("");
         require(success, "Transfer failed.");		
@@ -131,7 +131,7 @@ contract ZkSwap {
 	{
 		require(tokenAmount >= withdrawAmount);
 		IERC20(erc20).transfer(msg.sender, withdrawAmount * 1000000);
-		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount - withdrawAmount, nonce + 1, uint(0))));
+		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount - withdrawAmount, nonce + 1)));
 		emit Deposit(msg.sender, ethAmount, tokenAmount - withdrawAmount, nonce + 1);
 	}
 
@@ -185,19 +185,13 @@ contract ZkSwap {
 		return computedHash;
 	}
 
-	function concatHashes(uint a, uint b, uint c, uint d, uint e, uint f, uint g, uint h) //734 gas
+	function concatHashes(uint a, uint b)
         private
         returns (bytes32)
     {
         uint256 result; 
-        result = result | a << 224;
-		result = result | b << 192;
-		result = result | c << 160;
-		result = result | d << 128;
-		result = result | e << 96;
-		result = result | f << 64;
-		result = result | g << 32;
-		result = result | h;
+        result = result | a << 128;
+		result = result | b;
        return bytes32(result);
     }
 
