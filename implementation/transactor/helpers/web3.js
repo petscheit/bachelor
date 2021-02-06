@@ -23,6 +23,32 @@ const getContractInstance = async () => {
     );
 }
 
+const verifyTradeOnchain = async (balanceTxObject, proofObject) => {
+    const web3 = await getWeb3();
+    let accounts = await web3.eth.getAccounts();
+    let instance = await getContractInstance();
+    console.log(proofObject)
+    console.log(balanceTxObject)
+    instance.methods.verifyTrade(
+        balanceTxObject.ethAmount, 
+        balanceTxObject.tokenAmount, 
+        balanceTxObject.nonce, 
+        balanceTxObject.address,
+        proofObject.proof.a,
+        proofObject.proof.b,
+        proofObject.proof.c,
+        proofObject.inputs
+    ).send({
+        from: accounts[0],
+        gas: 6000000
+    })
+    .then(res => console.log(res))
+    .catch(err => {
+        console.error(err)
+    })
+}
+
+exports.verifyTradeOnchain = verifyTradeOnchain;
 exports.getRegisterEvents = getRegisterEvents;
-exports.getDepositEvents = getDepositEvents
-exports.getContractInstance = getContractInstance
+exports.getDepositEvents = getDepositEvents;
+exports.getContractInstance = getContractInstance;

@@ -1,8 +1,9 @@
 const TransactorMerkle = require("./transactorMerkle") 
-const { getContractInstance, verifyTrade } = require("./web3");
+const { getContractInstance, verifyTradeOnchain } = require("./web3");
 const ZokratesHelper = require("./zokrates");
 const Aggregator = require("./aggregator");
 const assert = require('assert').strict;
+const fs = require('fs');
 
 class Transactor {
   constructor(){
@@ -50,22 +51,24 @@ class Transactor {
     this.poolTraders.push(reqBody.address)
     this.tradePoolLeafIndex.push(this.merkle.getAddressIndex(reqBody.address))
     console.log(this.tradePool)
+    // console.log(this.tradePoolLeafIndex)
   }
 
-  triggerTradeAggregation(){
-    // const proofData = this.merkle.getMulti(this.tradePoolLeafIndex)
-    // this.zokratesHelper.prepareTrade(this.tradePool, proofData[0], proofData[1], proofData[2])
-    // const result = this.zokratesHelper.computeWitness()
-    // console.log(result)
+  async triggerTradeAggregation(){
     const balances = this.aggregator.start(this.tradePool);
     const proofData = this.merkle.getMulti(this.tradePoolLeafIndex);
     this.zokratesHelper.prepareTrade(balances[0], balances[1], proofData[0], proofData[1], proofData[2])
+    this.merkle.calcNewRoot(balances[1])
+    const balancesTxObject = this.aggregator.buildBalanceTxObject(balances[1])
+    // const proofObject = JSON.parse(fs.readFileSync('./zokrates_circuits/proof.json'))
+    // verifyTradeOnchain(balancesTxObject, proofObject)
     this.zokratesHelper.computeWitness()
       .then(proofObject => {
         console.log(proofObject)
-        console.log("we are doneeeee, this time for reaal")
         const balancesTxObject = this.aggregator.buildBalanceTxObject(balances[1])
-        verifyTrade(balancesTxObject, proofObject)
+        verifyTradeOnchain(balancesTxObject, proofObject)
+        .then(() => console.log("we are doneeeee, this time for reaal"))
+        
 
       })
   }

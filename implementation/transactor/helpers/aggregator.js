@@ -17,6 +17,7 @@ class Aggregator {
             console.log("For " + mweiToEth(combinedDeltas.deltaEth) + " Eth")
         }
         console.log(this.buildNewBalances(trades))
+        return [this.buildOldBalances(trades), this.buildNewBalances(trades)]
     }
 
     // returns 
@@ -35,27 +36,66 @@ class Aggregator {
         return {deltaEth, deltaToken}
     }
 
-    buildNewBalances(trades){
+    buildNewBalances(trades) {
         let newBal = [];
         for(let i = 0; i < trades.length; i++){
             if(trades[i].direction === 0){
                 newBal.push({
-                    ethAmount: trades[i].ethAmount.isub(trades[i].deltaEth), 
-                    tokenAmount: trades[i].tokenAmount.iadd(trades[i].deltaToken), 
-                    nonce: trades[i].nonce + 1, 
+                    ethAmount: trades[i].ethAmount.sub(trades[i].deltaEth), 
+                    tokenAmount: trades[i].tokenAmount.add(trades[i].deltaToken), 
+                    nonce: Number(trades[i].nonce) + 1, 
                     address: trades[i].address
                 })
             } else if (trades[i].direction === 1){
                 newBal.push({
-                    ethAmount: trades[i].ethAmount.iadd(trades[i].deltaEth), 
-                    tokenAmount: trades[i].tokenAmount.isub(trades[i].deltaToken), 
-                    nonce: trades[i].nonce + 1, 
+                    ethAmount: trades[i].ethAmount.add(trades[i].deltaEth), 
+                    tokenAmount: trades[i].tokenAmount.sub(trades[i].deltaToken), 
+                    nonce: Number(trades[i].nonce) + 1, 
                     address: trades[i].address
                 })
             }
         }
         return newBal;
     }
+
+    buildOldBalances(trades) {
+        console.log(trades[0].tokenAmount.toString())
+        let newBal = [];
+        for(let i = 0; i < trades.length; i++){
+            if(trades[i].direction === 0){
+                newBal.push({
+                    ethAmount: trades[i].ethAmount, 
+                    tokenAmount: trades[i].tokenAmount, 
+                    nonce: trades[i].nonce, 
+                    address: trades[i].address
+                })
+            } else if (trades[i].direction === 1){
+                newBal.push({
+                    ethAmount: trades[i].ethAmount, 
+                    tokenAmount: trades[i].tokenAmount, 
+                    nonce: trades[i].nonce, 
+                    address: trades[i].address
+                })
+            }
+        }
+        return newBal;
+    }
+
+    buildBalanceTxObject(newBalances) {
+        let ethAmount = [];
+        let tokenAmount = [];
+        let nonce = [];
+        let address = [];
+        for(let i = 0; i < newBalances.length; i++) {
+            ethAmount.push(newBalances[i].ethAmount)
+            tokenAmount.push(newBalances[i].tokenAmount)
+            nonce.push(newBalances[i].nonce)
+            address.push(newBalances[i].address)
+        }
+        return {ethAmount, tokenAmount, nonce, address}
+    }
+
+    
 }
 
 module.exports = Aggregator;
