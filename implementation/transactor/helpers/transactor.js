@@ -35,7 +35,7 @@ class Transactor {
         const caughtEvent = event.event;
         if(caughtEvent === "Registered"){
           this.merkle.addAddress(event.returnValues["_from"])
-        } else if(caughtEvent === "Deposit"){
+        } else if(caughtEvent === "BalanceUpdate"){
           this.merkle.updateBalance(event.returnValues.ethAmount, event.returnValues.tokenAmount, event.returnValues.nonce, event.returnValues["_from"])
           this.merkle.calcInitialRoots()
         }

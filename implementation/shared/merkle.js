@@ -1,5 +1,5 @@
 const { MerkleTree } = require('merkletreejs')
-const { getRegisterEvents, getDepositEvents } = require("../helpers/web3");
+const { getRegisterEvents, getBalanceEvents } = require("../helpers/web3");
 const { soliditySha256 } = require("./crypto");
 const { toBN, weiToMwei } = require("./conversion")
 const BN = require('bn.js');
@@ -17,7 +17,7 @@ class ZkMerkleTree {
 
     async init(){
         await this.syncRegisterEvents();
-        await this.syncDepositEvents();
+        await this.syncBalanceEvents();
     }
 
     addAddress(address) {
@@ -45,8 +45,8 @@ class ZkMerkleTree {
         return this.getBalance(address);
     }
 
-    async syncDepositEvents(){
-        let events = await getDepositEvents();
+    async syncBalanceEvents(){
+        let events = await getBalanceEvents();
         for(let i = 0; i < events.length; i++){
             const index = this.getAddressIndex(events[i].returnValues._from)
             this.addBalance(events[i].returnValues.ethAmount, events[i].returnValues.tokenAmount, events[i].returnValues.nonce, index)

@@ -7,9 +7,9 @@ const getRegisterEvents = async function() {
     return events;
 }
 
-const getDepositEvents = async function() {
+const getBalanceEvents = async function() {
     const instance = await getContractInstance();
-    let events = await instance.getPastEvents("Deposit", { fromBlock: "earliest" });
+    let events = await instance.getPastEvents("BalanceUpdate", { fromBlock: "earliest" });
     return events;
 }
 
@@ -50,5 +50,5 @@ const verifyTradeOnchain = async (balanceTxObject, proofObject) => {
 
 exports.verifyTradeOnchain = verifyTradeOnchain;
 exports.getRegisterEvents = getRegisterEvents;
-exports.getDepositEvents = getDepositEvents;
+exports.getBalanceEvents = getBalanceEvents;
 exports.getContractInstance = getContractInstance;

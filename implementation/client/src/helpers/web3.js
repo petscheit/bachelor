@@ -9,9 +9,9 @@ export const getRegisterEvents = async function() {
     return events;
 }
 
-export const getDepositEvents = async function() {
+export const getBalanceEvents = async function() {
     const instance = store.getState().contract.instance;
-    let events = await instance.getPastEvents("Deposit", { fromBlock: "earliest" });
+    let events = await instance.getPastEvents("BalanceUpdate", { fromBlock: "earliest" });
     return events;
 }
 
@@ -32,7 +32,7 @@ export const invokeListener = async function() {
             if(event.returnValues["_from"] === store.getState().user.address){
                 store.getState().contract.stateManager.updateRegistrationStatus(event.returnValues["_from"])
             }
-          } else if(caughtEvent === "Deposit"){
+          } else if(caughtEvent === "BalanceUpdate"){
             if(event.returnValues["_from"] === store.getState().user.address){
               console.log(event)
               console.log(event.returnValues.ethAmount)
