@@ -31,7 +31,7 @@ class ZokratesHelper {
             child.stdout.pipe(process.stdout)
             child.on('exit', function() {
                 console.log("Generation proof...")
-                let proofChild = exec("zokrates generate-proof -i ./zokrates_circuits/out -j ./zokrates_circuits/proof.json -p ./zokrates_circuits/proving.key");
+                let proofChild = exec("zokrates generate-proof -i ./zokrates_circuits/out -j ./zokrates_circuits/proof.json -p ./zokrates_circuits/proving.key -w ./zokrates_circuits/witness");
                 proofChild.stdout.pipe(process.stdout)
                 proofChild.on('exit', function() {
                     // process.exit()

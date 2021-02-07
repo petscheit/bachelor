@@ -51,7 +51,7 @@ class ZkMerkleTree {
             const index = this.getAddressIndex(events[i].returnValues._from)
             this.addBalance(events[i].returnValues.ethAmount, events[i].returnValues.tokenAmount, events[i].returnValues.nonce, index)
         }
-        console.log("Deposits synced successfully!")
+        console.log("Balances synced successfully!")
     }
 
     async syncRegisterEvents(){

@@ -53,7 +53,7 @@ contract ZkSwap {
 		uint[2] calldata a,
 		uint[2][2] calldata b,
 		uint[2] calldata c, 
-		uint[5] calldata input // [0:8]: root, [8:16]: data hash, could hash the root aswell, would reduce validation iteration by 1
+		uint[4] calldata input // [0:8]: root, [8:16]: data hash, could hash the root aswell, would reduce validation iteration by 1
 	)
 		external
 		payable
@@ -61,11 +61,20 @@ contract ZkSwap {
 		// check inputs maybe?
 		// assert(checkTradeData(ethAmount, tokenAmount, nonce, from, concatHashes(input[2], input[3]))); // ensures inputs where used as zokrates inputs
 		assert(Verifier(verifier).verifyTx(a, b, c, input)); // zkSnark verification
-		// emitNewBalances(ethAmount, tokenAmount, nonce, from);
+		emitNewBalances(ethAmount, tokenAmount, nonce, from);
 		balances = concatHashes(input[0], input[1]);
+		//ensure old root is the same (can also hash to test)
 		// check msg.value OR ERC20 allowance if needed
 		// transfer ERC20 funds to contract
 		// emit balances
+		updateSetPrice();
+	}
+
+	function updateSetPrice()
+		private
+		returns (uint)
+	{
+		setTokenAmout = 21000000000000;	
 	}
 
 	function emitNewBalances(uint[] memory ethAmount, uint[] memory tokenAmount, uint[] memory nonce, address[] memory from)
@@ -76,16 +85,18 @@ contract ZkSwap {
 		}
 	}
 
-	function checkTradeData(uint[] memory ethAmount, uint[] memory tokenAmount, uint[] memory nonce, address[] memory from, bytes32 shaHash) // reimplement for dynamic array size
-		internal
-		returns (bool)
-	{
-		bytes32[] memory _hashes = new bytes32[](3);
-		for(uint i = 0; i < ethAmount.length; i++){
-			_hashes[i] = sha256(abi.encodePacked(ethAmount[i], tokenAmount[i], nonce[i], from[i]));
-		}
-		return sha256(abi.encodePacked(_hashes[0], _hashes[1], _hashes[2])) == shaHash;
-	}
+	// function checkTradeData(uint[] memory ethAmount, uint[] memory tokenAmount, uint[] memory nonce, address[] memory from, bytes32 shaHash) // reimplement for dynamic array size
+	// 	internal
+	// 	returns (bool)
+	// {
+	// 	   uint length = ethAmount.length;
+	// 	bytes32[] memory _hashes = new bytes32[](length + 1);
+	// 	for(uint i = 0; i < ethAmount.length; i++){
+	// 		_hashes[i] = sha256(abi.encode(ethAmount[i], tokenAmount[i], nonce[i], addrs[i]));
+	// 	}
+	// 	_hashes[length] = sha256(abi.encode(uint(1000000000000), uint(20400000000000)));
+	// 	return sha256(abi.encodePacked(_hashes[0], _hashes[1], _hashes[2]));
+	// }
 
 	function register(bytes32[] memory proof, bytes32 oldLeaf)
 	 	public 
@@ -216,3 +227,7 @@ contract ZkSwap {
 // TODO
 // -SafeMath
 // Ensure inputs maybe?
+
+
+
+// ["0x05f8466fcd52efcc4e5e04ee2cd97f13abad304c636d9ea73ead6c46ae7492a1","0xbc4b629401c53d59faf08267e134f7fadc002cf4df6eefdac4e212ddd255be48","0x2a6a0b55abf1014b619d8be55afb8567f90c2af0b2f85ca9bd7c1cfa9eb8d0a0","0xa75302b096a66a65d80ff923dda83e8ca6a29cb9935a10028c850d92a648a4c0","0x7e60b89111726223d0ffdfa7bc7ec24c0dac7cb1a8bc2e84937e5feb872adf2e","0x94cda1ef0455d073efb5421a20752157ee9cfe898c41fd8f7aba0f60f105745a","0xc1f615a1a5d5a49b51949e655d99c9cebd37b0b58d21644bff4769448226f26f","0xfa06218cda9f4c0060657fec0c5c1a360f61d30b97d93c0e983c1755943e2af6"], 4000000000000, 20400000000000, 2
