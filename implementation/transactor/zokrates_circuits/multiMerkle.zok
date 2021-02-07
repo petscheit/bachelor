@@ -15,19 +15,30 @@ struct Balance {
 	u32[5] address
 }
 
-def verifyTrades(Balance[3] oldBalances, Balance[3] newBalances, field ethAmount, field tokenAmount) -> (bool):
+def verifyTrades(Balance[3] oldBalances, Balance[3] newBalances, field ethAmount, field tokenAmount) -> (field, field, field):
+	field boughtEth = 0
+	field soldEth = 0
+	field boughtToken = 0
+	field soldToken = 0
 	for field i in 0..3 do
 		assert(oldBalances[i].nonce == newBalances[i].nonce - 1) // makes sure the nonce is incremented
 		field tradeDirection = if oldBalances[i].ethAmount >= newBalances[i].ethAmount then 0 else 1 fi
 		field ethDelta = if tradeDirection == 0 then oldBalances[i].ethAmount - newBalances[i].ethAmount else newBalances[i].ethAmount - oldBalances[i].ethAmount fi
 		field tokenDelta = if tradeDirection == 0 then newBalances[i].tokenAmount - oldBalances[i].tokenAmount else oldBalances[i].tokenAmount - newBalances[i].tokenAmount fi
+		boughtEth = if tradeDirection == 1 then boughtEth + ethDelta else boughtEth fi
+		soldEth = if tradeDirection == 0 then soldEth + ethDelta else soldEth fi
+		boughtToken = if tradeDirection == 0 then boughtToken + tokenDelta else boughtToken fi
+		soldToken = if tradeDirection == 1 then soldToken + tokenDelta else soldToken fi
 		assert(tokenDelta * ethAmount >= ethDelta * tokenAmount && tradeDirection == 0 || tokenDelta * ethAmount <= ethDelta * tokenAmount && tradeDirection == 1) // this works with 64 bit numbers, anything higher will overflow. Maybe check this somewhere?
 	endfor
-	return true
+	//                                    +Eth, -Token | -Eth, +Token
+	field direction = if boughtEth > soldEth then 1 else 0 fi
+	field deltaEth = if direction == 1 then boughtEth - soldEth else soldEth - boughtEth fi
+	field deltaToken = if direction == 0 then boughtToken - soldToken else soldToken - boughtToken fi
+	return direction, deltaEth, deltaToken
 
 def hashPair(bool[256] a, bool[256] b) -> (bool[256]):
 	return if pack128(a[0..128]) <= pack128(b[0..128]) then sha256(a, b) else sha256(b, a) fi
-	// return bool_to_u32_8(res)
 
 def hashLeafs(Balance[3] balances) -> (bool[3][256]):
 	bool[3][256] res = [[false;256];3]
@@ -79,13 +90,18 @@ def proofToBin(field[9][2] proof) -> (bool[9][256]): //587502
 	endfor
 	return result
 
-def main(private Balance[3] oldBalances, private Balance[3] newBalances, private field[9][2] proof, private bool[9] proofFlags, private field[2] root, private field setEthAmount, private field setTokenAmount) -> (field[2], field[2]):
-	assert(verifyTrades(oldBalances, newBalances, setEthAmount, setTokenAmount))
+def main(private Balance[3] oldBalances, private Balance[3] newBalances, private field[9][2] proof, private bool[9] proofFlags, private field[2] root, private field setEthAmount, private field setTokenAmount) -> (field[2]):
+	field direction, field deltaEth, field deltaToken = verifyTrades(oldBalances, newBalances, setEthAmount, setTokenAmount)
 	bool[9][256] leafsPadded = [...hashLeafs(oldBalances), ...[[false;256];6]] // we need to pass empty leafs for this to compile. The proof flags will ensure that these values are never used for hashing
 	bool[9][256] proofBin = proofToBin(proof)
 	field[2] calcedRoot = verifyMultiProof(leafsPadded, proofBin, proofFlags)
 	assert(root[0] == calcedRoot[0] && root[1] == calcedRoot[1]) // passed trades contain correct balances. First check OK
 	bool[9][256] newLeafsPadded = [...hashLeafs(newBalances), ...[[false;256];6]]
 	field[2] newRoot = verifyMultiProof(newLeafsPadded, proofBin, proofFlags)
-	return newRoot, hashFinalBalances(newBalances, setEthAmount, setTokenAmount)
-	// return newRoot
+	// return newRoot, hashFinalBalances(newBalances, setEthAmount, setTokenAmount)
+	return newRoot
+
+
+// TODO:
+// - Signature check
+// - Total tokens bought calc

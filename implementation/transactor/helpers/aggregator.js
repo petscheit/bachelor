@@ -10,14 +10,15 @@ class Aggregator {
         const uniswapTradeDirection = combinedDeltas.deltaEth.isNeg() ? 0 : 1
 
         if(sellForEth){
-            console.log("Selling " + mweiToEth(combinedDeltas.deltaEth) + " Eth")
-            console.log("For " + mweiToEth(combinedDeltas.deltaToken) + " Tokens")
+            console.log("Selling " + combinedDeltas.deltaEth + "M Eth")
+            console.log("For " + combinedDeltas.deltaToken + " Tokens")
         } else {
-            console.log("Selling " + mweiToEth(combinedDeltas.deltaToken) + " Tokens")
-            console.log("For " + mweiToEth(combinedDeltas.deltaEth) + " Eth")
+            console.log("Selling " + combinedDeltas.deltaToken + " Tokens")
+            console.log("For " + combinedDeltas.deltaEth + " Eth")
         }
         console.log(this.buildNewBalances(trades))
-        return [this.buildOldBalances(trades), this.buildNewBalances(trades)]
+        console.log({direction: uniswapTradeDirection, deltaEth: Math.abs(combinedDeltas.deltaEth), deltaToken: Math.abs(combinedDeltas.deltaToken)})
+        return [this.buildOldBalances(trades), this.buildNewBalances(trades), {direction: uniswapTradeDirection, deltaEth: Math.abs(combinedDeltas.deltaEth), deltaToken: Math.abs(combinedDeltas.deltaToken)}]
     }
 
     // returns 

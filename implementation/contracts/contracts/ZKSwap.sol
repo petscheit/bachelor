@@ -48,26 +48,41 @@ contract ZkSwap {
 	function verifyTrade(
 		uint[] calldata ethAmount, 
 		uint[] calldata tokenAmount, 
-		uint[] calldata nonce, 
+		uint[] calldata nonce,
 		address[] calldata from, 
+		uint direction,
+		uint ethDelta,
+		uint tokenDelta, 
 		uint[2] calldata a,
 		uint[2][2] calldata b,
 		uint[2] calldata c, 
-		uint[4] calldata input // [0:8]: root, [8:16]: data hash, could hash the root aswell, would reduce validation iteration by 1
+		uint[5] calldata input // [0:8]: root, [8:16]: data hash, could hash the root aswell, would reduce validation iteration by 1
 	)
 		external
 		payable
 	{		
 		// check inputs maybe?
 		// assert(checkTradeData(ethAmount, tokenAmount, nonce, from, concatHashes(input[2], input[3]))); // ensures inputs where used as zokrates inputs
-		assert(Verifier(verifier).verifyTx(a, b, c, input)); // zkSnark verification
+		//ensure old root is the same (can also hash to test)
+		require(Verifier(verifier).verifyTx(a, b, c, input), "Proof verification failed!"); // zkSnark verification
+		require(handleTransactorPayment(direction, ethDelta, tokenDelta), "Transactor payment failed!");
 		emitNewBalances(ethAmount, tokenAmount, nonce, from);
 		balances = concatHashes(input[0], input[1]);
-		//ensure old root is the same (can also hash to test)
-		// check msg.value OR ERC20 allowance if needed
-		// transfer ERC20 funds to contract
-		// emit balances
 		updateSetPrice();
+	}
+
+	function handleTransactorPayment(uint direction, uint ethDelta, uint tokenDelta)
+		private
+		returns (bool)
+	{
+		if(direction == 0) { // Receiving tokens
+			require(_receiveToken(tokenDelta * 1000000, msg.sender), "Tokens couldn't be received!");
+			require(_sendEth(ethDelta * 1000000, msg.sender), "Eth payment couldn't be sent!");
+		} else if(direction == 1) { // receiving ETH
+			require((msg.value / 1000000) >= ethDelta, "Amount of Eth received to small!");
+			require(_sendToken(tokenDelta * 1000000, msg.sender), "Token payment couldn't be sent!");
+		}
+		return true;
 	}
 
 	function updateSetPrice()
@@ -83,6 +98,28 @@ contract ZkSwap {
 		for(uint i = 0; i < ethAmount.length; i++) {
 			emit BalanceUpdate(from[i], ethAmount[i], tokenAmount[i], nonce[i]);
 		}
+	}
+
+	function _sendEth(uint amountWei, address payable _to)
+		private
+		returns (bool)
+	{
+		(bool sent, ) = _to.call.value(amountWei)("");
+        return sent;
+	}
+
+	function _sendToken(uint amountWei, address _to)
+		private
+		returns (bool)
+	{
+		return IERC20(erc20).transfer(_to, amountWei);
+	}
+
+	function _receiveToken(uint amountWei, address sender)
+		private
+		returns (bool)
+	{
+		return IERC20(erc20).transferFrom(sender, address(this), amountWei);
 	}
 
 	// function checkTradeData(uint[] memory ethAmount, uint[] memory tokenAmount, uint[] memory nonce, address[] memory from, bytes32 shaHash) // reimplement for dynamic array size
@@ -120,7 +157,7 @@ contract ZkSwap {
 		public
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
-		IERC20(erc20).transferFrom(msg.sender, address(this), depositAmount * 1000000);
+		require(_receiveToken(depositAmount * 1000000, msg.sender));
 		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount + depositAmount, nonce + 1)));
 		emit BalanceUpdate(msg.sender, ethAmount, tokenAmount + depositAmount, nonce + 1);
 	}
@@ -132,8 +169,7 @@ contract ZkSwap {
 		require(ethAmount >= withdrawAmount);
 		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount - withdrawAmount, tokenAmount, nonce + 1)));
 		emit BalanceUpdate(msg.sender, ethAmount - withdrawAmount, tokenAmount, nonce + 1);
-		(bool success, ) = msg.sender.call.value(withdrawAmount * 1000000)("");
-        require(success, "Transfer failed.");		
+		require(_sendEth(withdrawAmount * 1000000, msg.sender));
 	}
 
 	function withdrawERC20(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount)
@@ -141,7 +177,7 @@ contract ZkSwap {
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
 		require(tokenAmount >= withdrawAmount);
-		IERC20(erc20).transfer(msg.sender, withdrawAmount * 1000000);
+		require(_sendToken(withdrawAmount * 1000000, msg.sender));
 		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount, tokenAmount - withdrawAmount, nonce + 1)));
 		emit BalanceUpdate(msg.sender, ethAmount, tokenAmount - withdrawAmount, nonce + 1);
 	}
