@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deposit } from "../helpers/web3.js";
+import { deposit, getLatestPrice } from "../helpers/web3.js";
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,10 +14,14 @@ import { broadcastTrade } from "../helpers/transactor";
 import { ethIntToWeiBN, ethToWei, toBN, ethToMwei, mweiToEth } from "../shared/conversion";
 
 class Trade extends React.Component {
-    state = { amount: 0, token: 0, baseRate: 20.4 }; // Baserate: Ether to token in WEI
+    state = { amount: 0, token: 0, baseRate: 0 }; // Baserate: Ether to token in WEI
 
     constructor(props) {
         super(props);
+        getLatestPrice()
+            .then(res => {
+                this.setState({baseRate: res})
+            })
     }
 
    handleAmountChange = (e) => {
@@ -85,7 +89,7 @@ class Trade extends React.Component {
                     onChange={this.handleTokenChange}
                     >
                         <MenuItem value={0}>Ether</MenuItem>
-                        <MenuItem value={1}>Bat</MenuItem>
+                        <MenuItem value={1}>ZKS</MenuItem>
                     </Select>
                 </FormControl>
                 <TextField

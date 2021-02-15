@@ -58,10 +58,20 @@ export const register = async function() {
 
 }
 
+export const getLatestPrice = async function() {
+  const address = store.getState().user.address;
+  const instance = store.getState().contract.instance;
+  return instance.methods.setTokenAmount().call()
+    .then(res => {
+      console.log("Calced price:", (res / 1000000000000000000).toFixed(6))
+      return (res / 1000000000000000000).toFixed(6)
+    })
+}
+
 export const deposit = function(amount, token) {
   if(token == 0){ //ether
     return depositEth(amount)
-  } else if(token == 1){ //bat
+  } else if(token == 1){ //zks
     depositERC20(amount)
   }
 }

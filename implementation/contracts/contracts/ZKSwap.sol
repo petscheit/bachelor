@@ -2,21 +2,21 @@
 pragma solidity ^0.6.0;
 
 import "./openzeppelin/token/ERC20/IERC20.sol";
+import "./interface/IUniswapV2Router02.sol";
 import "./verifier.sol";
 
 contract ZkSwap {
 
 	bytes32 public users = 0x113f6d6d1b1bf24631064680373348b5004288de46820619289926eb64f8b838; // initial root with 1 set account and 3 zero accounts
 	bytes32 public balances = 0x92f4853bec2930dcf538f3d620cf297bdcbce51afc7b69b6563fc977afdefd7f;
+	address public router = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;
+	address[] public uniswapPath = [0xc778417E063141139Fce010982780140Aa0cD5Ab, 0xb87241aAA3E8991C6922E830B61722838cF130fb];
 	address public erc20;
 	address public verifier;
 
 	uint private tradePoolExpiration; // variable used for tracking blocknumber for trade pool sealing;
-	uint public setEthAmount = 1000000000000;
-	uint public setTokenAmout = 20400000000000;
-
-
-	enum CurrecyType { Ether, Bat }
+	uint public setEthAmount = 1000000000000000000;
+	uint public setTokenAmount = 0;
 
 	modifier canUpdateBalance(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce)
 	{
@@ -30,20 +30,12 @@ contract ZkSwap {
     {
 		erc20 = ercAddr;
 		verifier = verifierAddr;
+		setTokenAmount = updateSetPrice();
 	}
+	// event Deposit(address _from, uint ethAmount, uint tokenAmount, uint nonce);
 
 	event Registered(address _from);
-	event Deposit(address _from, uint ethAmount, uint tokenAmount, uint nonce);
-
 	event BalanceUpdate(address _from, uint ethAmount, uint tokenAmount, uint nonce);
-	
-    event Debug(uint amount);
-	
-	function getSupply()
-	    public
-	{
-	    emit Debug(IERC20(erc20).totalSupply());
-	}
 
 	function verifyTrade(
 		uint[] calldata ethAmount, 
@@ -56,7 +48,7 @@ contract ZkSwap {
 		uint[2] calldata a,
 		uint[2][2] calldata b,
 		uint[2] calldata c, 
-		uint[5] calldata input // [0:8]: root, [8:16]: data hash, could hash the root aswell, would reduce validation iteration by 1
+		uint[2] calldata input
 	)
 		external
 		payable
@@ -68,7 +60,7 @@ contract ZkSwap {
 		require(handleTransactorPayment(direction, ethDelta, tokenDelta), "Transactor payment failed!");
 		emitNewBalances(ethAmount, tokenAmount, nonce, from);
 		balances = concatHashes(input[0], input[1]);
-		updateSetPrice();
+		setTokenAmount = updateSetPrice();
 	}
 
 	function handleTransactorPayment(uint direction, uint ethDelta, uint tokenDelta)
@@ -86,10 +78,11 @@ contract ZkSwap {
 	}
 
 	function updateSetPrice()
-		private
-		returns (uint)
+		public
+		returns (uint256)
 	{
-		setTokenAmout = 21000000000000;	
+		//No slipage defined yet;
+		return IUniswapV2Router02(router).getAmountsOut(setEthAmount, uniswapPath)[1];	//WIP
 	}
 
 	function emitNewBalances(uint[] memory ethAmount, uint[] memory tokenAmount, uint[] memory nonce, address[] memory from)
