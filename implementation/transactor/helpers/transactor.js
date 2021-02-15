@@ -1,5 +1,5 @@
 const TransactorMerkle = require("./transactorMerkle") 
-const { getContractInstance, verifyTradeOnchain } = require("./web3");
+const { getContractInstance, verifyTradeOnchain, getProxyInstance, trade, getLatestPrice } = require("./web3");
 const ZokratesHelper = require("./zokrates");
 const Aggregator = require("./aggregator");
 const assert = require('assert').strict;
@@ -13,14 +13,16 @@ class Transactor {
     this.zokratesHelper = new ZokratesHelper();
     this.aggregator = new Aggregator();
     this.poolTraders = [];
+    this.latestPrice;
   }
 
   async init() {
     await this.merkle.init()
     this.merkle.calcInitialRoots()
+    this.latestPrice = await getLatestPrice();
   }
 
-  async invokeListener() {
+  async invokeSwapListener() {
     const instance = await getContractInstance();
     let latestBlockNumber;
     instance.events.allEvents(
@@ -44,8 +46,31 @@ class Transactor {
     )
   }
 
+  async invokeProxyListener() {
+    let instance = await getProxyInstance();
+    let latestBlockNumber;
+    instance.events.TradeComplete(
+      {
+          fromBlock: latestBlockNumber
+      },
+      async (error, event) => {
+        if (error) {
+            console.error(error.msg);
+            throw error;
+        }
+        if(event.blockNumber !== latestBlockNumber){
+            const caughtEvent = event.event;
+            console.log("Found trade event!!!")
+            console.log(event)
+            this.updateBalanceAndVerify(event)
+            latestBlockNumber = event.blockNumber;
+        }
+      }
+    )
+  }
+
   addTrade(reqBody){
-    assert.ok(this.merkle.checkTrade(reqBody))
+    assert.ok(this.merkle.checkTrade(reqBody, this.latestPrice))
     assert.ok(!this.poolTraders.includes(reqBody.address))
     this.tradePool.push(reqBody)
     this.poolTraders.push(reqBody.address)
@@ -55,22 +80,31 @@ class Transactor {
   }
 
   async triggerTradeAggregation(){
-    const balances = this.aggregator.start(this.tradePool);
-    const proofData = this.merkle.getMulti(this.tradePoolLeafIndex);
-    this.zokratesHelper.prepareTrade(balances[0], balances[1], proofData[0], proofData[1], proofData[2])
-    this.merkle.calcNewRoot(balances[1])
-    // const balancesTxObject = this.aggregator.buildBalanceTxObject(balances[1])
-    // const proofObject = JSON.parse(fs.readFileSync('./zokrates_circuits/proof.json'))
-    // verifyTradeOnchain(balancesTxObject, proofObject)
-    this.zokratesHelper.computeWitness()
-      .then(proofObject => {
-        console.log(proofObject)
-        const balancesTxObject = this.aggregator.buildBalanceTxObject(balances[1])
-        verifyTradeOnchain(balancesTxObject, proofObject, balances[2])
-        .then(() => console.log("we are doneeeee, this time for reaal"))
+
+    const minimalTrade = this.aggregator.generateMinimalTrade(this.tradePool);
+    console.log(minimalTrade);
+    trade(minimalTrade);
+    // const balances = this.aggregator.start(this.tradePool);
+    // const proofData = this.merkle.getMulti(this.tradePoolLeafIndex);
+    // this.zokratesHelper.prepareTrade(balances[0], balances[1], proofData[0], proofData[1], proofData[2])
+    // this.merkle.calcNewRoot(balances[1])
+    // // const balancesTxObject = this.aggregator.buildBalanceTxObject(balances[1])
+    // // const proofObject = JSON.parse(fs.readFileSync('./zokrates_circuits/proof.json'))
+    // // verifyTradeOnchain(balancesTxObject, proofObject)
+    // this.zokratesHelper.computeWitness()
+    //   .then(proofObject => {
+    //     console.log(proofObject)
+    //     const balancesTxObject = this.aggregator.buildBalanceTxObject(balances[1])
+    //     verifyTradeOnchain(balancesTxObject, proofObject, balances[2])
+    //     .then(() => console.log("we are doneeeee, this time for reaal"))
         
 
-      })
+    //   })
+    this.latestPrice = getLatestPrice();
+  }
+
+  async updateBalanceAndVerify(event){
+    console.log("triggered next function call")
   }
 }
 

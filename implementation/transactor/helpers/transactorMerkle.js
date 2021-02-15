@@ -9,12 +9,12 @@ class TransactorMerkle extends ZkMerkleTree {
         super()
     }
 
-    checkTrade(trade, currentPrice) { // this method is used by the transactor to ensure no invalid orders are added, which would cost the transactor gas. 
+    checkTrade(trade, latestPrice) { // this method is used by the transactor to ensure no invalid orders are added, which would cost the transactor gas. 
                         // These checks are the same ones checked in the zkSNARK programm
         //check signature here aswell
         trade = this.convertTradeToBN(trade)
         if (!this.verifyBalanceLeaf(trade)) return false // ensures that where passed are in merkletree
-        if(!this.ensureCorrectPrice(trade, 20.4)) return false;
+        if(!this.ensureCorrectPrice(trade, latestPrice)) return false;
         if(trade.direction === 0) {
             console.log("masde ittt")
             console.log(trade.ethAmount.gte(trade.deltaEth))
@@ -47,9 +47,8 @@ class TransactorMerkle extends ZkMerkleTree {
         return trade
     }
 
-    ensureCorrectPrice(trade, correctPrice) {
-        console.log(Math.round((trade.deltaToken / trade.deltaEth)*10000)/10000)
-        if(Math.round((trade.deltaToken / trade.deltaEth)*10000)/10000 === correctPrice) return true;
+    ensureCorrectPrice(trade, latestPrice) {
+        if((Math.round((trade.deltaToken / trade.deltaEth)*1000000)/1000000) === Number(latestPrice)) return true;
         return false;
     }
 

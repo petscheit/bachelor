@@ -4,7 +4,7 @@ const IERC20 = require("../contracts/IERC20.json")
 const getWeb3 = require("./getWeb3.js")
 const Tx = require('ethereumjs-tx').Transaction
 const Web3Utils = require('web3-utils');
-const addresses = require("../config").addresses;
+const addresses = require("../shared/config").addresses;
 
 const mweiToWei = require("../shared/conversion.js").mweiToWei
 
@@ -35,11 +35,11 @@ const getContractInstance = async () => {
     );
 }
 
-const getProxyInstance = async (address) => {
+const getProxyInstance = async () => {
     const web3 = await getWeb3(chain);
     return new web3.eth.Contract(
         PairProxy.abi,
-        address
+        addresses.proxy
     );
 }
 
@@ -82,43 +82,39 @@ const verifyTradeOnchain = async (balanceTxObject, proofObject, combined) => {
     })
 }
 
-const invokeListener = async () => {
-    instance = await getProxyInstance(addresses.proxy);
-    let latestBlockNumber;
-    instance.events.TradeComplete(
-      {
-          fromBlock: latestBlockNumber
-      },
-      async (error, event) => {
-        if (error) {
-            console.error(error.msg);
-            throw error;
-        }
-        if(event.blockNumber !== blockNumber){
-            const caughtEvent = event.event;
-            console.log(event)
-            latestBlockNumber = event.blockNumber;
-        }
-      }
-    )
-  }
+const getLatestPrice = async function() {
+  let instance = await getContractInstance();
+  return instance.methods.setTokenAmount().call()
+    .then(res => {
+      console.log("Calced price:", (res / 1000000000000000000).toFixed(6))
+      return (res / 1000000000000000000).toFixed(6)
+    })
+}
+
+const trade = async (trade) => {
+    if(trade.direction === 0){
+        ethForTokens(mweiToWei(trade.input), mweiToWei(trade.output));
+    } else {
+        tokensForEth(mweiToWei(trade.input), mweiToWei(trade.output));
+    }
+}
 
 const ethForTokens = async (amountEth, minAmountOut) => {
-    invokeListener()
+    console.log("ethForTokens")
+    console.log("Eth amount:", amountEth)
+    console.log("min returned:", minAmountOut)
     const web3 = await getWeb3(chain);
-    let instance = await getProxyInstance(addresses.proxy);
+    let instance = await getProxyInstance();
     const data = instance.methods.ethForToken(minAmountOut, amountEth).encodeABI();
-    const txData = buildTxData(addressSender, addresses.proxy, mweiToWei(amountEth), data)
+    const txData = buildTxData(addressSender, addresses.proxy, amountEth, data)
 
     await sendRawTransaction(txData, web3)
     console.log("Swap complete")
 }
 
-const tokenForEth = async (amountToken, minAmountOut) => {
-    await tokenApprove(amountToken);
-    // 
+const tokensForEth = async (amountToken, minAmountOut) => {
     const web3 = await getWeb3(chain);
-    let instance = await getProxyInstance(addresses.proxy);
+    let instance = await getProxyInstance();
     const data = instance.methods.tokenForEth(minAmountOut, amountToken).encodeABI(); 
     const txData = buildTxData(addressSender, addresses.proxy, 0, data)
     await sendRawTransaction(txData, web3)
@@ -152,3 +148,6 @@ exports.verifyTradeOnchain = verifyTradeOnchain;
 exports.getRegisterEvents = getRegisterEvents;
 exports.getBalanceEvents = getBalanceEvents;
 exports.getContractInstance = getContractInstance;
+exports.getProxyInstance = getProxyInstance;
+exports.trade = trade;
+exports.getLatestPrice = getLatestPrice;

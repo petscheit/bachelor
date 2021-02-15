@@ -2,7 +2,18 @@ const BN = require('bn.js');
 const { mweiToEth } = require("../shared/conversion");
 class Aggregator {
 
-    start(trades, price){
+    generateMinimalTrade(trades) {
+        const combinedDeltas = this.combineDeltas(trades);
+        const direction = combinedDeltas.deltaEth.isNeg() ? 0 : 1
+
+        if(direction === 0){
+            return {direction: 0, input: combinedDeltas.deltaEth.abs().toString(), output: combinedDeltas.deltaToken.toString()}
+        } else {
+            return {direction: 1, input: combinedDeltas.deltaToken.abs().toString(), output: combinedDeltas.deltaEth.toString()}
+        }
+    }
+
+    start(trades, direction){
         const combinedDeltas = this.combineDeltas(trades);
         const sellForEth = combinedDeltas.deltaEth.isNeg() ? true : false;
         console.log("Sell For eth?", sellForEth)
@@ -20,6 +31,7 @@ class Aggregator {
         console.log({direction: uniswapTradeDirection, deltaEth: Math.abs(combinedDeltas.deltaEth), deltaToken: Math.abs(combinedDeltas.deltaToken)})
         return [this.buildOldBalances(trades), this.buildNewBalances(trades), {direction: uniswapTradeDirection, deltaEth: Math.abs(combinedDeltas.deltaEth), deltaToken: Math.abs(combinedDeltas.deltaToken)}]
     }
+
 
     // returns 
     combineDeltas(trades){

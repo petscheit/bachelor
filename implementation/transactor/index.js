@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const commander = require("commander");
-const serverConfig = require("./config");
+const serverConfig = require("./shared/config");
 
 const Transactor = require("./helpers/transactor");
 
@@ -28,7 +28,8 @@ class Server {
     await this.transactor.init()
     this.app.use(express.json())
     this.app.use(cors())
-    this.transactor.invokeListener()
+    this.transactor.invokeSwapListener()
+    this.transactor.invokeProxyListener()
   }
 
   async setupEndpoints() {
