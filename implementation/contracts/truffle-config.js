@@ -1,5 +1,6 @@
 const path = require("path");
-
+const HDWalletProvider = require("@truffle/hdwallet-provider");
+const mnemonic = "urban club famous payment village feature ensure aisle labor anger smooth spray";
 module.exports = {
   // Uncommenting the defaults below 
   // provides for an easier quick-start with Ganache.
@@ -10,10 +11,16 @@ module.exports = {
     contracts_build_directory: path.join(__dirname, "contracts/build"),
     networks: {
         development: {
-        host: "localhost",     // Localhost (default: none)
-        port: 8545,            // Standard Ethereum port (default: none)
-        network_id: "*",       // Any network (default: none)
+          host: "localhost",     // Localhost (default: none)
+          port: 8545,            // Standard Ethereum port (default: none)
+          network_id: "*",       // Any network (default: none)
         },
+         ropsten: {
+            provider: function() {
+              return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/fda2def6a29f4d429611069341f5897c")
+            },
+            network_id: 3
+        }
     },
     compilers: {
       solc: {
