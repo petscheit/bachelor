@@ -5,10 +5,10 @@ client/src/shared/*
 
 contracts/contracts/build
 
-zokrates/out
-zokrates/out.ztf
-zokrates/witness
-zokrates/abi.json
+out
+out.ztf
+witness
+abi.json
 
 transactor/contracts/*
 transactor/shared/*
