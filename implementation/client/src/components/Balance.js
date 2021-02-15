@@ -12,7 +12,7 @@ class Balance extends React.Component {
         console.log(this.props.etherBalance)
         return (
             <Typography style={{ flex: 1, textAlign: 'right' }}>
-                Balance:  { mweiToEth(this.props.etherBalance)} Eth,  { mweiToEth(this.props.tokenBalance) } Bat   
+                Balance:  { mweiToEth(this.props.etherBalance)} Eth,  { mweiToEth(this.props.tokenBalance) } ZKS   
             </Typography>
         )
     }

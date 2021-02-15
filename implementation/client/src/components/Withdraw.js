@@ -53,7 +53,7 @@ class Withdraw extends React.Component {
                     onChange={this.handleTokenChange}
                     >
                         <MenuItem value={0}>Ether</MenuItem>
-                        <MenuItem value={1}>Bat</MenuItem>
+                        <MenuItem value={1}>ZKS</MenuItem>
                     </Select>
                 </FormControl>
                 <TextField // add upper bound

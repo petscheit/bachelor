@@ -29,7 +29,7 @@ class App extends Component {
             );
             const tokenInstance = new web3.eth.Contract(
               IERC20.abi,
-              "0xbBaD87B6Fc1caa8b95Fa59af8cD1603884e3Cb9d"
+              "0xb87241aAA3E8991C6922E830B61722838cF130fb"
             );
 
             this.props.addERC(tokenInstance)
