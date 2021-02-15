@@ -1,5 +1,6 @@
 import store from '../redux/store';
 import { ethToWei, weiToMwei, mweiToWei } from "../shared/conversion";
+import { addresses } from "../shared/config.js"
 
 
 export const getRegisterEvents = async function() {
@@ -81,7 +82,7 @@ const depositERC20 = async function(amount) {
   const instance = store.getState().contract.instance;
   const erc20Instance = store.getState().contract.erc;
   const proof = store.getState().contract.stateManager.getDepositProof(address)
-  await erc20Instance.methods.approve("0x328fAb8128A089d9b12c7c90AD08B4432f5a6290", mweiToWei(amount))
+  await erc20Instance.methods.approve(addresses.zkSwap, mweiToWei(amount))
   .send({
     from: address,
   })
