@@ -16,7 +16,6 @@ class ZkMerkleTree {
     }
 
     async init(){
-        await this.syncRegisterEvents();
         await this.syncBalanceEvents();
     }
 
@@ -52,14 +51,6 @@ class ZkMerkleTree {
             this.addBalance(events[i].returnValues.ethAmount, events[i].returnValues.tokenAmount, events[i].returnValues.nonce, index)
         }
         console.log("Balances synced successfully!")
-    }
-
-    async syncRegisterEvents(){
-        let events = await getRegisterEvents();
-        for(let i = 0; i < events.length; i++){
-            this.addAddress(events[i].returnValues._from)
-        }
-        console.log("Registrations synced successfully!")
     }
 
     // HELPERS:
@@ -99,27 +90,20 @@ class ZkMerkleTree {
         this.balances = balances
     }
 
-    printRegisterProof(proof, leaf){ // returns format that can be pasted into remix
-        console.log()
-        console.log("Registration Proof:")
-        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        console.log('[\"' + proof.toString().replace(",", "\",\"") + "\"], \"" + leaf.toString('hex') + "\"")
-        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-    }
 
-    printDepositProof(userProof, balanceProof, ethAmount, token, nonce, address){
+    printDepositProof(balanceProof, ethAmount, token, nonce, address){
         console.log()
         console.log("Deposit Proof for " + address + ":")
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        console.log('[\"' + userProof.toString().replace(",", "\",\"") + "\"], " +  '[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + ethAmount + ", " + token + ", " + nonce)
+        console.log('[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + ethAmount + ", " + token + ", " + nonce)
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     }
 
-    printWithdrawProof(userProof, balanceProof, ethAmount, token, nonce, withdrawAmount, address){
+    printWithdrawProof(balanceProof, ethAmount, token, nonce, withdrawAmount, address){
         console.log()
         console.log("Withdraw Proof for " + address + ":")
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        console.log('[\"' + userProof.toString().replace(",", "\",\"") + "\"], " +  '[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + ethAmount + ", " + token + ", " + nonce + ", " + withdrawAmount)
+        console.log('[\"' + balanceProof.toString().replace(",", "\",\"") + "\"], " + ethAmount + ", " + token + ", " + nonce + ", " + withdrawAmount)
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     }
 }

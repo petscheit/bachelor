@@ -7,19 +7,20 @@ module.exports = {
         return keccak256(hashValue)
     },
     soliditySha256: (hashValue) => {
-        if(typeof hashValue == "string") { //this is a unhashed address
+        if(typeof hashValue == "string") { //Probably not needed anymore
             return "0x" + abi.soliditySHA256(
                 ["address"],
                 [hashValue]
             ).toString('hex')
         } 
         else if(Array.isArray(hashValue)) { // balances
-            const ether = hashValue[0];
-            const token = hashValue[1];
-            const nonce = new BN(hashValue[2].toString(), 10);
+            const address = hashValue[0]
+            const ether = hashValue[1];
+            const token = hashValue[2];
+            const nonce = new BN(hashValue[3].toString(), 10);
             return "0x" + abi.soliditySHA256(
-                [ "uint", "uint", "uint"],
-                [ ether, token, nonce]
+                [ "addres", "uint", "uint", "uint"],
+                [ address, ether, token, nonce]
             ).toString('hex')
         }
         else { // merkle tree merge hashes 
