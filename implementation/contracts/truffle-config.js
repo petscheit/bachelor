@@ -10,21 +10,24 @@ module.exports = {
   //
     contracts_build_directory: path.join(__dirname, "contracts/build"),
     networks: {
+        skipDryRun: true,
         development: {
           host: "localhost",     // Localhost (default: none)
           port: 8545,            // Standard Ethereum port (default: none)
           network_id: "*",       // Any network (default: none)
         },
          ropsten: {
+            skipDryRun: true,
             provider: function() {
               return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/fda2def6a29f4d429611069341f5897c")
             },
             network_id: 3
         }
+
     },
     compilers: {
       solc: {
-        version: "0.6.2",    // Fetch exact version from solc-bin (default: truffle's version)
+        version: "0.7.6",    // Fetch exact version from solc-bin (default: truffle's version)
         // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
         // settings: {          // See the solidity docs for advice about optimization and evmVersion
         //  optimizer: {

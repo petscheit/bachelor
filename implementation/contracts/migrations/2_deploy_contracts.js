@@ -1,11 +1,21 @@
 const ZkSwap = artifacts.require("ZkSwap");
-const Token = artifacts.require("Token");
 const Verifier = artifacts.require("Verifier")
+const addresses = require("../../shared/config").addresses
+const PairProxy = artifacts.require("PairProxy");
+const fs = require('fs');
 
 module.exports = async function(deployer) {
-    await deployer.deploy(Token).then(async inst => {
-      let tokenAddrs = inst.address
-      let verifierAddrs = await deployer.deploy(Verifier).then(instance => instance.address)
-      return deployer.deploy(ZkSwap, tokenAddrs, verifierAddrs);
+  deployer.deploy(Verifier)
+    .then(async (instance) => {
+      console.log(addresses)
+      let zks = await deployer.deploy(ZkSwap, addresses.zks, instance.address).then(zks => zks.address)
+      let proxy = await deployer.deploy(PairProxy, zks).then(proxy => proxy.address)
+      let file_content = fs.readFileSync('../shared/config.json');
+      let content = JSON.parse(file_content);
+      content.addresses.zkSwap = zks;
+      content.addresses.proxy = proxy;
+      console.log(content)
+      fs.writeFileSync("../shared/config.json", JSON.stringify(content, null, 4));
+      console.log("New addresses added!")
     })
 };
