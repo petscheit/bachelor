@@ -4,7 +4,7 @@ pragma solidity ^0.7.6;
 import "./interface/IERC20.sol";
 import "./interface/IUniswapV2Router02.sol";
 import "./verifier.sol";
-import "./shared.sol";
+import "./interface/IZKSwap.sol";
 
 contract ZkSwap is SharedTypes {
 
@@ -41,7 +41,7 @@ contract ZkSwap is SharedTypes {
 		SharedTypes.Balance[] calldata incomingBalances,
 		uint direction,
 		uint ethDelta,
-		uint tokenDelta, 
+		uint tokenDelta,
 		uint[2] calldata a,
 		uint[2][2] calldata b,
 		uint[2] calldata c, 
@@ -66,7 +66,7 @@ contract ZkSwap is SharedTypes {
 	{
 		if(direction == 0) { // Receiving tokens
 			require(_receiveToken(tokenDelta * 1000000, msg.sender), "Tokens couldn't be received!");
-			require(_sendEth(ethDelta * 1000000, msg.sender), "Eth payment couldn't be sent!");
+			require(_sendEth(ethDelta * 1000000, payable(msg.sender)), "Eth payment couldn't be sent!");
 		} else if(direction == 1) { // receiving ETH
 			require((msg.value / 1000000) >= ethDelta, "Amount of Eth received to small!");
 			require(_sendToken(tokenDelta * 1000000, msg.sender), "Token payment couldn't be sent!");
@@ -92,7 +92,7 @@ contract ZkSwap is SharedTypes {
 	function emitNewBalances(SharedTypes.Balance[] calldata incomingBalances)
 		private
 	{
-		for(uint i = 0; i < 3; i++) {
+		for(uint i = 0; i < incomingBalances.length; i++) {
 			emit BalanceUpdate(incomingBalances[i].from, incomingBalances[i].ethAmount, incomingBalances[i].tokenAmount, incomingBalances[i].nonce);
 		}
 	}
@@ -133,17 +133,17 @@ contract ZkSwap is SharedTypes {
 	// }
 
 	function register(bytes32[] memory proof, bytes32 oldLeaf)
-	 	public 
+	 	external 
 	{
-		require(checkInputs(proof, oldLeaf));
+		require(checkInputs(oldLeaf));
 		require(verifyUserMerkle(proof, oldLeaf));
 		updateUserMerkle(proof, sha256(abi.encodePacked(msg.sender)));
 		emit Registered(msg.sender);
 	}
 	
 	function depositEth(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce)
-		public
 		payable
+		external
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
 		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount + (msg.value / 1000000), tokenAmount, nonce + 1)));
@@ -151,7 +151,7 @@ contract ZkSwap is SharedTypes {
 	}
 
 	function depositERC20(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint depositAmount)
-		public
+		external
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
 		require(_receiveToken(depositAmount * 1000000, msg.sender));
@@ -160,7 +160,7 @@ contract ZkSwap is SharedTypes {
 	}
 
 	function withdrawEth(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount)
-		public
+		external
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
 		require(ethAmount >= withdrawAmount);
@@ -170,7 +170,7 @@ contract ZkSwap is SharedTypes {
 	}
 
 	function withdrawERC20(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount)
-		public
+		external
 		canUpdateBalance(userProof, balanceProof, ethAmount, tokenAmount, nonce)
 	{
 		require(tokenAmount >= withdrawAmount);
@@ -228,9 +228,13 @@ contract ZkSwap is SharedTypes {
         }
 		return computedHash;
 	}
+	
+	receive() external payable { // for testing...
+    }
 
 	function concatHashes(uint a, uint b)
         private
+		pure
         returns (bytes32)
     {
         uint256 result; 
@@ -239,7 +243,7 @@ contract ZkSwap is SharedTypes {
        return bytes32(result);
     }
 
-	function checkInputs(bytes32[] memory proof, bytes32 leaf)
+	function checkInputs(bytes32 leaf)
 		internal
 		pure
 		returns (bool)
@@ -254,16 +258,4 @@ contract ZkSwap is SharedTypes {
 		// );
 		return true;
 	}
-
-	receive() external payable { // for testing, maybe not needed
-    }
 }
-
-
-// TODO
-// -SafeMath
-// Ensure inputs maybe?
-
-
-
-// ["0x05f8466fcd52efcc4e5e04ee2cd97f13abad304c636d9ea73ead6c46ae7492a1","0xbc4b629401c53d59faf08267e134f7fadc002cf4df6eefdac4e212ddd255be48","0x2a6a0b55abf1014b619d8be55afb8567f90c2af0b2f85ca9bd7c1cfa9eb8d0a0","0xa75302b096a66a65d80ff923dda83e8ca6a29cb9935a10028c850d92a648a4c0","0x7e60b89111726223d0ffdfa7bc7ec24c0dac7cb1a8bc2e84937e5feb872adf2e","0x94cda1ef0455d073efb5421a20752157ee9cfe898c41fd8f7aba0f60f105745a","0xc1f615a1a5d5a49b51949e655d99c9cebd37b0b58d21644bff4769448226f26f","0xfa06218cda9f4c0060657fec0c5c1a360f61d30b97d93c0e983c1755943e2af6"], 4000000000000, 20400000000000, 2

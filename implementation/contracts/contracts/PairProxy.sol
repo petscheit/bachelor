@@ -1,25 +1,24 @@
+// SPDX-License-Identifier: MIT
 pragma experimental ABIEncoderV2;
 pragma solidity ^0.7.6;
 import "./interface/IUniswapV2Router02.sol";
 import "./interface/IERC20.sol";
-import "./ZkSwap.sol";
-import "./shared.sol";
+import "./interface/IZKSwap.sol";
 
-contract PairProxy is SharedTypes {
+contract PairProxy {
 
-    event TradeComplete(uint dir, uint etherAmount, uint tokenAmount, uint poolId);
-
+    event TradeComplete(uint dir, uint ethAmount, uint tokenAmount, uint poolId);
+    
     address public token0 = 0xc778417E063141139Fce010982780140Aa0cD5Ab;
     address public token1 = 0xb87241aAA3E8991C6922E830B61722838cF130fb;
     address public owner;
     
     IUniswapV2Router02 public router = IUniswapV2Router02(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D);
-    ZkSwap public zkSwap;
+    IZkSwap public zkSwap;
 
     constructor(address payable zkSwapAddress) 
-        // public
     {
-        zkSwap = ZkSwap(zkSwapAddress);
+        zkSwap = IZkSwap(zkSwapAddress);
         owner = msg.sender;
     }
 
@@ -38,7 +37,7 @@ contract PairProxy is SharedTypes {
         );
         emit TradeComplete(0, res[0], res[1], 777);
     }
-
+    
     function tokenForEth(uint minAmountOut, uint tokenAmount)
         external
         payable
@@ -62,23 +61,23 @@ contract PairProxy is SharedTypes {
 		returns (bool)
 	{
         require(msg.sender == owner);
-		(bool sent, ) = owner.call{value: amountWei}("");
+		(bool sent, ) = address(msg.sender).call{value: amountWei}("");
         return sent;
 	}
 
-	function withdrawToken(uint amountWei)
+	function sendToken(uint amountWei) // not working currently!!
 		external
 		returns (bool)
 	{
         require(msg.sender == owner);
-		return IERC20(token1).transfer(owner, amountWei);
+		return IERC20(token1).transfer(address(msg.sender), amountWei);
 	}
 
     function verifyTrade(
 		SharedTypes.Balance[] calldata incomingBalances,
 		uint direction,
 		uint ethDelta,
-		uint tokenDelta, 
+		uint tokenDelta,
 		uint[2] calldata a,
 		uint[2][2] calldata b,
 		uint[2] calldata c, 
