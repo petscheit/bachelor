@@ -19,7 +19,7 @@ module.exports = {
             const token = hashValue[2];
             const nonce = new BN(hashValue[3].toString(), 10);
             return "0x" + abi.soliditySHA256(
-                [ "addres", "uint", "uint", "uint"],
+                [ "address", "uint", "uint", "uint"],
                 [ address, ether, token, nonce]
             ).toString('hex')
         }

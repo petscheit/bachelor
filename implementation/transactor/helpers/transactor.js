@@ -1,6 +1,8 @@
 const TransactorMerkle = require("./transactorMerkle") 
 const { getContractInstance, verifyTradeOnchain, getProxyInstance, trade, getLatestPrice } = require("./web3");
 const ZokratesHelper = require("./zokrates");
+const { ethToMwei } = require("../shared/conversion");
+
 const Aggregator = require("./aggregator");
 const assert = require('assert').strict;
 const fs = require('fs');
@@ -35,10 +37,8 @@ class Transactor {
             throw error;
         }
         const caughtEvent = event.event;
-        if(caughtEvent === "Registered"){
-          this.merkle.addAddress(event.returnValues["_from"])
-        } else if(caughtEvent === "BalanceUpdate"){
-          this.merkle.updateBalance(event.returnValues.ethAmount, event.returnValues.tokenAmount, event.returnValues.nonce, event.returnValues["_from"])
+        if(caughtEvent === "BalanceUpdate"){
+          this.merkle.updateBalance(event.returnValues["_from"], event.returnValues.ethAmount, event.returnValues.tokenAmount, event.returnValues.nonce)
           this.merkle.calcInitialRoots()
         }
         latestBlockNumber = event.blockNumber;
@@ -47,6 +47,7 @@ class Transactor {
   }
 
   async invokeProxyListener() {
+    console.log("proxy listender running")
     let instance = await getProxyInstance();
     let latestBlockNumber;
     instance.events.TradeComplete(
@@ -58,10 +59,9 @@ class Transactor {
             console.error(error.msg);
             throw error;
         }
+        console.log(event)
         if(event.blockNumber !== latestBlockNumber){
             const caughtEvent = event.event;
-            console.log("Found trade event!!!")
-            console.log(event)
             this.updateBalanceAndVerify(event)
             latestBlockNumber = event.blockNumber;
         }
@@ -75,36 +75,40 @@ class Transactor {
     this.tradePool.push(reqBody)
     this.poolTraders.push(reqBody.address)
     this.tradePoolLeafIndex.push(this.merkle.getAddressIndex(reqBody.address))
-    console.log(this.tradePool)
-    // console.log(this.tradePoolLeafIndex)
+    console.log(this.tradePool[this.tradePool.length - 1])
   }
 
   async triggerTradeAggregation(){
-
     const minimalTrade = this.aggregator.generateMinimalTrade(this.tradePool);
     console.log(minimalTrade);
     trade(minimalTrade);
-    // const balances = this.aggregator.start(this.tradePool);
-    // const proofData = this.merkle.getMulti(this.tradePoolLeafIndex);
-    // this.zokratesHelper.prepareTrade(balances[0], balances[1], proofData[0], proofData[1], proofData[2])
-    // this.merkle.calcNewRoot(balances[1])
-    // // const balancesTxObject = this.aggregator.buildBalanceTxObject(balances[1])
-    // // const proofObject = JSON.parse(fs.readFileSync('./zokrates_circuits/proof.json'))
-    // // verifyTradeOnchain(balancesTxObject, proofObject)
-    // this.zokratesHelper.computeWitness()
-    //   .then(proofObject => {
-    //     console.log(proofObject)
-    //     const balancesTxObject = this.aggregator.buildBalanceTxObject(balances[1])
-    //     verifyTradeOnchain(balancesTxObject, proofObject, balances[2])
-    //     .then(() => console.log("we are doneeeee, this time for reaal"))
-        
-
-    //   })
-    this.latestPrice = getLatestPrice();
   }
 
   async updateBalanceAndVerify(event){
-    console.log("triggered next function call")
+    console.log("Updating Balances...")
+    // currently we do not update the balances. Should be integrated here though.
+    console.log(event)
+    const balances = this.aggregator.start(this.tradePool);
+    const proofData = this.merkle.getMulti(this.tradePoolLeafIndex);
+    this.zokratesHelper.prepareTrade(balances[0], balances[1], proofData[0], proofData[1], proofData[2])
+    this.merkle.calcNewRoot(balances[1])
+    this.zokratesHelper.computeWitness(ethToMwei(this.latestPrice))
+      .then(proofObject => {
+        console.log(proofObject)
+        const balancesTxObject = this.aggregator.buildBalanceTxObject(balances[1])
+        verifyTradeOnchain(balancesTxObject, proofObject, balances[2])
+        .then(() => {
+          
+          console.log("Eagle has landed")
+          this.resetTradePool();
+        })
+      })
+  }
+
+  resetTradePool() {
+    this.latestPrice = getLatestPrice();
+    this.tradePool = [];
+    this.tradePoolLeafIndex = [];
   }
 }
 

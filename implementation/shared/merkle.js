@@ -8,10 +8,11 @@ class ZkMerkleTree {
 
     constructor(){
         this.balances = null;
-        this.index = 1;
+        this.addressMapping = {}
+        this.index = 0;
         this.emptyAddress = "0x0000000000000000000000000000000000000000";
         this.userAmount = 256;
-        this.initilizeDatastructure()
+        this.initilizeDatastructure();
     }
 
     async init(){
@@ -26,11 +27,7 @@ class ZkMerkleTree {
     }
 
     getBalance(address) {
-        return this.balances[this.getAddressIndex(address)]
-    }
-
-    getAddressIndex(address){
-        return this.users.indexOf(address);
+        return this.balances[this.addressMapping[address]]
     }
 
     updateBalance(address, ethAmount, tokenAmount, nonce) {
@@ -42,15 +39,24 @@ class ZkMerkleTree {
     async syncBalanceEvents(){
         let events = await getBalanceEvents();
         for(let i = 0; i < events.length; i++){
-            const index = this.getAddressIndex(events[i].returnValues._from)
+            const index = this.checkForKnowUser(events[i].returnValues._from)
             this.addBalance(events[i].returnValues._from, events[i].returnValues.ethAmount, events[i].returnValues.tokenAmount, events[i].returnValues.nonce, index)
         }
         console.log("Balances synced successfully!")
     }
 
+    checkForKnowUser(address) {
+        if(address in this.addressMapping){
+            return this.addressMapping[address]
+        }
+        this.addressMapping[address] = this.index;
+        this.index += 1;
+        return this.index - 1
+    }
+
     // HELPERS:
     getTree(){
-        const leaves = this.balances.map(leaf => soliditySha256([leaf.ethAmount, leaf.tokenAmount, leaf.nonce]))
+        const leaves = this.balances.map(leaf => soliditySha256([leaf.address, leaf.ethAmount, leaf.tokenAmount, leaf.nonce]))
         return new MerkleTree(leaves, soliditySha256, { sortPairs: true })
     }
 

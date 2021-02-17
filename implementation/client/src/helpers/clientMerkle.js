@@ -23,7 +23,7 @@ class ClientMerkle extends ZkMerkleTree {
     }
 
     getBalanceProofPath(leaf, index){
-        leaf = soliditySha256([leaf.ethAmount, leaf.tokenAmount, leaf.nonce]);
+        leaf = soliditySha256([leaf.address, leaf.ethAmount, leaf.tokenAmount, leaf.nonce]);
         const tree = super.getTree("balance");
         let proof = tree.getHexProof(leaf, index);
         return proof;
