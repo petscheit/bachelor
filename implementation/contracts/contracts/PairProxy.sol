@@ -1,24 +1,25 @@
+pragma experimental ABIEncoderV2;
+pragma solidity ^0.7.6;
 import "./interface/IUniswapV2Router02.sol";
-import "./openzeppelin/token/ERC20/IERC20.sol";
-// import "./ZkSwap.sol"
+import "./interface/IERC20.sol";
+import "./ZkSwap.sol";
+import "./shared.sol";
 
-contract PairProxy {
+contract PairProxy is SharedTypes {
 
     event TradeComplete(uint dir, uint etherAmount, uint tokenAmount, uint poolId);
-    address public token0;
-    address public token1;
+
+    address public token0 = 0xc778417E063141139Fce010982780140Aa0cD5Ab;
+    address public token1 = 0xb87241aAA3E8991C6922E830B61722838cF130fb;
     address public owner;
     
-    IUniswapV2Router02 public router;
-    // ZkSwap public zkSwap;
+    IUniswapV2Router02 public router = IUniswapV2Router02(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D);
+    ZkSwap public zkSwap;
 
-    constructor(address token0Address, address token1Address, address routerAddress, address zkSwapAddress) 
-        public
+    constructor(address payable zkSwapAddress) 
+        // public
     {
-        token0 = token0Address;
-        token1 = token1Address;
-        router = IUniswapV2Router02(routerAddress);
-        // zkSwap = ZkSwap(zkSwapAddress);
+        zkSwap = ZkSwap(zkSwapAddress);
         owner = msg.sender;
     }
 
@@ -37,7 +38,7 @@ contract PairProxy {
         );
         emit TradeComplete(0, res[0], res[1], 777);
     }
-    
+
     function tokenForEth(uint minAmountOut, uint tokenAmount)
         external
         payable
@@ -53,7 +54,7 @@ contract PairProxy {
             address(this),
             block.timestamp + 600
         );
-        emit TradeComplete(1, res[1], res[0], 777);
+        emit TradeComplete(1, res[1] / 1000000, res[0] / 1000000, 777);
     }
 
     function withdrawEth(uint amountWei)
@@ -61,41 +62,38 @@ contract PairProxy {
 		returns (bool)
 	{
         require(msg.sender == owner);
-		(bool sent, ) = address(msg.sender).call{value: amountWei}("");
+		(bool sent, ) = owner.call{value: amountWei}("");
         return sent;
 	}
 
-	function sendToken(uint amountWei) // not working currently!!
+	function withdrawToken(uint amountWei)
 		external
 		returns (bool)
 	{
         require(msg.sender == owner);
-		return IERC20(token1).transfer(address(msg.sender), amountWei);
+		return IERC20(token1).transfer(owner, amountWei);
 	}
 
-    // function verifyTrade(
-	// 	uint[] calldata ethAmount, 
-	// 	uint[] calldata tokenAmount, 
-	// 	uint[] calldata nonce,
-	// 	address[] calldata from, 
-	// 	uint direction,
-	// 	uint ethDelta,
-	// 	uint tokenDelta, 
-	// 	uint[2] calldata a,
-	// 	uint[2][2] calldata b,
-	// 	uint[2] calldata c, 
-	// 	uint[2] calldata input
-	// ) 
-    //     external
-    //     payable
-    // {
-    //     if(direction == 0){ // we're sending tokens that we bought. Must approve before verifying
-    //         IERC20(token1).approve(address(zkSwap), tokenDelte * 1000000);
-    //         zkSwap.verifyTrade(ethAmount, tokenAmount, nonce, from, direction, ethDelta, tokenDelta, a, b, c, input);
-    //     } else { // we're sending eth, can send with TX
-    //         zkSwap.verifyTrade{value: ethDelta * 1000000}(ethAmount, tokenAmount, nonce, from, direction, ethDelta, tokenDelta, a, b, c, input);
-    //     }
-    // }
+    function verifyTrade(
+		SharedTypes.Balance[] calldata incomingBalances,
+		uint direction,
+		uint ethDelta,
+		uint tokenDelta, 
+		uint[2] calldata a,
+		uint[2][2] calldata b,
+		uint[2] calldata c, 
+		uint[2] calldata input
+	) 
+        external
+        payable
+    {
+        if(direction == 0){ // we're sending tokens that we bought. Must approve before verifying
+            IERC20(token1).approve(address(zkSwap), tokenDelta * 1000000);
+            zkSwap.verifyTrade(incomingBalances, direction, ethDelta, tokenDelta, a, b, c, input);
+        } else { // we're sending eth, can send with TX
+            zkSwap.verifyTrade{value: ethDelta * 1000000}(incomingBalances, direction, ethDelta, tokenDelta, a, b, c, input);
+        }
+    }
 	
     receive() external payable {
     }

@@ -1,11 +1,12 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.6.0;
-
-import "./openzeppelin/token/ERC20/IERC20.sol";
+pragma experimental ABIEncoderV2;
+pragma solidity ^0.7.6;
+import "./interface/IERC20.sol";
 import "./interface/IUniswapV2Router02.sol";
 import "./verifier.sol";
+import "./shared.sol";
 
-contract ZkSwap {
+contract ZkSwap is SharedTypes {
 
 	bytes32 public users = 0x113f6d6d1b1bf24631064680373348b5004288de46820619289926eb64f8b838; // initial root with 1 set account and 3 zero accounts
 	bytes32 public balances = 0x92f4853bec2930dcf538f3d620cf297bdcbce51afc7b69b6563fc977afdefd7f;
@@ -26,11 +27,10 @@ contract ZkSwap {
 	}
 
 	constructor(address ercAddr, address verifierAddr)
-        public
     {
 		erc20 = ercAddr;
 		verifier = verifierAddr;
-		setTokenAmount = updateSetPrice();
+		setTokenAmount = getTokenAmount();
 	}
 	// event Deposit(address _from, uint ethAmount, uint tokenAmount, uint nonce);
 
@@ -38,10 +38,7 @@ contract ZkSwap {
 	event BalanceUpdate(address _from, uint ethAmount, uint tokenAmount, uint nonce);
 
 	function verifyTrade(
-		uint[] calldata ethAmount, 
-		uint[] calldata tokenAmount, 
-		uint[] calldata nonce,
-		address[] calldata from, 
+		SharedTypes.Balance[] calldata incomingBalances,
 		uint direction,
 		uint ethDelta,
 		uint tokenDelta, 
@@ -58,9 +55,9 @@ contract ZkSwap {
 		//ensure old root is the same (can also hash to test)
 		require(Verifier(verifier).verifyTx(a, b, c, input), "Proof verification failed!"); // zkSnark verification
 		require(handleTransactorPayment(direction, ethDelta, tokenDelta), "Transactor payment failed!");
-		emitNewBalances(ethAmount, tokenAmount, nonce, from);
+		emitNewBalances(incomingBalances);
 		balances = concatHashes(input[0], input[1]);
-		setTokenAmount = updateSetPrice();
+		setTokenAmount = getTokenAmount();
 	}
 
 	function handleTransactorPayment(uint direction, uint ethDelta, uint tokenDelta)
@@ -77,19 +74,26 @@ contract ZkSwap {
 		return true;
 	}
 
-	function updateSetPrice()
-		public
-		returns (uint256)
+	function getTokenAmount()
+		private
+		view
+		returns (uint)
 	{
 		//No slipage defined yet;
-		return IUniswapV2Router02(router).getAmountsOut(setEthAmount, uniswapPath)[1];	//WIP
+		return IUniswapV2Router02(router).getAmountsOut(setEthAmount, uniswapPath)[1];
 	}
 
-	function emitNewBalances(uint[] memory ethAmount, uint[] memory tokenAmount, uint[] memory nonce, address[] memory from)
+	function updateTokenAmount()
+		public
+	{
+		setTokenAmount = getTokenAmount();
+	}
+
+	function emitNewBalances(SharedTypes.Balance[] calldata incomingBalances)
 		private
 	{
-		for(uint i = 0; i < ethAmount.length; i++) {
-			emit BalanceUpdate(from[i], ethAmount[i], tokenAmount[i], nonce[i]);
+		for(uint i = 0; i < 3; i++) {
+			emit BalanceUpdate(incomingBalances[i].from, incomingBalances[i].ethAmount, incomingBalances[i].tokenAmount, incomingBalances[i].nonce);
 		}
 	}
 
@@ -97,7 +101,7 @@ contract ZkSwap {
 		private
 		returns (bool)
 	{
-		(bool sent, ) = _to.call.value(amountWei)("");
+		(bool sent, ) = _to.call{value: amountWei}("");
         return sent;
 	}
 
@@ -162,7 +166,7 @@ contract ZkSwap {
 		require(ethAmount >= withdrawAmount);
 		updateBalanceMerkle(balanceProof, sha256(abi.encodePacked(ethAmount - withdrawAmount, tokenAmount, nonce + 1)));
 		emit BalanceUpdate(msg.sender, ethAmount - withdrawAmount, tokenAmount, nonce + 1);
-		require(_sendEth(withdrawAmount * 1000000, msg.sender));
+		require(_sendEth(withdrawAmount * 1000000, payable(msg.sender)));
 	}
 
 	function withdrawERC20(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount)
@@ -250,6 +254,9 @@ contract ZkSwap {
 		// );
 		return true;
 	}
+
+	receive() external payable { // for testing, maybe not needed
+    }
 }
 
 
