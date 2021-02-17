@@ -7,15 +7,12 @@ const fs = require('fs');
 module.exports = async function(deployer) {
   deployer.deploy(Verifier)
     .then(async (instance) => {
-      console.log(addresses)
       let zks = await deployer.deploy(ZkSwap, addresses.zks, instance.address).then(zks => zks.address)
       let proxy = await deployer.deploy(PairProxy, zks).then(proxy => proxy.address)
       let file_content = fs.readFileSync('../shared/config.json');
       let content = JSON.parse(file_content);
       content.addresses.zkSwap = zks;
       content.addresses.proxy = proxy;
-      console.log(content)
       fs.writeFileSync("../shared/config.json", JSON.stringify(content, null, 4));
-      console.log("New addresses added!")
     })
 };
