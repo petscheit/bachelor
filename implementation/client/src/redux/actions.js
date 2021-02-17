@@ -41,10 +41,3 @@ export const addAddress = (address) => ({
         address
     }
 })
-
-export const addRegistration = (registered) => ({
-    type: ADD_REGISTRATION_STATUS,
-    payload: {
-        registered
-    }
-})

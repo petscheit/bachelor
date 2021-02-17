@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import Register from "./Register";
 import Deposit from "./Deposit";
 import Trade from "./Trade";
 import Withdraw from "./Withdraw";
@@ -37,38 +36,34 @@ class AppWrapper extends React.Component {
         if(!this.props.stateManager){
             return <div></div>
         }
-        if(this.props.isRegistered){
-            return (
-                <div>
-                    <AppBar position="static" color="default">
-                        <Tabs
-                            value={this.state.value}
-                            onChange={this.handleChange}
-                            indicatorColor="primary"
-                            textColor="primary"
-                            scrollButtons="auto"
-                        >
-                            <Tab label="TRADE" />
-                            <Tab label="DEPOSIT" />
-                            <Tab label="WITHDRAW" />
-                        </Tabs>
-                    </AppBar>
-                    <Container background="light-2">
-                        <Box>
-                            {this.state.value === 0 && <TabContainer><Trade /></TabContainer>}
-                            {this.state.value === 1 && <TabContainer><Deposit /></TabContainer>}
-                            {this.state.value === 2 && <TabContainer><Withdraw /></TabContainer>}
-                        </Box>
-                    </Container>
-                </div>
-            )
-        }
-        return <Register />
+        return (
+            <div>
+                <AppBar position="static" color="default">
+                    <Tabs
+                        value={this.state.value}
+                        onChange={this.handleChange}
+                        indicatorColor="primary"
+                        textColor="primary"
+                        scrollButtons="auto"
+                    >
+                        <Tab label="TRADE" />
+                        <Tab label="DEPOSIT" />
+                        <Tab label="WITHDRAW" />
+                    </Tabs>
+                </AppBar>
+                <Container background="light-2">
+                    <Box>
+                        {this.state.value === 0 && <TabContainer><Trade /></TabContainer>}
+                        {this.state.value === 1 && <TabContainer><Deposit /></TabContainer>}
+                        {this.state.value === 2 && <TabContainer><Withdraw /></TabContainer>}
+                    </Box>
+                </Container>
+            </div>
+        )
     }
 }
 const mapStateToProps = (state) => {
     return {
-        isRegistered: state.user.isRegistered,
         stateManager: state.contract.stateManager
     }
 }

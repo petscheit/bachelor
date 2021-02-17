@@ -8,39 +8,18 @@ class ClientMerkle extends ZkMerkleTree {
         super();
     }
 
-    isUserRegistered(address) {
-        return super.getAddressIndex(address) != -1;
-    }
-
-    getRegisterProof(){
-        const leaf = soliditySha256(this.emptyAddress);
-        const tree = super.getTree("users");
-        let proof = tree.getHexProof(leaf, this.index);
-        super.printRegisterProof(proof, leaf)
-        return [proof, leaf]
-    }
-
     getDepositProof(address){
         let userIndex = super.getAddressIndex(address);
-        let userProof = this.getUserProofPath(address);
         let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
-        super.printDepositProof(userProof, balanceProof, this.balances[userIndex].ethAmount.toString(), this.balances[userIndex].tokenAmount.toString(), this.balances[userIndex].nonce, address)
-        return [userProof, balanceProof, this.balances[userIndex].ethAmount.toString(), this.balances[userIndex].tokenAmount.toString(), this.balances[userIndex].nonce.toString()]
+        super.printDepositProof(balanceProof, this.balances[userIndex].ethAmount.toString(), this.balances[userIndex].tokenAmount.toString(), this.balances[userIndex].nonce, address)
+        return [balanceProof, this.balances[userIndex].ethAmount.toString(), this.balances[userIndex].tokenAmount.toString(), this.balances[userIndex].nonce.toString()]
     }
 
     getWithdrawProof(address, withdrawAmount) {
         let userIndex = super.getAddressIndex(address);
-        let userProof = this.getUserProofPath(address);
         let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
-        super.printWithdrawProof(userProof, balanceProof, mweiToWei(this.balances[userIndex].ethAmount.toString()), mweiToWei(this.balances[userIndex].tokenAmount.toString()), this.balances[userIndex].nonce, mweiToWei(withdrawAmount), address)
-        return [userProof, balanceProof, this.balances[userIndex].ethAmount.toString(), this.balances[userIndex].tokenAmount.toString(), this.balances[userIndex].nonce.toString(), withdrawAmount.toString()]
-    }
-
-    getUserProofPath(leaf){
-        leaf = soliditySha256(leaf);
-        const tree = super.getTree("users");
-        let proof = tree.getHexProof(leaf);
-        return proof;
+        super.printWithdrawProof(balanceProof, mweiToWei(this.balances[userIndex].ethAmount.toString()), mweiToWei(this.balances[userIndex].tokenAmount.toString()), this.balances[userIndex].nonce, mweiToWei(withdrawAmount), address)
+        return [balanceProof, this.balances[userIndex].ethAmount.toString(), this.balances[userIndex].tokenAmount.toString(), this.balances[userIndex].nonce.toString(), withdrawAmount.toString()]
     }
 
     getBalanceProofPath(leaf, index){

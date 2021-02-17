@@ -2,14 +2,6 @@ import store from '../redux/store';
 import { ethToWei, weiToMwei, mweiToWei } from "../shared/conversion";
 import config from "../shared/config"
 
-
-export const getRegisterEvents = async function() {
-    const instance = store.getState().contract.instance;
-    // console.log(instance.currentProvider())
-    let events = await instance.getPastEvents("Registered", { fromBlock: "earliest" });
-    return events;
-}
-
 export const getBalanceEvents = async function() {
     const instance = store.getState().contract.instance;
     let events = await instance.getPastEvents("BalanceUpdate", { fromBlock: "earliest" });
@@ -29,11 +21,7 @@ export const invokeListener = async function() {
               throw error;
           }
           const caughtEvent = event.event;
-          if(caughtEvent === "Registered"){
-            if(event.returnValues["_from"] === store.getState().user.address){
-                store.getState().contract.stateManager.updateRegistrationStatus(event.returnValues["_from"])
-            }
-          } else if(caughtEvent === "BalanceUpdate"){
+          if(caughtEvent === "BalanceUpdate"){
             if(event.returnValues["_from"] === store.getState().user.address){
               console.log(event)
               console.log(event.returnValues.ethAmount)
@@ -43,20 +31,6 @@ export const invokeListener = async function() {
           latestBlockNumber = event.blockNumber;
         }
     )
-}
-
-export const register = async function() {
-  const instance = store.getState().contract.instance;
-  const proof = store.getState().contract.stateManager.getRegisterProof()
-  return instance.methods.register(proof[0], proof[1]).send({ 
-      from: store.getState().user.address
-  })
-  .then(res => {
-      // console.log(res)
-  })
-  .catch(err => console.log)
-
-
 }
 
 export const getLatestPrice = async function() {

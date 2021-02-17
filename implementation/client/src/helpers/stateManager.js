@@ -1,8 +1,8 @@
 import { ClientMerkle } from "./clientMerkle.js";
 import { toBN } from "../shared/conversion";
 import store from '../redux/store';
-import { invokeListener, register } from "./web3";
-import { addRegistration, addBalance } from "../redux/actions";
+import { invokeListener } from "./web3";
+import { addBalance } from "../redux/actions";
 
 class StateManager {
     constructor(){
@@ -11,14 +11,9 @@ class StateManager {
 
     async initialSync() {
         await this.merkle.init()
-        this.addRegistrationStatus();
         this.addBalanceFromHistory();
         await invokeListener()
         // this.merkle.calcInitialRoots()
-    }
-
-    addRegistrationStatus() {
-        store.dispatch(addRegistration(this.merkle.isUserRegistered(store.getState().user.address)))
     }
 
     addBalanceFromHistory() {
@@ -28,15 +23,6 @@ class StateManager {
     updateBalance(ether, token, nonce, address) {
         const updatedBalance = this.merkle.updateBalance(toBN(ether), toBN(token), nonce, address);
         store.dispatch(addBalance(updatedBalance))
-    }
-
-    updateRegistrationStatus(address) {
-        this.merkle.addAddress(address);
-        store.dispatch(addRegistration(true));
-    }
-
-    getRegisterProof() {
-        return this.merkle.getRegisterProof();
     }
 
     getDepositProof(address) {
