@@ -20,3 +20,4 @@ transactor/zokrates_circuits/proving.key
 transactor/zokrates_circuits/verification.key
 transactor/zokrates_circuits/abi.json
 transactor/zokrates_circuits/witness
+presentation/

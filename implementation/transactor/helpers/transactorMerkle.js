@@ -56,7 +56,7 @@ class TransactorMerkle extends ZkMerkleTree {
         const tree = super.getTree("Balance");
         const root = tree.getHexRoot();
         indices = indices.sort()
-        const proofLeafs = indices.map(i => soliditySha256([this.balances[i].ethAmount, this.balances[i].tokenAmount, this.balances[i].nonce]))
+        const proofLeafs = indices.map(i => soliditySha256([this.balances[i].address, this.balances[i].ethAmount, this.balances[i].tokenAmount, this.balances[i].nonce]))
         const proof = tree.getHexMultiProof(indices)
         console.log(proof)
 
@@ -70,7 +70,7 @@ class TransactorMerkle extends ZkMerkleTree {
 
     calcNewRoot(balances, indexes) {
         for(let i = 0; i < balances.length; i++){
-            this.updateNewBalance(balances[i].ethAmount, balances[i].tokenAmount, balances[i].nonce, this.getAddressIndex(balances[i].address))
+            this.updateNewBalance(balances[i].address, balances[i].ethAmount, balances[i].tokenAmount, balances[i].nonce)
         }
         
         let tree = this.getTree("balances");
@@ -79,10 +79,12 @@ class TransactorMerkle extends ZkMerkleTree {
         console.log("Root of new balances: ", "0x" + root)
     }
 
-    updateNewBalance(ethAmount, tokenAmount, nonce, index) {
+    updateNewBalance(address, ethAmount, tokenAmount, nonce) {
+        const index = this.getAddressIndex(address)
         this.balances[index].ethAmount = ethAmount;
         this.balances[index].tokenAmount = tokenAmount;
         this.balances[index].nonce = nonce;
+        this.balances[index].address = address;
     }
 
     toEigthBytesArray(leaf){

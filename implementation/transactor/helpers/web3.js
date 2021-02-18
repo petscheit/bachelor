@@ -4,7 +4,7 @@ const IERC20 = require("../contracts/IERC20.json")
 const getWeb3 = require("./getWeb3.js")
 const Tx = require('ethereumjs-tx').Transaction
 const Web3Utils = require('web3-utils');
-const addresses = require("../shared/config").addresses;
+const addresses = require("../shared/config.json").addresses;
 
 const mweiToWei = require("../shared/conversion.js").mweiToWei
 
@@ -28,10 +28,9 @@ const getBalanceEvents = async function() {
 const getContractInstance = async () => {
     const web3 = await getWeb3(chain);
     const networkId = await web3.eth.net.getId();
-    const deployedNetwork = ZkSwap.networks[networkId];
     return new web3.eth.Contract(
         ZkSwap.abi,
-        deployedNetwork.address,
+        addresses.zkSwap
     );
 }
 
@@ -53,17 +52,10 @@ const getERC20Instance = async (address) => {
 
 const verifyTradeOnchain = async (balanceTxObject, proofObject, combined) => {
     const web3 = await getWeb3(chain);
-    let accounts = await web3.eth.getAccounts();
-    let instance = await getContractInstance();
-    let ethValue = combined.direction == 1 ? combined.deltaEth : 0
-    console.log(proofObject)
+    let instance = await getProxyInstance();
     console.log(balanceTxObject)
-    console.log(combined)
-    instance.methods.verifyTrade(
-        balanceTxObject.ethAmount, 
-        balanceTxObject.tokenAmount, 
-        balanceTxObject.nonce, 
-        balanceTxObject.address,
+    const data = instance.methods.verifyTrade(
+        balanceTxObject,
         combined.direction,
         combined.deltaEth,
         combined.deltaToken,
@@ -71,15 +63,13 @@ const verifyTradeOnchain = async (balanceTxObject, proofObject, combined) => {
         proofObject.proof.b,
         proofObject.proof.c,
         proofObject.inputs
-    ).send({
-        from: accounts[0],
-        gas: 6000000,
-        value: mweiToWei(ethValue)
-    })
-    .then(res => console.log(res))
-    .catch(err => {
-        console.error(err)
-    })
+    ).encodeABI();
+    const txData = buildTxData(addressSender, addresses.proxy, 0, data)
+    await sendRawTransaction(txData, web3)
+        .then(res => {
+            console.log(res)
+        })
+    console.log("Verification complete")
 }
 
 const getLatestPrice = async function() {
@@ -131,6 +121,21 @@ const buildTxData = (from, to, amountEth, data) => {
         data: data 
     }
 }
+
+const test = async () => {
+    const web3 = await getWeb3(chain);
+    const txData = {
+        gasLimit: '0xc3500',
+        gasPrice: '0xb2d05e00',
+        to: '0x726a81e9B9d2ADE8255F2aab7e0e93c2d920897d',
+        from: '0xcc08e5636A9ceb03917C1ac7BbEda23aD57766F3',
+        value: '0x0',
+        data: '0x3d0177ff00000000000000000000000000000000000000000000000000000000000001c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007cf4332d400000000000000000000000000000000000000000000000000003876004331a01de020a31002777c6ea05f42b02ca01adde3e248ba75b079a3bc64cc5d8226780c8ac8e355fb87c0f8aac26bcbf53dab2186c84c633e0455feec1c7e3179f9b121ac6a0ba39a4efae812f829342908e00161953fcf7d5ee99403399becc84aae2848c36d9815af2db8321ac00543ef9c838e77383b124a41c26ac1a2688b8aae2104e658f2263de8171f5e79db304f821e27445dafe952c6e92f8643460dbf7d2b871e2798ed7ea2c13b41f234d5b607d19c1cf9c7021cc923e86554c0536cde2ff6702436e2cfecae61c1a64f959da98210c6fbd6ae206d39f474723316b79914735155f5d5724ba9b7f577b0716e3c4009f6de3ee66a210fd82f86ae545cc6000000000000000000000000000000008be737a0437061d2d309a67ba462b9f200000000000000000000000000000000a7590349dec7cb3b7c13f3362f6549f700000000000000000000000000000000000000000000000000000000000000030000000000000000000000000000000000000000000000000000000f7933b52c00000000000000000000000000000000000000000000000000004607f5a5d000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000031b878918679d9da1db277b1a2fd67aa0103292000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000542a15c8f0d000000000000000000000000000000000000000000000000000000000000000020000000000000000000000001d539b717035b80240d6e7836b2c752e204b7dd400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000542a15c8f0d000000000000000000000000000000000000000000000000000000000000000020000000000000000000000004d9b01d711c908833f97ea78cf2ae0c774607a4d'
+    }
+    sendRawTransaction(txData, web3)
+}
+
+// test();
 
 const sendRawTransaction = async (txData, web3) => {
     await web3.eth.getTransactionCount(addressSender).then(txCount => {

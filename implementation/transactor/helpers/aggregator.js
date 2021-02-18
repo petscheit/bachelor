@@ -95,17 +95,16 @@ class Aggregator {
     }
 
     buildBalanceTxObject(newBalances) {
-        let ethAmount = [];
-        let tokenAmount = [];
-        let nonce = [];
-        let address = [];
+        let res = [];
         for(let i = 0; i < newBalances.length; i++) {
-            ethAmount.push(newBalances[i].ethAmount)
-            tokenAmount.push(newBalances[i].tokenAmount)
-            nonce.push(newBalances[i].nonce)
-            address.push(newBalances[i].address)
+            res.push({
+                ethAmount: newBalances[i].ethAmount.toString(),
+                tokenAmount: newBalances[i].tokenAmount.toString(),
+                nonce: newBalances[i].nonce.toString(),
+                from: newBalances[i].address
+            })
         }
-        return {ethAmount, tokenAmount, nonce, address}
+        return res
     }
 
     
