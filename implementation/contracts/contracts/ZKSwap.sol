@@ -15,10 +15,10 @@ contract ZkSwap is SharedTypes {
 	address public verifier;
 
 	uint private tradePoolExpiration; // variable used for tracking blocknumber for trade pool sealing;
-	uint public setEthAmount = 1000000000000000000;
-	uint public setTokenAmount = 0;
+	uint64 public setEthAmount = 1000000000000000000;
+	uint64 public setTokenAmount = 0;
 
-	modifier canUpdateBalance(address sender, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce)
+	modifier canUpdateBalance(address sender, bytes32[] memory balanceProof, uint64 ethAmount, uint64 tokenAmount, uint64 nonce)
 	{
  		require(verifyBalanceMerkle(balanceProof, hashBalance(sender, ethAmount, tokenAmount, nonce)), "Balance merkle couldn't be reproduced!"); // checks if passed balance amount is correct
 		_;
@@ -32,13 +32,13 @@ contract ZkSwap is SharedTypes {
 	}
 
 	event Length(uint len);
-	event BalanceUpdate(address _from, uint ethAmount, uint tokenAmount, uint nonce);
+	event BalanceUpdate(address _from, uint64 ethAmount, uint64 tokenAmount, uint64 nonce);
 
 	function verifyTrade(
 		SharedTypes.Balance[] memory incomingBalances,
-		uint direction,
-		uint ethDelta,
-		uint tokenDelta,
+		uint64 direction,
+		uint64 ethDelta,
+		uint64 tokenDelta,
 		uint[2] calldata a,
 		uint[2][2] calldata b,
 		uint[2] calldata c, 
@@ -57,7 +57,7 @@ contract ZkSwap is SharedTypes {
 		setTokenAmount = getTokenAmount(); // is called and updates
 	}
 
-	function handleTransactorPayment(uint direction, uint ethDelta, uint tokenDelta)
+	function handleTransactorPayment(uint64 direction, uint64 ethDelta, uint64 tokenDelta)
 		private
 		returns (bool)
 	{
@@ -125,13 +125,13 @@ contract ZkSwap is SharedTypes {
 	function firstDepositEth(bytes32[] memory balanceProof)
 		payable
 		external
-		canUpdateBalance(0x0000000000000000000000000000000000000000, balanceProof, uint(0), uint(0), uint(0)) // ensures we're taking an empty leaf
+		canUpdateBalance(0x0000000000000000000000000000000000000000, balanceProof, uint64(0), uint64(0), uint64(0)) // ensures we're taking an empty leaf
 	{
-		updateBalanceMerkle(balanceProof, hashBalance(msg.sender, (msg.value / 1000000), uint(0), uint(1)));
-		emit BalanceUpdate(msg.sender, (msg.value / 1000000), uint(0), uint(1));
+		updateBalanceMerkle(balanceProof, hashBalance(msg.sender, (msg.value / 1000000), uint64(0), uint64(1)));
+		emit BalanceUpdate(msg.sender, (msg.value / 1000000), uint64(0), uint64(1));
 	}
 
-	function depositEth(bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce)
+	function depositEth(bytes32[] memory balanceProof, uint64 ethAmount, uint64 tokenAmount, uint64 nonce)
 		payable
 		public
 		canUpdateBalance(msg.sender, balanceProof, ethAmount, tokenAmount, nonce)
@@ -140,16 +140,16 @@ contract ZkSwap is SharedTypes {
 		emit BalanceUpdate(msg.sender, ethAmount + (msg.value / 1000000), tokenAmount, nonce + 1);
 	}
 
-	function firstDepositERC20(bytes32[] memory balanceProof, uint depositAmount)
+	function firstDepositERC20(bytes32[] memory balanceProof, uint64 depositAmount)
 		external
-		canUpdateBalance(0x0000000000000000000000000000000000000000, balanceProof, uint(0), uint(0), uint(0)) // ensures we're taking an empty leaf
+		canUpdateBalance(0x0000000000000000000000000000000000000000, balanceProof, uint64(0), uint64(0), uint64(0)) // ensures we're taking an empty leaf
 	{
 		require(_receiveToken(depositAmount * 1000000, msg.sender));
-		updateBalanceMerkle(balanceProof, hashBalance(msg.sender, uint(0), depositAmount, uint(1)));
-		emit BalanceUpdate(msg.sender, uint(0), depositAmount, uint(1));
+		updateBalanceMerkle(balanceProof, hashBalance(msg.sender, uint64(0), depositAmount, uint64(1)));
+		emit BalanceUpdate(msg.sender, uint64(0), depositAmount, uint64(1));
 	}
 
-	function depositERC20(bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint depositAmount)
+	function depositERC20(bytes32[] memory balanceProof, uint64 ethAmount, uint64 tokenAmount, uint64 nonce, uint64 depositAmount)
 		external
 		canUpdateBalance(msg.sender, balanceProof, ethAmount, tokenAmount, nonce)
 	{
@@ -158,7 +158,7 @@ contract ZkSwap is SharedTypes {
 		emit BalanceUpdate(msg.sender, ethAmount, tokenAmount + depositAmount, nonce + 1);
 	}
 
-	function withdrawEth(bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount)
+	function withdrawEth(bytes32[] memory balanceProof, uint64 ethAmount, uint64 tokenAmount, uint64 nonce, uint64 withdrawAmount)
 		external
 		canUpdateBalance(msg.sender, balanceProof, ethAmount, tokenAmount, nonce)
 	{
@@ -168,7 +168,7 @@ contract ZkSwap is SharedTypes {
 		require(_sendEth(withdrawAmount * 1000000, payable(msg.sender)));
 	}
 
-	function withdrawERC20(bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount)
+	function withdrawERC20(bytes32[] memory balanceProof, uint64 ethAmount, uint64 tokenAmount, uint64 nonce, uint64 withdrawAmount)
 		external
 		canUpdateBalance(msg.sender, balanceProof, ethAmount, tokenAmount, nonce)
 	{
@@ -178,12 +178,14 @@ contract ZkSwap is SharedTypes {
 		emit BalanceUpdate(msg.sender, ethAmount, tokenAmount - withdrawAmount, nonce + 1);
 	}
 
-	function hashBalance(address sender, uint ethAmount, uint tokenAmount, uint nonce)
+	function hashBalance(address sender, uint64 ethAmount, uint64 tokenAmount, uint64 nonce)
 		private
 		pure
 		returns (bytes32)
 	{
-		return sha256(abi.encodePacked(sender, ethAmount, tokenAmount, nonce));
+		bytes12 padAddress = 0x000000000000000000000000;
+		uint64 padAmount = 0;
+		return sha256(abi.encodePacked(sender, padAddress, ethAmount, tokenAmount, nonce, padAmount));
 	}
 
 	function verifyBalanceMerkle(bytes32[] memory proof, bytes32 leaf) 
