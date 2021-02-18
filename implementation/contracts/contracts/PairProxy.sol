@@ -74,7 +74,7 @@ contract PairProxy {
 	}
 
     function verifyTrade(
-		SharedTypes.Balance[] calldata incomingBalances,
+		SharedTypes.Balance[] memory incomingBalances,
 		uint direction,
 		uint ethDelta,
 		uint tokenDelta,

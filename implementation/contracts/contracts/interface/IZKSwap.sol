@@ -12,11 +12,12 @@ interface SharedTypes {
 }
 
 interface IZkSwap is SharedTypes {
-	event Registered(address _from);
 	event BalanceUpdate(address _from, uint ethAmount, uint tokenAmount, uint nonce);
+	event Length(uint len);
+
 
 	function verifyTrade(
-		SharedTypes.Balance[] calldata incomingBalances,
+		SharedTypes.Balance[] memory incomingBalances,
 		uint direction,
 		uint ethDelta,
 		uint tokenDelta,
@@ -25,16 +26,18 @@ interface IZkSwap is SharedTypes {
 		uint[2] calldata c, 
 		uint[2] calldata input
 	) external payable;
-
-	function register(bytes32[] memory proof, bytes32 oldLeaf) external;
 	
-	function depositEth(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce) external payable;
+	function depositEth(bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce) external payable;
 
-	function depositERC20(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint depositAmount) external;
+	function firstDepositEth(bytes32[] memory balanceProof) external payable;
 
-	function withdrawEth(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount) external;
+	function depositERC20(bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint depositAmount) external;
 
-	function withdrawERC20(bytes32[] memory userProof, bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount) external;
+	function firstDepositERC20(bytes32[] memory balanceProof, uint depositAmount) external;
 
+	function withdrawEth(bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount) external;
+
+	function withdrawERC20(bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount) external;
+	
 	receive() external payable;
 }
