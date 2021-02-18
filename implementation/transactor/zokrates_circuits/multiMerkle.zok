@@ -1,0 +1,107 @@
+import "hashes/sha256/embed/512bitPadded" as sha256
+import "hashes/sha256/embed/1024bit" as sha256_4
+import "utils/casts/u32_to_field" as to_field
+import "utils/pack/bool/nonStrictUnpack256.zok" as field_to_bool
+import "utils/pack/u32/nonStrictUnpack256" as to_u32_8
+import "utils/casts/u32_8_to_bool_256.zok" as u32_8_to_bool
+import "utils/casts/bool_256_to_u32_8.zok" as bool_to_u32_8
+import "utils/pack/bool/pack128.zok" as pack128
+import "utils/pack/bool/unpack128.zok" as unpack128
+
+struct Balance {
+	field ethAmount
+	field tokenAmount
+	field nonce
+	u32[5] address
+}
+
+def verifyTrades(Balance[3] oldBalances, Balance[3] newBalances, field ethAmount, field tokenAmount) -> (field, field, field):
+	field boughtEth = 0
+	field soldEth = 0
+	field boughtToken = 0
+	field soldToken = 0
+	for field i in 0..3 do
+		assert(oldBalances[i].nonce == newBalances[i].nonce - 1) // makes sure the nonce is incremented
+		field tradeDirection = if oldBalances[i].ethAmount >= newBalances[i].ethAmount then 0 else 1 fi
+		field ethDelta = if tradeDirection == 0 then oldBalances[i].ethAmount - newBalances[i].ethAmount else newBalances[i].ethAmount - oldBalances[i].ethAmount fi
+		field tokenDelta = if tradeDirection == 0 then newBalances[i].tokenAmount - oldBalances[i].tokenAmount else oldBalances[i].tokenAmount - newBalances[i].tokenAmount fi
+		boughtEth = if tradeDirection == 1 then boughtEth + ethDelta else boughtEth fi
+		soldEth = if tradeDirection == 0 then soldEth + ethDelta else soldEth fi
+		boughtToken = if tradeDirection == 0 then boughtToken + tokenDelta else boughtToken fi
+		soldToken = if tradeDirection == 1 then soldToken + tokenDelta else soldToken fi
+		assert(tokenDelta * ethAmount >= ethDelta * tokenAmount && tradeDirection == 0 || tokenDelta * ethAmount <= ethDelta * tokenAmount && tradeDirection == 1) // this works with 64 bit numbers, anything higher will overflow. Maybe check this somewhere?
+	endfor
+	//                                    +Eth, -Token | -Eth, +Token
+	field direction = if boughtEth > soldEth then 1 else 0 fi
+	field deltaEth = if direction == 1 then boughtEth - soldEth else soldEth - boughtEth fi
+	field deltaToken = if direction == 0 then boughtToken - soldToken else soldToken - boughtToken fi
+	return direction, deltaEth, deltaToken
+
+def hashPair(bool[256] a, bool[256] b) -> (bool[256]):
+	return if pack128(a[0..128]) <= pack128(b[0..128]) then sha256(a, b) else sha256(b, a) fi
+
+def hashLeafs(Balance[3] balances) -> (bool[3][256]):
+	bool[3][256] res = [[false;256];3]
+	bool[256] dummyBlock = [true, ...[false; 245], true, true, ...[false; 8]]
+	for field i in 0..3 do
+		bool[256] temp = sha256_4(field_to_bool(balances[i].ethAmount), field_to_bool(balances[i].tokenAmount), field_to_bool(balances[i].nonce), dummyBlock)
+		res[i] = temp
+	endfor
+	return res
+
+def getPosition(bool proofFlag, field leafPos, field leafsLen) -> (field):
+	return if proofFlag then if leafPos < leafsLen then 0 else 1 fi else 2 fi
+	
+def verifyMultiProof(bool[9][256] leafs, bool[9][256] proofs, bool[9] proofFlags) -> (field[2]):
+	field leafsLen = 3
+	field totalHashes = 9
+	bool[9][256] hashes = [[false;256];9]
+	field[3] indexes = [0, 0, 0] // 0: leafPos, 1: hashPos, 2: proofPos
+	for field i in 0..totalHashes do
+		bool[3][256] nodes = [leafs[indexes[0]], hashes[indexes[1]], proofs[indexes[2]]]
+		field aPos = getPosition(proofFlags[i], indexes[0], leafsLen)
+		bool[256] a = nodes[aPos]
+		indexes[aPos] = indexes[aPos] + 1
+
+		nodes = [leafs[indexes[0]], hashes[indexes[1]], proofs[indexes[2]]]
+		field bPos = getPosition(true, indexes[0], leafsLen)
+		bool[256] b = nodes[bPos]
+		indexes[bPos] = indexes[bPos] + 1
+		bool[256] hash = hashPair(a, b)
+		hashes[i] = hash
+	endfor
+	return [pack128(hashes[totalHashes - 1][0..128]), pack128(hashes[totalHashes - 1][128..256])]
+
+def hashFinalBalances(Balance[3] balances, field setEthAmount, field setTokenAmount) -> (field[2]): //194615 const
+	u32[8] dummyBlock = [0x80000000, ...[0x00000000;6], 0x00000300]
+	u32[3] paddingAddress = [0x80000000, 0x00000000, 0x000003A0]
+	bool[256] res =  sha256_4( \
+		sha256_4(field_to_bool(balances[0].ethAmount), field_to_bool(balances[0].tokenAmount), field_to_bool(balances[0].nonce), u32_8_to_bool([...balances[0].address, ...paddingAddress])), \
+		sha256_4(field_to_bool(balances[1].ethAmount), field_to_bool(balances[1].tokenAmount), field_to_bool(balances[1].nonce), u32_8_to_bool([...balances[1].address, ...paddingAddress])), \
+		sha256_4(field_to_bool(balances[2].ethAmount), field_to_bool(balances[2].tokenAmount), field_to_bool(balances[2].nonce), u32_8_to_bool([...balances[2].address, ...paddingAddress])), \
+		sha256(field_to_bool(setEthAmount), field_to_bool(setTokenAmount)))
+	return [pack128(res[0..128]), pack128(res[128..256])]
+
+
+def proofToBin(field[9][2] proof) -> (bool[9][256]): //587502
+	bool[9][256] result = [[false;256];9]
+	for field i in 0..9 do
+		result[i] = [...unpack128(proof[i][0]), ...unpack128(proof[i][1])]
+	endfor
+	return result
+
+def main(private Balance[3] oldBalances, private Balance[3] newBalances, private field[9][2] proof, private bool[9] proofFlags, private field[2] root, private field setEthAmount, private field setTokenAmount) -> (field[2]):
+	field direction, field deltaEth, field deltaToken = verifyTrades(oldBalances, newBalances, setEthAmount, setTokenAmount)
+	bool[9][256] leafsPadded = [...hashLeafs(oldBalances), ...[[false;256];6]] // we need to pass empty leafs for this to compile. The proof flags will ensure that these values are never used for hashing
+	bool[9][256] proofBin = proofToBin(proof)
+	field[2] calcedRoot = verifyMultiProof(leafsPadded, proofBin, proofFlags)
+	assert(root[0] == calcedRoot[0] && root[1] == calcedRoot[1]) // passed trades contain correct balances. First check OK
+	bool[9][256] newLeafsPadded = [...hashLeafs(newBalances), ...[[false;256];6]]
+	field[2] newRoot = verifyMultiProof(newLeafsPadded, proofBin, proofFlags)
+	// return newRoot, hashFinalBalances(newBalances, setEthAmount, setTokenAmount)
+	return newRoot
+
+
+// TODO:
+// - Signature check
+// - Total tokens bought calc

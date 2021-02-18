@@ -1,0 +1,11 @@
+{
+    "port": 3005,
+    "host": "localhost",
+    "addresses": {
+        "weth": "0xc778417E063141139Fce010982780140Aa0cD5Ab",
+        "zks": "0xb87241aAA3E8991C6922E830B61722838cF130fb",
+        "router": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+        "zkSwap": "0x8fA9252638B3a6319aDc3A91a6aEcf636DE7A6D6",
+        "proxy": "0x79e186c3b553b041678220f8e95eABe4ea94f65F"
+    }
+}
