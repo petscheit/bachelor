@@ -4,9 +4,9 @@ pragma solidity ^0.7.6;
 
 interface SharedTypes {
     struct Balance {
-		uint ethAmount;
-		uint tokenAmount;
-		uint nonce;
+		uint64 ethAmount;
+		uint64 tokenAmount;
+		uint64 nonce;
 		address from;
 	}
 }

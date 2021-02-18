@@ -15,12 +15,14 @@ module.exports = {
         } 
         else if(Array.isArray(hashValue)) { // balances
             const address = hashValue[0]
+            const padAddress = "0x000000000000000000000000";
             const ether = hashValue[1];
             const token = hashValue[2];
             const nonce = new BN(hashValue[3].toString(), 10);
+            const padAmount = new BN("0", 10);
             return "0x" + abi.soliditySHA256(
-                [ "address", "uint", "uint", "uint"],
-                [ address, ether, token, nonce]
+                [ "address", "bytes12", "uint64", "uint64", "uint64", "uint64"],
+                [ address, padAddress, ether, token, nonce, padAmount]
             ).toString('hex')
         }
         else { // merkle tree merge hashes 

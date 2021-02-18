@@ -8,15 +8,15 @@ import "./interface/IZKSwap.sol";
 
 contract ZkSwap is SharedTypes {
 
-	bytes32 public balances = 0xd3aaa59afdd168e70d5802668747743b8a6927110543d8d5b6d966bc28e1d053;
+	bytes32 public balances = 0x506d86582d252405b840018792cad2bf1259f1ef5aa5f887e13cb2f0094f51e1;
 	address public router = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;
 	address[] public uniswapPath = [0xc778417E063141139Fce010982780140Aa0cD5Ab, 0xb87241aAA3E8991C6922E830B61722838cF130fb];
 	address public erc20;
 	address public verifier;
 
 	uint private tradePoolExpiration; // variable used for tracking blocknumber for trade pool sealing;
-	uint64 public setEthAmount = 1000000000000000000;
-	uint64 public setTokenAmount = 0;
+	uint256 public setEthAmount = 1000000000000000000;
+	uint256 public setTokenAmount = 0;
 
 	modifier canUpdateBalance(address sender, bytes32[] memory balanceProof, uint64 ethAmount, uint64 tokenAmount, uint64 nonce)
 	{
@@ -39,6 +39,7 @@ contract ZkSwap is SharedTypes {
 		uint64 direction,
 		uint64 ethDelta,
 		uint64 tokenDelta,
+		bytes32 newRoot,
 		uint[2] calldata a,
 		uint[2][2] calldata b,
 		uint[2] calldata c, 
@@ -50,6 +51,7 @@ contract ZkSwap is SharedTypes {
 		emit Length(incomingBalances.length); //doesn't fire
 		require(Verifier(verifier).verifyTx(a, b, c, input), "Proof verification failed!"); // passes
 		require(handleTransactorPayment(direction, ethDelta, tokenDelta), "Transactor payment failed!"); // passes
+		require(checkTradeData(incomingBalances, concatHashes(input[0], input[1]), newRoot));
 		for(uint i = 0; i < incomingBalances.length; i++) {
 			emit BalanceUpdate(incomingBalances[i].from, incomingBalances[i].ethAmount, incomingBalances[i].tokenAmount, incomingBalances[i].nonce); // doesn't fire
 		}
@@ -108,27 +110,29 @@ contract ZkSwap is SharedTypes {
 		return IERC20(erc20).transferFrom(sender, address(this), amountWei);
 	}
 
-	// function checkTradeData(uint[] memory ethAmount, uint[] memory tokenAmount, uint[] memory nonce, address[] memory from, bytes32 shaHash) // reimplement for dynamic array size
-	// 	internal
-	// 	returns (bool)
-	// {
-	// 	uint length = ethAmount.length;
-	// 	emit Length(ethAmount.length);
-	// 	bytes32[] memory _hashes = new bytes32[](length + 1);
-	// 	for(uint i = 0; i < ethAmount.length; i++){
-	// 		_hashes[i] = sha256(abi.encode(ethAmount[i], tokenAmount[i], nonce[i], addrs[i]));
-	// 	}
-	// 	_hashes[length] = sha256(abi.encode(uint(1000000000000), uint(20400000000000)));
-	// 	return sha256(abi.encodePacked(_hashes[0], _hashes[1], _hashes[2]));
-	// }
+	function checkTradeData(SharedTypes.Balance[] memory incomingBalances, bytes32 dataHash, bytes32 newRoot) // reimplement for dynamic array size
+		private
+		view
+		returns (bool)
+	{
+		
+		bytes32[] memory _hashes = new bytes32[](incomingBalances.length);
+		for(uint i = 0; i < incomingBalances.length; i++){
+			_hashes[i] = hashBalance(incomingBalances[i].from, incomingBalances[i].ethAmount, incomingBalances[i].tokenAmount, incomingBalances[i].nonce);
+		}
+		bytes32 balancesHash = sha256(abi.encodePacked(_hashes[0], _hashes[1],_hashes[2], _hashes[2])); //Hacky, last trade gets hashed twice for ZoKrates compatibility
+		bytes32 rootPrice = sha256(abi.encodePacked(balances, newRoot, setEthAmount, setTokenAmount));
+
+		return sha256(abi.encodePacked(balancesHash, rootPrice)) == dataHash;
+	}
 
 	function firstDepositEth(bytes32[] memory balanceProof)
 		payable
 		external
 		canUpdateBalance(0x0000000000000000000000000000000000000000, balanceProof, uint64(0), uint64(0), uint64(0)) // ensures we're taking an empty leaf
 	{
-		updateBalanceMerkle(balanceProof, hashBalance(msg.sender, (msg.value / 1000000), uint64(0), uint64(1)));
-		emit BalanceUpdate(msg.sender, (msg.value / 1000000), uint64(0), uint64(1));
+		updateBalanceMerkle(balanceProof, hashBalance(msg.sender, uint64(msg.value / 1000000), uint64(0), uint64(1)));
+		emit BalanceUpdate(msg.sender, uint64((msg.value / 1000000)), uint64(0), uint64(1));
 	}
 
 	function depositEth(bytes32[] memory balanceProof, uint64 ethAmount, uint64 tokenAmount, uint64 nonce)
@@ -136,8 +140,8 @@ contract ZkSwap is SharedTypes {
 		public
 		canUpdateBalance(msg.sender, balanceProof, ethAmount, tokenAmount, nonce)
 	{
-		updateBalanceMerkle(balanceProof, hashBalance(msg.sender, ethAmount + (msg.value / 1000000), tokenAmount, nonce + 1));
-		emit BalanceUpdate(msg.sender, ethAmount + (msg.value / 1000000), tokenAmount, nonce + 1);
+		updateBalanceMerkle(balanceProof, hashBalance(msg.sender, uint64(ethAmount + (msg.value / 1000000)), tokenAmount, nonce + 1));
+		emit BalanceUpdate(msg.sender, uint64(ethAmount + (msg.value / 1000000)), tokenAmount, nonce + 1);
 	}
 
 	function firstDepositERC20(bytes32[] memory balanceProof, uint64 depositAmount)
