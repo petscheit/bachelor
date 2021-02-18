@@ -1,8 +1,9 @@
-import { ADD_BALANCE, ADD_ADDRESS } from "../actionTypes";
+import { ADD_BALANCE, ADD_ADDRESS, ADD_REGISTRATION } from "../actionTypes";
 
 const initialState = {
     balance: null,
-    address: null
+    address: null,
+    registered: false
 };
 
 export default function (state = initialState, action) {
@@ -18,6 +19,12 @@ export default function (state = initialState, action) {
                 ...state,
                 address: action.payload.address
             };
+        }
+        case ADD_REGISTRATION: {
+            return {
+                ...state,
+                registered: action.payload.status
+            }
         }
         default:
             return state;

@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { addAddress, addInstance, addStateManager, addERC } from "./redux/actions";
 import StateManager from "./helpers/stateManager";
 import AppContainer from "./components/AppContainer";
-
+import { addresses } from "./shared/config.json";
 
 class App extends Component {
     constructor(props) {
@@ -25,11 +25,11 @@ class App extends Component {
             const deployedNetwork = ZkSwap.networks[networkId];
             const instance = new web3.eth.Contract(
               ZkSwap.abi,
-              deployedNetwork.address,
+              addresses.zkSwap,
             );
             const tokenInstance = new web3.eth.Contract(
               IERC20.abi,
-              "0xb87241aAA3E8991C6922E830B61722838cF130fb"
+              addresses.zks
             );
 
             this.props.addERC(tokenInstance)

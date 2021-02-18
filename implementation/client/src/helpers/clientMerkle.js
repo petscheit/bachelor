@@ -15,6 +15,13 @@ class ClientMerkle extends ZkMerkleTree {
         return [balanceProof, this.balances[userIndex].ethAmount.toString(), this.balances[userIndex].tokenAmount.toString(), this.balances[userIndex].nonce.toString()]
     }
 
+    getFirstDepositProof(address){
+        let userIndex = super.getAddressIndex(address);
+        let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)
+        super.printDepositProof(balanceProof, this.balances[userIndex].ethAmount.toString(), this.balances[userIndex].tokenAmount.toString(), this.balances[userIndex].nonce, address)
+        return [balanceProof]
+    }
+
     getWithdrawProof(address, withdrawAmount) {
         let userIndex = super.getAddressIndex(address);
         let balanceProof = this.getBalanceProofPath(this.balances[userIndex], userIndex)

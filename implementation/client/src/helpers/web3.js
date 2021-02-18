@@ -23,8 +23,6 @@ export const invokeListener = async function() {
           const caughtEvent = event.event;
           if(caughtEvent === "BalanceUpdate"){
             if(event.returnValues["_from"] === store.getState().user.address){
-              console.log(event)
-              console.log(event.returnValues.ethAmount)
               store.getState().contract.stateManager.updateBalance(event.returnValues.ethAmount, event.returnValues.tokenAmount, event.returnValues.nonce, event.returnValues["_from"])
             }
           }
@@ -54,29 +52,50 @@ const depositERC20 = async function(amount) {
   const address = store.getState().user.address;
   const instance = store.getState().contract.instance;
   const erc20Instance = store.getState().contract.erc;
-  const proof = store.getState().contract.stateManager.getDepositProof(address)
+  const registered = store.getState().user.registered;
+  console.log("registered", registered)
+  console.log(amount)
+  let proof;
+  if(registered){
+    proof = store.getState().contract.stateManager.getDepositProof(address)
+  } else {
+    proof = store.getState().contract.stateManager.getFirstDepositProof(address)
+  }
   await erc20Instance.methods.approve(config.addresses.zkSwap, mweiToWei(amount))
   .send({
     from: address,
   })
-  return instance.methods.depositERC20(proof[0], proof[1], proof[2], proof[3], proof[4], amount).send({
-    from: address,
-  })
-  .then(
-    res => console.log
-  )
+  if(registered) {
+    return instance.methods.depositERC20(proof[0], proof[1], proof[2], proof[3], amount).send({
+      from: address,
+    })
+  } else {
+    console.log(amount)
+    return instance.methods.firstDepositERC20(proof[0], amount).send({
+      from: address,
+    })
+  }
 }
-// 10000000000000000
 
 const depositEth = async function(amount) {
   const address = store.getState().user.address;
   const instance = store.getState().contract.instance;
-  const proof = store.getState().contract.stateManager.getDepositProof(address)
-  return instance.methods.depositEth(proof[0], proof[1], proof[2], proof[3], proof[4]).send({
-    from: address,
-    value: mweiToWei(amount)
-  })
-  .catch(err => console.log)
+  const registered = store.getState().user.registered;
+  if(registered){
+    const proof = store.getState().contract.stateManager.getDepositProof(address)
+    return instance.methods.depositEth(proof[0], proof[1], proof[2], proof[3]).send({
+      from: address,
+      value: mweiToWei(amount)
+    })
+    .catch(err => console.log)
+  } else {
+    const proof = store.getState().contract.stateManager.getFirstDepositProof(address)
+    return instance.methods.firstDepositEth(proof[0]).send({
+      from: address,
+      value: mweiToWei(amount)
+    })
+    .catch(err => console.log)
+  }
 }
 
 
@@ -93,7 +112,7 @@ const withdrawEth = function(amount) {
   const instance = store.getState().contract.instance;
   const proof = store.getState().contract.stateManager.getWithdrawProof(address, amount)
   console.log(proof)
-  instance.methods.withdrawEth(proof[0], proof[1], proof[2], proof[3], proof[4], proof[5]).send({
+  instance.methods.withdrawEth(proof[0], proof[1], proof[2], proof[3], proof[4]).send({
     from: address,
   })
   .then(res => {
@@ -107,7 +126,7 @@ const withdrawERC20 = function(amount) {
   const address = store.getState().user.address;
   const instance = store.getState().contract.instance;
   const proof = store.getState().contract.stateManager.getWithdrawProof(address, amount)
-  instance.methods.withdrawERC20(proof[0], proof[1], proof[2], proof[3], proof[4], proof[5]).send({
+  instance.methods.withdrawERC20(proof[0], proof[1], proof[2], proof[3], proof[4]).send({
     from: address,
   })
   .then(res => {

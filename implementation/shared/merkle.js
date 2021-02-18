@@ -9,7 +9,7 @@ class ZkMerkleTree {
     constructor(){
         this.balances = null;
         this.addressMapping = {}
-        this.index = 0;
+        this.index = 0; // used for holding the next free index
         this.emptyAddress = "0x0000000000000000000000000000000000000000";
         this.userAmount = 256;
         this.initilizeDatastructure();
@@ -28,6 +28,11 @@ class ZkMerkleTree {
 
     getBalance(address) {
         return this.balances[this.addressMapping[address]]
+    }
+
+    getAddressIndex(address) {
+        if(address in this.addressMapping) return this.addressMapping[address];
+        return this.index;
     }
 
     updateBalance(address, ethAmount, tokenAmount, nonce) {
@@ -71,8 +76,7 @@ class ZkMerkleTree {
     initilizeDatastructure(){
         // initialize empty balances
         let balances = new Array(this.userAmount);
-        for(var i = 0; i < balances.length; i++) balances[i] = {address: "0x0", ethAmount: new BN(0, 10), tokenAmount: new BN(0, 10), nonce: 0 };
-        
+        for(var i = 0; i < balances.length; i++) balances[i] = {address: this.emptyAddress, ethAmount: new BN(0, 10), tokenAmount: new BN(0, 10), nonce: 0 };
         this.balances = balances
     }
 
