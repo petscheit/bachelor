@@ -34,7 +34,7 @@ class TransactorMerkle extends ZkMerkleTree {
         const tree = super.getTree("balance");
         const root = tree.getHexRoot();
         const leaf = soliditySha256([trade.address, trade.ethAmount, trade.tokenAmount, trade.nonce]);
-        const index = super.getAddressIndex(trade.address);
+        const index = super.checkForKnowUser(trade.address);
         const proof = tree.getHexProof(leaf, index);
         return tree.verify(proof, leaf, root)
     }
@@ -80,7 +80,7 @@ class TransactorMerkle extends ZkMerkleTree {
     }
 
     updateNewBalance(address, ethAmount, tokenAmount, nonce) {
-        const index = this.getAddressIndex(address)
+        const index = this.checkForKnowUser(address)
         this.balances[index].ethAmount = ethAmount;
         this.balances[index].tokenAmount = tokenAmount;
         this.balances[index].nonce = nonce;

@@ -30,13 +30,8 @@ class ZkMerkleTree {
         return this.balances[this.addressMapping[address]]
     }
 
-    getAddressIndex(address) {
-        if(address in this.addressMapping) return this.addressMapping[address];
-        return this.index;
-    }
-
     updateBalance(address, ethAmount, tokenAmount, nonce) {
-        const index = this.getAddressIndex(address);    
+        const index = this.checkForKnowUser(address);   
         this.addBalance(address, ethAmount, tokenAmount, nonce, index);
         return this.getBalance(address);
     }

@@ -13,12 +13,6 @@ const addressSender = "0xcc08e5636A9ceb03917C1ac7BbEda23aD57766F3"
 
 const chain = 'ropsten'
 
-const getRegisterEvents = async function() {
-    const instance = await getContractInstance();
-    let events = await instance.getPastEvents("Registered", { fromBlock: "earliest" });
-    return events;
-}
-
 const getBalanceEvents = async function() {
     const instance = await getContractInstance();
     let events = await instance.getPastEvents("BalanceUpdate", { fromBlock: "earliest" });
@@ -150,7 +144,6 @@ const sendRawTransaction = async (txData, web3) => {
 }
 
 exports.verifyTradeOnchain = verifyTradeOnchain;
-exports.getRegisterEvents = getRegisterEvents;
 exports.getBalanceEvents = getBalanceEvents;
 exports.getContractInstance = getContractInstance;
 exports.getProxyInstance = getProxyInstance;

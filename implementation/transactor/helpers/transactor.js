@@ -1,7 +1,7 @@
 const TransactorMerkle = require("./transactorMerkle") 
 const { getContractInstance, verifyTradeOnchain, getProxyInstance, trade, getLatestPrice } = require("./web3");
 const ZokratesHelper = require("./zokrates");
-const { ethToMwei } = require("../shared/conversion");
+const { ethToMwei, toBN } = require("../shared/conversion");
 
 const Aggregator = require("./aggregator");
 const assert = require('assert').strict;
@@ -38,7 +38,7 @@ class Transactor {
         }
         const caughtEvent = event.event;
         if(caughtEvent === "BalanceUpdate"){
-          this.merkle.updateBalance(event.returnValues["_from"], event.returnValues.ethAmount, event.returnValues.tokenAmount, event.returnValues.nonce)
+          this.merkle.updateBalance(event.returnValues["_from"], toBN(event.returnValues.ethAmount), toBN(event.returnValues.tokenAmount), event.returnValues.nonce)
           this.merkle.calcInitialRoots()
         }
         latestBlockNumber = event.blockNumber;
@@ -47,7 +47,6 @@ class Transactor {
   }
 
   async invokeProxyListener() {
-    console.log("proxy listender running")
     let instance = await getProxyInstance();
     let latestBlockNumber;
     instance.events.TradeComplete(
@@ -74,7 +73,7 @@ class Transactor {
     assert.ok(!this.poolTraders.includes(reqBody.address))
     this.tradePool.push(reqBody)
     this.poolTraders.push(reqBody.address)
-    this.tradePoolLeafIndex.push(this.merkle.getAddressIndex(reqBody.address))
+    this.tradePoolLeafIndex.push(this.merkle.checkForKnowUser(reqBody.address))
     console.log(this.tradePool[this.tradePool.length - 1])
   }
 
