@@ -75,23 +75,32 @@ contract PairProxy {
 
     function verifyTrade(
 		SharedTypes.Balance[] memory incomingBalances,
-		uint direction,
-		uint ethDelta,
-		uint tokenDelta,
+		uint64 direction,
+		uint64 ethDelta,
+		uint64 tokenDelta,
+		bytes32 newRoot,
 		uint[2] calldata a,
 		uint[2][2] calldata b,
 		uint[2] calldata c, 
-		uint[2] calldata input
+		uint[2] memory dataHash
 	) 
         external
-        payable
     {
         if(direction == 0){ // we're sending tokens that we bought. Must approve before verifying
             IERC20(token1).approve(address(zkSwap), tokenDelta * 1000000);
-            zkSwap.verifyTrade(incomingBalances, direction, ethDelta, tokenDelta, a, b, c, input);
+            zkSwap.verifyTrade(incomingBalances, direction, ethDelta, tokenDelta, newRoot, a, b, c, dataHash);
+            // zkSwap.verifyTrade(direction, ethDelta, tokenDelta, newRoot, a, b, c, dataHash);
         } else { // we're sending eth, can send with TX
-            zkSwap.verifyTrade{value: ethDelta * 1000000}(incomingBalances, direction, ethDelta, tokenDelta, a, b, c, input);
+            zkSwap.verifyTrade{value: ethDelta * 1000000}(incomingBalances, direction, ethDelta, tokenDelta, newRoot, a, b, c, dataHash);
+            // zkSwap.verifyTrade{value: ethDelta * 1000000}(direction, ethDelta, tokenDelta, newRoot, a, b, c, dataHash);
         }
+    }
+    
+    function approve() 
+        external
+        payable
+    {
+        IERC20(token1).approve(address(zkSwap), 100000000000000 * 1000000);
     }
 	
     receive() external payable {

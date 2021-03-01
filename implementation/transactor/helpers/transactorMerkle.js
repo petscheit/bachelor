@@ -77,6 +77,7 @@ class TransactorMerkle extends ZkMerkleTree {
         let root = tree.getRoot().toString('hex')
 
         console.log("Root of new balances: ", "0x" + root)
+        return  "0x" + root
     }
 
     updateNewBalance(address, ethAmount, tokenAmount, nonce) {

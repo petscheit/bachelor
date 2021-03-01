@@ -90,12 +90,12 @@ class Transactor {
     const balances = this.aggregator.start(this.tradePool);
     const proofData = this.merkle.getMulti(this.tradePoolLeafIndex);
     this.zokratesHelper.prepareTrade(balances[0], balances[1], proofData[0], proofData[1], proofData[2])
-    this.merkle.calcNewRoot(balances[1])
+    const newRoot = this.merkle.calcNewRoot(balances[1])
     this.zokratesHelper.computeWitness(ethToMwei(this.latestPrice))
       .then(proofObject => {
         console.log(proofObject)
         const balancesTxObject = this.aggregator.buildBalanceTxObject(balances[1])
-        verifyTradeOnchain(balancesTxObject, proofObject, balances[2])
+        verifyTradeOnchain(balancesTxObject, proofObject, balances[2], newRoot)
         .then(() => {
           
           console.log("Eagle has landed")

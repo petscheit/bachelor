@@ -44,7 +44,7 @@ const getERC20Instance = async (address) => {
     );
 }
 
-const verifyTradeOnchain = async (balanceTxObject, proofObject, combined) => {
+const verifyTradeOnchain = async (balanceTxObject, proofObject, combined, newRoot) => {
     const web3 = await getWeb3(chain);
     let instance = await getProxyInstance();
     console.log(balanceTxObject)
@@ -53,6 +53,7 @@ const verifyTradeOnchain = async (balanceTxObject, proofObject, combined) => {
         combined.direction,
         combined.deltaEth,
         combined.deltaToken,
+        newRoot,
         proofObject.proof.a,
         proofObject.proof.b,
         proofObject.proof.c,
@@ -99,7 +100,7 @@ const ethForTokens = async (amountEth, minAmountOut) => {
 const tokensForEth = async (amountToken, minAmountOut) => {
     const web3 = await getWeb3(chain);
     let instance = await getProxyInstance();
-    const data = instance.methods.tokenForEth(minAmountOut, amountToken).encodeABI(); 
+    const data = instance.methods.tokenForEth(minAmountOut * 0.9, amountToken).encodeABI(); 
     const txData = buildTxData(addressSender, addresses.proxy, 0, data)
     await sendRawTransaction(txData, web3)
     console.log("Swap complete")

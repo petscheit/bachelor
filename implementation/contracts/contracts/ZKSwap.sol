@@ -6,7 +6,7 @@ import "./interface/IUniswapV2Router02.sol";
 import "./verifier.sol";
 import "./interface/IZKSwap.sol";
 
-contract ZkSwap is SharedTypes {
+contract ZkSwap {
 
 	bytes32 public balances = 0x506d86582d252405b840018792cad2bf1259f1ef5aa5f887e13cb2f0094f51e1;
 	address public router = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;
@@ -31,44 +31,58 @@ contract ZkSwap is SharedTypes {
 		setTokenAmount = getTokenAmount();
 	}
 
-	event Length(uint len);
 	event BalanceUpdate(address _from, uint64 ethAmount, uint64 tokenAmount, uint64 nonce);
+	event Success(bytes32 yeah);
 
 	function verifyTrade(
 		SharedTypes.Balance[] memory incomingBalances,
 		uint64 direction,
-		uint64 ethDelta,
-		uint64 tokenDelta,
+		uint64 deltaEth,
+		uint64 deltaToken,
 		bytes32 newRoot,
 		uint[2] calldata a,
 		uint[2][2] calldata b,
 		uint[2] calldata c, 
-		uint[2] calldata input
+		uint[2] memory dataHash
 	)
 		external
 		payable
 	{		
-		emit Length(incomingBalances.length); //doesn't fire
-		require(Verifier(verifier).verifyTx(a, b, c, input), "Proof verification failed!"); // passes
-		require(handleTransactorPayment(direction, ethDelta, tokenDelta), "Transactor payment failed!"); // passes
-		require(checkTradeData(incomingBalances, concatHashes(input[0], input[1]), newRoot));
+		require(Verifier(verifier).verifyTx(a, b, c, dataHash), "Proof verification failed!"); // passes
+		require(handleTransactorPayment(direction, deltaEth, deltaToken), "Transactor payment failed!"); // passes
+		bytes32 result = hashTradeData(incomingBalances, newRoot, deltaEth, deltaToken, direction);
+		emit Success(result);
+		// require(concatHashes(dataHash[0], dataHash[1]) == result, "Trade data check failed!");
+		// emit Success(checkTradeData(incomingBalances, concatHashes(dataHash[0], dataHash[1]), balances, newRoot));
 		for(uint i = 0; i < incomingBalances.length; i++) {
 			emit BalanceUpdate(incomingBalances[i].from, incomingBalances[i].ethAmount, incomingBalances[i].tokenAmount, incomingBalances[i].nonce); // doesn't fire
 		}
-		balances = concatHashes(input[0], input[1]); // reassigns
+		balances = newRoot; // reassigns
 		setTokenAmount = getTokenAmount(); // is called and updates
 	}
 
-	function handleTransactorPayment(uint64 direction, uint64 ethDelta, uint64 tokenDelta)
+	function hashTradeData(SharedTypes.Balance[] memory incomingBalances, bytes32 newRoot, uint64 deltaEth, uint64 deltaToken, uint64 direction) // reimplement for dynamic array size
+		public
+		returns (bytes32)
+	{	
+		bytes32[] memory _hashes = new bytes32[](3);
+		for(uint i = 0; i < 3; i++){
+			_hashes[i] = hashBalance(incomingBalances[i].from, incomingBalances[i].ethAmount, incomingBalances[i].tokenAmount, incomingBalances[i].nonce);
+		}
+		bytes32 rootPrice = sha256(abi.encodePacked(balances, newRoot, uint64(setEthAmount / 1000000), uint64(setTokenAmount / 1000000), deltaEth, deltaToken, uint256(direction)));
+		return sha256(abi.encodePacked(_hashes[0], _hashes[1],_hashes[2], rootPrice)); //Hacky, last trade gets hashed twice for ZoKrates compatibility
+	}
+
+	function handleTransactorPayment(uint64 direction, uint64 deltaEth, uint64 deltaToken)
 		private
 		returns (bool)
 	{
 		if(direction == 0) { // Receiving tokens
-			require(_receiveToken(tokenDelta * 1000000, msg.sender), "Tokens couldn't be received!");
-			require(_sendEth(ethDelta * 1000000, payable(msg.sender)), "Eth payment couldn't be sent!");
+			require(_receiveToken(deltaToken * 1000000, msg.sender), "Tokens couldn't be received!");
+			require(_sendEth(deltaEth * 1000000, payable(msg.sender)), "Eth payment couldn't be sent!");
 		} else if(direction == 1) { // receiving ETH
-			require((msg.value / 1000000) >= ethDelta, "Amount of Eth received to small!");
-			require(_sendToken(tokenDelta * 1000000, msg.sender), "Token payment couldn't be sent!");
+			require((msg.value / 1000000) >= deltaEth, "Amount of Eth received to small!");
+			require(_sendToken(deltaToken * 1000000, msg.sender), "Token payment couldn't be sent!");
 		}
 		return true;
 	}
@@ -108,22 +122,6 @@ contract ZkSwap is SharedTypes {
 		returns (bool)
 	{
 		return IERC20(erc20).transferFrom(sender, address(this), amountWei);
-	}
-
-	function checkTradeData(SharedTypes.Balance[] memory incomingBalances, bytes32 dataHash, bytes32 newRoot) // reimplement for dynamic array size
-		private
-		view
-		returns (bool)
-	{
-		
-		bytes32[] memory _hashes = new bytes32[](incomingBalances.length);
-		for(uint i = 0; i < incomingBalances.length; i++){
-			_hashes[i] = hashBalance(incomingBalances[i].from, incomingBalances[i].ethAmount, incomingBalances[i].tokenAmount, incomingBalances[i].nonce);
-		}
-		bytes32 balancesHash = sha256(abi.encodePacked(_hashes[0], _hashes[1],_hashes[2], _hashes[2])); //Hacky, last trade gets hashed twice for ZoKrates compatibility
-		bytes32 rootPrice = sha256(abi.encodePacked(balances, newRoot, setEthAmount, setTokenAmount));
-
-		return sha256(abi.encodePacked(balancesHash, rootPrice)) == dataHash;
 	}
 
 	function firstDepositEth(bytes32[] memory balanceProof)
