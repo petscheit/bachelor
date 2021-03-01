@@ -1,0 +1,50 @@
+import "hashes/sha256/embed/512bitPadded" as sha256
+import "hashes/sha256/embed/1024bit" as sha256_4
+import "utils/casts/u32_to_field" as to_field
+import "utils/pack/bool/nonStrictUnpack256.zok" as field_to_bool
+import "utils/pack/u32/nonStrictUnpack256" as to_u32_8
+import "utils/casts/u32_8_to_bool_256.zok" as u32_8_to_bool
+import "utils/casts/bool_256_to_u32_8.zok" as bool_to_u32_8
+import "utils/pack/bool/pack128.zok" as pack128
+import "utils/pack/bool/unpack128.zok" as unpack128
+
+struct Balance {
+	field ethAmount
+	field tokenAmount
+	field nonce
+	u32[5] address
+}
+
+def main() -> (field, field, field, field, field):
+	Balance[1] oldBalances = [Balance{ethAmount:0,tokenAmount:50000000000000,nonce:1,address:[0xcc08e563,0x6A9ceb03,0x917C1ac7,0xBbEda23a,0xD57766F3]}]
+	Balance[1] newBalances = [Balance{ethAmount:22066533063,tokenAmount:0,nonce:2,address:[0xcc08e563,0x6A9ceb03,0x917C1ac7,0xBbEda23a,0xD57766F3]}]
+	// Balance[3] oldBalances = [Balance{ethAmount:0,tokenAmount:50000000000000,nonce:1,address:[0xcc08e563,0x6A9ceb03,0x917C1ac7,0xBbEda23a,0xD57766F3]}, Balance{ethAmount:25000000000,tokenAmount:0,nonce:1,address:[0x31b87891,0x8679d9DA,0x1DB277B1,0xA2fD67Aa,0x01032920]}, Balance{ethAmount:16000000000,tokenAmount:0,nonce:1,address:[0x1D539b71,0x7035B802,0x40d6e783,0x6B2C752E,0x204B7DD4]}]
+
+	// Balance[3] newBalances = [Balance{ethAmount:22066533063,tokenAmount:0,nonce:2,address:[0xcc08e563,0x6A9ceb03,0x917C1ac7,0xBbEda23a,0xD57766F3]}, Balance{ethAmount:0,tokenAmount:56646868650000,nonce:2,address:[0x31b87891,0x8679d9DA,0x1DB277B1,0xA2fD67Aa,0x01032920]}, Balance{ethAmount:0,tokenAmount:36253995936000,nonce:2,address:[0x1D539b71,0x7035B802,0x40d6e783,0x6B2C752E,0x204B7DD4]}]
+	field ethAmount = 1000000000000
+	field tokenAmount = 2265874746000000
+
+	field boughtEth = 0
+	field soldEth = 0
+	field boughtToken = 0
+	field soldToken = 0
+	field left = 0
+	field right = 0
+	for field i in 0..1 do
+		assert(oldBalances[i].nonce == newBalances[i].nonce - 1) // makes sure the nonce is incremented
+		field tradeDirection = if oldBalances[i].ethAmount >= newBalances[i].ethAmount then 0 else 1 fi
+		field ethDelta = if tradeDirection == 0 then oldBalances[i].ethAmount - newBalances[i].ethAmount else newBalances[i].ethAmount - oldBalances[i].ethAmount fi
+		field tokenDelta = if tradeDirection == 0 then newBalances[i].tokenAmount - oldBalances[i].tokenAmount else oldBalances[i].tokenAmount - newBalances[i].tokenAmount fi
+		boughtEth = if tradeDirection == 1 then boughtEth + ethDelta else boughtEth fi
+		soldEth = if tradeDirection == 0 then soldEth + ethDelta else soldEth fi
+		boughtToken = if tradeDirection == 0 then boughtToken + tokenDelta else boughtToken fi
+		soldToken = if tradeDirection == 1 then soldToken + tokenDelta else soldToken fi
+		left = tokenDelta * ethAmount
+		right = ethDelta * tokenAmount
+		// assert(tokenDelta * ethAmount >= ethDelta * tokenAmount && tradeDirection == 0 || tokenDelta * ethAmount <= ethDelta * tokenAmount && tradeDirection == 1) // this works with 64 bit numbers, anything higher will overflow. Maybe check this somewhere?
+	endfor
+	//                                    +Eth, -Token | -Eth, +Token
+	field direction = if boughtEth > soldEth then 1 else 0 fi
+	field deltaEth = if direction == 1 then boughtEth - soldEth else soldEth - boughtEth fi
+	field deltaToken = if direction == 0 then boughtToken - soldToken else soldToken - boughtToken fi
+	return direction, deltaEth, deltaToken, left, right
