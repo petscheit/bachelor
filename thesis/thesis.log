@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  3 MAR 2021 11:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  3 MAR 2021 13:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -410,15 +410,15 @@ LaTeX Warning: Empty `thebibliography' environment on input line 6.
 
 ) [5] (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 12484 strings out of 492649
- 253200 string characters out of 6129622
- 299593 words of memory out of 5000000
- 16122 multiletter control sequences out of 15000+600000
+ 12476 strings out of 492649
+ 253021 string characters out of 6129622
+ 299446 words of memory out of 5000000
+ 16114 multiletter control sequences out of 15000+600000
  10067 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,9n,76p,1097b,700s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,9n,76p,1269b,700s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/thesis.pdf (5 pages, 98719 bytes).
+Output written on /Users/paul/Documents/projects/bachelor/thesis/thesis.pdf (5 pages, 95466 bytes).
 PDF statistics:
  55 PDF objects out of 1000 (max. 8388607)
  39 compressed objects within 1 object stream

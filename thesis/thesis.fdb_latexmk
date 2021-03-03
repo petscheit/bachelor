@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex thesis"] 1614769090 "thesis.aux" "thesis.bbl" "thesis" 1614769092
+["bibtex thesis"] 1614775255 "thesis.aux" "thesis.bbl" "thesis" 1614775344
   "./splncs04.bst" 1614608215 32146 ee21ae2a29028dc8ad842a97200982c7 ""
   "mybibliography.bib" 1614608241 1548 bab5d42b8c3a937b084ff7edb54ce37c ""
-  "thesis.aux" 1614769091 690 25eb249371f9d9dfd72711b92ce87a0f ""
+  "thesis.aux" 1614775344 377 1eaf4c919f33a3bf5aaf5e09dde72aae ""
   (generated)
   "thesis.bbl"
   "thesis.blg"
-["pdflatex"] 1614769091 "/Users/paul/Documents/projects/bachelor/thesis/thesis.tex" "/Users/paul/Documents/projects/bachelor/thesis/thesis.pdf" "thesis" 1614769092
-  "/Users/paul/Documents/projects/bachelor/thesis/thesis.aux" 1614769091 690 25eb249371f9d9dfd72711b92ce87a0f ""
-  "/Users/paul/Documents/projects/bachelor/thesis/thesis.tex" 1614769089 6477 9dbb26c2ce841fc306cb748d647b9e40 ""
+["pdflatex"] 1614775343 "/Users/paul/Documents/projects/bachelor/thesis/thesis.tex" "/Users/paul/Documents/projects/bachelor/thesis/thesis.pdf" "thesis" 1614775344
+  "/Users/paul/Documents/projects/bachelor/thesis/thesis.aux" 1614775344 377 1eaf4c919f33a3bf5aaf5e09dde72aae ""
+  "/Users/paul/Documents/projects/bachelor/thesis/thesis.tex" 1614775343 6628 5da02cbe830828807e75f0602aea06f1 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1480098701 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1480098701 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -134,12 +134,12 @@
   "/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1523934492 2717033 f61a5287d9c22a39a74f1979fe3f905c ""
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1536670549 4220280 2a5cb8bb4f1e8cc32525b85dfe3ef429 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "thesis.aux" 1614769091 690 25eb249371f9d9dfd72711b92ce87a0f ""
-  "thesis.bbl" 1614769091 166 617c4252a6d03be5f75673921efcfc3b "bibtex thesis"
-  "thesis.tex" 1614769089 6477 9dbb26c2ce841fc306cb748d647b9e40 ""
+  "thesis.aux" 1614775344 377 1eaf4c919f33a3bf5aaf5e09dde72aae ""
+  "thesis.bbl" 1614775255 166 617c4252a6d03be5f75673921efcfc3b "bibtex thesis"
+  "thesis.tex" 1614775343 6628 5da02cbe830828807e75f0602aea06f1 ""
   (generated)
   "thesis.aux"
-  "thesis.log"
   "/Users/paul/Documents/projects/bachelor/thesis/thesis.log"
+  "thesis.log"
   "thesis.pdf"
   "/Users/paul/Documents/projects/bachelor/thesis/thesis.pdf"
