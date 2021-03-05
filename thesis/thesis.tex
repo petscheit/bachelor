@@ -52,14 +52,9 @@ Aggregating Uniswap trades is an interesting application to explore the potentia
 % Another approach for scaling is increasing a smart-contracts efficiency. As in traditional software applications, reducing the computational cost per operation will in general increase our throughput. In smart-contracts this can be achived by reducing the amount of gas needed for a executing a transaction. As every block has a maximum amount of gas that can be proccessed, reducing it will result in an increased amount of transactions to be proccessed in that block. In smart-contracts data-storage is very expensive. To reduce cost
 
 \subsection{zk-rollup}
-Zk-rollup \cite{vbuterin_2018} is a layer-2 scaling approach first introduced as a technique to mass validate transfers of assets in 2018. The system described consists of two types of users, transactors and an relayer. To make transfers, a transactors first need to deposit funds into the systems contract. 
+Zk-rollup \cite{vbuterin_2018} is a layer-2 scaling approach first introduced to mass validate transfer of assets on the Ethereum blockchain in 2018. A user can deposit funds into a smart contract by providing a merkle path to its balance and adding funds to be deposited to the transaction. The smart-contract checks if its root can be recreated with the provided merkle path, updates the balance according to the funds in the transaction, rehashes the entire tree and updates its root to the resulting hash. An event is then emitted, containing the new balance, putting the data on-chain is a cheap way. The merkle tree, which is required for generating the merkle paths, containing the balances can be kept in sync by listing to these events. 
 
-
-When depositing, the user need to provide a valid merkle path to its current balance in the system, which might be null, or include previously deposited funds or received transfers. If the path is valid, the balance is updated and emitted via the event log. The balance has now been moved to layer-2. A transactor can withdraw funds from the smart contract, by providing a valid merkle path and the withdraw amount. As the balance object, previously emitted as an event includes the users address, the transactions sender address is used, when checking the merkle proof. This ensures the transactor controlles the private key of that address.
-
-
-When making a transfer, it is sent as an http request to the relayer. The 
-
+To make a transfer, a user sends the receivers address, tranfer amount and its signature to the relayer as an http request. Once enough transfer requests have been received, the relayer checks if this transfer is covered by a users balance and if the signature is valid, and updates the balance of involved users accordingly. All of this is done in a zkSNARK program, which will return a proof object, the new balances and the new merkle root. These are then sent to the smart-contract. If the zkSNARK proof can be verified, we have proven that the new balances and the root are correct. We now emit the new balances as an event, thereby moving custody of transfered funds to the receiving users, who are now able to transfer or withdraw them. Withdrawing of funds follows the same logic as depositing, however instead of sending funds, a parameter is added containing the requested amount. 
 
 \section{Design}
 The implementation of this system consist of a number of entites, that are required to aggregate and execute trades in a trust-less and non-custodial manner, while not having any data availability issues\todo{Need to find a better word for data availablilty issues}. As a first step, the smart-contracts used for depositing and withdrawing funds into the system will be explained. The second step will introduce the off-chain entity, that is tasked with aggregating, executing and verifying the trades.
@@ -72,8 +67,38 @@ The second entity to look at is the aggregator. The aggregator consists numerous
 % \subsection{Entity Interactions}
 % To understand how the system works, the first thing to understand is how these two entites interact. As mentioned before, the zkSwap contract is the only state-changing entity in this system. It is the single source of truth
 
-\subsection{Zk-Rollup Explained}
+\subsection{Storing and Updating Balances}
+The first thing to understand, is the way balances are stored. Two main factors are dictating the ways balances are stored in the system. We want to make balance updates as cheap as possible, while not relying on any external data availability. To achive this, we store balances in a merkle tree in layer-2. Merkle trees are a suitable data structure, as the root represents the entire tree state in a highly compressed form, while proving a leafs inclusion in the tree can be done with O(log n). This is idea for our use-case. We can cheaply commit the merkle trees state to our smart-contract by storing the root, while verifying inclusion of a leaf is very efficient. 
+To deposit funds, a user need to provide a valid merkle path to its current balance and the current balance object. The trader calls the deposit function, passing the merkle path and balance object as a parameter and adds the funds wishing to be deposited to the transaction. 
 
+First we check if the balance is included in the tree. To do this, we first hash the balance object with the sha256 algorithm. The balance object contains the following fields: ethBalance, tokenBalance, nonce and address. When hashing the balance object, we extract the users address from the transaction. This ensures that the user is in control of the addresses private key which suffices as security check. Since the contract stores the merkle root, we can now hash the path and balance, checking if we can recreate the root. If the roots match, the trader is permitted to update its balance in the tree. We now update the balance object by adding the deposited amount to the corresponding field, increment the nonce, hash the updated balance object, and rehash the entire tree with the the new balance object. The resulting merkle root is set in the contract, which commits the updated state. 
+
+However, we still need to store the balances somewhere. As we don't want to rely on external data availability, while keeping storage costs as low as possible, we emit the new balance as an event. Writing data to the event log is a lot cheaper, compared to storage as a variable in a smart-contract. While the event log can't be accessed from a smart-contracts runtime, a client can query the event log and pass the data as a parameter. As the merkle trees state is committed in the contract with the merkle root, correctness can always be proven. 
+
+Withdrawing funds follows the same logic as deposits. Instead adding funds to the withdraw function, the user passes the amount to withdraw as a parameter. The merkle tree is rehashed, checking if the root is correct, it is ensured the withdrawAmount <= balance, the balance and nonce are updated, creating the new root. We emit the new balance and send the funds to the user. 
+
+Deposits and withdraws are complete on-chain operations by design. All data needed to withdraw funds are public, except for the private key. This ensures funds can always be withdrawn, as long as the user controlls its private key. 
+
+
+
+
+
+
+
+
+% A trader can deposit funds, by providing a valid merkle path to its current balance as parameters to the zkSwap contract. 
+
+
+
+
+% A trader looking to use the system first needs to deposit funds into the zkSync smart-contract.
+
+
+% If successful, the deposited amount will be represented as a balance in layer-2. In layer-2, balance objects are stored in a merkle tree, while the root of that tree resides in the zkSync smart-contract. 
+
+% and the amount represented as a balance in layer-2. 
+
+% Since the goal is to store them in layer-2, while remaining free of any external data availability, a somewhat hybrid approach is needed. A trader always must be able to withdraw balance, no matter how many entities are offline. 
 
 \subsection{zkSwap Contract}
 Since we're looking to aggregate Uniswap trades, the obvious functionality required is for users deposit and withdraw funds, which will then in turn be used for trading. Users can deposit or withdraw funds by sending the corresponding transactions to the zkSwap contract, which will then
@@ -89,27 +114,27 @@ Since we're looking to aggregate Uniswap trades, the obvious functionality requi
 
 
 
-As the goal is also for this to remain trust-less and non-custodial, while not relying on any data availability
+% As the goal is also for this to remain trust-less and non-custodial, while not relying on any data availability
 
 
 
-, while moving the balance to layer-2 the smart-contract need to be able to verify these transactions, while emitting enough data,
+% , while moving the balance to layer-2 the smart-contract need to be able to verify these transactions, while emitting enough data,
 
-As the goal for this system is to be trust-less and non-custodial the first thing to look at, 
-
-
-
-When looking to move data off-chain, a smart-contract is needed. De
-
-Since the main goal is to move data off-chain, the first thing to look at is now 
-
-
-As a first step the smart-contracts used for depositing and withdrawing funds, will be introduced. In the second 
+% As the goal for this system is to be trust-less and non-custodial the first thing to look at, 
 
 
 
+% When looking to move data off-chain, a smart-contract is needed. De
 
-Goal of this system, is to introduce a trust-less and non-custodial 
+% Since the main goal is to move data off-chain, the first thing to look at is now 
+
+
+% As a first step the smart-contracts used for depositing and withdrawing funds, will be introduced. In the second 
+
+
+
+
+% Goal of this system, is to introduce a trust-less and non-custodial 
 
 
 \bibliographystyle{splncs04}
