@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  3 MAR 2021 13:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  5 MAR 2021 15:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -395,33 +395,80 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 
-{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+<diagrams/gas_volume.png, id=16, 722.7pt x 289.08pt>
+File: diagrams/gas_volume.png Graphic file (type png)
+<use diagrams/gas_volume.png>
+Package pdftex.def Info: diagrams/gas_volume.png  used on input line 31.
+(pdftex.def)             Requested size: 398.33534pt x 159.3356pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 25.
+(Font)              <10.95> on input line 38.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 25.
+(Font)              <9> on input line 38.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 25.
- [2] (/Users/paul/Documents/projects/bachelor/thesis/thesis.bbl [3] [4
+(Font)              <5> on input line 38.
+ [3 </Users/paul/Documents/projects/bachelor/thesis/diagrams/gas_volume.png>]
 
-]
+LaTeX Warning: Citation `vbuterin_2018' on page 4 undefined on input line 55.
 
-LaTeX Warning: Empty `thebibliography' environment on input line 6.
+[4] [5] (/Users/paul/Documents/projects/bachelor/thesis/thesis.bbl [6]
+Overfull \hbox (38.84372pt too wide) in paragraph at lines 7--8
+[]\OT1/cmr/m/n/10.95 Uniswap cum-mu-la-tive vol-ume, \OT1/cmtt/m/n/10.95 https://duneanalytics.com/projects/uniswap 
+ []
 
-) [5] (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux) ) 
+
+Overfull \hbox (2.9216pt too wide) in paragraph at lines 14--15
+[]\OT1/cmr/m/n/10.95 Ethereum gas guz-zlers, \OT1/cmtt/m/n/10.95 https://ethgasstation.info/gasguzzlers.php 
+ []
+
+
+Overfull \hbox (174.04396pt too wide) in paragraph at lines 20--22
+[]\OT1/cmr/m/n/10.95 Uniswap to-tal fees used, \OT1/cmtt/m/n/10.95 https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--26
+[]\OT1/cmr/m/n/10.95 Kulechov, S.: The aave pro-to-col v2 (Dec 2020),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--31
+[]\OT1/cmr/m/n/10.95 Vbuterin: On-chain scal-ing to po-ten-tially  500
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--31
+\OT1/cmr/m/n/10.95 tx/sec through mass tx val-i-da-tion (Sep 2018),
+ []
+
+
+Overfull \hbox (208.41306pt too wide) in paragraph at lines 28--31
+\OT1/cmtt/m/n/10.95 https://ethresear.ch/t/on-chain-scaling-to-potentially-500-tx-sec-through-mass-tx-validation/3477 
+ []
+
+) [7
+
+] (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 12476 strings out of 492649
- 253021 string characters out of 6129622
- 299446 words of memory out of 5000000
- 16114 multiletter control sequences out of 15000+600000
- 10067 words of font info for 35 fonts, out of 8000000 for 9000
+ 12521 strings out of 492649
+ 253911 string characters out of 6129622
+ 301898 words of memory out of 5000000
+ 16154 multiletter control sequences out of 15000+600000
+ 10850 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,9n,76p,1269b,700s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/thesis.pdf (5 pages, 95466 bytes).
+ 62i,9n,76p,1182b,700s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on /Users/paul/Documents/projects/bachelor/thesis/thesis.pdf (7 pages, 178072 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 74 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

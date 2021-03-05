@@ -9,12 +9,10 @@
                 "dialect": "american",
                 "domain": "academic",
                 "emotions": [
-                    "neutral",
-                    "optimistic"
+                    "neutral"
                 ],
                 "goals": [
-                    "inform",
-                    "describe"
+                    "inform"
                 ]
             }
         }

@@ -1,6 +1,36 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 \providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{cummulative_vol}
+Uniswap cummulative volume, \url{https://duneanalytics.com/projects/uniswap}
+
+\bibitem{adams2020uniswap}
+Adams, H., Zinsmeister, N., Robinson, D.: Uniswap v2 core. URl:
+  https://uniswap.org/whitepaper.pdf  (2020)
+
+\bibitem{eth_gas_guzzlers}
+Ethereum gas guzzlers, \url{https://ethgasstation.info/gasguzzlers.php}
+
+\bibitem{gasprice}
+Ethereum gas price, \url{https://etherscan.io/chart/gasprice}
+
+\bibitem{uniswap_tx_fees}
+Uniswap total fees used,
+  \url{https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d}
+
+\bibitem{kulechov_2020}
+Kulechov, S.: The aave protocol v2 (Dec 2020),
+  \url{https://medium.com/aave/the-aave-protocol-v2-f06f299cee04}
+
+\bibitem{vbuterin_2018}
+Vbuterin: On-chain scaling to potentially ~500 tx/sec through mass tx
+  validation (Sep 2018),
+  \url{https://ethresear.ch/t/on-chain-scaling-to-potentially-500-tx-sec-through-mass-tx-validation/3477}
+
+\bibitem{wood2014ethereum}
+Wood, G., et~al.: Ethereum: A secure decentralised generalised transaction
+  ledger. Ethereum project yellow paper  \textbf{151}(2014),  1--32 (2014)
 
 \end{thebibliography}
