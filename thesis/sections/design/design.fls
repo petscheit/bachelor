@@ -1,0 +1,10 @@
+PWD /Users/paul/Documents/projects/bachelor/thesis/sections/design
+INPUT /usr/local/texlive/2018/texmf.cnf
+INPUT /usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /Users/paul/Documents/projects/bachelor/thesis/sections/design/design.tex
+OUTPUT /Users/paul/Documents/projects/bachelor/thesis/sections/design/design.log
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/subfiles/subfiles.cls
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/subfiles/subfiles.cls
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/tools/verbatim.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/tools/verbatim.sty
