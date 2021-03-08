@@ -1,7 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1615205876 "/Users/paul/Documents/projects/bachelor/thesis/sections/background.tex" "/Users/paul/Documents/projects/bachelor/thesis/sections/background.pdf" "background" 1615205877
+["pdflatex"] 1615205876 "/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.tex" "/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.pdf" "background" 1615206181
   "/Users/paul/Documents/projects/bachelor/thesis/sections/background.aux" 1615205877 111 73aeb62366e009407e4c78099f7c071b ""
   "/Users/paul/Documents/projects/bachelor/thesis/sections/background.tex" 1615205876 3760 3439762e5ca87b2dbf8059aa47c4fc56 ""
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.tex" 1615206180 3763 212e0c504a1f75c4c4e831f2103b4a34 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1480098701 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -117,8 +118,10 @@
   "sections/background.aux" 1615205877 111 73aeb62366e009407e4c78099f7c071b ""
   "sections/background.tex" 1615205876 3760 3439762e5ca87b2dbf8059aa47c4fc56 ""
   (generated)
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/background.log"
   "sections/background.log"
   "/Users/paul/Documents/projects/bachelor/thesis/sections/background.pdf"
-  "sections/background.pdf"
   "sections/background.aux"
-  "/Users/paul/Documents/projects/bachelor/thesis/sections/background.log"
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.pdf"
+  "sections/background.pdf"
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.log"

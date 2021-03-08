@@ -1,7 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1615205912 "/Users/paul/Documents/projects/bachelor/thesis/sections/introduction.tex" "/Users/paul/Documents/projects/bachelor/thesis/sections/introduction.pdf" "introduction" 1615205913
+["pdflatex"] 1615205912 "/Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.tex" "/Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.pdf" "introduction" 1615206189
   "/Users/paul/Documents/projects/bachelor/thesis/sections/introduction.aux" 1615205913 1171 ebe93474a744af07853b4596f02f2ec9 ""
   "/Users/paul/Documents/projects/bachelor/thesis/sections/introduction.tex" 1615205910 7241 34341f3be9bb51299a8e931af83c7097 ""
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.tex" 1615206188 7244 73c46b7d19707e9dcbbcf7f0f8a9be9a ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1480098701 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -129,8 +130,10 @@
   "sections/introduction.aux" 1615205913 1171 ebe93474a744af07853b4596f02f2ec9 ""
   "sections/introduction.tex" 1615205910 7241 34341f3be9bb51299a8e931af83c7097 ""
   (generated)
-  "/Users/paul/Documents/projects/bachelor/thesis/sections/introduction.log"
+  "sections/introduction.pdf"
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.log"
   "/Users/paul/Documents/projects/bachelor/thesis/sections/introduction.pdf"
   "sections/introduction.aux"
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/introduction.log"
   "sections/introduction.log"
-  "sections/introduction.pdf"
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.pdf"
