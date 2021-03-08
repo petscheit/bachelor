@@ -1,4 +1,4 @@
-PWD /Users/paul/Documents/projects/bachelor/thesis/sections/design
+PWD /Users/paul/Documents/projects/bachelor/thesis
 INPUT /usr/local/texlive/2018/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -170,11 +170,19 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT diagrams/architecture.png
+INPUT ./diagrams/architecture.png
+OUTPUT /Users/paul/Documents/projects/bachelor/thesis/sections/design/design.pdf
+INPUT ./diagrams/architecture.png
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsl10.tfm
-OUTPUT /Users/paul/Documents/projects/bachelor/thesis/sections/design/design.pdf
 INPUT /usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT diagrams/deposit_withdraw.png
+INPUT ./diagrams/deposit_withdraw.png
+INPUT ./diagrams/deposit_withdraw.png
 INPUT /Users/paul/Documents/projects/bachelor/thesis/sections/design/design.aux
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  8 MAR 2021 13:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  8 MAR 2021 17:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -395,22 +395,51 @@ Package grfext Info: Graphics extension search list:
 (grfext)             \AppendGraphicsExtensions on input line 456.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-)) ABD: EveryShipout initializing macros [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+)) ABD: EveryShipout initializing macros
+<diagrams/architecture.png, id=4, 760.8425pt x 663.47874pt>
+File: diagrams/architecture.png Graphic file (type png)
+<use diagrams/architecture.png>
+Package pdftex.def Info: diagrams/architecture.png  used on input line 10.
+(pdftex.def)             Requested size: 261.02814pt x 227.62204pt.
+ [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
-] [2] (/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.aux) ) 
+ <./diagrams/architecture.png>]
+
+LaTeX Warning: Citation `szydlo2004merkle' on page 2 undefined on input line 22.
+
+[2]
+Overfull \hbox (1.79616pt too wide) in paragraph at lines 31--32
+[]\OT1/cmr/m/n/10.95 Withdraws largely fol-low the same logic, there are small dif-fer-ences though.
+ []
+
+
+Overfull \hbox (4.32362pt too wide) in paragraph at lines 31--32
+\OT1/cmr/m/n/10.95 As we're re-quest-ing funds, in-stead of send-ing them, we pass a with-drawAmount
+ []
+
+<diagrams/deposit_withdraw.png, id=18, 532.99126pt x 492.84125pt>
+File: diagrams/deposit_withdraw.png Graphic file (type png)
+<use diagrams/deposit_withdraw.png>
+Package pdftex.def Info: diagrams/deposit_withdraw.png  used on input line 38.
+(pdftex.def)             Requested size: 246.17116pt x 227.62204pt.
+[3] [4 <./diagrams/deposit_withdraw.png>] (/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 12413 strings out of 492649
- 252128 string characters out of 6129622
- 298296 words of memory out of 5000000
- 16052 multiletter control sequences out of 15000+600000
- 4898 words of font info for 18 fonts, out of 8000000 for 9000
+ 12505 strings out of 492649
+ 254279 string characters out of 6129622
+ 300473 words of memory out of 5000000
+ 16139 multiletter control sequences out of 15000+600000
+ 5206 words of font info for 19 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,5n,58p,973b,150s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/design/design.pdf (2 pages, 38294 bytes).
+ 71i,9n,76p,1348b,700s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/design/design.pdf (4 pages, 127458 bytes).
 PDF statistics:
- 22 PDF objects out of 1000 (max. 8388607)
- 15 compressed objects within 1 object stream
+ 37 PDF objects out of 1000 (max. 8388607)
+ 23 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

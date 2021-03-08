@@ -24,6 +24,11 @@ Uniswap total fees used,
 Kulechov, S.: The aave protocol v2 (Dec 2020),
   \url{https://medium.com/aave/the-aave-protocol-v2-f06f299cee04}
 
+\bibitem{szydlo2004merkle}
+Szydlo, M.: Merkle tree traversal in log space and time. In: International
+  Conference on the Theory and Applications of Cryptographic Techniques. pp.
+  541--554. Springer (2004)
+
 \bibitem{vbuterin_2018}
 Vbuterin: On-chain scaling to potentially ~500 tx/sec through mass tx
   validation (Sep 2018),
