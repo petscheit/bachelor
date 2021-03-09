@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 \providecommand{\doi}[1]{https://doi.org/#1}
@@ -9,6 +9,10 @@ Uniswap cummulative volume, \url{https://duneanalytics.com/projects/uniswap}
 \bibitem{adams2020uniswap}
 Adams, H., Zinsmeister, N., Robinson, D.: Uniswap v2 core. URl:
   https://uniswap.org/whitepaper.pdf  (2020)
+
+\bibitem{deml_2019}
+Deml, S.: Efficient ecc in zksnarks using zokrates (Aug 2019),
+  \url{https://medium.com/zokrates/efficient-ecc-in-zksnarks-using-zokrates-bd9ae37b8186}
 
 \bibitem{eth_gas_guzzlers}
 Ethereum gas guzzlers, \url{https://ethgasstation.info/gasguzzlers.php}

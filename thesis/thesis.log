@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  8 MAR 2021 17:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  9 MAR 2021 17:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -393,11 +393,11 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) ABD: EveryShipout initializing macros
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 17.
+(Font)              <12> on input line 18.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 17.
+(Font)              <8> on input line 18.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 17.
+(Font)              <6> on input line 18.
  [1
 
 
@@ -434,62 +434,78 @@ Overfull \hbox (4.32362pt too wide) in paragraph at lines 31--32
  []
 
 [7]
-<diagrams/deposit_withdraw.png, id=42, 532.99126pt x 492.84125pt>
-File: diagrams/deposit_withdraw.png Graphic file (type png)
-<use diagrams/deposit_withdraw.png>
-Package pdftex.def Info: diagrams/deposit_withdraw.png  used on input line 38.
+<diagrams/deposit.png, id=42, 532.99126pt x 492.84125pt>
+File: diagrams/deposit.png Graphic file (type png)
+<use diagrams/deposit.png>
+Package pdftex.def Info: diagrams/deposit.png  used on input line 38.
 (pdftex.def)             Requested size: 246.17116pt x 227.62204pt.
-) (/Users/paul/Documents/projects/bachelor/thesis/thesis.bbl [8 </Users/paul/Documents/projects/bachelor/thesis/diagrams/deposit_withdraw.png>]
-Overfull \hbox (38.84372pt too wide) in paragraph at lines 7--8
+ [8 </Users/paul/Documents/projects/bachelor/thesis/diagrams/deposit.png>] [9]
+<diagrams/addTrade.png, id=50, 773.89125pt x 191.71625pt>
+File: diagrams/addTrade.png Graphic file (type png)
+<use diagrams/addTrade.png>
+Package pdftex.def Info: diagrams/addTrade.png  used on input line 78.
+(pdftex.def)             Requested size: 344.56355pt x 85.35826pt.
+ [10 </Users/paul/Documents/projects/bachelor/thesis/diagrams/addTrade.png>]) (/Users/paul/Documents/projects/bachelor/thesis/thesis.bbl [11] [12
+
+]
+Overfull \hbox (44.31873pt too wide) in paragraph at lines 7--8
 []\OT1/cmr/m/n/10.95 Uniswap cum-mu-la-tive vol-ume, \OT1/cmtt/m/n/10.95 https://duneanalytics.com/projects/uniswap 
  []
 
 
-Overfull \hbox (2.9216pt too wide) in paragraph at lines 14--15
+Underfull \hbox (badness 1629) in paragraph at lines 14--16
+[]\OT1/cmr/m/n/10.95 Deml, S.: Ef-fi-cient ecc in zk-snarks us-ing zokrates (Aug 2019),
+ []
+
+
+Overfull \hbox (121.90906pt too wide) in paragraph at lines 14--16
+\OT1/cmtt/m/n/10.95 https://medium.com/zokrates/efficient-ecc-in-zksnarks-using-zokrates-bd9ae37b8186 
+ []
+
+
+Overfull \hbox (8.3966pt too wide) in paragraph at lines 18--19
 []\OT1/cmr/m/n/10.95 Ethereum gas guz-zlers, \OT1/cmtt/m/n/10.95 https://ethgasstation.info/gasguzzlers.php 
  []
 
 
-Overfull \hbox (174.04396pt too wide) in paragraph at lines 20--22
+Overfull \hbox (179.51897pt too wide) in paragraph at lines 24--26
 []\OT1/cmr/m/n/10.95 Uniswap to-tal fees used, \OT1/cmtt/m/n/10.95 https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--26
+Underfull \hbox (badness 10000) in paragraph at lines 28--30
 []\OT1/cmr/m/n/10.95 Kulechov, S.: The aave pro-to-col v2 (Dec 2020),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--36
+Underfull \hbox (badness 10000) in paragraph at lines 37--40
 []\OT1/cmr/m/n/10.95 Vbuterin: On-chain scal-ing to po-ten-tially  500
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--36
+Underfull \hbox (badness 10000) in paragraph at lines 37--40
 \OT1/cmr/m/n/10.95 tx/sec through mass tx val-i-da-tion (Sep 2018),
  []
 
 
-Overfull \hbox (208.41306pt too wide) in paragraph at lines 33--36
+Overfull \hbox (213.88806pt too wide) in paragraph at lines 37--40
 \OT1/cmtt/m/n/10.95 https://ethresear.ch/t/on-chain-scaling-to-potentially-500-tx-sec-through-mass-tx-validation/3477 
  []
 
-) [9
-
-] (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux) ) 
+) [13] (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 12588 strings out of 492649
- 255794 string characters out of 6129622
- 302697 words of memory out of 5000000
- 16198 multiletter control sequences out of 15000+600000
+ 12611 strings out of 492649
+ 256259 string characters out of 6129622
+ 305583 words of memory out of 5000000
+ 16220 multiletter control sequences out of 15000+600000
  10850 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,9n,77p,1365b,874s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,9n,77p,1376b,879s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/thesis.pdf (9 pages, 260031 bytes).
+Output written on /Users/paul/Documents/projects/bachelor/thesis/thesis.pdf (13 pages, 291442 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
+ 99 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

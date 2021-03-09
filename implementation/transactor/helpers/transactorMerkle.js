@@ -16,7 +16,6 @@ class TransactorMerkle extends ZkMerkleTree {
         if (!this.verifyBalanceLeaf(trade)) return false // ensures that where passed are in merkletree
         if(!this.ensureCorrectPrice(trade, latestPrice)) return false;
         if(trade.direction === 0) {
-            console.log("masde ittt")
             console.log(trade.ethAmount.gte(trade.deltaEth))
             if(trade.ethAmount.gte(trade.deltaEth)){
 

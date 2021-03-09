@@ -4,45 +4,45 @@ The top-level auxiliary file: thesis.aux
 The style file: splncs04.bst
 Database file #1: mybibliography.bib
 Warning--to sort, need author or key in cummulative_vol
-You've used 9 entries,
+You've used 10 entries,
             2850 wiz_defined-function locations,
-            642 strings with 5642 characters,
-and the built_in function-call counts, 3121 in all, are:
-= -- 232
-> -- 54
+            649 strings with 5799 characters,
+and the built_in function-call counts, 3478 in all, are:
+= -- 258
+> -- 61
 < -- 3
-+ -- 26
-- -- 16
-* -- 170
-:= -- 356
++ -- 29
+- -- 18
+* -- 192
+:= -- 403
 add.period$ -- 5
-call.type$ -- 9
-change.case$ -- 39
+call.type$ -- 10
+change.case$ -- 43
 chr.to.int$ -- 0
-cite$ -- 10
-duplicate$ -- 295
-empty$ -- 364
-format.name$ -- 18
-if$ -- 700
+cite$ -- 11
+duplicate$ -- 328
+empty$ -- 407
+format.name$ -- 20
+if$ -- 778
 int.to.chr$ -- 0
-int.to.str$ -- 9
-missing$ -- 53
-newline$ -- 33
-num.names$ -- 10
-pop$ -- 140
+int.to.str$ -- 10
+missing$ -- 58
+newline$ -- 36
+num.names$ -- 12
+pop$ -- 155
 preamble$ -- 1
-purify$ -- 28
+purify$ -- 31
 quote$ -- 0
-skip$ -- 120
+skip$ -- 127
 stack$ -- 0
-substring$ -- 153
-swap$ -- 131
+substring$ -- 174
+swap$ -- 145
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 36
+type$ -- 40
 warning$ -- 1
-while$ -- 21
-width$ -- 10
-write$ -- 75
+while$ -- 24
+width$ -- 12
+write$ -- 83
 (There was 1 warning)
