@@ -196,6 +196,12 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
+INPUT diagrams/multi-leaf.png
+INPUT ./diagrams/multi-leaf.png
+INPUT ./diagrams/multi-leaf.png
+INPUT diagrams/zokrates.png
+INPUT ./diagrams/zokrates.png
+INPUT ./diagrams/zokrates.png
 INPUT /Users/paul/Documents/projects/bachelor/thesis/sections/design/design.aux
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb

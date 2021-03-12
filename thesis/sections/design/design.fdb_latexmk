@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1615307381 "/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.tex" "/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.pdf" "design" 1615307382
-  "/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.aux" 1615307382 1915 053081b601c0ab265fbe6a1658dc2930 ""
-  "/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.tex" 1615307379 22446 b37cf9dc4c2c0dc21078035eb602e625 ""
+["pdflatex"] 1615554261 "/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.tex" "/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.pdf" "design" 1615554262
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.aux" 1615554262 3182 db391e26e5ff508ae3c1a603e0fb9bea ""
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.tex" 1615554261 30843 ec768f597d640f4fe90947b7644ce0a5 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1480098701 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -130,12 +130,14 @@
   "diagrams/addTrade.png" 1615284777 29918 5f3947b5667438e767d2480aaca16344 ""
   "diagrams/architecture.png" 1615213157 57907 381d8e45394ca5d441412d17fa9c0e6a ""
   "diagrams/deposit.png" 1615299343 60414 a33731d9e2f93b443b05553cb0357e77 ""
-  "sections/design/../../thesis.tex" 1615306390 727 d27e36fb4d9d6b2075ac1f4560cd3ccc ""
-  "sections/design/design.aux" 1615307382 1915 053081b601c0ab265fbe6a1658dc2930 ""
-  "sections/design/design.tex" 1615307379 22446 b37cf9dc4c2c0dc21078035eb602e625 ""
+  "diagrams/multi-leaf.png" 1615543268 141011 d77bdc20d92d85cb1c5d154170429ca0 ""
+  "diagrams/zokrates.png" 1615554215 28250 37f850519b574ccf2ba07f517d936dda ""
+  "sections/design/../../thesis.tex" 1615554246 727 d27e36fb4d9d6b2075ac1f4560cd3ccc ""
+  "sections/design/design.aux" 1615554262 3182 db391e26e5ff508ae3c1a603e0fb9bea ""
+  "sections/design/design.tex" 1615554261 30843 ec768f597d640f4fe90947b7644ce0a5 ""
   (generated)
-  "/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.log"
-  "sections/design/design.log"
   "/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.pdf"
-  "sections/design/design.pdf"
+  "sections/design/design.log"
   "sections/design/design.aux"
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.log"
+  "sections/design/design.pdf"
