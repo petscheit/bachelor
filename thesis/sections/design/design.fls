@@ -182,9 +182,6 @@ INPUT /usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT diagrams/deposit.png
 INPUT ./diagrams/deposit.png
 INPUT ./diagrams/deposit.png
-INPUT diagrams/addTrade.png
-INPUT ./diagrams/addTrade.png
-INPUT ./diagrams/addTrade.png
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
@@ -196,6 +193,9 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
+INPUT diagrams/addTrade.png
+INPUT ./diagrams/addTrade.png
+INPUT ./diagrams/addTrade.png
 INPUT diagrams/multi-leaf.png
 INPUT ./diagrams/multi-leaf.png
 INPUT ./diagrams/multi-leaf.png

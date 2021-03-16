@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  12 MAR 2021 14:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  15 MAR 2021 16:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -439,25 +439,27 @@ File: diagrams/deposit.png Graphic file (type png)
 <use diagrams/deposit.png>
 Package pdftex.def Info: diagrams/deposit.png  used on input line 38.
 (pdftex.def)             Requested size: 246.17116pt x 227.62204pt.
- [8 </Users/paul/Documents/projects/bachelor/thesis/diagrams/deposit.png>] [9]
-<diagrams/addTrade.png, id=50, 773.89125pt x 191.71625pt>
+ [8 </Users/paul/Documents/projects/bachelor/thesis/diagrams/deposit.png>] [9] [10]
+<diagrams/addTrade.png, id=53, 773.89125pt x 191.71625pt>
 File: diagrams/addTrade.png Graphic file (type png)
 <use diagrams/addTrade.png>
-Package pdftex.def Info: diagrams/addTrade.png  used on input line 78.
+Package pdftex.def Info: diagrams/addTrade.png  used on input line 113.
 (pdftex.def)             Requested size: 344.56355pt x 85.35826pt.
- [10 </Users/paul/Documents/projects/bachelor/thesis/diagrams/addTrade.png>] [11] [12]
-<diagrams/multi-leaf.png, id=61, 823.075pt x 333.245pt>
+ [11 </Users/paul/Documents/projects/bachelor/thesis/diagrams/addTrade.png>] [12] [13]
+<diagrams/multi-leaf.png, id=65, 823.075pt x 333.245pt>
 File: diagrams/multi-leaf.png Graphic file (type png)
 <use diagrams/multi-leaf.png>
-Package pdftex.def Info: diagrams/multi-leaf.png  used on input line 111.
+Package pdftex.def Info: diagrams/multi-leaf.png  used on input line 147.
 (pdftex.def)             Requested size: 351.3784pt x 142.26378pt.
- [13 </Users/paul/Documents/projects/bachelor/thesis/diagrams/multi-leaf.png>]
-<diagrams/zokrates.png, id=67, 643.40375pt x 164.615pt>
+ [14 </Users/paul/Documents/projects/bachelor/thesis/diagrams/multi-leaf.png>]
+<diagrams/zokrates.png, id=70, 643.40375pt x 164.615pt>
 File: diagrams/zokrates.png Graphic file (type png)
 <use diagrams/zokrates.png>
-Package pdftex.def Info: diagrams/zokrates.png  used on input line 128.
+Package pdftex.def Info: diagrams/zokrates.png  used on input line 165.
 (pdftex.def)             Requested size: 333.6294pt x 85.35826pt.
-) (/Users/paul/Documents/projects/bachelor/thesis/thesis.bbl [14 </Users/paul/Documents/projects/bachelor/thesis/diagrams/zokrates.png>]
+) (/Users/paul/Documents/projects/bachelor/thesis/thesis.bbl [15 </Users/paul/Documents/projects/bachelor/thesis/diagrams/zokrates.png>] [16
+
+]
 Overfull \hbox (44.31873pt too wide) in paragraph at lines 7--8
 []\OT1/cmr/m/n/10.95 Uniswap cum-mu-la-tive vol-ume, \OT1/cmtt/m/n/10.95 https://duneanalytics.com/projects/uniswap 
  []
@@ -502,22 +504,20 @@ Overfull \hbox (213.88806pt too wide) in paragraph at lines 37--40
 \OT1/cmtt/m/n/10.95 https://ethresear.ch/t/on-chain-scaling-to-potentially-500-tx-sec-through-mass-tx-validation/3477 
  []
 
-) [15
-
-] (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux) ) 
+) [17] (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 12642 strings out of 492649
- 256929 string characters out of 6129622
- 305961 words of memory out of 5000000
- 16249 multiletter control sequences out of 15000+600000
+ 12651 strings out of 492649
+ 257126 string characters out of 6129622
+ 306118 words of memory out of 5000000
+ 16258 multiletter control sequences out of 15000+600000
  10850 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,9n,77p,1376b,910s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,9n,77p,1376b,925s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/thesis.pdf (15 pages, 400431 bytes).
+Output written on /Users/paul/Documents/projects/bachelor/thesis/thesis.pdf (17 pages, 404687 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 115 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
