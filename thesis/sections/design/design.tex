@@ -42,7 +42,7 @@ It must also be noted, that ERC-20 deposits and withdraws behave a bit different
 
 
 \subsubsection{Batch Verification of Trades}
-It is recommended to read S. \ref{aggregator} first, as this section convers the last step of the aggregation life-cycle. When trading on Uniswap, the user is changing the assets in its wallet. One asset is swapped for another, resulting in the funds moving on-chain according to the trade taken. When trading with zkSwap however, the funds a user has traded are not moved as an on-chain transaction. Instead, the trade is represented by updating a users balance in layer-2, which gives the user access to these funds represented as balance. Instead of relying on merkle inculsion proofs to check the validity of balance updates, a correct balance update can also be ensured by utilizing zkSNARK proofs. The aggregated trades can be verified and applied by calling the `verifyTrades' function in the zkSwap smart-contract. A number of checks have to be performed, which we will cover now.
+It is recommended to read S. \ref{aggregator} first, as is covers the previous steps of a trade aggregation life-cycle. When trading on Uniswap, the user is changing the assets in its wallet. One asset is swapped for another, resulting in the funds moving on-chain according to the trade taken. When trading with zkSwap however, the funds a user has traded are not moved as an on-chain transaction. Instead, the trade is represented by updating a users balance in layer-2, which gives the user access to these funds represented as balance. Instead of relying on merkle inculsion proofs to check the validity of balance updates, a correct balance update can also be ensured by utilizing zkSNARK proofs. The aggregated trades can be verified and applied by calling the `verifyTrades' function in the zkSwap smart-contract. A number of checks have to be performed, which we will cover now.
 
 \paragraph{Verifying the ZoKrates Proof}
 As a first check, the ZoKrates proof is verified. The verifier smart-contract is generated along with the the ZoKrates program, and can be used to verify the correct execution of that program using the proof object it generates. The verifier is called, along with the proof object passed as parameter, which returns true if the proof object can be verified. We are now assured, that output of the ZoKrates program has been computed by executing the ZoKrates program, which in turn ensures the balance updates are correct. 
@@ -167,7 +167,6 @@ We have now successfully verified the new balances, and we could use these value
     \label{fig:zokrates}
 \end{figure}
 
-\subsubsection{Implementation}
 
 
 
