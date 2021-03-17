@@ -10,6 +10,10 @@ Uniswap cummulative volume, \url{https://duneanalytics.com/projects/uniswap}
 Adams, H., Zinsmeister, N., Robinson, D.: Uniswap v2 core. URl:
   https://uniswap.org/whitepaper.pdf  (2020)
 
+\bibitem{benet2014ipfs}
+Benet, J.: Ipfs-content addressed, versioned, p2p file system. arXiv preprint
+  arXiv:1407.3561  (2014)
+
 \bibitem{deml_2019}
 Deml, S.: Efficient ecc in zksnarks using zokrates (Aug 2019),
   \url{https://medium.com/zokrates/efficient-ecc-in-zksnarks-using-zokrates-bd9ae37b8186}

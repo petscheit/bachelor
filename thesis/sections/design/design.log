@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  16 MAR 2021 11:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  17 MAR 2021 16:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -405,75 +405,94 @@ Package pdftex.def Info: diagrams/architecture.png  used on input line 10.
 
  <./diagrams/architecture.png>]
 
-LaTeX Warning: Citation `szydlo2004merkle' on page 2 undefined on input line 22.
+LaTeX Warning: Citation `szydlo2004merkle' on page 2 undefined on input line 33.
 
-[2]
-Overfull \hbox (1.79616pt too wide) in paragraph at lines 31--32
+[2] [3]
+Overfull \hbox (1.79616pt too wide) in paragraph at lines 43--44
 []\OT1/cmr/m/n/10.95 Withdraws largely fol-low the same logic, there are small dif-fer-ences though.
  []
 
 
-Overfull \hbox (4.32362pt too wide) in paragraph at lines 31--32
+Overfull \hbox (4.32362pt too wide) in paragraph at lines 43--44
 \OT1/cmr/m/n/10.95 As we're re-quest-ing funds, in-stead of send-ing them, we pass a with-drawAmount
  []
 
-[3]
 <diagrams/deposit.png, id=21, 532.99126pt x 492.84125pt>
 File: diagrams/deposit.png Graphic file (type png)
 <use diagrams/deposit.png>
-Package pdftex.def Info: diagrams/deposit.png  used on input line 38.
+Package pdftex.def Info: diagrams/deposit.png  used on input line 51.
 (pdftex.def)             Requested size: 246.17116pt x 227.62204pt.
- [4 <./diagrams/deposit.png>]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 54.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 54.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 54.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 54.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 54.
- [5]
 
-LaTeX Warning: Citation `deml_2019' on page 6 undefined on input line 108.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6]
-<diagrams/addTrade.png, id=35, 773.89125pt x 191.71625pt>
+[4]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 67.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 67.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 67.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 67.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 67.
+ [5 <./diagrams/deposit.png>] [6] [7]
+<diagrams/priceing.png, id=42, 419.5675pt x 174.6525pt>
+File: diagrams/priceing.png Graphic file (type png)
+<use diagrams/priceing.png>
+Package pdftex.def Info: diagrams/priceing.png  used on input line 138.
+(pdftex.def)             Requested size: 205.05849pt x 85.35826pt.
+
+
+LaTeX Warning: Citation `deml_2019' on page 8 undefined on input line 158.
+
+<diagrams/addTrade.png, id=43, 773.89125pt x 191.71625pt>
 File: diagrams/addTrade.png Graphic file (type png)
 <use diagrams/addTrade.png>
-Package pdftex.def Info: diagrams/addTrade.png  used on input line 113.
+Package pdftex.def Info: diagrams/addTrade.png  used on input line 163.
 (pdftex.def)             Requested size: 344.56355pt x 85.35826pt.
- [7 <./diagrams/addTrade.png>] [8] [9]
-<diagrams/multi-leaf.png, id=47, 823.075pt x 333.245pt>
+[8 <./diagrams/priceing.png>] [9 <./diagrams/addTrade.png>] [10]
+<diagrams/multi-leaf.png, id=55, 823.075pt x 333.245pt>
 File: diagrams/multi-leaf.png Graphic file (type png)
 <use diagrams/multi-leaf.png>
-Package pdftex.def Info: diagrams/multi-leaf.png  used on input line 147.
+Package pdftex.def Info: diagrams/multi-leaf.png  used on input line 197.
 (pdftex.def)             Requested size: 351.3784pt x 142.26378pt.
- [10 <./diagrams/multi-leaf.png>]
-<diagrams/zokrates.png, id=52, 643.40375pt x 164.615pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11] [12 <./diagrams/multi-leaf.png>]
+<diagrams/zokrates.png, id=63, 643.40375pt x 164.615pt>
 File: diagrams/zokrates.png Graphic file (type png)
 <use diagrams/zokrates.png>
-Package pdftex.def Info: diagrams/zokrates.png  used on input line 165.
+Package pdftex.def Info: diagrams/zokrates.png  used on input line 215.
 (pdftex.def)             Requested size: 333.6294pt x 85.35826pt.
- [11 <./diagrams/zokrates.png>] (/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.aux)
+
+
+LaTeX Warning: Citation `benet2014ipfs' on page 13 undefined on input line 221.
+
+[13 <./diagrams/zokrates.png>]
+
+LaTeX Warning: Marginpar on page 14 moved.
+
+[14] [15] (/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 12592 strings out of 492649
- 255868 string characters out of 6129622
- 305281 words of memory out of 5000000
- 16214 multiletter control sequences out of 15000+600000
+ 12623 strings out of 492649
+ 256570 string characters out of 6129622
+ 318966 words of memory out of 5000000
+ 16244 multiletter control sequences out of 15000+600000
  8557 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,9n,76p,1359b,700s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/design/design.pdf (11 pages, 300747 bytes).
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/design/design.pdf (15 pages, 345496 bytes).
 PDF statistics:
- 78 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 105 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
