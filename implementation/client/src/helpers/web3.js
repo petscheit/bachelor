@@ -30,13 +30,24 @@ export const invokeListener = async function() {
         }
     )
 }
+// route eth->token: 1000000000000000000 -> 2260641686129749542390
+// 	tokenPrice: 1000000000000000000 / 2260641686129749542390 = 0,0004423522782
+// 	ethPrice: 2260641686129749542390/1000000000000000000 = 2260,6416861297
+
+// token -> eth: 1000000000000000000 -> 419516425224156
+// 	tokenPrice: 419516425224156/1000000000000000000 = 0,0004195164252
+// 	ethPrice: 1000000000000000000/419516425224156 = 2383,6968945034
 
 export const getLatestPrice = async function() {
   const instance = store.getState().contract.instance;
-  return instance.methods.setTokenAmount().call()
-    .then(res => {
-      console.log("Calced price:", (res / 1000000000000000000).toFixed(6))
-      return (res / 1000000000000000000).toFixed(6)
+  return instance.methods.ethToToken().call()
+    .then(async (res) => {
+      let tokenToEth = await instance.methods.tokenToEth().call()
+      //min to max price
+      return {
+        ethPrice: [(res / 1000000000000000000).toFixed(6), (1000000000000000000 / tokenToEth).toFixed(6)],
+        tokenPrice: [(tokenToEth / 1000000000000000000).toFixed(6), (1000000000000000000 / res).toFixed(6)]
+      }
     })
 }
 

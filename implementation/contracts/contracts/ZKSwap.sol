@@ -10,13 +10,14 @@ contract ZkSwap {
 
 	bytes32 public balances = 0x506d86582d252405b840018792cad2bf1259f1ef5aa5f887e13cb2f0094f51e1;
 	address public router = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;
-	address[] public uniswapPath = [0xc778417E063141139Fce010982780140Aa0cD5Ab, 0xb87241aAA3E8991C6922E830B61722838cF130fb];
+	address[] public ethToTokenPath = [0xc778417E063141139Fce010982780140Aa0cD5Ab, 0xb87241aAA3E8991C6922E830B61722838cF130fb];
+	address[] public tokenToEthPath = [0xb87241aAA3E8991C6922E830B61722838cF130fb, 0xc778417E063141139Fce010982780140Aa0cD5Ab];
 	address public erc20;
 	address public verifier;
 
 	uint private tradePoolExpiration; // variable used for tracking blocknumber for trade pool sealing;
-	uint256 public setEthAmount = 1000000000000000000;
-	uint256 public setTokenAmount = 0;
+	uint256 public ethToToken = 0;
+	uint256 public tokenToEth = 0;
 
 	modifier canUpdateBalance(address sender, bytes32[] memory balanceProof, uint64 ethAmount, uint64 tokenAmount, uint64 nonce)
 	{
@@ -28,7 +29,7 @@ contract ZkSwap {
     {
 		erc20 = ercAddr;
 		verifier = verifierAddr;
-		setTokenAmount = getTokenAmount();
+		setTokenAmount();
 	}
 
 	event BalanceUpdate(address _from, uint64 ethAmount, uint64 tokenAmount, uint64 nonce);
@@ -58,7 +59,7 @@ contract ZkSwap {
 			emit BalanceUpdate(incomingBalances[i].from, incomingBalances[i].ethAmount, incomingBalances[i].tokenAmount, incomingBalances[i].nonce); // doesn't fire
 		}
 		balances = newRoot; // reassigns
-		setTokenAmount = getTokenAmount(); // is called and updates
+		setTokenAmount(); // is called and updates
 	}
 
 	function hashTradeData(SharedTypes.Balance[] memory incomingBalances, bytes32 newRoot, uint64 deltaEth, uint64 deltaToken, uint64 direction) // reimplement for dynamic array size
@@ -69,7 +70,7 @@ contract ZkSwap {
 		for(uint i = 0; i < 3; i++){
 			_hashes[i] = hashBalance(incomingBalances[i].from, incomingBalances[i].ethAmount, incomingBalances[i].tokenAmount, incomingBalances[i].nonce);
 		}
-		bytes32 rootPrice = sha256(abi.encodePacked(balances, newRoot, uint64(setEthAmount / 1000000), uint64(setTokenAmount / 1000000), deltaEth, deltaToken, uint256(direction)));
+		bytes32 rootPrice = sha256(abi.encodePacked(balances, newRoot, uint64(ethToToken / 1000000), uint64(tokenToEth / 1000000), deltaEth, deltaToken, uint256(direction)));
 		return sha256(abi.encodePacked(_hashes[0], _hashes[1],_hashes[2], rootPrice)); //Hacky, last trade gets hashed twice for ZoKrates compatibility
 	}
 
@@ -87,19 +88,12 @@ contract ZkSwap {
 		return true;
 	}
 
-	function getTokenAmount()
+	function setTokenAmount()
 		private
-		view
-		returns (uint)
 	{
 		//No slipage defined yet;
-		return IUniswapV2Router02(router).getAmountsOut(setEthAmount, uniswapPath)[1];
-	}
-
-	function updateTokenAmount()
-		public
-	{
-		setTokenAmount = getTokenAmount();
+		ethToToken = IUniswapV2Router02(router).getAmountsOut(1000000000000000000, ethToTokenPath)[1];
+		tokenToEth = IUniswapV2Router02(router).getAmountsOut(1000000000000000000, tokenToEthPath)[1];
 	}
 
 	function _sendEth(uint amountWei, address payable _to)
@@ -240,3 +234,14 @@ contract ZkSwap {
        return bytes32(result);
     }
 }
+
+
+
+
+// route eth->token: 1000000000000000000 -> 2260641686129749542390
+// 	tokenPrice: 1000000000000000000 / 2260641686129749542390 = 0,0004423522782
+// 	ethPrice: 2260641686129749542390/1000000000000000000 = 2260,6416861297
+
+// token -> eth: 1000000000000000000 -> 419516425224156
+// 	tokenPrice: 419516425224156/1000000000000000000 = 0,0004195164252
+// 	ethPrice: 1000000000000000000/419516425224156 = 2383,6968945034

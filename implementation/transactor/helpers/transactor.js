@@ -15,7 +15,7 @@ class Transactor {
     this.zokratesHelper = new ZokratesHelper();
     this.aggregator = new Aggregator();
     this.poolTraders = [];
-    this.latestPrice;
+    this.latestPrices;
   }
 
   async init() {
@@ -105,7 +105,7 @@ class Transactor {
   }
 
   resetTradePool() {
-    this.latestPrice = getLatestPrice();
+    this.latestPrices = getLatestPrice();
     this.tradePool = [];
     this.tradePoolLeafIndex = [];
   }
