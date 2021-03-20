@@ -15,14 +15,29 @@ struct Balance {
 	u32[5] address
 }
 
-def main() -> (field, field, field, field, field):
-	Balance[1] oldBalances = [Balance{ethAmount:0,tokenAmount:50000000000000,nonce:1,address:[0xcc08e563,0x6A9ceb03,0x917C1ac7,0xBbEda23a,0xD57766F3]}]
-	Balance[1] newBalances = [Balance{ethAmount:22066533063,tokenAmount:0,nonce:2,address:[0xcc08e563,0x6A9ceb03,0x917C1ac7,0xBbEda23a,0xD57766F3]}]
-	// Balance[3] oldBalances = [Balance{ethAmount:0,tokenAmount:50000000000000,nonce:1,address:[0xcc08e563,0x6A9ceb03,0x917C1ac7,0xBbEda23a,0xD57766F3]}, Balance{ethAmount:25000000000,tokenAmount:0,nonce:1,address:[0x31b87891,0x8679d9DA,0x1DB277B1,0xA2fD67Aa,0x01032920]}, Balance{ethAmount:16000000000,tokenAmount:0,nonce:1,address:[0x1D539b71,0x7035B802,0x40d6e783,0x6B2C752E,0x204B7DD4]}]
+// route eth->token: 1000000000000000000 -> 2260641686129749542390
+// 	tokenPrice: 1000000000000000000 / 2260641686129749542390 = 0,0004423522782
+// 	ethPrice: 2260641686129749542390/1000000000000000000 = 2260,6416861297
 
-	// Balance[3] newBalances = [Balance{ethAmount:22066533063,tokenAmount:0,nonce:2,address:[0xcc08e563,0x6A9ceb03,0x917C1ac7,0xBbEda23a,0xD57766F3]}, Balance{ethAmount:0,tokenAmount:56646868650000,nonce:2,address:[0x31b87891,0x8679d9DA,0x1DB277B1,0xA2fD67Aa,0x01032920]}, Balance{ethAmount:0,tokenAmount:36253995936000,nonce:2,address:[0x1D539b71,0x7035B802,0x40d6e783,0x6B2C752E,0x204B7DD4]}]
-	field ethAmount = 1000000000000
-	field tokenAmount = 2265874746000000
+// token -> eth: 1000000000000000000 -> 419516425224156
+// 	tokenPrice: 419516425224156/1000000000000000000 = 0,0004195164252
+// 	ethPrice: 1000000000000000000/419516425224156 = 2383,6968945034
+
+
+// 21000000000
+
+def main() -> (field, field, field, field, field):
+	// Balance[3] oldBalances = [Balance{ethAmount:0,tokenAmount:100000000000000,nonce:1,address:[0xcc08e563,0x6A9ceb03,0x917C1ac7,0xBbEda23a,0xD57766F3]},Balance{ethAmount:100000000000,tokenAmount:100000000000000,nonce:2,address:[0x31b87891,0x8679d9DA,0x1DB277B1,0xA2fD67Aa,0x01032920]},Balance{ethAmount:10000000000,tokenAmount:0,nonce:1,address:[0x4d9b01D7,0x11c90883,0x3f97ea78,0xCF2AE0C7,0x74607a4d]}]
+
+	// Balance[3] newBalances = [Balance{ethAmount:21000000000,tokenAmount:50000000000000,nonce:2,address:[0xcc08e563,0x6A9ceb03,0x917C1ac7,0xBbEda23a,0xD57766F3]},Balance{ethAmount:90000000000,tokenAmount:122606416860000,nonce:3,address:[0x31b87891,0x8679d9DA,0x1DB277B1,0xA2fD67Aa,0x01032920]},Balance{ethAmount:0,tokenAmount:22606416860000,nonce:2,address:[0x4d9b01D7,0x11c90883,0x3f97ea78,0xCF2AE0C7,0x74607a4d]}]
+
+	Balance[3] oldBalances = [Balance{ethAmount:100000000000,tokenAmount:10000000000000,nonce:2,address:[0xcc08e563,0x6A9ceb03,0x917C1ac7,0xBbEda23a,0xD57766F3]},Balance{ethAmount:100000000000,tokenAmount:0,nonce:1,address:[0x31b87891,0x8679d9DA,0x1DB277B1,0xA2fD67Aa,0x01032920]},Balance{ethAmount:0,tokenAmount:50000000000000,nonce:1,address:[0x4d9b01D7,0x11c90883,0x3f97ea78,0xCF2AE0C7,0x74607a4d]}]
+	
+	Balance[3] newBalances =  [Balance{ethAmount:100423922055,tokenAmount:9000000000000,nonce:3,address:[0xcc08e563,0x6A9ceb03,0x917C1ac7,0xBbEda23a,0xD57766F3]},Balance{ethAmount:90000000000,tokenAmount:22376834588242,nonce:2,address:[0x31b87891,0x8679d9DA,0x1DB277B1,0xA2fD67Aa,0x01032920]},Balance{ethAmount:4239220550,tokenAmount:40000000000000,nonce:2,address:[0x4d9b01D7,0x11c90883,0x3f97ea78,0xCF2AE0C7,0x74607a4d]}]
+
+	field baseAmount = 1000000000000
+	field ethToToken = 22376834588242
+	field tokenToEth = 423922055
 
 	field boughtEth = 0
 	field soldEth = 0
@@ -33,15 +48,15 @@ def main() -> (field, field, field, field, field):
 	for field i in 0..1 do
 		assert(oldBalances[i].nonce == newBalances[i].nonce - 1) // makes sure the nonce is incremented
 		field tradeDirection = if oldBalances[i].ethAmount >= newBalances[i].ethAmount then 0 else 1 fi
-		field ethDelta = if tradeDirection == 0 then oldBalances[i].ethAmount - newBalances[i].ethAmount else newBalances[i].ethAmount - oldBalances[i].ethAmount fi
-		field tokenDelta = if tradeDirection == 0 then newBalances[i].tokenAmount - oldBalances[i].tokenAmount else oldBalances[i].tokenAmount - newBalances[i].tokenAmount fi
-		boughtEth = if tradeDirection == 1 then boughtEth + ethDelta else boughtEth fi
-		soldEth = if tradeDirection == 0 then soldEth + ethDelta else soldEth fi
-		boughtToken = if tradeDirection == 0 then boughtToken + tokenDelta else boughtToken fi
-		soldToken = if tradeDirection == 1 then soldToken + tokenDelta else soldToken fi
-		left = tokenDelta * ethAmount
-		right = ethDelta * tokenAmount
-		// assert(tokenDelta * ethAmount >= ethDelta * tokenAmount && tradeDirection == 0 || tokenDelta * ethAmount <= ethDelta * tokenAmount && tradeDirection == 1) // this works with 64 bit numbers, anything higher will overflow. Maybe check this somewhere?
+		field deltaEth = if tradeDirection == 0 then oldBalances[i].ethAmount - newBalances[i].ethAmount else newBalances[i].ethAmount - oldBalances[i].ethAmount fi
+		field deltaToken = if tradeDirection == 0 then newBalances[i].tokenAmount - oldBalances[i].tokenAmount else oldBalances[i].tokenAmount - newBalances[i].tokenAmount fi
+		boughtEth = if tradeDirection == 1 then boughtEth + deltaEth else boughtEth fi
+		soldEth = if tradeDirection == 0 then soldEth + deltaEth else soldEth fi
+		boughtToken = if tradeDirection == 0 then boughtToken + deltaToken else boughtToken fi
+		soldToken = if tradeDirection == 1 then soldToken + deltaToken else soldToken fi
+		left = baseAmount * deltaEth
+		right = tokenToEth * deltaToken
+		assert(ethToToken * deltaEth == 10000000000 * deltaToken && tradeDirection == 0 || 1000000000000 * deltaEth == tokenToEth * deltaToken && tradeDirection == 1) // this works with 64 bit numbers, anything higher will overflow. Maybe check this somewhere?
 	endfor
 	//                                    +Eth, -Token | -Eth, +Token
 	field direction = if boughtEth > soldEth then 1 else 0 fi

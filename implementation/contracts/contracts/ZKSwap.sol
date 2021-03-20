@@ -92,8 +92,8 @@ contract ZkSwap {
 		private
 	{
 		//No slipage defined yet;
-		ethToToken = IUniswapV2Router02(router).getAmountsOut(1000000000000000000, ethToTokenPath)[1];
-		tokenToEth = IUniswapV2Router02(router).getAmountsOut(1000000000000000000, tokenToEthPath)[1];
+		ethToToken = IUniswapV2Router02(router).getAmountsOut(1000000000000000000, ethToTokenPath)[1] / 100;
+		tokenToEth = IUniswapV2Router02(router).getAmountsOut(1000000000000000000, tokenToEthPath)[1] / 100;
 	}
 
 	function _sendEth(uint amountWei, address payable _to)
@@ -210,10 +210,8 @@ contract ZkSwap {
             bytes32 proofElement = proof[i];
 
             if (computedHash <= proofElement) {
-                // Hash(current computed hash + current element of the proof)
                 computedHash = sha256(abi.encodePacked(computedHash, proofElement));
             } else {
-                // Hash(current element of the proof + current computed hash)
                 computedHash = sha256(abi.encodePacked(proofElement, computedHash));
             }
         }
