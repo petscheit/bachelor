@@ -45,8 +45,10 @@ export const getLatestPrice = async function() {
       let tokenToEth = await instance.methods.tokenToEth().call()
       //min to max price
       return {
-        ethPrice: [(res / 1000000000000000000).toFixed(6), (1000000000000000000 / tokenToEth).toFixed(6)],
-        tokenPrice: [(tokenToEth / 1000000000000000000).toFixed(6), (1000000000000000000 / res).toFixed(6)]
+        ethPrice: [(res / 10000000000000000).toFixed(12), (10000000000000000 / tokenToEth).toFixed(12)],
+        tokenPrice: [(tokenToEth / 10000000000000000).toFixed(12), (10000000000000000 / res).toFixed(12)],
+        ethToToken: (res / 1000000).toFixed(0),
+        tokenToEth: (tokenToEth / 10000).toFixed(0)
       }
     })
 }

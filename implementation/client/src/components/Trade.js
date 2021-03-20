@@ -14,13 +14,13 @@ import { broadcastTrade } from "../helpers/transactor";
 import { ethIntToWeiBN, ethToWei, toBN, ethToMwei, mweiToEth } from "../shared/conversion";
 
 class Trade extends React.Component {
-    state = { amount: 0, direction: 0, ethPrice: [0,0], tokenPrice: [0,0]}; // Baserate: Ether to token in WEI
+    state = { amount: 0, direction: 0, ethPrice: [0,0], tokenPrice: [0,0], ethToToken: 0, tokenToEth: 0}; // Baserate: Ether to token in WEI
 
     constructor(props) {
         super(props);
         getLatestPrice()
             .then(res => {
-                this.setState({ethPrice: res.ethPrice, tokenPrice: res.tokenPrice})
+                this.setState({ethPrice: res.ethPrice, tokenPrice: res.tokenPrice, ethToToken: res.ethToToken, tokenToEth: res.tokenToEth})
             })
     }
 
@@ -56,7 +56,7 @@ class Trade extends React.Component {
         } else {
             
             const tokenDelta = toBN(this.state.amount); 
-            const ethDelta = toBN((this.state.amount * this.state.tokenPrice[0]).toFixed());
+            const ethDelta = toBN((this.state.amount * this.state.tokenPrice[0]).toFixed(0));
             return {
                 ethAmount: this.props.balance.ethAmount.toJSON(), 
                 tokenAmount: this.props.balance.tokenAmount.toJSON(), 

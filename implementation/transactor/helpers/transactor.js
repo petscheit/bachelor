@@ -21,7 +21,7 @@ class Transactor {
   async init() {
     await this.merkle.init()
     this.merkle.calcInitialRoots()
-    this.latestPrice = await getLatestPrice();
+    this.latestPrices = await getLatestPrice();
   }
 
   async invokeSwapListener() {
@@ -69,7 +69,8 @@ class Transactor {
   }
 
   addTrade(reqBody){
-    assert.ok(this.merkle.checkTrade(reqBody, this.latestPrice))
+    console.log(this.latestPrices)
+    assert.ok(this.merkle.checkTrade(reqBody, this.latestPrices))
     assert.ok(!this.poolTraders.includes(reqBody.address))
     this.tradePool.push(reqBody)
     this.poolTraders.push(reqBody.address)
@@ -91,7 +92,7 @@ class Transactor {
     const proofData = this.merkle.getMulti(this.tradePoolLeafIndex);
     this.zokratesHelper.prepareTrade(balances[0], balances[1], proofData[0], proofData[1], proofData[2])
     const newRoot = this.merkle.calcNewRoot(balances[1])
-    this.zokratesHelper.computeWitness(ethToMwei(this.latestPrice))
+    this.zokratesHelper.computeWitness(this.latestPrices.ethToToken, this.latestPrices.tokenToEth)
       .then(proofObject => {
         console.log(proofObject)
         const balancesTxObject = this.aggregator.buildBalanceTxObject(balances[1])
@@ -104,8 +105,8 @@ class Transactor {
       })
   }
 
-  resetTradePool() {
-    this.latestPrices = getLatestPrice();
+  async resetTradePool() {
+    this.latestPrices = await getLatestPrice();
     this.tradePool = [];
     this.tradePoolLeafIndex = [];
   }
