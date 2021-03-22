@@ -6,12 +6,12 @@ const BN = require('bn.js');
 
 class ZkMerkleTree {
 
-    constructor(){
+    constructor(userAmount){
         this.balances = null;
         this.addressMapping = {}
         this.index = 0; // used for holding the next free index
         this.emptyAddress = "0x0000000000000000000000000000000000000000";
-        this.userAmount = 256;
+        this.userAmount = userAmount;
         this.initilizeDatastructure();
     }
 

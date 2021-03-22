@@ -5,8 +5,8 @@ const BN = require('bn.js')
 
 class TransactorMerkle extends ZkMerkleTree {
 
-    constructor(){
-        super()
+    constructor(userAmount){
+        super(userAmount)
     }
 
     checkTrade(trade, latestPrices) { // this method is used by the transactor to ensure no invalid orders are added, which would cost the transactor gas. 
@@ -73,6 +73,7 @@ class TransactorMerkle extends ZkMerkleTree {
         const root = tree.getHexRoot();
         indices = indices.sort()
         const proofLeafs = indices.map(i => soliditySha256([this.balances[i].address, this.balances[i].ethAmount, this.balances[i].tokenAmount, this.balances[i].nonce]))
+        console.log(proofLeafs)
         const proof = tree.getHexMultiProof(indices)
         console.log(proof)
 
@@ -82,6 +83,12 @@ class TransactorMerkle extends ZkMerkleTree {
         console.log(root)
         console.log("Verified locally:", verifiedLocal)
         return [paddedProof, proofFlags, this.hexTo128bitInt(root)]
+    }
+
+    getMultiBenchmark(indices) {
+        const tree = super.getTree("Balance");
+        const proofFlags = tree.getProofFlags(indices, tree.getMultiProof(indices))
+        return proofFlags.length
     }
 
     calcNewRoot(balances, indexes) {

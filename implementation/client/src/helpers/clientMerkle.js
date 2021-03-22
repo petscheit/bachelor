@@ -5,7 +5,7 @@ const { mweiToWei } = require('../shared/conversion')
 class ClientMerkle extends ZkMerkleTree {
 
     constructor(){
-        super();
+        super(256);
     }
 
     getDepositProof(address){

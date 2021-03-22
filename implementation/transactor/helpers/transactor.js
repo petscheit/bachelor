@@ -11,7 +11,7 @@ class Transactor {
   constructor(){
     this.tradePool = [];
     this.tradePoolLeafIndex = [];
-    this.merkle = new TransactorMerkle();
+    this.merkle = new TransactorMerkle(256);
     this.zokratesHelper = new ZokratesHelper();
     this.aggregator = new Aggregator();
     this.poolTraders = [];
@@ -83,6 +83,26 @@ class Transactor {
     console.log(minimalTrade);
     trade(minimalTrade);
   }
+
+  async benchmarkMulti(n, distance = 3) {
+    const leafIndexes = await this.generateLeafIndexes(64, distance)
+    console.log(leafIndexes)
+    const proofData = this.merkle.getMulti(leafIndexes)
+    console.log("Number of hashes:", proofData[1].length)
+  } 
+
+  generateLeafIndexes(n, distance) {
+    let res = []
+    if(n * distance <= this.merkle.userAmount){
+      for(let i = 0; i < n; i++){
+        res.push(i * distance)
+      }
+    } else {
+      console.error("ERROR: n * distance > userSize!!!!")
+    }
+    return res
+  }
+
 
   async updateBalanceAndVerify(event){
     console.log("Updating Balances...")
