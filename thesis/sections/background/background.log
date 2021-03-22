@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  8 MAR 2021 13:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  22 MAR 2021 10:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/paul/Documents/projects/bachelor/thesis/sections/background.tex
-(/Users/paul/Documents/projects/bachelor/thesis/sections/background.tex
+**/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.tex
+(/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.tex
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/subfiles/subfiles.cls
@@ -15,8 +15,8 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks15
 \verbatim@in@stream=\read1
 )
-Preamble taken from file `../thesis.tex'
-(/Users/paul/Documents/projects/bachelor/thesis/sections/../thesis.tex (/usr/local/texlive/2018/texmf-dist/tex/latex/base/book.cls
+Preamble taken from file `../../thesis.tex'
+(/Users/paul/Documents/projects/bachelor/thesis/sections/background/../../thesis.tex (/usr/local/texlive/2018/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/bk11.clo
 File: bk11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
@@ -295,7 +295,7 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \c@@todonotes@numberoftodonotes=\count115
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2012/05/23 Federico Garcia
-))) (/Users/paul/Documents/projects/bachelor/thesis/sections/background.aux)
+))) (/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.aux)
 \openout1 = `background.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
@@ -395,30 +395,22 @@ Package grfext Info: Graphics extension search list:
 (grfext)             \AppendGraphicsExtensions on input line 456.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-)) ABD: EveryShipout initializing macros
+)) ABD: EveryShipout initializing macros [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
-LaTeX Warning: Citation `vbuterin_2018' on page 1 undefined on input line 14.
-
-[1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-] (/Users/paul/Documents/projects/bachelor/thesis/sections/background.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+] (/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.aux) ) 
 Here is how much of TeX's memory you used:
- 12415 strings out of 492649
- 252089 string characters out of 6129622
- 295278 words of memory out of 5000000
- 16053 multiletter control sequences out of 15000+600000
- 5206 words of font info for 19 fonts, out of 8000000 for 9000
+ 12413 strings out of 492649
+ 252212 string characters out of 6129622
+ 293302 words of memory out of 5000000
+ 16052 multiletter control sequences out of 15000+600000
+ 4898 words of font info for 18 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,5n,58p,1029b,150s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/background.pdf (1 page, 38628 bytes).
+ 71i,5n,58p,977b,154s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/background/background.pdf (1 page, 17234 bytes).
 PDF statistics:
- 23 PDF objects out of 1000 (max. 8388607)
- 16 compressed objects within 1 object stream
+ 19 PDF objects out of 1000 (max. 8388607)
+ 13 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

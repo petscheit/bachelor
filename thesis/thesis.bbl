@@ -37,11 +37,6 @@ Szydlo, M.: Merkle tree traversal in log space and time. In: International
   Conference on the Theory and Applications of Cryptographic Techniques. pp.
   541--554. Springer (2004)
 
-\bibitem{vbuterin_2018}
-Vbuterin: On-chain scaling to potentially ~500 tx/sec through mass tx
-  validation (Sep 2018),
-  \url{https://ethresear.ch/t/on-chain-scaling-to-potentially-500-tx-sec-through-mass-tx-validation/3477}
-
 \bibitem{wood2014ethereum}
 Wood, G., et~al.: Ethereum: A secure decentralised generalised transaction
   ledger. Ethereum project yellow paper  \textbf{151}(2014),  1--32 (2014)

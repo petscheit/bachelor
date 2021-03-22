@@ -22,106 +22,105 @@
 \citation{cummulative_vol}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Combined daily Uniswap trading volume in million USD and average daily Ethereum gas price}}{3}}
 \newlabel{fig:gas_vol}{{1}{3}}
-\citation{vbuterin_2018}
 \@writefile{tdo}{\contentsline {todo}{not a great sentence}{4}}
 \pgfsyspdfmark {pgfid11}{11215298}{45531157}
 \pgfsyspdfmark {pgfid12}{3629543}{45544613}
 \pgfsyspdfmark {pgfid13}{7086567}{45299427}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Background}{4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}zk-rollup}{4}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Design}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Design}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Conceptual Design (Ignore)}{4}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces High level architecture of the system}}{5}}
 \newlabel{fig:architecture}{{2}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Conceptual Design}{5}}
 \citation{szydlo2004merkle}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}zkSwap Contract}{6}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Storing and Updating Balances}{6}}
 \newlabel{balances}{{3.2.1}{6}}
 \@writefile{tdo}{\contentsline {todo}{is runtime the correct word?}{6}}
-\pgfsyspdfmark {pgfid16}{10031949}{16797822}
-\pgfsyspdfmark {pgfid17}{3629543}{16811278}
-\pgfsyspdfmark {pgfid18}{7086567}{16566092}
+\pgfsyspdfmark {pgfid16}{10031949}{34672001}
+\pgfsyspdfmark {pgfid17}{3629543}{34685457}
+\pgfsyspdfmark {pgfid18}{7086567}{34440271}
 \@writefile{toc}{\contentsline {paragraph}{Merkle Trees}{6}}
-\@writefile{tdo}{\contentsline {todo}{Should I explain on what security assumptions this is based}{7}}
-\pgfsyspdfmark {pgfid21}{10640522}{39292127}
-\pgfsyspdfmark {pgfid24}{35495965}{39305583}
-\pgfsyspdfmark {pgfid25}{38952989}{39060397}
+\@writefile{tdo}{\contentsline {todo}{Should I explain on what security assumptions this is based}{6}}
+\pgfsyspdfmark {pgfid21}{10640522}{16724297}
+\pgfsyspdfmark {pgfid22}{3629543}{16737753}
+\pgfsyspdfmark {pgfid23}{7086567}{16492567}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Deposits and Withdraws}{7}}
 \newlabel{dep_with}{{3.2.2}{7}}
 \@writefile{tdo}{\contentsline {todo}{Maybe remove this?}{7}}
-\pgfsyspdfmark {pgfid26}{12725905}{20595282}
-\pgfsyspdfmark {pgfid29}{35495965}{20608738}
-\pgfsyspdfmark {pgfid30}{38952989}{20363552}
+\pgfsyspdfmark {pgfid26}{12725905}{39653818}
+\pgfsyspdfmark {pgfid29}{35495965}{39667274}
+\pgfsyspdfmark {pgfid30}{38952989}{39422088}
 \@writefile{toc}{\contentsline {paragraph}{Merkle Inclusion Proofs}{7}}
-\@writefile{toc}{\contentsline {paragraph}{Authorizing Transactions}{8}}
+\@writefile{toc}{\contentsline {paragraph}{Authorizing Transactions}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Pseudocode of the deposit and withdraw steps}}{8}}
+\newlabel{fig:dep_with}{{3}{8}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Batch Verification of Trades}{8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Pseudocode of the deposit and withdraw steps}}{9}}
-\newlabel{fig:dep_with}{{3}{9}}
 \@writefile{toc}{\contentsline {paragraph}{Verifying the ZoKrates Proof}{9}}
 \@writefile{toc}{\contentsline {paragraph}{Recreating the DataHash and Ensuring Correct Price}{9}}
-\@writefile{toc}{\contentsline {paragraph}{Receiving Fund and Refunding Aggregator}{10}}
-\@writefile{toc}{\contentsline {paragraph}{Updating Root and Emitting Balances}{10}}
+\@writefile{toc}{\contentsline {paragraph}{Receiving Fund and Refunding Aggregator}{9}}
+\@writefile{toc}{\contentsline {paragraph}{Updating Root and Emitting Balances}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Aggregator Entity}{10}}
 \newlabel{aggregator}{{3.3}{10}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Merkle Tree}{10}}
 \@writefile{tdo}{\contentsline {todo}{explain that leafs can be updated in this implementation}{10}}
-\pgfsyspdfmark {pgfid31}{10033940}{9986740}
-\pgfsyspdfmark {pgfid32}{3629543}{10000196}
-\pgfsyspdfmark {pgfid33}{7086567}{9755010}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Aggregation Server}{11}}
-\newlabel{aggregation_server}{{3.3.2}{11}}
-\@writefile{toc}{\contentsline {paragraph}{Ensuring Correct Pricing}{11}}
+\pgfsyspdfmark {pgfid31}{10033940}{27708413}
+\pgfsyspdfmark {pgfid32}{3629543}{27721869}
+\pgfsyspdfmark {pgfid33}{7086567}{27476683}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Aggregation Server}{10}}
+\newlabel{aggregation_server}{{3.3.2}{10}}
+\@writefile{toc}{\contentsline {paragraph}{Ensuring Correct Pricing}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Bid-ask spread and zkSwap price range}}{11}}
+\newlabel{fig:price}{{4}{11}}
 \citation{deml_2019}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Bid-ask spread and zkSwap price range}}{12}}
-\newlabel{fig:price}{{4}{12}}
 \@writefile{toc}{\contentsline {paragraph}{Authorizing an Order}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Pseudocode of addTrade()}}{13}}
-\newlabel{fig:addTrade}{{5}{13}}
-\@writefile{toc}{\contentsline {paragraph}{Running the Aggregation}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}PairProxy Smart Contract}{14}}
-\newlabel{pairProxy}{{3.3.3}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.4}ZoKrates Program}{15}}
-\newlabel{zokrates}{{3.3.4}{15}}
-\@writefile{tdo}{\contentsline {todo}{Then general properties will described in background i guess}{15}}
-\pgfsyspdfmark {pgfid36}{21090409}{39598823}
-\pgfsyspdfmark {pgfid39}{35495965}{39612279}
-\pgfsyspdfmark {pgfid40}{38952989}{39367093}
-\@writefile{toc}{\contentsline {paragraph}{Merkle Multi-leaf Inclusion Proofs}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Multi-leaf Inclusion verification. TODO: Transform to algo notation}}{16}}
-\newlabel{fig:multiLeaf}{{6}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Pseudocode of addTrade()}}{12}}
+\newlabel{fig:addTrade}{{5}{12}}
+\@writefile{toc}{\contentsline {paragraph}{Running the Aggregation}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}PairProxy Smart Contract}{13}}
+\newlabel{pairProxy}{{3.3.3}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.4}ZoKrates Program}{14}}
+\newlabel{zokrates}{{3.3.4}{14}}
+\@writefile{tdo}{\contentsline {todo}{Then general properties will described in background i guess}{14}}
+\pgfsyspdfmark {pgfid36}{21090409}{18975894}
+\pgfsyspdfmark {pgfid37}{3629543}{18989350}
+\pgfsyspdfmark {pgfid38}{7086567}{18744164}
+\@writefile{toc}{\contentsline {paragraph}{Merkle Multi-leaf Inclusion Proofs}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Multi-leaf Inclusion verification. TODO: Transform to algo notation}}{15}}
+\newlabel{fig:multiLeaf}{{6}{15}}
+\citation{benet2014ipfs}
 \@writefile{toc}{\contentsline {paragraph}{Checking Balance Updates and Signatures}{16}}
 \@writefile{toc}{\contentsline {paragraph}{Computing new Merkle Root}{16}}
-\citation{benet2014ipfs}
-\@writefile{toc}{\contentsline {paragraph}{Reducing On-chain Verification Costs}{17}}
-\@writefile{tdo}{\contentsline {todo}{Explain assumtions that can be made from proof in background, hashing as algo blaaa}{17}}
-\pgfsyspdfmark {pgfid41}{27063465}{36618257}
-\pgfsyspdfmark {pgfid44}{35495965}{36631713}
-\pgfsyspdfmark {pgfid45}{38952989}{36386527}
+\@writefile{toc}{\contentsline {paragraph}{Reducing On-chain Verification Costs}{16}}
+\@writefile{tdo}{\contentsline {todo}{Explain assumtions that can be made from proof in background, hashing as algo blaaa}{16}}
+\pgfsyspdfmark {pgfid41}{27063465}{17606841}
+\pgfsyspdfmark {pgfid42}{3629543}{17620297}
+\pgfsyspdfmark {pgfid43}{7086567}{17375111}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.5}Client Frontend}{16}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces ZoKrates program checks}}{17}}
 \newlabel{fig:zokrates}{{7}{17}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.5}Client Frontend}{17}}
 \@writefile{toc}{\contentsline {paragraph}{Deposits and Withdraws}{17}}
-\@writefile{toc}{\contentsline {paragraph}{Adding a Trade}{18}}
-\@writefile{toc}{\contentsline {paragraph}{Displaying Account Data}{18}}
+\@writefile{toc}{\contentsline {paragraph}{Adding a Trade}{17}}
+\@writefile{toc}{\contentsline {paragraph}{Displaying Account Data}{17}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Limitiations of Current Implementation}{18}}
 \@writefile{toc}{\contentsline {paragraph}{Signatures}{18}}
 \@writefile{tdo}{\contentsline {todo}{BLS aggregate signatures}{18}}
-\pgfsyspdfmark {pgfid46}{17982852}{18902004}
-\pgfsyspdfmark {pgfid47}{3629543}{18915460}
-\pgfsyspdfmark {pgfid48}{7086567}{18670274}
+\pgfsyspdfmark {pgfid46}{17982852}{36881089}
+\pgfsyspdfmark {pgfid47}{3629543}{36894545}
+\pgfsyspdfmark {pgfid48}{7086567}{36649359}
 \@writefile{toc}{\contentsline {paragraph}{Ensuring Worst-case Pricing (will prob still implement)}{18}}
 \@writefile{tdo}{\contentsline {todo}{do I need a reference here?}{18}}
-\pgfsyspdfmark {pgfid51}{13457424}{10807377}
-\pgfsyspdfmark {pgfid52}{3629543}{10820833}
-\pgfsyspdfmark {pgfid53}{7086567}{10575647}
+\pgfsyspdfmark {pgfid51}{13457424}{28707707}
+\pgfsyspdfmark {pgfid52}{3629543}{28721163}
+\pgfsyspdfmark {pgfid53}{7086567}{28475977}
 \@writefile{tdo}{\contentsline {todo}{Should I mention that usually uniswap pricing is ensured by arbitrage?}{18}}
-\pgfsyspdfmark {pgfid56}{13344961}{9024797}
-\pgfsyspdfmark {pgfid57}{3629543}{8576389}
-\pgfsyspdfmark {pgfid58}{7086567}{8331203}
+\pgfsyspdfmark {pgfid56}{13344961}{26925127}
+\pgfsyspdfmark {pgfid57}{3629543}{26476719}
+\pgfsyspdfmark {pgfid58}{7086567}{26231533}
+\@writefile{toc}{\contentsline {paragraph}{Updating Balances According to Effective Price}{18}}
+\@writefile{toc}{\contentsline {paragraph}{Arbitrary Combinations of Merkle Tree Leafs}{18}}
 \bibstyle{splncs04}
 \bibdata{mybibliography}
-\@writefile{toc}{\contentsline {paragraph}{Updating Balances According to Effective Price}{19}}
-\@writefile{toc}{\contentsline {paragraph}{Arbitrary Combinations of Merkle Tree Leafs}{19}}
 \bibcite{cummulative_vol}{1}
 \bibcite{adams2020uniswap}{2}
 \bibcite{benet2014ipfs}{3}
@@ -131,5 +130,4 @@
 \bibcite{uniswap_tx_fees}{7}
 \bibcite{kulechov_2020}{8}
 \bibcite{szydlo2004merkle}{9}
-\bibcite{vbuterin_2018}{10}
-\bibcite{wood2014ethereum}{11}
+\bibcite{wood2014ethereum}{10}

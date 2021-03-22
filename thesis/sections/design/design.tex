@@ -12,7 +12,7 @@ The second entity to look at is the aggregator. The aggregator consists numerous
     \label{fig:architecture}
 \end{figure}
 
-\subsection{Conceptual Design}
+\subsection{Conceptual Design (Ignore)}
 The focus of this work is applying zk-rollup, explained in S. XX, in combination with Uniswap trades. To use the system, a user first needs to deposit funds. This is a on-chain transaction, moving the funds into the smart-contract. Instead of storing a users balance as a mapping the smart-contract, the balances are stored in an merkle tree in layer-2, and the state of that merkle tree is committed in the smart-contract as a merkle root. To update its balance, a user needs to provide a merkle path to its balance. The smart contract can then prove the validity of the balance by recreating its merkle root. This ensures a user can always withdraw its balance. In combiniation with zkSNARKs, this also allows us to batch-update balances, significantly reducing the cost per balance update. 
 
 
@@ -234,9 +234,6 @@ The final implementation of this work does not include all attributes mentioned 
 
 \paragraph{Signatures}
 As described in S. \ref{aggregation_server}, the authorization of an order entirely relies on a user signing the trade order and merkle root. This signature needs to be checked in a ZoKrates program, which limits us to use the EdDSA scheme, in combination with the BN128 curve. However Metamask, a browser compatible Ethereum wallet, does not support this. Since the private key is stored in Metamask, there are no theoretical limitiations in adding the curve in signature scheme, it simply hasn't been done yet. The outlook section will also look at alternative solutions\todo{BLS aggregate signatures}. For this reason, the signature checks are omitted in the prototype, their computational cost is included in the results section though.
-
-\paragraph{Ensuring Worst-case Pricing (will prob still implement)}
-In its current form, trading only works when the `net trade' is selling Ethereum for the token. Since every trading pair always has some spread\footnote{The spread is the price difference the buy and sell price of a trading pair} and it can't be predicted which direction a net trade will have, ensuring the worst-case price for both trading directions is non-trivial. Since the prototype is running in the ropsten testnet\todo{do I need a reference here?}, with a custom Uniswap liquidity pool created for testing, the spread is especially large, often resulting in a 10\% price difference between buy and sell price.\todo{Should I mention that usually uniswap pricing is ensured by arbitrage?} 
 
 \paragraph{Updating Balances According to Effective Price}
 After the aggregator has executed the net trade on Uniswap, the new balances are calculated based on the worst-case price instead of the effective price the aggregator has paid. Currently, there is no mechanism in place that can ensures this. The aggregator could always claim the worst possible price has been paid (depending on net trade direction), while keeping the difference for itself. This will be addressed in the open problems section.
