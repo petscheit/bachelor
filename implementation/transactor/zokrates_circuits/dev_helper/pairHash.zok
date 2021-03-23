@@ -1,0 +1,20 @@
+import "hashes/mimcSponge/mimcFeistel" as MiMCFeistel
+import "utils/pack/bool/pack128.zok" as pack128
+import "hashes/sha256/embed/512bitPadded" as sha256
+
+def mimc(field[2] ins) -> field:
+	field nInputs = 2
+	field nOutputs = 1
+	field[2][2] S = [[0; 2]; 2] // Dim: (nInputs + nOutputs - 1, 2)
+
+	for field i in 0..nInputs do
+		field idx = if i == 0 then 0 else i - 1 fi
+		S[i] = if i == 0 then MiMCFeistel(ins[0], 0, 0) else MiMCFeistel(S[idx][0] + ins[i], S[idx][1], 0) fi
+	endfor
+	return S[nInputs - 1][0]
+
+def mainn(field a, field b) -> (field): //6451 constraints -> Hash: 2641, compare: 3810
+	return if a > b then mimc([a, b]) else mimc([b, a]) fi
+
+def main(bool[256] a, bool[256] b) -> (bool[256]): //217151 constraints, Hash: 562256, compare: 160925
+	return if pack128(a[0..128]) <= pack128(b[0..128]) then sha256(a, b) else sha256(b, a) fi

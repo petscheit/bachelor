@@ -2,14 +2,15 @@ const TransactorMerkle = require("./transactorMerkle")
 const fs = require('fs');
 
 class Benchmarker {
-  constructor(minTreeDepth, maxTreeDepth, minLeafs, maxLeafs, minLeafDistance, maxLeafDistance){
+  constructor(minTreeDepth, maxTreeDepth, minLeafs, maxLeafs, minLeafDistance, maxLeafDistance, leafDistanceStep){
       this.minTreeDepth = minTreeDepth
       this.maxTreeDepth = maxTreeDepth
       this.minLeafs = minLeafs
       this.maxLeafs = maxLeafs
       this.minLeafDistance = minLeafDistance
       this.maxLeafDistance = maxLeafDistance
-      this.res = [['treeDepth', 'leafs', 'distanceLeafs', 'totalHashes', 'hashesPerLeaf']]
+      this.leafDistanceStep = leafDistanceStep
+      this.res = [['treeDepth', 'leafs', 'distanceLeafs', 'totalHashes', 'pathLength', 'hashesPerLeaf']]
   }
 
   async init() {
@@ -18,15 +19,15 @@ class Benchmarker {
 
 
     async runBenchmark() {
-        if(this.maxLeafs * this.maxLeafDistance > Math.pow(2, this.minTreeDepth)) return "ERROR! this.maxLeafs * this.maxLeafDistance > Math.pow(2, this.minTreeDepth)"
+        if(this.maxLeafs * this.maxLeafDistance > Math.pow(2, this.minTreeDepth)) return console.log("ERROR! this.maxLeafs * this.maxLeafDistance > Math.pow(2, this.minTreeDepth)")
         for(let t = this.minTreeDepth; t < this.maxTreeDepth; t++) {
             console.log("TREE DEPTH: ", t)
             let merkle = new TransactorMerkle(Math.pow(2, t)) //initializes new merkle tree
-            for(let d = this.minLeafDistance; d <= this.maxLeafDistance; d++) {
-                for(let l = this.minLeafs; l <= this.maxLeafs; l++) {
+            for(let d = this.minLeafDistance; d <= this.maxLeafDistance; d += this.leafDistanceStep) {
+                for(let l = this.minLeafs; l <= this.maxLeafs; l+=2) {
                   let leafIndexes = await this.generateLeafIndexes(l, d)
                   let hashNumber = merkle.getMultiBenchmark(leafIndexes)
-                  this.res.push([t, l, d, hashNumber, Math.round((hashNumber / l) * 100) / 100])
+                  this.res.push([t, l, d, hashNumber[0], hashNumber[1], Math.round((hashNumber[0] / l) * 100) / 100])
                 }
             }
         }
@@ -94,7 +95,7 @@ class Benchmarker {
 }
 
 
-let benchmarker = new Benchmarker(8, 15, 2, 30, 1, 5)
+let benchmarker = new Benchmarker(14, 17, 2, 50, 10, 100, 10)
 benchmarker.runBenchmark()
 
 // FAILING:

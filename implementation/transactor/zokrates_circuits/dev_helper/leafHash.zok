@@ -28,19 +28,17 @@ def mimc_4(field[4] ins) -> field: //5281
 	field nInputs = 4
 	field nOutputs = 1
 	field[4][2] S = [[0; 2]; 4] // Dim: (nInputs + nOutputs - 1, 2)
-	field outs = 0
 
 	for field i in 0..nInputs do
 		field idx = if i == 0 then 0 else i - 1 fi
 		S[i] = if i == 0 then MiMCFeistel(ins[0], 0, 0) else MiMCFeistel(S[idx][0] + ins[i], S[idx][1], 0) fi
 	endfor
-	outs = S[nInputs - 1][0]
-	return outs
+	return S[nInputs - 1][0]
 
 
-def mainn(Balance[3] balances) -> (field[3]): //16338
-	field[3] res = [0,0,0]
-	for field i in 0..3 do
+def mainn(Balance[1] balances) -> (field[1]): //constraints: 5446
+	field[1] res = [0]
+	for field i in 0..1 do
 		field addrs = pack256(u32_8_to_bool_256([...balances[i].address, 0x00000000, 0x00000000, 0x00000000]))
 		field temp = mimc_4([addrs, balances[i].ethAmount, balances[i].tokenAmount, balances[i].nonce])
 		res[i] = temp
@@ -48,9 +46,9 @@ def mainn(Balance[3] balances) -> (field[3]): //16338
 	return res
 
 // old implementation
-def main(Balance[3] balances) -> (bool[3][256]): //388812
-	bool[3][256] res = [[false;256];3]
-	for field i in 0..3 do
+def main(Balance[1] balances) -> (bool[1][256]): //constraints: 129604
+	bool[1][256] res = [[false;256]]
+	for field i in 0..1 do
 		bool[256] addrs = u32_8_to_bool_256([...balances[i].address, 0x00000000, 0x00000000, 0x00000000])
 		bool[256] amounts = [...field_to_64bit(balances[i].ethAmount), ...field_to_64bit(balances[i].tokenAmount), ...field_to_64bit(balances[i].nonce), ...field_to_64bit(0)]
 		bool[256] temp = sha256(addrs, amounts)

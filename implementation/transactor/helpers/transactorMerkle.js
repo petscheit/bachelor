@@ -88,7 +88,7 @@ class TransactorMerkle extends ZkMerkleTree {
     getMultiBenchmark(indices) {
         const tree = super.getTree("Balance");
         const proofFlags = tree.getProofFlags(indices, tree.getMultiProof(indices))
-        return proofFlags.length
+        return [proofFlags.length, tree.getMultiProof(indices).length]
     }
 
     calcNewRoot(balances, indexes) {
