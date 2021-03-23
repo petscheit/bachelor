@@ -1,0 +1,33 @@
+\documentclass[11pt,twoside,a4paper,final]{book}
+\usepackage[left=1.6in,right=1.6in,top=1.6in,bottom=1.6in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyphenat}
+\usepackage{todonotes}
+\usepackage{subfiles}
+\renewcommand{\thesection}{\arabic{section}}
+
+\title{zkSwap - Scaling Decentralized Exchanges through Transaction Aggregation}
+\author{Paul Etscheit}
+\date{March 2021}
+\setcounter{secnumdepth}{3}
+\begin{document}
+
+
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\section{Introduction}
+\subfile{sections/introduction/introduction}
+
+\section{Background}
+\subfile{sections/background/background}
+
+\section{Design}
+\subfile{sections/design/design}
+
+\bibliographystyle{splncs04}
+\bibliography{mybibliography}
+\end{document}
+
