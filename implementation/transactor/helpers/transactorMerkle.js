@@ -1,24 +1,23 @@
 const { soliditySha256 } = require("../shared/crypto");
-const { hexToBN } = require("../shared/conversion");
+const { hexToBN, toBN } = require("../shared/conversion");
 const { ZkMerkleTree } = require('../shared/merkle');
 const BN = require('bn.js')
 
 class TransactorMerkle extends ZkMerkleTree {
 
-    constructor(){
-        super()
+    constructor(userAmount){
+        super(userAmount)
     }
 
-    checkTrade(trade, latestPrice) { // this method is used by the transactor to ensure no invalid orders are added, which would cost the transactor gas. 
+    checkTrade(trade, latestPrices) { // this method is used by the transactor to ensure no invalid orders are added, which would cost the transactor gas. 
                         // These checks are the same ones checked in the zkSNARK programm
         //check signature here aswell
         trade = this.convertTradeToBN(trade)
         if (!this.verifyBalanceLeaf(trade)) return false // ensures that where passed are in merkletree
-        if(!this.ensureCorrectPrice(trade, latestPrice)) return false;
+        if(!this.ensureCorrectPrice(trade, latestPrices)) return false;
+        console.log("pricing and balance ok")
         if(trade.direction === 0) {
-            console.log(trade.ethAmount.gte(trade.deltaEth))
             if(trade.ethAmount.gte(trade.deltaEth)){
-
                 return true;
             }
         } else if(trade.direction === 1){
@@ -45,9 +44,27 @@ class TransactorMerkle extends ZkMerkleTree {
         trade['deltaToken'] = hexToBN(trade['deltaToken'])
         return trade
     }
+    convertPricesToBN(pri) {
+        return {
+            tokenToEth: toBN(pri['tokenToEth']),
+            ethToToken: toBN(pri['ethToToken'])
+        }
+    }
 
-    ensureCorrectPrice(trade, latestPrice) {
-        if((Math.round((trade.deltaToken / trade.deltaEth)*1000000)/1000000) === Number(latestPrice)) return true;
+    ensureCorrectPrice(trade, latestPrices) {
+        // console.log(trade)
+        // console.log(prices.ethToToken.mul(trade.deltaEth).toString(10))
+        // console.log(toBN(10000000000).mul(trade.deltaToken).toString(10))
+        
+        // console.log(toBN(1000000000000).mul(trade.deltaEth).toString(10))
+        // console.log(prices.tokenToEth.mul(trade.deltaToken).toString(10))
+        // console.log(latestPrices)
+        let prices = this.convertPricesToBN(latestPrices)
+        if(trade.direction == 0) {
+            if((prices.ethToToken.mul(trade.deltaEth).toString(10) === toBN(10000000000).mul(trade.deltaToken).toString(10))) return true;
+        } else {
+            if(toBN(1000000000000).mul(trade.deltaEth).toString(10) === prices.tokenToEth.mul(trade.deltaToken).toString(10)) return true;
+        }
         return false;
     }
 
@@ -56,6 +73,7 @@ class TransactorMerkle extends ZkMerkleTree {
         const root = tree.getHexRoot();
         indices = indices.sort()
         const proofLeafs = indices.map(i => soliditySha256([this.balances[i].address, this.balances[i].ethAmount, this.balances[i].tokenAmount, this.balances[i].nonce]))
+        console.log(proofLeafs)
         const proof = tree.getHexMultiProof(indices)
         console.log(proof)
 
@@ -65,6 +83,12 @@ class TransactorMerkle extends ZkMerkleTree {
         console.log(root)
         console.log("Verified locally:", verifiedLocal)
         return [paddedProof, proofFlags, this.hexTo128bitInt(root)]
+    }
+
+    getMultiBenchmark(indices) {
+        const tree = super.getTree("Balance");
+        const proofFlags = tree.getProofFlags(indices, tree.getMultiProof(indices))
+        return [proofFlags.length, tree.getMultiProof(indices).length]
     }
 
     calcNewRoot(balances, indexes) {

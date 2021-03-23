@@ -1,0 +1,28 @@
+struct Balance {
+	field ethAmount
+	field tokenAmount
+	field nonce
+	u32[5] address
+}
+
+def main(Balance[1] oldBalances, Balance[1] newBalances, field ethToToken, field tokenToEth) -> (field, field, field): //constraints: 2704
+	field boughtEth = 0
+	field soldEth = 0
+	field boughtToken = 0
+	field soldToken = 0
+	for field i in 0..1 do
+		assert(oldBalances[i].nonce == newBalances[i].nonce - 1) // makes sure the nonce is incremented
+		field tradeDirection = if oldBalances[i].ethAmount >= newBalances[i].ethAmount then 0 else 1 fi
+		field deltaEth = if tradeDirection == 0 then oldBalances[i].ethAmount - newBalances[i].ethAmount else newBalances[i].ethAmount - oldBalances[i].ethAmount fi
+		field deltaToken = if tradeDirection == 0 then newBalances[i].tokenAmount - oldBalances[i].tokenAmount else oldBalances[i].tokenAmount - newBalances[i].tokenAmount fi
+		boughtEth = if tradeDirection == 1 then boughtEth + deltaEth else boughtEth fi
+		soldEth = if tradeDirection == 0 then soldEth + deltaEth else soldEth fi
+		boughtToken = if tradeDirection == 0 then boughtToken + deltaToken else boughtToken fi
+		soldToken = if tradeDirection == 1 then soldToken + deltaToken else soldToken fi
+		assert(ethToToken * deltaEth == 10000000000 * deltaToken && tradeDirection == 0 || 1000000000000 * deltaEth == tokenToEth * deltaToken && tradeDirection == 1)
+	endfor
+	//                                    +Eth, -Token | -Eth, +Token
+	field direction = if boughtEth > soldEth then 1 else 0 fi
+	field deltaEth = if direction == 1 then boughtEth - soldEth else soldEth - boughtEth fi
+	field deltaToken = if direction == 0 then boughtToken - soldToken else soldToken - boughtToken fi
+	return direction, deltaEth, deltaToken

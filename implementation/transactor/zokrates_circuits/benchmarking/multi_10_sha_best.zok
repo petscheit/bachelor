@@ -24,12 +24,12 @@ def field_to_64bit(field i) -> bool[64]:
     assert(b[0..190] == [false; 190])
     return b[190..254]
 
-def verifyTrades(Balance[3] oldBalances, Balance[3] newBalances, field ethToToken, field tokenToEth) -> (field, field, field):
+def verifyTrades(Balance[10] oldBalances, Balance[10] newBalances, field ethToToken, field tokenToEth) -> (field, field, field):
 	field boughtEth = 0
 	field soldEth = 0
 	field boughtToken = 0
 	field soldToken = 0
-	for field i in 0..3 do
+	for field i in 0..10 do
 		assert(oldBalances[i].nonce == newBalances[i].nonce - 1) // makes sure the nonce is incremented
 		field tradeDirection = if oldBalances[i].ethAmount >= newBalances[i].ethAmount then 0 else 1 fi
 		field deltaEth = if tradeDirection == 0 then oldBalances[i].ethAmount - newBalances[i].ethAmount else newBalances[i].ethAmount - oldBalances[i].ethAmount fi
@@ -49,9 +49,9 @@ def verifyTrades(Balance[3] oldBalances, Balance[3] newBalances, field ethToToke
 def hashPair(bool[256] a, bool[256] b) -> (bool[256]):
 	return if pack128(a[0..128]) <= pack128(b[0..128]) then sha256(a, b) else sha256(b, a) fi
 
-def hashLeafs(Balance[3] balances) -> (bool[3][256]):
-	bool[3][256] res = [[false;256];3]
-	for field i in 0..3 do
+def hashLeafs(Balance[10] balances) -> (bool[10][256]):
+	bool[10][256] res = [[false;256];10]
+	for field i in 0..10 do
 		bool[256] addrs = u32_8_to_bool_256([...balances[i].address, 0x00000000, 0x00000000, 0x00000000])
 		bool[256] amounts = [...field_to_64bit(balances[i].ethAmount), ...field_to_64bit(balances[i].tokenAmount), ...field_to_64bit(balances[i].nonce), ...field_to_64bit(0)]
 		bool[256] temp = sha256(addrs, amounts)
@@ -62,10 +62,10 @@ def hashLeafs(Balance[3] balances) -> (bool[3][256]):
 def getPosition(bool proofFlag, field leafPos, field leafsLen) -> (field):
 	return if proofFlag then if leafPos < leafsLen then 0 else 1 fi else 2 fi
 	
-def verifyMultiProof(bool[9][256] leafs, bool[9][256] proofs, bool[9] proofFlags) -> (bool[256]):
-	field leafsLen = 3
-	field totalHashes = 9
-	bool[9][256] hashes = [[false;256];9]
+def verifyMultiProof(bool[15][256] leafs, bool[6][256] proofs, bool[15] proofFlags) -> (bool[256]):
+	field leafsLen = 10
+	field totalHashes = 15
+	bool[15][256] hashes = [[false;256];15]
 	field[3] indexes = [0, 0, 0] // 0: leafPos, 1: hashPos, 2: proofPos
 	for field i in 0..totalHashes do
 		bool[3][256] nodes = [leafs[indexes[0]], hashes[indexes[1]], proofs[indexes[2]]]
@@ -82,28 +82,31 @@ def verifyMultiProof(bool[9][256] leafs, bool[9][256] proofs, bool[9] proofFlags
 	endfor
 	return hashes[totalHashes - 1]
 
-def hashFinalBalances(bool[3][256] newBalancesHash, field ethToToken, field tokenToEth, field deltaEth, field deltaToken, field direction, bool[256] oldRoot, bool[256] newRoot) -> (field[2]): //194615 const
+def hashFinalBalances(bool[10][256] newBalancesHash, field ethToToken, field tokenToEth, field deltaEth, field deltaToken, field direction, bool[256] oldRoot, bool[256] newRoot) -> (field[2]): //194615 const
 	bool[256] rootPrice = sha256_4(oldRoot, newRoot, [...field_to_64bit(ethToToken), ...field_to_64bit(tokenToEth), ...field_to_64bit(deltaEth), ...field_to_64bit(deltaToken)], field_to_bool(direction))
 	bool[256] res = sha256_4(newBalancesHash[0], newBalancesHash[1], newBalancesHash[2], rootPrice) // hacky
+	res = sha256_4(res, newBalancesHash[3], newBalancesHash[4], newBalancesHash[5])
+	res = sha256_4(res, newBalancesHash[6], newBalancesHash[7], newBalancesHash[8])
+	res = sha256(res, newBalancesHash[9])
 	return [pack128(res[0..128]), pack128(res[128..256])]
 
-def proofToBin(field[9][2] proof) -> (bool[9][256]): //587502
-	bool[9][256] result = [[false;256];9]
-	for field i in 0..9 do
+def proofToBin(field[6][2] proof) -> (bool[6][256]): //587502
+	bool[6][256] result = [[false;256];6]
+	for field i in 0..6 do
 		result[i] = [...unpack128(proof[i][0]), ...unpack128(proof[i][1])]
 	endfor
 	return result
 
-def main(private Balance[3] oldBalances, private Balance[3] newBalances, private field[9][2] proof, private bool[9] proofFlags, private field[2] root, private field ethToToken, private field tokenToEth) -> (field[2]):
+def main(private Balance[10] oldBalances, private Balance[10] newBalances, private field[6][2] proof, private bool[15] proofFlags, private field[2] root, private field ethToToken, private field tokenToEth) -> (field[2]):
 	field direction, field deltaEth, field deltaToken = verifyTrades(oldBalances, newBalances, ethToToken, tokenToEth)
-	bool[9][256] leafsPadded = [...hashLeafs(oldBalances), ...[[false;256];6]] // we need to pass empty leafs for this to compile. The proof flags will ensure that these values are never used for hashing
-	bool[9][256] proofBin = proofToBin(proof)
+	bool[15][256] leafsPadded = [...hashLeafs(oldBalances), ...[[false;256];5]] // we need to pass empty leafs for this to compile. The proof flags will ensure that these values are never used for hashing
+	bool[6][256] proofBin = proofToBin(proof)
 	bool[256] calcedRoot = verifyMultiProof(leafsPadded, proofBin, proofFlags)
 	field[2] calcedRootField = [pack128(calcedRoot[0..128]), pack128(calcedRoot[128..256])]
 	assert(root[0] == calcedRootField[0] && root[1] == calcedRootField[1]) // passed trades contain correct balances. First check OK
-	bool[9][256] newLeafsPadded = [...hashLeafs(newBalances), ...[[false;256];6]]
+	bool[15][256] newLeafsPadded = [...hashLeafs(newBalances), ...[[false;256];5]]
 	bool[256] newRoot = verifyMultiProof(newLeafsPadded, proofBin, proofFlags)
-	return hashFinalBalances(newLeafsPadded[0..3], ethToToken, tokenToEth, deltaEth, deltaToken, direction, calcedRoot, newRoot)
+	return hashFinalBalances(newLeafsPadded[0..10], ethToToken, tokenToEth, deltaEth, deltaToken, direction, calcedRoot, newRoot)
 
 
 // TODO:

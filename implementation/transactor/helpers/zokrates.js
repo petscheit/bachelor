@@ -19,14 +19,14 @@ class ZokratesHelper {
         this.root = root;
     }
     
-    buildProofString(tokenAmount){
-        return "echo " + `\"${JSON.stringify([this.oldBalances, this.newBalances, this.proof, this.proofFlags, this.root, "1000000000000", tokenAmount]).replace(/"/g, `\\"`)}\"`;
+    buildProofString(ethToToken, tokenToEth){
+        return "echo " + `\"${JSON.stringify([this.oldBalances, this.newBalances, this.proof, this.proofFlags, this.root, ethToToken, tokenToEth]).replace(/"/g, `\\"`)}\"`;
     }
 
-    async computeWitness(tokenAmount){
-        console.log(this.buildProofString(tokenAmount) + this.witnessCommand)
+    async computeWitness(ethToToken, tokenToEth){
+        console.log(this.buildProofString(ethToToken, tokenToEth) + this.witnessCommand)
         return new Promise((res, err) => {
-            let child = exec(this.buildProofString(tokenAmount) + this.witnessCommand);
+            let child = exec(this.buildProofString(ethToToken, tokenToEth) + this.witnessCommand);
             child.stdout.pipe(process.stdout)
             child.on('exit', function() {
                 console.log("Generation proof...")
