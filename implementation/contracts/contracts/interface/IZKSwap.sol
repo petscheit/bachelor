@@ -19,6 +19,7 @@ interface IZkSwap {
 		uint64 direction,
 		uint64 ethDelta,
 		uint64 tokenDelta,
+		bytes32 oldRoot,
 		bytes32 newRoot,
 		uint[2] calldata a,
 		uint[2][2] calldata b,

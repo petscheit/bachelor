@@ -28,7 +28,7 @@ class Server {
     await this.transactor.init()
     this.app.use(express.json())
     this.app.use(cors())
-    // this.transactor.invokeSwapListener()
+    this.transactor.invokeSwapListener()
     this.transactor.invokeProxyListener()
   }
 
@@ -77,8 +77,6 @@ class Server {
   await server.init()
   server.setupEndpoints()
   server.listen()
-  let res = await server.transactor.benchmarkMulti(30)
-  console.log(res)
 
 })()
 

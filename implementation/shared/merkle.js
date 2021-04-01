@@ -8,6 +8,7 @@ class ZkMerkleTree {
 
     constructor(userAmount){
         this.balances = null;
+        this.balancesTemp = null;
         this.addressMapping = {}
         this.index = 0; // used for holding the next free index
         this.emptyAddress = "0x0000000000000000000000000000000000000000";
@@ -57,6 +58,11 @@ class ZkMerkleTree {
     // HELPERS:
     getTree(){
         const leaves = this.balances.map(leaf => soliditySha256([leaf.address, leaf.ethAmount, leaf.tokenAmount, leaf.nonce]))
+        return new MerkleTree(leaves, soliditySha256, { sortPairs: true })
+    }
+
+    getTempTree(){
+        const leaves = this.balancesTemp.map(leaf => soliditySha256([leaf.address, leaf.ethAmount, leaf.tokenAmount, leaf.nonce]))
         return new MerkleTree(leaves, soliditySha256, { sortPairs: true })
     }
 

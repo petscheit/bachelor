@@ -52,20 +52,60 @@ class TransactorMerkle extends ZkMerkleTree {
     }
 
     ensureCorrectPrice(trade, latestPrices) {
-        // console.log(trade)
-        // console.log(prices.ethToToken.mul(trade.deltaEth).toString(10))
-        // console.log(toBN(10000000000).mul(trade.deltaToken).toString(10))
-        
-        // console.log(toBN(1000000000000).mul(trade.deltaEth).toString(10))
-        // console.log(prices.tokenToEth.mul(trade.deltaToken).toString(10))
-        // console.log(latestPrices)
         let prices = this.convertPricesToBN(latestPrices)
+        console.log(trade)
+        console.log(prices.ethToToken.mul(trade.deltaEth).toString(10))
+        console.log(toBN(10000000000).mul(trade.deltaToken).toString(10))
+        
+        console.log(toBN(1000000000000).mul(trade.deltaEth).toString(10))
+        console.log(prices.tokenToEth.mul(trade.deltaToken).toString(10))
+        console.log(latestPrices)
         if(trade.direction == 0) {
             if((prices.ethToToken.mul(trade.deltaEth).toString(10) === toBN(10000000000).mul(trade.deltaToken).toString(10))) return true;
         } else {
             if(toBN(1000000000000).mul(trade.deltaEth).toString(10) === prices.tokenToEth.mul(trade.deltaToken).toString(10)) return true;
         }
         return false;
+    }
+
+    getMerklePaths(indices, balanceUpdates) {
+        const tree = super.getTree("Balance"); 
+        const oldRoot = tree.getHexRoot() //first store current root
+
+        this.balancesTemp = this.balances; // copy state to temp balances
+        let newRoot = null;
+        for(let i = 0; i < indices.length; i++) {
+            const tree = this.getTempTree();
+            newRoot = tree.getRoot().toString('hex')
+            let leaf = soliditySha256([this.balancesTemp[indices[i]].address, this.balancesTemp[indices[i]].ethAmount, this.balancesTemp[indices[i]].tokenAmount, this.balancesTemp[indices[i]].nonce])
+            let proof = tree.getHexProof(leaf)
+            console.log("Verified Locally:", tree.verify(proof, leaf, newRoot)) // true
+            let path = tree.getHexProof(leaf).map(elem => this.hexTo128bitInt(elem))
+            console.log(path)
+            balanceUpdates[i].merklePath = path;
+            this.updateNewBalanceTemp(balanceUpdates[i].address, balanceUpdates[i].newEthAmount, balanceUpdates[i].newTokenAmount, balanceUpdates[i].newNonce)
+        }
+        return [balanceUpdates, this.hexTo128bitInt(oldRoot), "0x" + oldRoot, "0x" + newRoot]
+    }
+
+    getMerklePathsDepWith(indices, balanceUpdates) {
+        const tree = super.getTree("Balance"); 
+        const oldRoot = tree.getHexRoot() //first store current root
+
+        this.balancesTemp = this.balances; // copy state to temp balances
+        let newRoot = null;
+        for(let i = 0; i < indices.length; i++) {
+            const tree = this.getTempTree();
+            newRoot = tree.getRoot().toString('hex')
+            let leaf = soliditySha256([this.balancesTemp[indices[i]].address, this.balancesTemp[indices[i]].ethAmount, this.balancesTemp[indices[i]].tokenAmount, this.balancesTemp[indices[i]].nonce])
+            let proof = tree.getHexProof(leaf)
+            console.log("Verified Locally:", tree.verify(proof, leaf, newRoot)) // true
+            let path = tree.getHexProof(leaf).map(elem => this.hexTo128bitInt(elem))
+            console.log(path)
+            balanceUpdates[i].merklePath = path;
+            this.updateNewBalanceTemp(balanceUpdates[i].address, balanceUpdates[i].newEthAmount, balanceUpdates[i].newTokenAmount, balanceUpdates[i].newNonce)
+        }
+        return [balanceUpdates, this.hexTo128bitInt(oldRoot), "0x" + oldRoot, "0x" + newRoot]
     }
 
     getMulti(indices) {
@@ -91,6 +131,12 @@ class TransactorMerkle extends ZkMerkleTree {
         return [proofFlags.length, tree.getMultiProof(indices).length]
     }
 
+    getSingleProof(i) {
+        const tree = super.getTree("Balance");
+        let leaf = soliditySha256([this.balances[i].address, this.balances[i].ethAmount, this.balances[i].tokenAmount, this.balances[i].nonce])
+        return tree.getHexProof(leaf)
+    }
+
     calcNewRoot(balances, indexes) {
         for(let i = 0; i < balances.length; i++){
             this.updateNewBalance(balances[i].address, balances[i].ethAmount, balances[i].tokenAmount, balances[i].nonce)
@@ -109,6 +155,14 @@ class TransactorMerkle extends ZkMerkleTree {
         this.balances[index].tokenAmount = tokenAmount;
         this.balances[index].nonce = nonce;
         this.balances[index].address = address;
+    }
+
+    updateNewBalanceTemp(address, ethAmount, tokenAmount, nonce) {
+        const index = this.checkForKnowUser(address)
+        this.balancesTemp[index].ethAmount = ethAmount;
+        this.balancesTemp[index].tokenAmount = tokenAmount;
+        this.balancesTemp[index].nonce = nonce;
+        this.balancesTemp[index].address = address;
     }
 
     toEigthBytesArray(leaf){

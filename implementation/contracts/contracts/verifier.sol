@@ -561,9 +561,9 @@ contract Verifier {
         vk.gamma = Pairing.G2Point([uint256(0x00e83c788c2878d1d5eba3ed49b0d81e4c0487dedc3e4d1c2baab5833785b62f), uint256(0x011016e22ae045444f50fb80f246ec486c7e02af09132cd38c4fcf484983e4f2)], [uint256(0x132a90a3b0d369ccd66e2a5ba04a935e44d8ad5dca93a76bba592a578130a911), uint256(0x05eb89e741ed5b5d611cebf92d1ed02cd6f3311089f0d400df7d9ced5a48fd41)]);
         vk.delta = Pairing.G2Point([uint256(0x0c3b60f59d3bd50328a04c0ff6d979199685d0526f89f6ac29d6174ce24707a2), uint256(0x065f6a3323a2abffd621fc263f348eb914904b68d5897729ae34a6b9d33f0852)], [uint256(0x12e0f3721230a0f38f6c9913048d5230fd2615ef3ff7f6ee4b20dfe0bdea1a86), uint256(0x26e7ebce2b44efef6b6315938e33f0a8ecc82dbad635c9efa681ed85bbb59982)]);
         vk.gamma_abc = new Pairing.G1Point[](3);
-        vk.gamma_abc[0] = Pairing.G1Point(uint256(0x1a25e81e9eb6bd037b67c0ab5e571cbd3688f81d5c2cc46de5c7887c4ed91d09), uint256(0x1166fac2c99cfbb28d1b46ce9fb32cb11bb232fdb27e8189a66fdccdae092ab1));
-        vk.gamma_abc[1] = Pairing.G1Point(uint256(0x2f58630b5744e6df6f0f984442cb20383a9fb7d9cc31d0dff9dedcb7d30e9617), uint256(0x1ec6f3c21debaa0247fd6a15e6be9594ba44cf725d696944895b3eefdae96f3e));
-        vk.gamma_abc[2] = Pairing.G1Point(uint256(0x2c63686d14eada78abf041c4e808846e65555b1a66d259531fb9f06995a4b089), uint256(0x269a55585161dc3c71362ce343a6192a6115e55c28b31d06257076cdc7afce55));
+        vk.gamma_abc[0] = Pairing.G1Point(uint256(0x10e819db2cf56bf63d9d8f946720dfe3e79b61548e620eb22765adf75ece7a94), uint256(0x20b00791b1fe239b256ee82fffb8d2bb6d4f35b44d235e7080bbd833134bb810));
+        vk.gamma_abc[1] = Pairing.G1Point(uint256(0x1a22a7c230f54f24e9fcb51dd0464565e0f78d52f83437a75c31759e7ce33a6f), uint256(0x07c00823ff4ded5653233c806fab9cbd8fd9f5c096f3339f1b140a6c1f03bf58));
+        vk.gamma_abc[2] = Pairing.G1Point(uint256(0x01e3e50e1448270fcf7a970000d4e59cdd5f17de219c835569996f14fe1f4de1), uint256(0x0c8fb4a2b0379ed658a900326436dbf1264536def59ce7433f6eeccc7b2a198d));
     }
     function verify(uint[] memory input, Proof memory proof) internal view returns (uint) {
         uint256 snark_scalar_field = 21888242871839275222246405745257275088548364400416034343698204186575808495617;

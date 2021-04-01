@@ -13,7 +13,7 @@ class Aggregator {
         }
     }
 
-    start(trades, direction){
+    generateBalanceUpdates(trades) {
         const combinedDeltas = this.combineDeltas(trades);
         const sellForEth = combinedDeltas.deltaEth.isNeg() ? true : false;
         console.log("Sell For eth?", sellForEth)
@@ -27,10 +27,30 @@ class Aggregator {
             console.log("Selling " + combinedDeltas.deltaToken + " Tokens")
             console.log("For " + combinedDeltas.deltaEth + " Eth")
         }
-        console.log(this.buildNewBalances(trades))
+        console.log(this.buildBalances(trades))
         console.log({direction: uniswapTradeDirection, deltaEth: Math.abs(combinedDeltas.deltaEth), deltaToken: Math.abs(combinedDeltas.deltaToken)})
-        return [this.buildOldBalances(trades), this.buildNewBalances(trades), {direction: uniswapTradeDirection, deltaEth: Math.abs(combinedDeltas.deltaEth), deltaToken: Math.abs(combinedDeltas.deltaToken)}]
+
+        return {balanceUpdates: this.buildBalances(trades), direction: uniswapTradeDirection, deltaEth: Math.abs(combinedDeltas.deltaEth), deltaToken: Math.abs(combinedDeltas.deltaToken)}
     }
+
+    // start(trades, direction){
+    //     const combinedDeltas = this.combineDeltas(trades);
+    //     const sellForEth = combinedDeltas.deltaEth.isNeg() ? true : false;
+    //     console.log("Sell For eth?", sellForEth)
+
+    //     const uniswapTradeDirection = combinedDeltas.deltaEth.isNeg() ? 0 : 1
+
+    //     if(sellForEth){
+    //         console.log("Selling " + combinedDeltas.deltaEth + "M Eth")
+    //         console.log("For " + combinedDeltas.deltaToken + " Tokens")
+    //     } else {
+    //         console.log("Selling " + combinedDeltas.deltaToken + " Tokens")
+    //         console.log("For " + combinedDeltas.deltaEth + " Eth")
+    //     }
+    //     console.log(this.buildNewBalances(trades))
+    //     console.log({direction: uniswapTradeDirection, deltaEth: Math.abs(combinedDeltas.deltaEth), deltaToken: Math.abs(combinedDeltas.deltaToken)})
+    //     return [this.buildOldBalances(trades), this.buildNewBalances(trades), {direction: uniswapTradeDirection, deltaEth: Math.abs(combinedDeltas.deltaEth), deltaToken: Math.abs(combinedDeltas.deltaToken)}]
+    // }
 
 
     // returns 
@@ -49,59 +69,64 @@ class Aggregator {
         return {deltaEth, deltaToken}
     }
 
-    buildNewBalances(trades) {
-        let newBal = [];
+    // buildNewBalances(trades) {
+    //     let newBal = [];
+    //     for(let i = 0; i < trades.length; i++){
+    //         if(trades[i].direction === 0){
+    //             newBal.push({
+    //                 ethAmount: trades[i].ethAmount.sub(trades[i].deltaEth), 
+    //                 tokenAmount: trades[i].tokenAmount.add(trades[i].deltaToken), 
+    //                 nonce: Number(trades[i].nonce) + 1, 
+    //                 address: trades[i].address
+    //             })
+    //         } else if (trades[i].direction === 1){
+    //             newBal.push({
+    //                 ethAmount: trades[i].ethAmount.add(trades[i].deltaEth), 
+    //                 tokenAmount: trades[i].tokenAmount.sub(trades[i].deltaToken), 
+    //                 nonce: Number(trades[i].nonce) + 1, 
+    //                 address: trades[i].address
+    //             })
+    //         }
+    //     }
+    //     return newBal;
+    // }
+
+    buildBalances(trades) {
+        let balances = [];
         for(let i = 0; i < trades.length; i++){
             if(trades[i].direction === 0){
-                newBal.push({
-                    ethAmount: trades[i].ethAmount.sub(trades[i].deltaEth), 
-                    tokenAmount: trades[i].tokenAmount.add(trades[i].deltaToken), 
-                    nonce: Number(trades[i].nonce) + 1, 
+                balances.push({
+                    oldEthAmount: trades[i].ethAmount, 
+                    oldTokenAmount: trades[i].tokenAmount, 
+                    oldNonce: Number(trades[i].nonce),
+                    newEthAmount: trades[i].ethAmount.sub(trades[i].deltaEth), 
+                    newTokenAmount: trades[i].tokenAmount.add(trades[i].deltaToken), 
+                    newNonce: Number(trades[i].nonce) + 1,  
                     address: trades[i].address
                 })
             } else if (trades[i].direction === 1){
-                newBal.push({
-                    ethAmount: trades[i].ethAmount.add(trades[i].deltaEth), 
-                    tokenAmount: trades[i].tokenAmount.sub(trades[i].deltaToken), 
-                    nonce: Number(trades[i].nonce) + 1, 
+                balances.push({
+                    oldEthAmount: trades[i].ethAmount, 
+                    oldTokenAmount: trades[i].tokenAmount, 
+                    oldNonce: Number(trades[i].nonce),
+                    newEthAmount: trades[i].ethAmount.add(trades[i].deltaEth), 
+                    newTokenAmount: trades[i].tokenAmount.sub(trades[i].deltaToken), 
+                    newNonce: Number(trades[i].nonce) + 1,  
                     address: trades[i].address
                 })
             }
         }
-        return newBal;
+        return balances;
     }
 
-    buildOldBalances(trades) {
-        console.log(trades[0].tokenAmount.toString())
-        let newBal = [];
-        for(let i = 0; i < trades.length; i++){
-            if(trades[i].direction === 0){
-                newBal.push({
-                    ethAmount: trades[i].ethAmount, 
-                    tokenAmount: trades[i].tokenAmount, 
-                    nonce: trades[i].nonce, 
-                    address: trades[i].address
-                })
-            } else if (trades[i].direction === 1){
-                newBal.push({
-                    ethAmount: trades[i].ethAmount, 
-                    tokenAmount: trades[i].tokenAmount, 
-                    nonce: trades[i].nonce, 
-                    address: trades[i].address
-                })
-            }
-        }
-        return newBal;
-    }
-
-    buildBalanceTxObject(newBalances) {
+    buildBalanceTxObject(balanceUpdates) {
         let res = [];
-        for(let i = 0; i < newBalances.length; i++) {
+        for(let i = 0; i < balanceUpdates.length; i++) {
             res.push({
-                ethAmount: newBalances[i].ethAmount.toString(),
-                tokenAmount: newBalances[i].tokenAmount.toString(),
-                nonce: newBalances[i].nonce.toString(),
-                from: newBalances[i].address
+                ethAmount: balanceUpdates[i].newEthAmount.toString(),
+                tokenAmount: balanceUpdates[i].newTokenAmount.toString(),
+                nonce: balanceUpdates[i].newNonce.toString(),
+                from: balanceUpdates[i].address
             })
         }
         return res

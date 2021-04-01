@@ -4,23 +4,18 @@ const fs = require('fs');
 class ZokratesHelper {
 
     constructor(){
-        this.oldBalances = [];
-        this.newBalances = [];
-        this.proof = [];
-        this.proofFlags = [];
+        this.balanceUpdates = null;
+        this.root = null;
         this.witnessCommand = ' | zokrates compute-witness --input ./zokrates_circuits/out --output ./zokrates_circuits/witness --light --abi --abi_spec ./zokrates_circuits/abi.json --stdin'
     }
 
-    prepareTrade(oldBalances, newBalances, proof, proofFlags, root){
-        this.oldBalances = oldBalances.map(balance => this.buildZokratesBalanceStruct(balance));
-        this.newBalances = newBalances.map(balance => this.buildZokratesBalanceStruct(balance));
-        this.proofFlags = proofFlags;
-        this.proof = proof;
+    prepareTrade(balanceUpdates, root){
+        this.balanceUpdates = balanceUpdates.map(balanceUpdate => this.buildZokratesBalanceStruct(balanceUpdate));
         this.root = root;
     }
     
     buildProofString(ethToToken, tokenToEth){
-        return "echo " + `\"${JSON.stringify([this.oldBalances, this.newBalances, this.proof, this.proofFlags, this.root, ethToToken, tokenToEth]).replace(/"/g, `\\"`)}\"`;
+        return "echo " + `\"${JSON.stringify([this.balanceUpdates, this.root, ethToToken, tokenToEth]).replace(/"/g, `\\"`)}\"`;
     }
 
     async computeWitness(ethToToken, tokenToEth){
@@ -42,12 +37,16 @@ class ZokratesHelper {
         })
     }
 
-    buildZokratesBalanceStruct(trade) {
+    buildZokratesBalanceStruct(balanceUpdate) {
         return {
-            ethAmount: trade.ethAmount.toString(10),
-            tokenAmount: trade.tokenAmount.toString(10),
-            nonce: trade.nonce.toString(),
-            address: this.toEightBytesArray(trade.address)
+            oldEthAmount: balanceUpdate.oldEthAmount.toString(10),
+            oldTokenAmount: balanceUpdate.oldTokenAmount.toString(10),
+            oldNonce: balanceUpdate.oldNonce.toString(),
+            newEthAmount: balanceUpdate.newEthAmount.toString(10),
+            newTokenAmount: balanceUpdate.newTokenAmount.toString(10),
+            newNonce: balanceUpdate.newNonce.toString(),
+            address: this.toEightBytesArray(balanceUpdate.address),
+            merklePath: balanceUpdate.merklePath
         }
     }
 

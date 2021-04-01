@@ -40,6 +40,7 @@ contract ZkSwap {
 		uint64 direction,
 		uint64 deltaEth,
 		uint64 deltaToken,
+		bytes32 oldRoot, 
 		bytes32 newRoot,
 		uint[2] calldata a,
 		uint[2][2] calldata b,
@@ -48,7 +49,8 @@ contract ZkSwap {
 	)
 		external
 		payable
-	{		
+	{	
+		require(oldRoot == balances);
 		require(Verifier(verifier).verifyTx(a, b, c, dataHash), "Proof verification failed!"); // passes
 		require(handleTransactorPayment(direction, deltaEth, deltaToken), "Transactor payment failed!"); // passes
 		bytes32 result = hashTradeData(incomingBalances, newRoot, deltaEth, deltaToken, direction);

@@ -82,41 +82,28 @@ class Transactor {
     const minimalTrade = this.aggregator.generateMinimalTrade(this.tradePool);
     console.log(minimalTrade);
     trade(minimalTrade);
+    // this.updateBalanceAndVerify("bla")
   }
-
-  async benchmarkMulti(n, distance = 3) {
-    const leafIndexes = await this.generateLeafIndexes(64, distance)
-    console.log(leafIndexes)
-    const proofData = this.merkle.getMulti(leafIndexes)
-    console.log("Number of hashes:", proofData[1].length)
-  } 
-
-  generateLeafIndexes(n, distance) {
-    let res = []
-    if(n * distance <= this.merkle.userAmount){
-      for(let i = 0; i < n; i++){
-        res.push(i * distance)
-      }
-    } else {
-      console.error("ERROR: n * distance > userSize!!!!")
-    }
-    return res
-  }
-
 
   async updateBalanceAndVerify(event){
     console.log("Updating Balances...")
     // currently we do not update the balances. Should be integrated here though.
     console.log(event)
-    const balances = this.aggregator.start(this.tradePool);
-    const proofData = this.merkle.getMulti(this.tradePoolLeafIndex);
-    this.zokratesHelper.prepareTrade(balances[0], balances[1], proofData[0], proofData[1], proofData[2])
-    const newRoot = this.merkle.calcNewRoot(balances[1])
+    let updateObject = this.aggregator.generateBalanceUpdates(this.tradePool)
+    const proofData = this.merkle.getMerklePaths(this.tradePoolLeafIndex, updateObject.balanceUpdates);
+    console.log(updateObject.balanceUpdates)
+    updateObject.balanceUpdates = proofData[0]
+    const oldRootInt = proofData[1]
+    const oldRoot = proofData[2]
+    const newRoot = proofData[3]
+
+    this.zokratesHelper.prepareTrade(updateObject.balanceUpdates, oldRootInt)
+    // const newRoot = this.merkle.calcNewRoot(balances[1])
     this.zokratesHelper.computeWitness(this.latestPrices.ethToToken, this.latestPrices.tokenToEth)
       .then(proofObject => {
         console.log(proofObject)
-        const balancesTxObject = this.aggregator.buildBalanceTxObject(balances[1])
-        verifyTradeOnchain(balancesTxObject, proofObject, balances[2], newRoot)
+        const balancesTxObject = this.aggregator.buildBalanceTxObject(updateObject.balanceUpdates)
+        verifyTradeOnchain(balancesTxObject, proofObject, updateObject.direction, updateObject.deltaEth, updateObject.deltaToken, oldRoot, newRoot)
         .then(() => {
           
           console.log("Eagle has landed")
