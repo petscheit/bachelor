@@ -10,6 +10,16 @@ Uniswap cummulative volume, \url{https://duneanalytics.com/projects/uniswap}
 Adams, H., Zinsmeister, N., Robinson, D.: Uniswap v2 core. URl:
   https://uniswap.org/whitepaper.pdf  (2020)
 
+\bibitem{albrecht2016mimc}
+Albrecht, M., Grassi, L., Rechberger, C., Roy, A., Tiessen, T.: Mimc: Efficient
+  encryption and cryptographic hashing with minimal multiplicative complexity.
+  In: International Conference on the Theory and Application of Cryptology and
+  Information Security. pp. 191--219. Springer (2016)
+
+\bibitem{baylinaeddsa}
+Baylina, J., Bell{\'e}s, M.: Eddsa for baby jubjub elliptic curve with mimc-7
+  hash
+
 \bibitem{benet2014ipfs}
 Benet, J.: Ipfs-content addressed, versioned, p2p file system. arXiv preprint
   arXiv:1407.3561  (2014)

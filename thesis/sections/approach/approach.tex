@@ -67,7 +67,51 @@ In order to ensure the correctness of balance updates, we first need to verify t
 \paragraph{Chaining Inclusion Proofs} \label{chain_inclusion}
 When dealing with multiple balances, the inclusion proof can be done the same way. Every balance provides its merkle path, the resulting hashes should be the same for each balance. Things become more difficult when updating the balances. Updating the first balance in the batch now invalidates the merkle path of all following balances. In order for this to work, the merkle paths for each balance must be created sequetually. This can be solved by sorting the balances before hand, and generating each merkle path based on the changes of the previous balance. The new root of the first balance is the old root of the next balance. This can be chained to an infite length and results in a constant number of hashes required for each balance update. The last hash to be computed is the new merkle root, representing all balance updates.
 
-(Add Algo here)
+
+\begin{algorithm}
+    \SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+
+    \underline{function verifyAndUpdateMerkle}\;
+    \Input{oldBalances[], newBalances[], merklePaths[], root}
+    \Output{newMerkleRoot}
+    \ForEach(){oldBalances}
+    {
+        hashOld $\gets$ MiMC($oldBalances[i]$) 
+
+        assert(computeMerkleRoot($hashOld$, $merklePaths[i]$) == $root$)
+
+        hashNew $\gets$ MiMC($newBalances[i]$)
+
+        root $\gets$ computeMerkleRoot($hashNew$, $merklePaths[i]$)
+    }
+
+    return $root$
+
+    \caption{Chained merkle inclusion proofs for verifying and updating balances}
+\end{algorithm}
+
+\begin{algorithm}
+    \SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+
+    \underline{function computeMerkleRoot}\;
+    \Input{leaf, merklePaths[]}
+    \Output{root}
+    computedHash $\gets leaf$
+
+    \ForEach(){merklePath}
+    {
+        \uIf{$merklePath[i][0] = 0$}{
+            computedHash $\gets$ MiMC($computedHash$, $merklePath[i]$)\;
+        }
+        \Else{
+            computedHash $\gets$ MiMC($merklePath[i]$, $computedHash$)\;
+        }
+    }
+    return $computedHash$
+    \caption{Computes merkle root of given parameters}
+\end{algorithm}
 
 \paragraph{Authorizing Balance Updates}
 We still need to ensure the user has authorized this balance update though. As balance updates are emitted as an event, anyone can access them and compute valid merkle paths for any balance in our system. The data is public. This would, for example, allow any user to withdraw any balance. To ensure a user is authorized to update a balance, we need ensure the user controlls the private key belonging to the balances user address. This can be achived by requesting a signature from the user. However, it must be remembered, that this signature must also be verifiable in our ZoKrates programm, which is unable to utilize the secp256k1 curve, used for signing Ethereum transaction, efficiently \cite{deml_2019}. For that reason the Baby JubJub curve is used in combination with the EdDSA signature scheme, which can be run more efficiently in a ZoKrates program. The user submits a signature containing the current merkle root and the update message. This ensures three things. It proves the user controlls the private key belonging the the balance objects address, thereby authorizing the order. We also make sure, the balance update corresponds to the amount signed by the user, ensuring the transition is done correctly. By signing the current merkle root, we make sure, that the signature can't be reused in a replay attack. For instance, the aggregator could decide to store these signatures secretly, and reuse them without the users consent if this was omitted. By checking if the current root is equal to the signed root when verifying the zkSNARK proof, we prevent replay attacks. It is important to note, that different programs are used for deposits/withdraws and trade aggregation. As already mentioned, these programs have a number of checks that ensure the changes in balance correspond to the values specified in the signed update message. These will be explained in the respective sections. 

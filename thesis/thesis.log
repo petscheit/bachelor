@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  2 APR 2021 12:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  2 APR 2021 14:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -291,21 +291,122 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks30
 \verbatim@line=\toks31
 \verbatim@in@stream=\read2
-)) (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux)
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks32
+\ex@=\dimen161
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen162
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count116
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count117
+\leftroot@=\count118
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count119
+\DOTSCASE@=\count120
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box37
+\strutbox@=\box38
+\big@size=\dimen163
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count121
+\c@MaxMatrixCols=\count122
+\dotsspace@=\muskip10
+\c@parentequation=\count123
+\dspbrk@lvl=\count124
+\tag@help=\toks33
+\row@=\count125
+\column@=\count126
+\maxfields@=\count127
+\andhelp@=\toks34
+\eqnshift@=\dimen164
+\alignsep@=\dimen165
+\tagshift@=\dimen166
+\tagwidth@=\dimen167
+\totwidth@=\dimen168
+\lineht@=\dimen169
+\@envbody=\toks35
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks36
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count128
+\algocf@hangindent=\skip49
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count129
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip50
+\skiplinenumber=\skip51
+\skiprule=\skip52
+\skiphlne=\skip53
+\skiptext=\skip54
+\skiplength=\skip55
+\algomargin=\skip56
+\skipalgocfslide=\skip57
+\algowidth=\dimen170
+\inoutsize=\dimen171
+\inoutindent=\dimen172
+\interspacetitleruled=\dimen173
+\interspacealgoruled=\dimen174
+\interspacetitleboxruled=\dimen175
+\algocf@ruledwidth=\skip58
+\algocf@inoutbox=\box39
+\algocf@inputbox=\box40
+\AlCapSkip=\skip59
+\AlCapHSkip=\skip60
+\algoskipindent=\skip61
+\algocf@nlbox=\box41
+\algocf@hangingbox=\box42
+\algocf@untilbox=\box43
+\algocf@skipuntil=\skip62
+\algocf@capbox=\box44
+\algocf@lcaptionbox=\skip63
+\algoheightruledefault=\skip64
+\algoheightrule=\skip65
+\algotitleheightruledefault=\skip66
+\algotitleheightrule=\skip67
+\c@algocfline=\count130
+\c@algocfproc=\count131
+\c@algocf=\count132
+\algocf@algoframe=\box45
+\algocf@algobox=\box46
+) (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -343,17 +444,17 @@ LaTeX Font Info:    ... okay on input line 14.
 
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count116
-\scratchdimen=\dimen161
-\scratchbox=\box37
-\nofMPsegments=\count117
-\nofMParguments=\count118
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count119
-\MPscratchDim=\dimen162
-\MPnumerator=\count120
-\makeMPintoPDFobject=\count121
-\everyMPtoPDFconversion=\toks33
+\scratchcounter=\count133
+\scratchdimen=\dimen176
+\scratchbox=\box47
+\nofMPsegments=\count134
+\nofMParguments=\count135
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count136
+\MPscratchDim=\dimen177
+\MPnumerator=\count137
+\makeMPintoPDFobject=\count138
+\everyMPtoPDFconversion=\toks38
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
  (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
@@ -391,23 +492,13 @@ Package grfext Info: Graphics extension search list:
 (grfext)             \AppendGraphicsExtensions on input line 456.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-)) ABD: EveryShipout initializing macros
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 19.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 19.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 19.
- [1
+)) ABD: EveryShipout initializing macros [1
 
 
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 
-] (/Users/paul/Documents/projects/bachelor/thesis/thesis.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 1.
-)
+] (/Users/paul/Documents/projects/bachelor/thesis/thesis.toc)
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
 
@@ -421,10 +512,6 @@ Package pdftex.def Info: diagrams/gas_volume.png  used on input line 18.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 25.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 25.
 [4]) (/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.tex) (/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -443,100 +530,96 @@ Overfull \hbox (11.04578pt too wide) in paragraph at lines 40--41
 \OT1/cmr/m/n/10.95 choos-ing the ag-gre-gated type, the user sends a sig-na-ture of the de-posit/withdraw
  []
 
-[8] [9] [10] [11]
-Overfull \hbox (9.03278pt too wide) in paragraph at lines 88--89
+[8] [9] [10] [11] [12]
+Overfull \hbox (9.03278pt too wide) in paragraph at lines 132--133
  \OT1/cmr/bx/n/10.95 Ag-gre-gat-ing De-posits[] \OT1/cmr/m/n/10.95 Af-ter the funds have been sent to the smart-contract,
  []
 
-[12] [13]
-<diagrams/deposit.png, id=61, 532.99126pt x 492.84125pt>
+[13] [14]
+<diagrams/deposit.png, id=68, 532.99126pt x 492.84125pt>
 File: diagrams/deposit.png Graphic file (type png)
 <use diagrams/deposit.png>
-Package pdftex.def Info: diagrams/deposit.png  used on input line 104.
+Package pdftex.def Info: diagrams/deposit.png  used on input line 148.
 (pdftex.def)             Requested size: 246.17116pt x 227.62204pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[14] [15 </Users/paul/Documents/projects/bachelor/thesis/diagrams/deposit.png>]
-<diagrams/priceing.png, id=69, 419.5675pt x 174.6525pt>
+[15] [16 </Users/paul/Documents/projects/bachelor/thesis/diagrams/deposit.png>]
+<diagrams/priceing.png, id=77, 419.5675pt x 174.6525pt>
 File: diagrams/priceing.png Graphic file (type png)
 <use diagrams/priceing.png>
-Package pdftex.def Info: diagrams/priceing.png  used on input line 133.
+Package pdftex.def Info: diagrams/priceing.png  used on input line 177.
 (pdftex.def)             Requested size: 205.05849pt x 85.35826pt.
- [16 </Users/paul/Documents/projects/bachelor/thesis/diagrams/priceing.png>] [17]
-<diagrams/zokrates.png, id=80, 643.40375pt x 164.615pt>
+ [17 </Users/paul/Documents/projects/bachelor/thesis/diagrams/priceing.png>] [18]
+<diagrams/zokrates.png, id=85, 643.40375pt x 164.615pt>
 File: diagrams/zokrates.png Graphic file (type png)
 <use diagrams/zokrates.png>
-Package pdftex.def Info: diagrams/zokrates.png  used on input line 163.
+Package pdftex.def Info: diagrams/zokrates.png  used on input line 207.
 (pdftex.def)             Requested size: 333.6294pt x 85.35826pt.
- [18 </Users/paul/Documents/projects/bachelor/thesis/diagrams/zokrates.png>]
-Underfull \vbox (badness 1270) has occurred while \output is active []
+ [19 </Users/paul/Documents/projects/bachelor/thesis/diagrams/zokrates.png>] [20] [21]
 
- [19] [20]
-
-LaTeX Warning: Reference `aggregator' on page 21 undefined on input line 200.
+LaTeX Warning: Reference `aggregator' on page 22 undefined on input line 244.
 
 
-LaTeX Warning: Reference `zokrates' on page 21 undefined on input line 200.
-
-[21]
-
-LaTeX Warning: Reference `aggregation_server' on page 22 undefined on input line 209.
+LaTeX Warning: Reference `zokrates' on page 22 undefined on input line 244.
 
 
-LaTeX Warning: Citation `her' on page 22 undefined on input line 209.
+LaTeX Warning: Reference `aggregation_server' on page 22 undefined on input line 253.
 
-) (/Users/paul/Documents/projects/bachelor/thesis/thesis.bbl [22]
+
+LaTeX Warning: Citation `hermez_docs' on page 22 undefined on input line 253.
+
+[22]) (/Users/paul/Documents/projects/bachelor/thesis/thesis.bbl [23] [24
+
+]
 Overfull \hbox (44.31873pt too wide) in paragraph at lines 7--8
 []\OT1/cmr/m/n/10.95 Uniswap cum-mu-la-tive vol-ume, \OT1/cmtt/m/n/10.95 https://duneanalytics.com/projects/uniswap 
  []
 
 
-Underfull \hbox (badness 1629) in paragraph at lines 18--20
+Underfull \hbox (badness 1629) in paragraph at lines 28--30
 []\OT1/cmr/m/n/10.95 Deml, S.: Ef-fi-cient ecc in zk-snarks us-ing zokrates (Aug 2019),
  []
 
 
-Overfull \hbox (121.90906pt too wide) in paragraph at lines 18--20
+Overfull \hbox (121.90906pt too wide) in paragraph at lines 28--30
 \OT1/cmtt/m/n/10.95 https://medium.com/zokrates/efficient-ecc-in-zksnarks-using-zokrates-bd9ae37b8186 
  []
 
 
-Overfull \hbox (8.3966pt too wide) in paragraph at lines 22--23
+Overfull \hbox (8.3966pt too wide) in paragraph at lines 32--33
 []\OT1/cmr/m/n/10.95 Ethereum gas guz-zlers, \OT1/cmtt/m/n/10.95 https://ethgasstation.info/gasguzzlers.php 
  []
 
 
-Overfull \hbox (179.51897pt too wide) in paragraph at lines 28--30
+Overfull \hbox (179.51897pt too wide) in paragraph at lines 38--40
 []\OT1/cmr/m/n/10.95 Uniswap to-tal fees used, \OT1/cmtt/m/n/10.95 https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--34
+Underfull \hbox (badness 10000) in paragraph at lines 42--44
 []\OT1/cmr/m/n/10.95 Kulechov, S.: The aave pro-to-col v2 (Dec 2020),
  []
 
-) [23
-
-] (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux)
+) [25] (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 12646 strings out of 492649
- 257003 string characters out of 6129622
- 308200 words of memory out of 5000000
- 16251 multiletter control sequences out of 15000+600000
- 10850 words of font info for 38 fonts, out of 8000000 for 9000
+ 14192 strings out of 492649
+ 279122 string characters out of 6129622
+ 342515 words of memory out of 5000000
+ 17762 multiletter control sequences out of 15000+600000
+ 12855 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,9n,77p,2022b,918s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/thesis.pdf (23 pages, 356346 bytes).
+ 62i,15n,77p,2022b,887s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on /Users/paul/Documents/projects/bachelor/thesis/thesis.pdf (25 pages, 384534 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
+ 160 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
