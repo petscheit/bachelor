@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  22 MAR 2021 10:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  2 APR 2021 12:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.tex
-(/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.tex
+**/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.tex
+(/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.tex
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/subfiles/subfiles.cls
@@ -16,7 +16,7 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@in@stream=\read1
 )
 Preamble taken from file `../../thesis.tex'
-(/Users/paul/Documents/projects/bachelor/thesis/sections/design/../../thesis.tex (/usr/local/texlive/2018/texmf-dist/tex/latex/base/book.cls
+(/Users/paul/Documents/projects/bachelor/thesis/sections/approach/../../thesis.tex (/usr/local/texlive/2018/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/bk11.clo
 File: bk11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
@@ -295,8 +295,8 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \c@@todonotes@numberoftodonotes=\count115
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2012/05/23 Federico Garcia
-))) (/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.aux)
-\openout1 = `design.aux'.
+))) (/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.aux)
+\openout1 = `approach.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
@@ -399,96 +399,108 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 <diagrams/architecture.png, id=4, 760.8425pt x 663.47874pt>
 File: diagrams/architecture.png Graphic file (type png)
 <use diagrams/architecture.png>
-Package pdftex.def Info: diagrams/architecture.png  used on input line 10.
+Package pdftex.def Info: diagrams/architecture.png  used on input line 13.
 (pdftex.def)             Requested size: 261.02814pt x 227.62204pt.
  [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
  <./diagrams/architecture.png>]
-
-LaTeX Warning: Citation `szydlo2004merkle' on page 2 undefined on input line 33.
-
-[2] [3]
-Overfull \hbox (1.79616pt too wide) in paragraph at lines 43--44
-[]\OT1/cmr/m/n/10.95 Withdraws largely fol-low the same logic, there are small dif-fer-ences though.
+Overfull \hbox (11.04578pt too wide) in paragraph at lines 40--41
+\OT1/cmr/m/n/10.95 choos-ing the ag-gre-gated type, the user sends a sig-na-ture of the de-posit/withdraw
  []
 
+[2]
+Underfull \vbox (badness 3049) has occurred while \output is active []
 
-Overfull \hbox (4.32362pt too wide) in paragraph at lines 43--44
-\OT1/cmr/m/n/10.95 As we're re-quest-ing funds, in-stead of send-ing them, we pass a with-drawAmount
- []
+ [3]
 
-<diagrams/deposit.png, id=21, 532.99126pt x 492.84125pt>
-File: diagrams/deposit.png Graphic file (type png)
-<use diagrams/deposit.png>
-Package pdftex.def Info: diagrams/deposit.png  used on input line 51.
-(pdftex.def)             Requested size: 246.17116pt x 227.62204pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: Citation `szydlo2004merkle' on page 4 undefined on input line 59.
 
 [4]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 67.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 67.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 67.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 67.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 67.
- [5 <./diagrams/deposit.png>] [6] [7]
-<diagrams/priceing.png, id=42, 419.5675pt x 174.6525pt>
-File: diagrams/priceing.png Graphic file (type png)
-<use diagrams/priceing.png>
-Package pdftex.def Info: diagrams/priceing.png  used on input line 138.
-(pdftex.def)             Requested size: 205.05849pt x 85.35826pt.
+
+LaTeX Warning: Citation `albrecht2016mimc' on page 5 undefined on input line 65.
 
 
-LaTeX Warning: Citation `deml_2019' on page 8 undefined on input line 158.
+LaTeX Warning: Citation `deml_2019' on page 5 undefined on input line 73.
 
-<diagrams/addTrade.png, id=43, 773.89125pt x 191.71625pt>
-File: diagrams/addTrade.png Graphic file (type png)
-<use diagrams/addTrade.png>
-Package pdftex.def Info: diagrams/addTrade.png  used on input line 163.
-(pdftex.def)             Requested size: 344.56355pt x 85.35826pt.
-[8 <./diagrams/priceing.png>] [9 <./diagrams/addTrade.png>] [10]
-<diagrams/multi-leaf.png, id=55, 823.075pt x 333.245pt>
-File: diagrams/multi-leaf.png Graphic file (type png)
-<use diagrams/multi-leaf.png>
-Package pdftex.def Info: diagrams/multi-leaf.png  used on input line 197.
-(pdftex.def)             Requested size: 351.3784pt x 142.26378pt.
+[5] [6]
+Overfull \hbox (9.03278pt too wide) in paragraph at lines 88--89
+ \OT1/cmr/bx/n/10.95 Ag-gre-gat-ing De-posits[] \OT1/cmr/m/n/10.95 Af-ter the funds have been sent to the smart-contract,
+ []
+
+[7]
+Underfull \vbox (badness 4686) has occurred while \output is active []
+
+ [8]
+<diagrams/deposit.png, id=37, 532.99126pt x 492.84125pt>
+File: diagrams/deposit.png Graphic file (type png)
+<use diagrams/deposit.png>
+Package pdftex.def Info: diagrams/deposit.png  used on input line 104.
+(pdftex.def)             Requested size: 246.17116pt x 227.62204pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11] [12 <./diagrams/multi-leaf.png>]
-<diagrams/zokrates.png, id=63, 643.40375pt x 164.615pt>
+[9] [10 <./diagrams/deposit.png>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 120.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 120.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 120.
+<diagrams/priceing.png, id=45, 419.5675pt x 174.6525pt>
+File: diagrams/priceing.png Graphic file (type png)
+<use diagrams/priceing.png>
+Package pdftex.def Info: diagrams/priceing.png  used on input line 133.
+(pdftex.def)             Requested size: 205.05849pt x 85.35826pt.
+ [11 <./diagrams/priceing.png>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 149.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 149.
+ [12]
+<diagrams/zokrates.png, id=56, 643.40375pt x 164.615pt>
 File: diagrams/zokrates.png Graphic file (type png)
 <use diagrams/zokrates.png>
-Package pdftex.def Info: diagrams/zokrates.png  used on input line 215.
+Package pdftex.def Info: diagrams/zokrates.png  used on input line 163.
 (pdftex.def)             Requested size: 333.6294pt x 85.35826pt.
+ [13 <./diagrams/zokrates.png>] [14] [15]
+
+LaTeX Warning: Citation `benet2014ipfs' on page 16 undefined on input line 194.
 
 
-LaTeX Warning: Citation `benet2014ipfs' on page 13 undefined on input line 221.
+LaTeX Warning: Reference `aggregator' on page 16 undefined on input line 200.
 
-[13 <./diagrams/zokrates.png>] [14] [15] (/Users/paul/Documents/projects/bachelor/thesis/sections/design/design.aux)
+
+LaTeX Warning: Reference `zokrates' on page 16 undefined on input line 200.
+
+[16]
+
+LaTeX Warning: Reference `aggregation_server' on page 17 undefined on input line 209.
+
+
+LaTeX Warning: Citation `hermez_docs' on page 17 undefined on input line 209.
+
+
+LaTeX Warning: Citation `baylinaeddsa' on page 17 undefined on input line 209.
+
+[17] (/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 12607 strings out of 492649
- 256200 string characters out of 6129622
- 308419 words of memory out of 5000000
- 16228 multiletter control sequences out of 15000+600000
+ 12567 strings out of 492649
+ 255280 string characters out of 6129622
+ 302848 words of memory out of 5000000
+ 16190 multiletter control sequences out of 15000+600000
  8557 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,9n,76p,1359b,700s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,9n,76p,2005b,700s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/design/design.pdf (15 pages, 344147 bytes).
+Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.pdf (17 pages, 250099 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
+ 107 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

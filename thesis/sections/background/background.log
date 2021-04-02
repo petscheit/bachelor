@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  22 MAR 2021 10:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  29 MAR 2021 11:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -399,15 +399,15 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 
 ] (/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.aux) ) 
 Here is how much of TeX's memory you used:
- 12413 strings out of 492649
- 252212 string characters out of 6129622
- 293302 words of memory out of 5000000
- 16052 multiletter control sequences out of 15000+600000
+ 12414 strings out of 492649
+ 252215 string characters out of 6129622
+ 294305 words of memory out of 5000000
+ 16053 multiletter control sequences out of 15000+600000
  4898 words of font info for 18 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,5n,58p,977b,154s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/background/background.pdf (1 page, 17234 bytes).
+Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/background/background.pdf (1 page, 22807 bytes).
 PDF statistics:
  19 PDF objects out of 1000 (max. 8388607)
  13 compressed objects within 1 object stream
