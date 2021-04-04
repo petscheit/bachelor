@@ -77,13 +77,9 @@ When dealing with multiple balances, the inclusion proof can be done the same wa
     \Output{newMerkleRoot}
     \ForEach(){oldBalances}
     {
-        hashOld $\gets$ MiMC($oldBalances[i]$) 
+        assert(computeRoot($oldBalances[i]$, $merklePaths[i]$) == $root$)
 
-        assert(computeMerkleRoot($hashOld$, $merklePaths[i]$) == $root$)
-
-        hashNew $\gets$ MiMC($newBalances[i]$)
-
-        root $\gets$ computeMerkleRoot($hashNew$, $merklePaths[i]$)
+        root $\gets$ computeRoot($newBalances[i]$, $merklePaths[i]$)
     }
 
     return $root$
@@ -95,23 +91,25 @@ When dealing with multiple balances, the inclusion proof can be done the same wa
     \SetKwInOut{Input}{Input}
     \SetKwInOut{Output}{Output}
 
-    \underline{function computeMerkleRoot}\;
-    \Input{leaf, merklePaths[]}
+    \underline{function computeRoot}\;
+    \Input{balance, merklePaths[]}
     \Output{root}
-    computedHash $\gets leaf$
+    computedHash $\gets MiMC(balance)$
 
     \ForEach(){merklePath}
     {
         \uIf{$merklePath[i][0] = 0$}{
-            computedHash $\gets$ MiMC($computedHash$, $merklePath[i]$)\;
+            computedHash $\gets$ MiMC($computedHash$, $merklePath[i][1]$)\;
         }
         \Else{
-            computedHash $\gets$ MiMC($merklePath[i]$, $computedHash$)\;
+            computedHash $\gets$ MiMC($merklePath[i][1]$, $computedHash$)\;
         }
     }
     return $computedHash$
     \caption{Computes merkle root of given parameters}
 \end{algorithm}
+
+The merkle path has a binary as the first element of each hash value. That binary is used to represent if the hash is on the left or the right side of the pair. A nice solution is to sort the pairs before hashing, and decide the position based on the larger value, however limitiaions of the number range usable in ZoKrates make this infeasible. 
 
 \paragraph{Authorizing Balance Updates}
 We still need to ensure the user has authorized this balance update though. As balance updates are emitted as an event, anyone can access them and compute valid merkle paths for any balance in our system. The data is public. This would, for example, allow any user to withdraw any balance. To ensure a user is authorized to update a balance, we need ensure the user controlls the private key belonging to the balances user address. This can be achived by requesting a signature from the user. However, it must be remembered, that this signature must also be verifiable in our ZoKrates programm, which is unable to utilize the secp256k1 curve, used for signing Ethereum transaction, efficiently \cite{deml_2019}. For that reason the Baby JubJub curve is used in combination with the EdDSA signature scheme, which can be run more efficiently in a ZoKrates program. The user submits a signature containing the current merkle root and the update message. This ensures three things. It proves the user controlls the private key belonging the the balance objects address, thereby authorizing the order. We also make sure, the balance update corresponds to the amount signed by the user, ensuring the transition is done correctly. By signing the current merkle root, we make sure, that the signature can't be reused in a replay attack. For instance, the aggregator could decide to store these signatures secretly, and reuse them without the users consent if this was omitted. By checking if the current root is equal to the signed root when verifying the zkSNARK proof, we prevent replay attacks. It is important to note, that different programs are used for deposits/withdraws and trade aggregation. As already mentioned, these programs have a number of checks that ensure the changes in balance correspond to the values specified in the signed update message. These will be explained in the respective sections. 
@@ -137,6 +135,12 @@ Once the ZoKrates program has run successfully, the proof can be generated, whic
 \subsubsection{Aggregated Withdraws} \label{with}
 The aggregated withdraws largly follow the logic of the deposits, so only the core differences will be explained here. Instead of sending funds to the zkSwap smart-contract, we are requesting them. Since the user already has a balance in the system, we don't need to notify the aggregator about the amount a user wants to withdraw, which in turn means we don't need an on-chain transaction to trigger the withdraw. A user creates a signature of its address, the current merkle root, type of funds and the amount to be withdrawn, and sends it to the aggregator as an HTTP request. Once the aggregation starts, the aggregator checks the users signature, and ensures that the users balance covers the withdraw. Just like with deposits, a `BalanceMovementObject' is created, the type being set to withdraw. The withdraws are verified along with the deposits in the same ZoKrates program. This results in only one on-chain verification, which reduces verification costs. The `ProcessBalanceMovement' checks signature, the balances and if the the balance update corresponds to the amount signed by the user. On top of hashing the new balances, a withdraw object is also hashed, containing the type of funds and the amount. When verifying withdraws, along with the deposits, the withdraw objects will be used to send the funds from the smart-contract to the users. The new balances are emitted and the root updated. 
 
+\begin{figure}[h]
+    \centerline{\includegraphics[totalheight=8cm]{diagrams/depWith.png}}
+    \caption{Interaction diagram of aggregated deposits and withdraws}
+    \label{fig:depWith}
+\end{figure}
+
 \subsubsection{Instant Withdraws}
 A user also has the option to withdraw instantly, without being dependant on the aggregator. This ensures a user can always withdraw funds, even when the aggregator is failing or offline. Instead of sending the withdraw request to the aggregator, the withdraw is processed completly on-chain. The user attaches its balance object, along with the corresponding merkle path and the withdraw amount and fund type (Ether/ERC20) to the transaction. As a first step, the merkle inclusion proof is performed. The balance object is hashed, sequeutually with the merkle path. The resulting hash now equals the the merkle root stored in the zkSwap smart-contract if the correct balance object and merkle path have been submitted. It is checked if the balance can cover the withdraw, if thats the case the nonce is incremented, the new balance is calculated, and the new balance object hashed again. The new root is now computed by hashing with the merkle path, and updated in the smart-contract. The funds are now sent to the user and the new balance is emitted. It must be reiterated, that this is done completly on-chain and doesn't require the aggregator to be online. However, the gas costs of this transaction are significant, as hashing with the MiMC hashing algorithm is expensive in a smart-contract.
 
@@ -145,9 +149,9 @@ This however, is an incomplete explaination, as we're not checking if a user is 
 
 
 \begin{figure}[h]
-    \centerline{\includegraphics[totalheight=8cm]{diagrams/deposit.png}}
-    \caption{Pseudocode of the deposit and withdraw steps}
-    \label{fig:dep_with}
+    \centerline{\includegraphics[totalheight=5cm]{diagrams/instantWithdraw.png}}
+    \caption{Pseudocode of instant withdraw steps}
+    \label{fig:instWith}
 \end{figure}
 
 \subsubsection{Aggregating Trades}

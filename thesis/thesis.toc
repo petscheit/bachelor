@@ -1,58 +1,61 @@
 \contentsline {section}{\numberline {1}Introduction}{3}
 \contentsline {section}{\numberline {2}Background}{6}
 \contentsline {subsection}{\numberline {2.1}Plasma, Optimistic Rollup and zkRollup}{6}
-\contentsline {subsection}{\numberline {2.2}Merkle Trees}{6}
-\contentsline {subsection}{\numberline {2.3}Data Availability}{6}
-\contentsline {subsection}{\numberline {2.4}mimc}{6}
-\contentsline {subsection}{\numberline {2.5}replay attacks}{6}
-\contentsline {subsection}{\numberline {2.6}zkSNARK}{6}
-\contentsline {subsection}{\numberline {2.7}layer-2}{6}
-\contentsline {section}{\numberline {3}Approach}{6}
-\contentsline {subsection}{\numberline {3.1}Design}{6}
-\contentsline {subsubsection}{\numberline {3.1.1}zkSwap Smart-contract}{6}
+\contentsline {subsection}{\numberline {2.2}Data Availability}{6}
+\contentsline {subsection}{\numberline {2.3}layer-2}{6}
+\contentsline {subsection}{\numberline {2.4}Merkle Trees}{6}
+\contentsline {subsection}{\numberline {2.5}mimc}{6}
+\contentsline {subsection}{\numberline {2.6}Replay Attacks}{6}
+\contentsline {paragraph}{Transaction Replay Attacks in zkSwap}{6}
+\contentsline {paragraph}{Proof Verification Replay Attacks}{7}
+\contentsline {subsection}{\numberline {2.7}zk-SNARKs}{7}
+\contentsline {section}{\numberline {3}Approach}{7}
+\contentsline {subsection}{\numberline {3.1}Design}{7}
+\contentsline {subsubsection}{\numberline {3.1.1}zkSwap Smart-contract}{7}
 \contentsline {paragraph}{Deposits}{7}
-\contentsline {paragraph}{Withdraws}{7}
-\contentsline {paragraph}{Verification of Aggregated Trades}{7}
-\contentsline {subsubsection}{\numberline {3.1.2}Aggregator}{8}
-\contentsline {paragraph}{Deposits and Withdraws}{8}
-\contentsline {paragraph}{Aggregating Trades}{8}
-\contentsline {paragraph}{Storing Balances in a Merkle Tree}{8}
-\contentsline {paragraph}{PairProxy Smart-contract}{9}
-\contentsline {subsection}{\numberline {3.2}Implementation}{9}
-\contentsline {subsubsection}{\numberline {3.2.1}Storing and Updating Balances}{9}
-\contentsline {paragraph}{Merkle Trees}{9}
-\contentsline {subsubsection}{\numberline {3.2.2}Aggregating Balance Updates}{10}
-\contentsline {paragraph}{Merkle Inclusion Proofs}{10}
-\contentsline {paragraph}{Chaining Inclusion Proofs}{10}
-\contentsline {paragraph}{Authorizing Balance Updates}{11}
-\contentsline {paragraph}{Creating a EdDSA Signature}{12}
-\contentsline {paragraph}{Executing and Reducing On-chain Verification Costs}{12}
-\contentsline {subsubsection}{\numberline {3.2.3}Deposit}{13}
-\contentsline {paragraph}{Movement of Funds}{13}
-\contentsline {paragraph}{Aggregating Deposits}{13}
-\contentsline {paragraph}{Verifying Deposits On-chain}{14}
-\contentsline {subsubsection}{\numberline {3.2.4}Aggregated Withdraws}{14}
-\contentsline {subsubsection}{\numberline {3.2.5}Instant Withdraws}{14}
-\contentsline {paragraph}{Authorizing Instant Withdraws}{15}
-\contentsline {subsubsection}{\numberline {3.2.6}Aggregating Trades}{15}
-\contentsline {paragraph}{Ensuring Correct Pricing}{15}
-\contentsline {paragraph}{Adding an Trade Order}{17}
-\contentsline {paragraph}{Executing Trade and Calculating New Balances}{18}
-\contentsline {paragraph}{Checking Pricing in ZoKrates}{18}
-\contentsline {paragraph}{Verifying Balances and Authorization in ZoKrates}{19}
-\contentsline {paragraph}{Reducing On-chain Verification Costs in ZoKrates}{19}
-\contentsline {paragraph}{Generating Proof and Verifying}{19}
-\contentsline {paragraph}{Verifying the ZoKrates Proof}{20}
-\contentsline {paragraph}{Recreating the DataHash and Ensuring Correct Price}{20}
-\contentsline {paragraph}{Receiving Fund and Refunding Aggregator}{20}
-\contentsline {paragraph}{Updating Root and Emitting Balances}{21}
-\contentsline {subsubsection}{\numberline {3.2.7}PairProxy Smart Contract}{21}
-\contentsline {subsubsection}{\numberline {3.2.8}Client Frontend}{22}
-\contentsline {paragraph}{Deposits and Withdraws}{22}
-\contentsline {paragraph}{Adding a Trade}{22}
-\contentsline {paragraph}{Displaying Account Data}{22}
-\contentsline {subsection}{\numberline {3.3}Limitiations of Current Implementation}{22}
-\contentsline {paragraph}{Signatures}{23}
-\contentsline {paragraph}{Updating Balances According to Effective Price}{23}
-\contentsline {paragraph}{Hashing Function}{23}
-\contentsline {paragraph}{Aggregating Deposits and Withdraws}{23}
+\contentsline {paragraph}{Withdraws}{8}
+\contentsline {paragraph}{Verification of Aggregated Trades}{8}
+\contentsline {subsubsection}{\numberline {3.1.2}Aggregator}{9}
+\contentsline {paragraph}{Deposits and Withdraws}{9}
+\contentsline {paragraph}{Aggregating Trades}{9}
+\contentsline {paragraph}{Storing Balances in a Merkle Tree}{9}
+\contentsline {paragraph}{PairProxy Smart-contract}{10}
+\contentsline {subsection}{\numberline {3.2}Implementation}{10}
+\contentsline {subsubsection}{\numberline {3.2.1}Storing and Updating Balances}{10}
+\contentsline {paragraph}{Merkle Trees}{10}
+\contentsline {subsubsection}{\numberline {3.2.2}Aggregating Balance Updates}{11}
+\contentsline {paragraph}{Merkle Inclusion Proofs}{11}
+\contentsline {paragraph}{Chaining Inclusion Proofs}{11}
+\contentsline {paragraph}{Authorizing Balance Updates}{12}
+\contentsline {paragraph}{Creating a EdDSA Signature}{13}
+\contentsline {paragraph}{Executing and Reducing On-chain Verification Costs}{13}
+\contentsline {subsubsection}{\numberline {3.2.3}Deposit}{14}
+\contentsline {paragraph}{Movement of Funds}{14}
+\contentsline {paragraph}{Aggregating Deposits}{14}
+\contentsline {paragraph}{Verifying Deposits On-chain}{15}
+\contentsline {subsubsection}{\numberline {3.2.4}Aggregated Withdraws}{15}
+\contentsline {subsubsection}{\numberline {3.2.5}Instant Withdraws}{16}
+\contentsline {paragraph}{Authorizing Instant Withdraws}{16}
+\contentsline {subsubsection}{\numberline {3.2.6}Aggregating Trades}{17}
+\contentsline {paragraph}{Ensuring Correct Pricing}{17}
+\contentsline {paragraph}{Adding an Trade Order}{19}
+\contentsline {paragraph}{Executing Trade and Calculating New Balances}{19}
+\contentsline {paragraph}{Checking Pricing in ZoKrates}{20}
+\contentsline {paragraph}{Verifying Balances and Authorization in ZoKrates}{20}
+\contentsline {paragraph}{Reducing On-chain Verification Costs in ZoKrates}{20}
+\contentsline {paragraph}{Generating Proof and Verifying}{21}
+\contentsline {paragraph}{Verifying the ZoKrates Proof}{21}
+\contentsline {paragraph}{Recreating the DataHash and Ensuring Correct Price}{21}
+\contentsline {paragraph}{Receiving Fund and Refunding Aggregator}{22}
+\contentsline {paragraph}{Updating Root and Emitting Balances}{22}
+\contentsline {subsubsection}{\numberline {3.2.7}PairProxy Smart Contract}{22}
+\contentsline {subsubsection}{\numberline {3.2.8}Client Frontend}{23}
+\contentsline {paragraph}{Deposits and Withdraws}{23}
+\contentsline {paragraph}{Adding a Trade}{24}
+\contentsline {paragraph}{Displaying Account Data}{24}
+\contentsline {subsection}{\numberline {3.3}Limitiations of Current Implementation}{24}
+\contentsline {paragraph}{Signatures}{24}
+\contentsline {paragraph}{Updating Balances According to Effective Price}{24}
+\contentsline {paragraph}{Hashing Function}{24}
+\contentsline {paragraph}{Aggregating Deposits and Withdraws}{25}
+\contentsline {section}{\numberline {4}Results}{25}

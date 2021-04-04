@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  29 MAR 2021 11:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  3 APR 2021 17:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -295,6 +295,107 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \c@@todonotes@numberoftodonotes=\count115
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2012/05/23 Federico Garcia
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks32
+\ex@=\dimen161
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen162
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count116
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count117
+\leftroot@=\count118
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count119
+\DOTSCASE@=\count120
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box37
+\strutbox@=\box38
+\big@size=\dimen163
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count121
+\c@MaxMatrixCols=\count122
+\dotsspace@=\muskip10
+\c@parentequation=\count123
+\dspbrk@lvl=\count124
+\tag@help=\toks33
+\row@=\count125
+\column@=\count126
+\maxfields@=\count127
+\andhelp@=\toks34
+\eqnshift@=\dimen164
+\alignsep@=\dimen165
+\tagshift@=\dimen166
+\tagwidth@=\dimen167
+\totwidth@=\dimen168
+\lineht@=\dimen169
+\@envbody=\toks35
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks36
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count128
+\algocf@hangindent=\skip49
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count129
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip50
+\skiplinenumber=\skip51
+\skiprule=\skip52
+\skiphlne=\skip53
+\skiptext=\skip54
+\skiplength=\skip55
+\algomargin=\skip56
+\skipalgocfslide=\skip57
+\algowidth=\dimen170
+\inoutsize=\dimen171
+\inoutindent=\dimen172
+\interspacetitleruled=\dimen173
+\interspacealgoruled=\dimen174
+\interspacetitleboxruled=\dimen175
+\algocf@ruledwidth=\skip58
+\algocf@inoutbox=\box39
+\algocf@inputbox=\box40
+\AlCapSkip=\skip59
+\AlCapHSkip=\skip60
+\algoskipindent=\skip61
+\algocf@nlbox=\box41
+\algocf@hangingbox=\box42
+\algocf@untilbox=\box43
+\algocf@skipuntil=\skip62
+\algocf@capbox=\box44
+\algocf@lcaptionbox=\skip63
+\algoheightruledefault=\skip64
+\algoheightrule=\skip65
+\algotitleheightruledefault=\skip66
+\algotitleheightrule=\skip67
+\c@algocfline=\count130
+\c@algocfproc=\count131
+\c@algocf=\count132
+\algocf@algoframe=\box45
+\algocf@algobox=\box46
 ))) (/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.aux)
 \openout1 = `background.aux'.
 
@@ -347,17 +448,17 @@ LaTeX Font Info:    ... okay on input line 4.
 
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count116
-\scratchdimen=\dimen161
-\scratchbox=\box37
-\nofMPsegments=\count117
-\nofMParguments=\count118
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count119
-\MPscratchDim=\dimen162
-\MPnumerator=\count120
-\makeMPintoPDFobject=\count121
-\everyMPtoPDFconversion=\toks33
+\scratchcounter=\count133
+\scratchdimen=\dimen176
+\scratchbox=\box47
+\nofMPsegments=\count134
+\nofMParguments=\count135
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count136
+\MPscratchDim=\dimen177
+\MPnumerator=\count137
+\makeMPintoPDFobject=\count138
+\everyMPtoPDFconversion=\toks38
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
  (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
@@ -397,20 +498,20 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) ABD: EveryShipout initializing macros [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
-] (/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.aux) ) 
+] [2] (/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.aux) ) 
 Here is how much of TeX's memory you used:
- 12414 strings out of 492649
- 252215 string characters out of 6129622
- 294305 words of memory out of 5000000
- 16053 multiletter control sequences out of 15000+600000
- 4898 words of font info for 18 fonts, out of 8000000 for 9000
+ 13966 strings out of 492649
+ 274619 string characters out of 6129622
+ 333767 words of memory out of 5000000
+ 17574 multiletter control sequences out of 15000+600000
+ 5206 words of font info for 19 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,5n,58p,977b,154s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/background/background.pdf (1 page, 22807 bytes).
+ 71i,5n,58p,1401b,156s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/background/background.pdf (2 pages, 50482 bytes).
 PDF statistics:
- 19 PDF objects out of 1000 (max. 8388607)
- 13 compressed objects within 1 object stream
+ 26 PDF objects out of 1000 (max. 8388607)
+ 18 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

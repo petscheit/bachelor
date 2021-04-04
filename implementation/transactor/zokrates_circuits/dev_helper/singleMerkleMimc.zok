@@ -16,7 +16,6 @@ struct BalanceUpdate {
 	field newNonce
 	u32[5] address
 	field[8] merklePath
-	bool 
 }
 
 def mimc_4(field[4] ins) -> field: //5281

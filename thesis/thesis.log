@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  2 APR 2021 14:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  4 APR 2021 14:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -512,11 +512,8 @@ Package pdftex.def Info: diagrams/gas_volume.png  used on input line 18.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4]) (/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.tex) (/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5 </Users/paul/Documents/projects/bachelor/thesis/diagrams/gas_volume.png>]
-<diagrams/architecture.png, id=32, 760.8425pt x 663.47874pt>
+[4]) (/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.tex [5 </Users/paul/Documents/projects/bachelor/thesis/diagrams/gas_volume.png>] [6]) (/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.tex
+<diagrams/architecture.png, id=36, 760.8425pt x 663.47874pt>
 File: diagrams/architecture.png Graphic file (type png)
 <use diagrams/architecture.png>
 Package pdftex.def Info: diagrams/architecture.png  used on input line 13.
@@ -525,52 +522,66 @@ Package pdftex.def Info: diagrams/architecture.png  used on input line 13.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6] [7 </Users/paul/Documents/projects/bachelor/thesis/diagrams/architecture.png>]
+[7] [8 </Users/paul/Documents/projects/bachelor/thesis/diagrams/architecture.png>]
 Overfull \hbox (11.04578pt too wide) in paragraph at lines 40--41
 \OT1/cmr/m/n/10.95 choos-ing the ag-gre-gated type, the user sends a sig-na-ture of the de-posit/withdraw
  []
 
-[8] [9] [10] [11] [12]
-Overfull \hbox (9.03278pt too wide) in paragraph at lines 132--133
+[9] [10] [11] [12] [13]
+Overfull \hbox (9.03278pt too wide) in paragraph at lines 130--131
  \OT1/cmr/bx/n/10.95 Ag-gre-gat-ing De-posits[] \OT1/cmr/m/n/10.95 Af-ter the funds have been sent to the smart-contract,
  []
 
-[13] [14]
-<diagrams/deposit.png, id=68, 532.99126pt x 492.84125pt>
-File: diagrams/deposit.png Graphic file (type png)
-<use diagrams/deposit.png>
-Package pdftex.def Info: diagrams/deposit.png  used on input line 148.
-(pdftex.def)             Requested size: 246.17116pt x 227.62204pt.
+[14]
+<diagrams/depWith.png, id=68, 891.33pt x 439.6425pt>
+File: diagrams/depWith.png Graphic file (type png)
+<use diagrams/depWith.png>
+Package pdftex.def Info: diagrams/depWith.png  used on input line 139.
+(pdftex.def)             Requested size: 461.46779pt x 227.62204pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15] [16 </Users/paul/Documents/projects/bachelor/thesis/diagrams/deposit.png>]
-<diagrams/priceing.png, id=77, 419.5675pt x 174.6525pt>
+
+Underfull \vbox (badness 4686) has occurred while \output is active []
+
+ [15] [16 </Users/paul/Documents/projects/bachelor/thesis/diagrams/depWith.png>]
+<diagrams/instantWithdraw.png, id=76, 532.99126pt x 272.01625pt>
+File: diagrams/instantWithdraw.png Graphic file (type png)
+<use diagrams/instantWithdraw.png>
+Package pdftex.def Info: diagrams/instantWithdraw.png  used on input line 152.
+(pdftex.def)             Requested size: 278.76733pt x 142.26378pt.
+ [17 </Users/paul/Documents/projects/bachelor/thesis/diagrams/instantWithdraw.png>]
+<diagrams/priceing.png, id=81, 419.5675pt x 174.6525pt>
 File: diagrams/priceing.png Graphic file (type png)
 <use diagrams/priceing.png>
-Package pdftex.def Info: diagrams/priceing.png  used on input line 177.
+Package pdftex.def Info: diagrams/priceing.png  used on input line 181.
 (pdftex.def)             Requested size: 205.05849pt x 85.35826pt.
- [17 </Users/paul/Documents/projects/bachelor/thesis/diagrams/priceing.png>] [18]
-<diagrams/zokrates.png, id=85, 643.40375pt x 164.615pt>
+ [18 </Users/paul/Documents/projects/bachelor/thesis/diagrams/priceing.png>] [19]
+<diagrams/zokrates.png, id=91, 643.40375pt x 164.615pt>
 File: diagrams/zokrates.png Graphic file (type png)
 <use diagrams/zokrates.png>
-Package pdftex.def Info: diagrams/zokrates.png  used on input line 207.
+Package pdftex.def Info: diagrams/zokrates.png  used on input line 211.
 (pdftex.def)             Requested size: 333.6294pt x 85.35826pt.
- [19 </Users/paul/Documents/projects/bachelor/thesis/diagrams/zokrates.png>] [20] [21]
-
-LaTeX Warning: Reference `aggregator' on page 22 undefined on input line 244.
 
 
-LaTeX Warning: Reference `zokrates' on page 22 undefined on input line 244.
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[20] [21 </Users/paul/Documents/projects/bachelor/thesis/diagrams/zokrates.png>] [22]
+
+LaTeX Warning: Reference `aggregator' on page 23 undefined on input line 248.
 
 
-LaTeX Warning: Reference `aggregation_server' on page 22 undefined on input line 253.
+LaTeX Warning: Reference `zokrates' on page 23 undefined on input line 248.
+
+[23]
+
+LaTeX Warning: Reference `aggregation_server' on page 24 undefined on input line 257.
 
 
-LaTeX Warning: Citation `hermez_docs' on page 22 undefined on input line 253.
+LaTeX Warning: Citation `hermez_docs' on page 24 undefined on input line 257.
 
-[22]) (/Users/paul/Documents/projects/bachelor/thesis/thesis.bbl [23] [24
+[24]) (/Users/paul/Documents/projects/bachelor/thesis/sections/results/results.tex) (/Users/paul/Documents/projects/bachelor/thesis/thesis.bbl [25] [26
 
 ]
 Overfull \hbox (44.31873pt too wide) in paragraph at lines 7--8
@@ -602,24 +613,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--44
 []\OT1/cmr/m/n/10.95 Kulechov, S.: The aave pro-to-col v2 (Dec 2020),
  []
 
-) [25] (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux)
+) [27] (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 14192 strings out of 492649
- 279122 string characters out of 6129622
- 342515 words of memory out of 5000000
- 17762 multiletter control sequences out of 15000+600000
+ 14203 strings out of 492649
+ 279523 string characters out of 6129622
+ 340294 words of memory out of 5000000
+ 17767 multiletter control sequences out of 15000+600000
  12855 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,15n,77p,2022b,887s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/thesis.pdf (25 pages, 384534 bytes).
+Output written on /Users/paul/Documents/projects/bachelor/thesis/thesis.pdf (27 pages, 402933 bytes).
 PDF statistics:
- 160 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
+ 168 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

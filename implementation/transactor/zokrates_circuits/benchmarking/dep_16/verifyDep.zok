@@ -1,0 +1,34 @@
+// echo "[[{\"oldEthAmount\":\"0\",\"oldTokenAmount\":\"0\",\"oldNonce\":\"0\",\"newEthAmount\":\"1000000000000\",\"newTokenAmount\":\"0\",\"newNonce\":\"1\",\"movementType\":\"0\",\"address\":[\"0x31b87891\",\"0x8679d9DA\",\"0x1DB277B1\",\"0xA2fD67Aa\",\"0x01032920\"],\"merklePath\":[[\"0\",\"1\"],[\"1\",\"0\"],[\"0\",\"1\"],[\"1\",\"0\"],[\"0\",\"1\"],[\"1\",\"0\"],[\"0\",\"1\"],[\"1\",\"0\"]]},{\"oldEthAmount\":\"1000000000000\",\"oldTokenAmount\":\"0\",\"oldNonce\":\"0\",\"newEthAmount\":\"0\",\"newTokenAmount\":\"0\",\"newNonce\":\"1\",\"movementType\":\"1\",\"address\":[\"0x31b87891\",\"0x8679d9DA\",\"0x1DB277B1\",\"0xA2fD67Aa\",\"0x01032920\"],\"merklePath\":[[\"0\",\"1\"],[\"1\",\"0\"],[\"0\",\"1\"],[\"1\",\"0\"],[\"0\",\"1\"],[\"1\",\"0\"],[\"0\",\"1\"],[\"1\",\"0\"]]},{\"oldEthAmount\":\"0\",\"oldTokenAmount\":\"0\",\"oldNonce\":\"0\",\"newEthAmount\":\"1000000000000\",\"newTokenAmount\":\"0\",\"newNonce\":\"1\",\"movementType\":\"0\",\"address\":[\"0x31b87891\",\"0x8679d9DA\",\"0x1DB277B1\",\"0xA2fD67Aa\",\"0x01032920\"],\"merklePath\":[[\"0\",\"1\"],[\"1\",\"0\"],[\"0\",\"1\"],[\"1\",\"0\"],[\"0\",\"1\"],[\"1\",\"0\"],[\"0\",\"1\"],[\"1\",\"0\"]]}],\"1111111\"]" | ./memusg.sh zokrates compute-witness --light --abi --abi_spec ./abi.json --stdin >> console_log.txt
+import "hashes/sha256/embed/512bitPadded" as sha256
+import "utils/pack/bool/pack256.zok" as pack256
+import "utils/pack/bool/nonStrictUnpack256.zok" as field_to_bool
+import "utils/casts/u32_8_to_bool_256.zok" as u32_8_to_bool_256
+import "hashes/mimcSponge/mimcFeistel" as MiMCFeistel
+import "utils/pack/bool/pack128.zok" as pack128
+import "EMBED/unpack" as unpack
+
+struct BalanceMovementObject {
+    field oldEthAmount
+    field oldTokenAmount
+    field oldNonce
+    field newEthAmount
+    field newTokenAmount
+    field newNonce
+    field movementType // 0: deposit, 1: withdraw
+    u32[5] address
+    field[8][2] merklePath
+}
+def main(BalanceMovementObject[3] balances) -> (bool):
+    for field i in 0..3 do
+        assert(balances[i].oldNonce == balances[i].newNonce - 1) // makes sure the nonce is incremented
+        assert(balances[i].newEthAmount >= 0)
+        assert(balances[i].oldEthAmount >= 0)
+        assert(balances[i].newTokenAmount >= 0)
+        assert(balances[i].oldTokenAmount >= 0)
+    endfor
+    return true
+
+    // 0: 1
+	// 1: 3841
+	// 2: 7681
+	// 3: 11521

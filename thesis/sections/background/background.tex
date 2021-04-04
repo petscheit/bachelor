@@ -12,12 +12,26 @@
 
 \subsection{Plasma, Optimistic Rollup and zkRollup}
 
-\subsection{Merkle Trees}
 \subsection{Data Availability}
-\subsection{mimc}
-\subsection{replay attacks}
-\subsection{zkSNARK}
+
+
 \subsection{layer-2}
+\subsection{Merkle Trees}
+\subsection{mimc}
+\subsection{Replay Attacks}
+A common security consideration to make in cryptographic protocols are replay attacks. A replay attack occures when a valid cryptografic proof is maliciously resubmitted, and no security checks are in place to invalidate the resubmission. When making a transaction in a blockchain network, the transaction is signed with the users private key. Miners that receive transactions check the signatures validity, which authorizes the transaction as the user has access to the addresses private key. However, a malicious actor could store these signed transactions and resubmit them to the network. Since the signature is still valid, a mechanism is needed to invalidate transaction signatures, once they have been included in a block and thereby executed. In most blockchain systems, like Bitcoin or Ethereum, this is solved by tracking a nonce for each address. Miners extract an addresses current nonce by indexing the entire blockchain, simply counting the number of confirmed transactions. Among other things, the nonce is part of the signed transaction. When a miner checks the signature, it is also checked if the nonce set in the signed transaction has been incremented by one, when comparing with the nonce that was extracted. This invalidates a resubmission of the signed transaction and prevents replay attacks. 
+
+\paragraph{Transaction Replay Attacks in zkSwap}
+The way transactions are executed in this system is quite different, compared to the blockchain systems described above. As we will explorer, most verifications and computations happen off-chain and are then verified on-chain with a single proof, that
+
+When making a transaction, which can be a trade, a deposit or a withdraw, a user signs the transaction details and sends them to our off-chain entity, the aggregator. The signature is then checked in a zkSNARK circuit, along with the nonce. The resulting proof can then be used to verify the correct execution of the zkSNARK circuit, as an effect verifying the correct. While the signature check happens off-chain, the mechanism of preventing replay attacks is comparable to most blockchain systems. By checking if the nonce signed in the transaction details has been incremented, we ensure the signed transaction is invalidated when resubmitted. 
+
+\paragraph{Proof Verification Replay Attacks}
+Another consideration to make, is the submission and verification of the zkSNARK proof. It also could be resubmitted, thereby breaking the protocol if no measures are in place to prevent this. When verifying a zkSNARK proof, we're essentially proving the execution of the circuit was done correctly, and that the resulting outputs where computed by running the circuit. In this system, the zkSNARK circuit is used to ensure correct state transitions tbc
+
+
+\subsection{zk-SNARKs}
+
 
 % Zk-rollup \cite{vbuterin_2018} is a layer-2 scaling approach first introduced to mass validate transfer of assets on the Ethereum blockchain in 2018. A user can deposit funds into a smart contract by providing a merkle path to its balance and adding funds to be deposited to the transaction. The smart-contract checks if its root can be recreated with the provided merkle path, updates the balance according to the funds in the transaction, rehashes the entire tree and updates its root to the resulting hash. An event is then emitted, containing the new balance, putting the data on-chain is a cheap way. The merkle tree, which is required for generating the merkle paths, containing the balances can be kept in sync by listing to these events. 
 

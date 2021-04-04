@@ -210,9 +210,12 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
-INPUT diagrams/deposit.png
-INPUT ./diagrams/deposit.png
-INPUT ./diagrams/deposit.png
+INPUT diagrams/depWith.png
+INPUT ./diagrams/depWith.png
+INPUT ./diagrams/depWith.png
+INPUT diagrams/instantWithdraw.png
+INPUT ./diagrams/instantWithdraw.png
+INPUT ./diagrams/instantWithdraw.png
 INPUT diagrams/priceing.png
 INPUT ./diagrams/priceing.png
 INPUT ./diagrams/priceing.png
