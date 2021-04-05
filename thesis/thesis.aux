@@ -14,19 +14,20 @@
 \citation{uniswap_tx_fees}
 \citation{cummulative_vol}
 \@writefile{tdo}{\contentsline {todo}{token all isolated, not working together... Not a lot of gas needed blabla}{4}}
-\pgfsyspdfmark {pgfid1}{27787063}{46422447}
-\pgfsyspdfmark {pgfid2}{3629543}{46435903}
-\pgfsyspdfmark {pgfid3}{7086567}{46190717}
+\pgfsyspdfmark {pgfid1}{27787063}{44639867}
+\pgfsyspdfmark {pgfid2}{3629543}{44653323}
+\pgfsyspdfmark {pgfid3}{7086567}{44408137}
 \@writefile{tdo}{\contentsline {todo}{Mention other swap protocols?}{4}}
-\pgfsyspdfmark {pgfid6}{8585925}{37365967}
-\pgfsyspdfmark {pgfid7}{3629543}{37379423}
-\pgfsyspdfmark {pgfid8}{7086567}{37134237}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Combined daily Uniswap trading volume in million USD and average daily Ethereum gas price}}{5}}
+\pgfsyspdfmark {pgfid6}{8585925}{35583387}
+\pgfsyspdfmark {pgfid7}{3629543}{35596843}
+\pgfsyspdfmark {pgfid8}{7086567}{35351657}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Combined daily Uniswap trading volume in million USD and average daily Ethereum gas price\relax }}{5}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:gas_vol}{{1}{5}}
 \@writefile{tdo}{\contentsline {todo}{not a great sentence}{5}}
-\pgfsyspdfmark {pgfid11}{11215298}{23743859}
-\pgfsyspdfmark {pgfid14}{35495965}{23757315}
-\pgfsyspdfmark {pgfid15}{38952989}{23512129}
+\pgfsyspdfmark {pgfid11}{11215298}{22374454}
+\pgfsyspdfmark {pgfid14}{35495965}{22387910}
+\pgfsyspdfmark {pgfid15}{38952989}{22142724}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Background}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Plasma, Optimistic Rollup and zkRollup}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Data Availability}{6}}
@@ -37,71 +38,72 @@
 \@writefile{toc}{\contentsline {paragraph}{Transaction Replay Attacks in zkSwap}{6}}
 \@writefile{toc}{\contentsline {paragraph}{Proof Verification Replay Attacks}{7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.7}zk-SNARKs}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}gas}{7}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Approach}{7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Design}{7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}zkSwap Smart-contract}{7}}
-\@writefile{toc}{\contentsline {paragraph}{Deposits}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces High level architecture of the system}}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces High level architecture of the system\relax }}{8}}
 \newlabel{fig:architecture}{{2}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}zkSwap Smart-contract}{8}}
+\@writefile{toc}{\contentsline {paragraph}{Deposits}{8}}
 \@writefile{toc}{\contentsline {paragraph}{Withdraws}{8}}
-\@writefile{toc}{\contentsline {paragraph}{Verification of Aggregated Trades}{8}}
+\@writefile{toc}{\contentsline {paragraph}{Verification of Aggregated Trades}{9}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Aggregator}{9}}
 \@writefile{toc}{\contentsline {paragraph}{Deposits and Withdraws}{9}}
 \@writefile{toc}{\contentsline {paragraph}{Aggregating Trades}{9}}
-\@writefile{toc}{\contentsline {paragraph}{Storing Balances in a Merkle Tree}{9}}
 \citation{szydlo2004merkle}
+\@writefile{toc}{\contentsline {paragraph}{Storing Balances in a Merkle Tree}{10}}
 \@writefile{toc}{\contentsline {paragraph}{PairProxy Smart-contract}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Implementation}{10}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Storing and Updating Balances}{10}}
 \newlabel{balances}{{3.2.1}{10}}
-\@writefile{toc}{\contentsline {paragraph}{Merkle Trees}{10}}
 \citation{albrecht2016mimc}
+\@writefile{toc}{\contentsline {paragraph}{Merkle Trees}{11}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Aggregating Balance Updates}{11}}
 \newlabel{aggr_balance}{{3.2.2}{11}}
 \@writefile{toc}{\contentsline {paragraph}{Merkle Inclusion Proofs}{11}}
 \newlabel{chain_inclusion}{{3.2.2}{11}}
-\@writefile{toc}{\contentsline {paragraph}{Chaining Inclusion Proofs}{11}}
 \citation{deml_2019}
-\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Chained merkle inclusion proofs for verifying and updating balances}}{12}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Computes merkle root of given parameters}}{12}}
-\@writefile{toc}{\contentsline {paragraph}{Authorizing Balance Updates}{12}}
+\@writefile{toc}{\contentsline {paragraph}{Chaining Inclusion Proofs}{12}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Chained merkle inclusion proofs for verifying and updating balances\relax }}{12}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Computes merkle root of given parameters\relax }}{12}}
+\@writefile{toc}{\contentsline {paragraph}{Authorizing Balance Updates}{13}}
 \@writefile{toc}{\contentsline {paragraph}{Creating a EdDSA Signature}{13}}
 \@writefile{tdo}{\contentsline {todo}{explain situation with hermez}{13}}
-\pgfsyspdfmark {pgfid16}{13590149}{23105327}
-\pgfsyspdfmark {pgfid19}{35495965}{23118783}
-\pgfsyspdfmark {pgfid20}{38952989}{22873597}
+\pgfsyspdfmark {pgfid16}{13590149}{16866297}
+\pgfsyspdfmark {pgfid19}{35495965}{16879753}
+\pgfsyspdfmark {pgfid20}{38952989}{16634567}
 \newlabel{exec_and_reduce}{{10}{13}}
 \@writefile{toc}{\contentsline {paragraph}{Executing and Reducing On-chain Verification Costs}{13}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Deposit}{14}}
 \@writefile{tdo}{\contentsline {todo}{Maybe remove this?}{14}}
-\pgfsyspdfmark {pgfid21}{12725905}{34642054}
-\pgfsyspdfmark {pgfid22}{3629543}{34655510}
-\pgfsyspdfmark {pgfid23}{7086567}{34410324}
+\pgfsyspdfmark {pgfid21}{12725905}{28760605}
+\pgfsyspdfmark {pgfid22}{3629543}{28774061}
+\pgfsyspdfmark {pgfid23}{7086567}{28528875}
 \@writefile{toc}{\contentsline {paragraph}{Movement of Funds}{14}}
 \@writefile{toc}{\contentsline {paragraph}{Aggregating Deposits}{14}}
 \@writefile{toc}{\contentsline {paragraph}{Verifying Deposits On-chain}{15}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4}Aggregated Withdraws}{15}}
 \newlabel{with}{{3.2.4}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Interaction diagram of aggregated deposits and withdraws}}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Interaction diagram of aggregated deposits and withdraws\relax }}{16}}
 \newlabel{fig:depWith}{{3}{16}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.5}Instant Withdraws}{16}}
-\@writefile{toc}{\contentsline {paragraph}{Authorizing Instant Withdraws}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Pseudocode of instant withdraw steps}}{17}}
+\@writefile{toc}{\contentsline {paragraph}{Authorizing Instant Withdraws}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Pseudocode of instant withdraw steps\relax }}{17}}
 \newlabel{fig:instWith}{{4}{17}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.6}Aggregating Trades}{17}}
 \@writefile{toc}{\contentsline {paragraph}{Ensuring Correct Pricing}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Bid-ask spread and zkSwap price range}}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Bid-ask spread and zkSwap price range\relax }}{18}}
 \newlabel{fig:price}{{5}{18}}
 \@writefile{toc}{\contentsline {paragraph}{Adding an Trade Order}{19}}
 \@writefile{toc}{\contentsline {paragraph}{Executing Trade and Calculating New Balances}{19}}
 \@writefile{toc}{\contentsline {paragraph}{Checking Pricing in ZoKrates}{20}}
 \@writefile{toc}{\contentsline {paragraph}{Verifying Balances and Authorization in ZoKrates}{20}}
 \@writefile{toc}{\contentsline {paragraph}{Reducing On-chain Verification Costs in ZoKrates}{20}}
-\@writefile{tdo}{\contentsline {todo}{Explain assumtions that can be made from proof in background, hashing as algo blaaa}{20}}
-\pgfsyspdfmark {pgfid26}{8692199}{9824647}
-\pgfsyspdfmark {pgfid27}{3629543}{9838103}
-\pgfsyspdfmark {pgfid28}{7086567}{9592917}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces ZoKrates program checks}}{21}}
+\@writefile{tdo}{\contentsline {todo}{Explain assumtions that can be made from proof in background, hashing as algo blaaa}{21}}
+\pgfsyspdfmark {pgfid26}{8692199}{43699429}
+\pgfsyspdfmark {pgfid29}{35495965}{43712885}
+\pgfsyspdfmark {pgfid30}{38952989}{43467699}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces ZoKrates program checks\relax }}{21}}
 \newlabel{fig:zokrates}{{6}{21}}
 \@writefile{toc}{\contentsline {paragraph}{Generating Proof and Verifying}{21}}
 \@writefile{toc}{\contentsline {paragraph}{Verifying the ZoKrates Proof}{21}}
@@ -120,11 +122,46 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Limitiations of Current Implementation}{24}}
 \@writefile{toc}{\contentsline {paragraph}{Signatures}{24}}
 \@writefile{toc}{\contentsline {paragraph}{Updating Balances According to Effective Price}{24}}
-\@writefile{toc}{\contentsline {paragraph}{Hashing Function}{24}}
-\bibstyle{splncs04}
-\bibdata{mybibliography}
+\@writefile{toc}{\contentsline {paragraph}{Hashing Function}{25}}
 \@writefile{toc}{\contentsline {paragraph}{Aggregating Deposits and Withdraws}{25}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Results}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Gas Usage}{25}}
+\@writefile{toc}{\contentsline {paragraph}{Trade Aggragation}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Gas cost per trade and breakeven point\relax }}{26}}
+\newlabel{fig:cost_trade}{{7}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}zkSNARK Circuit Metrics}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Execution Time}{26}}
+\@writefile{toc}{\contentsline {paragraph}{Compilation and Setup}{26}}
+\@writefile{toc}{\contentsline {paragraph}{Witness Computations and Proof Generation}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Compilation and setup execution times\relax }}{27}}
+\newlabel{fig:comp_setup_time}{{8}{27}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{27}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Witness computation and proof generation\relax }}{27}}
+\newlabel{fig:witness_proof_time}{{9}{27}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{27}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{27}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Memory Usage}{27}}
+\@writefile{toc}{\contentsline {paragraph}{Compilation and Setup}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Compilation and setup memory consumption\relax }}{28}}
+\newlabel{fig:comp_setup_mem}{{10}{28}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{28}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{28}}
+\@writefile{toc}{\contentsline {paragraph}{Witness Computation and Proof Generation}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Witness computation and proof generation memory consumption\relax }}{28}}
+\newlabel{fig:witness_proof_mem}{{11}{28}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{28}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Constraints}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Constraint count for the circuits in different batch sizes\relax }}{29}}
+\newlabel{fig:constraints}{{12}{29}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{29}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{29}}
+\@writefile{toc}{\contentsline {paragraph}{subsubsection}{29}}
+\@writefile{toc}{\contentsline {paragraph}{subsubsection}{29}}
+\bibstyle{splncs04}
+\bibdata{mybibliography}
+\@writefile{toc}{\contentsline {paragraph}{subsubsection}{30}}
 \bibcite{cummulative_vol}{1}
 \bibcite{adams2020uniswap}{2}
 \bibcite{albrecht2016mimc}{3}

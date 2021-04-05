@@ -9,24 +9,25 @@
 \contentsline {paragraph}{Transaction Replay Attacks in zkSwap}{6}
 \contentsline {paragraph}{Proof Verification Replay Attacks}{7}
 \contentsline {subsection}{\numberline {2.7}zk-SNARKs}{7}
+\contentsline {subsection}{\numberline {2.8}gas}{7}
 \contentsline {section}{\numberline {3}Approach}{7}
 \contentsline {subsection}{\numberline {3.1}Design}{7}
-\contentsline {subsubsection}{\numberline {3.1.1}zkSwap Smart-contract}{7}
-\contentsline {paragraph}{Deposits}{7}
+\contentsline {subsubsection}{\numberline {3.1.1}zkSwap Smart-contract}{8}
+\contentsline {paragraph}{Deposits}{8}
 \contentsline {paragraph}{Withdraws}{8}
-\contentsline {paragraph}{Verification of Aggregated Trades}{8}
+\contentsline {paragraph}{Verification of Aggregated Trades}{9}
 \contentsline {subsubsection}{\numberline {3.1.2}Aggregator}{9}
 \contentsline {paragraph}{Deposits and Withdraws}{9}
 \contentsline {paragraph}{Aggregating Trades}{9}
-\contentsline {paragraph}{Storing Balances in a Merkle Tree}{9}
+\contentsline {paragraph}{Storing Balances in a Merkle Tree}{10}
 \contentsline {paragraph}{PairProxy Smart-contract}{10}
 \contentsline {subsection}{\numberline {3.2}Implementation}{10}
 \contentsline {subsubsection}{\numberline {3.2.1}Storing and Updating Balances}{10}
-\contentsline {paragraph}{Merkle Trees}{10}
+\contentsline {paragraph}{Merkle Trees}{11}
 \contentsline {subsubsection}{\numberline {3.2.2}Aggregating Balance Updates}{11}
 \contentsline {paragraph}{Merkle Inclusion Proofs}{11}
-\contentsline {paragraph}{Chaining Inclusion Proofs}{11}
-\contentsline {paragraph}{Authorizing Balance Updates}{12}
+\contentsline {paragraph}{Chaining Inclusion Proofs}{12}
+\contentsline {paragraph}{Authorizing Balance Updates}{13}
 \contentsline {paragraph}{Creating a EdDSA Signature}{13}
 \contentsline {paragraph}{Executing and Reducing On-chain Verification Costs}{13}
 \contentsline {subsubsection}{\numberline {3.2.3}Deposit}{14}
@@ -35,7 +36,7 @@
 \contentsline {paragraph}{Verifying Deposits On-chain}{15}
 \contentsline {subsubsection}{\numberline {3.2.4}Aggregated Withdraws}{15}
 \contentsline {subsubsection}{\numberline {3.2.5}Instant Withdraws}{16}
-\contentsline {paragraph}{Authorizing Instant Withdraws}{16}
+\contentsline {paragraph}{Authorizing Instant Withdraws}{17}
 \contentsline {subsubsection}{\numberline {3.2.6}Aggregating Trades}{17}
 \contentsline {paragraph}{Ensuring Correct Pricing}{17}
 \contentsline {paragraph}{Adding an Trade Order}{19}
@@ -56,6 +57,19 @@
 \contentsline {subsection}{\numberline {3.3}Limitiations of Current Implementation}{24}
 \contentsline {paragraph}{Signatures}{24}
 \contentsline {paragraph}{Updating Balances According to Effective Price}{24}
-\contentsline {paragraph}{Hashing Function}{24}
+\contentsline {paragraph}{Hashing Function}{25}
 \contentsline {paragraph}{Aggregating Deposits and Withdraws}{25}
 \contentsline {section}{\numberline {4}Results}{25}
+\contentsline {subsection}{\numberline {4.1}Gas Usage}{25}
+\contentsline {paragraph}{Trade Aggragation}{25}
+\contentsline {subsection}{\numberline {4.2}zkSNARK Circuit Metrics}{26}
+\contentsline {subsubsection}{\numberline {4.2.1}Execution Time}{26}
+\contentsline {paragraph}{Compilation and Setup}{26}
+\contentsline {paragraph}{Witness Computations and Proof Generation}{26}
+\contentsline {subsubsection}{\numberline {4.2.2}Memory Usage}{27}
+\contentsline {paragraph}{Compilation and Setup}{27}
+\contentsline {paragraph}{Witness Computation and Proof Generation}{28}
+\contentsline {subsubsection}{\numberline {4.2.3}Constraints}{29}
+\contentsline {paragraph}{subsubsection}{29}
+\contentsline {paragraph}{subsubsection}{29}
+\contentsline {paragraph}{subsubsection}{30}
