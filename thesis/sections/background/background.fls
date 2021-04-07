@@ -153,6 +153,14 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/subfig/subfig.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/subfig/subfig.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty

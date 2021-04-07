@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  5 APR 2021 12:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  7 APR 2021 14:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -349,51 +349,100 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \mathdisplay@stack=\toks36
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen170
+\captionmargin@=\dimen171
+\captionwidth=\dimen172
+\caption@tempdima=\dimen173
+\caption@indent=\dimen174
+\caption@parindent=\dimen175
+\caption@hangindent=\dimen176
+)
+\c@ContinuedFloat=\count128
+)
+\c@KVtest=\count129
+\sf@farskip=\skip49
+\sf@captopadj=\dimen177
+\sf@capskip=\skip50
+\sf@nearskip=\skip51
+\c@subfigure=\count130
+\c@subfigure@save=\count131
+\c@lofdepth=\count132
+\c@subtable=\count133
+\c@subtable@save=\count134
+\c@lotdepth=\count135
+\sf@top=\skip52
+\sf@bottom=\skip53
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
+\heavyrulewidth=\dimen178
+\lightrulewidth=\dimen179
+\cmidrulewidth=\dimen180
+\belowrulesep=\dimen181
+\belowbottomsep=\dimen182
+\aboverulesep=\dimen183
+\abovetopsep=\dimen184
+\cmidrulesep=\dimen185
+\cmidrulekern=\dimen186
+\defaultaddspace=\dimen187
+\@cmidla=\count136
+\@cmidlb=\count137
+\@aboverulesep=\dimen188
+\@belowrulesep=\dimen189
+\@thisruleclass=\count138
+\@lastruleclass=\count139
+\@thisrulewidth=\dimen190
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count128
-\algocf@hangindent=\skip49
+\c@AlgoLine=\count140
+\algocf@hangindent=\skip54
  (/usr/local/texlive/2018/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count129
+\c@checkoddpage=\count141
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/relsize/relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 )
-\skiptotal=\skip50
-\skiplinenumber=\skip51
-\skiprule=\skip52
-\skiphlne=\skip53
-\skiptext=\skip54
-\skiplength=\skip55
-\algomargin=\skip56
-\skipalgocfslide=\skip57
-\algowidth=\dimen170
-\inoutsize=\dimen171
-\inoutindent=\dimen172
-\interspacetitleruled=\dimen173
-\interspacealgoruled=\dimen174
-\interspacetitleboxruled=\dimen175
-\algocf@ruledwidth=\skip58
+\skiptotal=\skip55
+\skiplinenumber=\skip56
+\skiprule=\skip57
+\skiphlne=\skip58
+\skiptext=\skip59
+\skiplength=\skip60
+\algomargin=\skip61
+\skipalgocfslide=\skip62
+\algowidth=\dimen191
+\inoutsize=\dimen192
+\inoutindent=\dimen193
+\interspacetitleruled=\dimen194
+\interspacealgoruled=\dimen195
+\interspacetitleboxruled=\dimen196
+\algocf@ruledwidth=\skip63
 \algocf@inoutbox=\box39
 \algocf@inputbox=\box40
-\AlCapSkip=\skip59
-\AlCapHSkip=\skip60
-\algoskipindent=\skip61
+\AlCapSkip=\skip64
+\AlCapHSkip=\skip65
+\algoskipindent=\skip66
 \algocf@nlbox=\box41
 \algocf@hangingbox=\box42
 \algocf@untilbox=\box43
-\algocf@skipuntil=\skip62
+\algocf@skipuntil=\skip67
 \algocf@capbox=\box44
-\algocf@lcaptionbox=\skip63
-\algoheightruledefault=\skip64
-\algoheightrule=\skip65
-\algotitleheightruledefault=\skip66
-\algotitleheightrule=\skip67
-\c@algocfline=\count130
-\c@algocfproc=\count131
-\c@algocf=\count132
+\algocf@lcaptionbox=\skip68
+\algoheightruledefault=\skip69
+\algoheightrule=\skip70
+\algotitleheightruledefault=\skip71
+\algotitleheightrule=\skip72
+\c@algocfline=\count142
+\c@algocfproc=\count143
+\c@algocf=\count144
 \algocf@algoframe=\box45
 \algocf@algobox=\box46
 ))) (/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.aux)
@@ -448,16 +497,16 @@ LaTeX Font Info:    ... okay on input line 4.
 
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count133
-\scratchdimen=\dimen176
+\scratchcounter=\count145
+\scratchdimen=\dimen197
 \scratchbox=\box47
-\nofMPsegments=\count134
-\nofMParguments=\count135
+\nofMPsegments=\count146
+\nofMParguments=\count147
 \everyMPshowfont=\toks37
-\MPscratchCnt=\count136
-\MPscratchDim=\dimen177
-\MPnumerator=\count137
-\makeMPintoPDFobject=\count138
+\MPscratchCnt=\count148
+\MPscratchDim=\dimen198
+\MPnumerator=\count149
+\makeMPintoPDFobject=\count150
 \everyMPtoPDFconversion=\toks38
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -496,19 +545,23 @@ Package grfext Info: Graphics extension search list:
 (grfext)             \AppendGraphicsExtensions on input line 456.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-)) ABD: EveryShipout initializing macros [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+)) ABD: EveryShipout initializing macros
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+ [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ] [2] (/Users/paul/Documents/projects/bachelor/thesis/sections/background/background.aux) ) 
 Here is how much of TeX's memory you used:
- 13966 strings out of 492649
- 274619 string characters out of 6129622
- 333767 words of memory out of 5000000
- 17574 multiletter control sequences out of 15000+600000
+ 15237 strings out of 492649
+ 297138 string characters out of 6129622
+ 358438 words of memory out of 5000000
+ 18831 multiletter control sequences out of 15000+600000
  5206 words of font info for 19 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,5n,58p,1401b,156s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,5n,98p,1401b,156s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/background/background.pdf (2 pages, 50926 bytes).
+Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/background/background.pdf (2 pages, 50946 bytes).
 PDF statistics:
  26 PDF objects out of 1000 (max. 8388607)
  18 compressed objects within 1 object stream

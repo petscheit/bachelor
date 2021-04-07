@@ -38,7 +38,7 @@
 \@writefile{toc}{\contentsline {paragraph}{Transaction Replay Attacks in zkSwap}{6}}
 \@writefile{toc}{\contentsline {paragraph}{Proof Verification Replay Attacks}{7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.7}zk-SNARKs}{7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}gas}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}gas amount vs gas price}{7}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Approach}{7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Design}{7}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces High level architecture of the system\relax }}{8}}
@@ -80,6 +80,7 @@
 \pgfsyspdfmark {pgfid22}{3629543}{28774061}
 \pgfsyspdfmark {pgfid23}{7086567}{28528875}
 \@writefile{toc}{\contentsline {paragraph}{Movement of Funds}{14}}
+\newlabel{aggr_deps}{{3.2.3}{14}}
 \@writefile{toc}{\contentsline {paragraph}{Aggregating Deposits}{14}}
 \@writefile{toc}{\contentsline {paragraph}{Verifying Deposits On-chain}{15}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4}Aggregated Withdraws}{15}}
@@ -107,6 +108,7 @@
 \newlabel{fig:zokrates}{{6}{21}}
 \@writefile{toc}{\contentsline {paragraph}{Generating Proof and Verifying}{21}}
 \@writefile{toc}{\contentsline {paragraph}{Verifying the ZoKrates Proof}{21}}
+\newlabel{trade_checks}{{3.2.6}{21}}
 \@writefile{toc}{\contentsline {paragraph}{Recreating the DataHash and Ensuring Correct Price}{21}}
 \@writefile{toc}{\contentsline {paragraph}{Receiving Fund and Refunding Aggregator}{22}}
 \@writefile{toc}{\contentsline {paragraph}{Updating Root and Emitting Balances}{22}}
@@ -125,43 +127,56 @@
 \@writefile{toc}{\contentsline {paragraph}{Hashing Function}{25}}
 \@writefile{toc}{\contentsline {paragraph}{Aggregating Deposits and Withdraws}{25}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Results}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Gas Usage}{25}}
-\@writefile{toc}{\contentsline {paragraph}{Trade Aggragation}{25}}
+\@writefile{tdo}{\contentsline {todo}{Notarize execution maybe the correct word?}{25}}
+\pgfsyspdfmark {pgfid31}{27361481}{21034908}
+\pgfsyspdfmark {pgfid34}{35495965}{21048364}
+\pgfsyspdfmark {pgfid35}{38952989}{20803178}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Gas Cost}{25}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Trade Aggragation}{26}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Gas cost per trade and breakeven point\relax }}{26}}
 \newlabel{fig:cost_trade}{{7}{26}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}zkSNARK Circuit Metrics}{26}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Execution Time}{26}}
-\@writefile{toc}{\contentsline {paragraph}{Compilation and Setup}{26}}
-\@writefile{toc}{\contentsline {paragraph}{Witness Computations and Proof Generation}{26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Compilation and setup execution times\relax }}{27}}
-\newlabel{fig:comp_setup_time}{{8}{27}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{27}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{27}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Witness computation and proof generation\relax }}{27}}
-\newlabel{fig:witness_proof_time}{{9}{27}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{27}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{27}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Memory Usage}{27}}
-\@writefile{toc}{\contentsline {paragraph}{Compilation and Setup}{27}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Compilation and setup memory consumption\relax }}{28}}
-\newlabel{fig:comp_setup_mem}{{10}{28}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{28}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{28}}
-\@writefile{toc}{\contentsline {paragraph}{Witness Computation and Proof Generation}{28}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Witness computation and proof generation memory consumption\relax }}{28}}
-\newlabel{fig:witness_proof_mem}{{11}{28}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{28}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{28}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Constraints}{29}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Constraint count for the circuits in different batch sizes\relax }}{29}}
-\newlabel{fig:constraints}{{12}{29}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Deposits and Withdraws}{27}}
+\@writefile{toc}{\contentsline {paragraph}{Deposit Aggregation}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Gas cost per deposit assuming different share of Ether deposits\relax }}{27}}
+\newlabel{fig:cost_dep}{{8}{27}}
+\@writefile{toc}{\contentsline {paragraph}{Withdraw Aggregation}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Gas cost per withdraws assuming different share of Ether withdraws in batch\relax }}{28}}
+\newlabel{fig:cost_with}{{9}{28}}
+\@writefile{toc}{\contentsline {paragraph}{Combining Deposit and Withdraw Gas Cost}{28}}
+\@writefile{toc}{\contentsline {paragraph}{Instant Withdraws}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}zkSNARK Circuit Metrics}{29}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Execution Time}{29}}
+\@writefile{toc}{\contentsline {paragraph}{Compilation and Setup}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Compilation and setup execution times\relax }}{29}}
+\newlabel{fig:comp_setup_time}{{10}{29}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{29}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{29}}
-\@writefile{toc}{\contentsline {paragraph}{subsubsection}{29}}
-\@writefile{toc}{\contentsline {paragraph}{subsubsection}{29}}
+\@writefile{toc}{\contentsline {paragraph}{Witness Computations and Proof Generation}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Witness computation and proof generation\relax }}{30}}
+\newlabel{fig:witness_proof_time}{{11}{30}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{30}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{30}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Memory Usage}{30}}
+\@writefile{toc}{\contentsline {paragraph}{Compilation and Setup}{30}}
+\@writefile{toc}{\contentsline {paragraph}{Witness Computation and Proof Generation}{30}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Constraints}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Compilation and setup memory consumption\relax }}{31}}
+\newlabel{fig:comp_setup_mem}{{12}{31}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{31}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{31}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Witness computation and proof generation memory consumption\relax }}{31}}
+\newlabel{fig:witness_proof_mem}{{13}{31}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{31}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{31}}
+\@writefile{toc}{\contentsline {paragraph}{Origin of Constraints}{31}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Constraint count for the circuits in different batch sizes\relax }}{32}}
+\newlabel{fig:constraints}{{14}{32}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{32}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{32}}
+\@writefile{toc}{\contentsline {paragraph}{Hashing and Constraints}{32}}
+\@writefile{toc}{\contentsline {paragraph}{Constraints Processed per Second}{32}}
 \bibstyle{splncs04}
 \bibdata{mybibliography}
-\@writefile{toc}{\contentsline {paragraph}{subsubsection}{30}}
 \bibcite{cummulative_vol}{1}
 \bibcite{adams2020uniswap}{2}
 \bibcite{albrecht2016mimc}{3}

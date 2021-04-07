@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  5 APR 2021 17:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  7 APR 2021 16:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -595,106 +595,137 @@ Package pdftex.def Info: diagrams/depWith.png  used on input line 139.
 <diagrams/instantWithdraw.png, id=76, 532.99126pt x 272.01625pt>
 File: diagrams/instantWithdraw.png Graphic file (type png)
 <use diagrams/instantWithdraw.png>
-Package pdftex.def Info: diagrams/instantWithdraw.png  used on input line 152.
+Package pdftex.def Info: diagrams/instantWithdraw.png  used on input line 151.
 (pdftex.def)             Requested size: 278.76733pt x 142.26378pt.
  [17 </Users/paul/Documents/projects/bachelor/thesis/diagrams/instantWithdraw.png>]
 <diagrams/priceing.png, id=81, 419.5675pt x 174.6525pt>
 File: diagrams/priceing.png Graphic file (type png)
 <use diagrams/priceing.png>
-Package pdftex.def Info: diagrams/priceing.png  used on input line 181.
+Package pdftex.def Info: diagrams/priceing.png  used on input line 180.
 (pdftex.def)             Requested size: 205.05849pt x 85.35826pt.
  [18 </Users/paul/Documents/projects/bachelor/thesis/diagrams/priceing.png>] [19] [20]
 <diagrams/zokrates.png, id=94, 643.40375pt x 164.615pt>
 File: diagrams/zokrates.png Graphic file (type png)
 <use diagrams/zokrates.png>
-Package pdftex.def Info: diagrams/zokrates.png  used on input line 211.
+Package pdftex.def Info: diagrams/zokrates.png  used on input line 210.
 (pdftex.def)             Requested size: 333.6294pt x 85.35826pt.
  [21 </Users/paul/Documents/projects/bachelor/thesis/diagrams/zokrates.png>] [22] [23]
 
-LaTeX Warning: Reference `aggregator' on page 24 undefined on input line 248.
+LaTeX Warning: Reference `aggregator' on page 24 undefined on input line 247.
 
 
-LaTeX Warning: Reference `zokrates' on page 24 undefined on input line 248.
+LaTeX Warning: Reference `zokrates' on page 24 undefined on input line 247.
 
 
-LaTeX Warning: Reference `aggregation_server' on page 24 undefined on input line 257.
+LaTeX Warning: Reference `aggregation_server' on page 24 undefined on input line 256.
 
 
-LaTeX Warning: Citation `hermez_docs' on page 24 undefined on input line 257.
+LaTeX Warning: Citation `hermez_docs' on page 24 undefined on input line 256.
 
 [24]) (/Users/paul/Documents/projects/bachelor/thesis/sections/results/results.tex [25]
-<diagrams/trade_cost.png, id=112, 578.16pt x 361.35pt>
+<diagrams/trade_cost.png, id=112, 749.80125pt x 356.33125pt>
 File: diagrams/trade_cost.png Graphic file (type png)
 <use diagrams/trade_cost.png>
-Package pdftex.def Info: diagrams/trade_cost.png  used on input line 16.
-(pdftex.def)             Requested size: 273.14676pt x 170.71652pt.
-<diagrams/results_final_trade-compile-setup-time.png, id=113, 688.5725pt x 570.13pt>
+Package pdftex.def Info: diagrams/trade_cost.png  used on input line 18.
+(pdftex.def)             Requested size: 359.2255pt x 170.71652pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [26 </Users/paul/Documents/projects/bachelor/thesis/diagrams/trade_cost.png>]
+<diagrams/dep_ET_.png, id=117, 722.7pt x 433.62pt>
+File: diagrams/dep_ET_.png Graphic file (type png)
+<use diagrams/dep_ET_.png>
+Package pdftex.def Info: diagrams/dep_ET_.png  used on input line 30.
+(pdftex.def)             Requested size: 284.53154pt x 170.71652pt.
+ [27 </Users/paul/Documents/projects/bachelor/thesis/diagrams/dep_ET_.png>]
+<diagrams/with_ET_.png, id=122, 722.7pt x 433.62pt>
+File: diagrams/with_ET_.png Graphic file (type png)
+<use diagrams/with_ET_.png>
+Package pdftex.def Info: diagrams/with_ET_.png  used on input line 39.
+(pdftex.def)             Requested size: 284.53154pt x 170.71652pt.
+ [28 </Users/paul/Documents/projects/bachelor/thesis/diagrams/with_ET_.png>]
+<diagrams/results_final_trade-compile-setup-time.png, id=127, 688.5725pt x 570.13pt>
 File: diagrams/results_final_trade-compile-setup-time.png Graphic file (type png)
 <use diagrams/results_final_trade-compile-setup-time.png>
-Package pdftex.def Info: diagrams/results_final_trade-compile-setup-time.png  used on input line 33.
+Package pdftex.def Info: diagrams/results_final_trade-compile-setup-time.png  used on input line 61.
 (pdftex.def)             Requested size: 168.51146pt x 139.52213pt.
-<diagrams/results_final_dep-compile-setup-time.png, id=114, 688.5725pt x 570.13pt>
+<diagrams/results_final_dep-compile-setup-time.png, id=128, 688.5725pt x 570.13pt>
 File: diagrams/results_final_dep-compile-setup-time.png Graphic file (type png)
 <use diagrams/results_final_dep-compile-setup-time.png>
-Package pdftex.def Info: diagrams/results_final_dep-compile-setup-time.png  used on input line 35.
+Package pdftex.def Info: diagrams/results_final_dep-compile-setup-time.png  used on input line 63.
 (pdftex.def)             Requested size: 168.51146pt x 139.52213pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[26 </Users/paul/Documents/projects/bachelor/thesis/diagrams/trade_cost.png>]
-<diagrams/results_final_trade-witness-proof-time.png, id=119, 722.7pt x 578.16pt>
+<diagrams/results_final_trade-witness-proof-time.png, id=129, 722.7pt x 578.16pt>
 File: diagrams/results_final_trade-witness-proof-time.png Graphic file (type png)
 <use diagrams/results_final_trade-witness-proof-time.png>
-Package pdftex.def Info: diagrams/results_final_trade-witness-proof-time.png  used on input line 45.
+Package pdftex.def Info: diagrams/results_final_trade-witness-proof-time.png  used on input line 73.
 (pdftex.def)             Requested size: 168.51146pt x 134.80898pt.
-<diagrams/results_final_dep-witness-proof-time.png, id=120, 722.7pt x 578.16pt>
+<diagrams/results_final_dep-witness-proof-time.png, id=130, 722.7pt x 578.16pt>
 File: diagrams/results_final_dep-witness-proof-time.png Graphic file (type png)
 <use diagrams/results_final_dep-witness-proof-time.png>
-Package pdftex.def Info: diagrams/results_final_dep-witness-proof-time.png  used on input line 47.
+Package pdftex.def Info: diagrams/results_final_dep-witness-proof-time.png  used on input line 75.
 (pdftex.def)             Requested size: 168.51146pt x 134.80898pt.
- [27 </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_trade-compile-setup-time.png> </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_dep-compile-setup-time.png> </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_trade-witness-proof-time.png> </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_dep-witness-proof-time.png>]
-<diagrams/results_final_trade-compile-setup-mem.png, id=128, 688.5725pt x 570.13pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[29 </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_trade-compile-setup-time.png> </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_dep-compile-setup-time.png>]
+<diagrams/results_final_trade-compile-setup-mem.png, id=136, 688.5725pt x 570.13pt>
 File: diagrams/results_final_trade-compile-setup-mem.png Graphic file (type png)
 <use diagrams/results_final_trade-compile-setup-mem.png>
-Package pdftex.def Info: diagrams/results_final_trade-compile-setup-mem.png  used on input line 60.
+Package pdftex.def Info: diagrams/results_final_trade-compile-setup-mem.png  used on input line 88.
 (pdftex.def)             Requested size: 168.51146pt x 139.52213pt.
-<diagrams/results_final_dep-compile-setup-mem.png, id=129, 688.5725pt x 570.13pt>
+<diagrams/results_final_dep-compile-setup-mem.png, id=137, 688.5725pt x 570.13pt>
 File: diagrams/results_final_dep-compile-setup-mem.png Graphic file (type png)
 <use diagrams/results_final_dep-compile-setup-mem.png>
-Package pdftex.def Info: diagrams/results_final_dep-compile-setup-mem.png  used on input line 62.
+Package pdftex.def Info: diagrams/results_final_dep-compile-setup-mem.png  used on input line 90.
 (pdftex.def)             Requested size: 168.51146pt x 139.52213pt.
-<diagrams/results_final_trade-witness-proof-mem.png, id=130, 722.7pt x 578.16pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<diagrams/results_final_trade-witness-proof-mem.png, id=138, 722.7pt x 578.16pt>
 File: diagrams/results_final_trade-witness-proof-mem.png Graphic file (type png)
 <use diagrams/results_final_trade-witness-proof-mem.png>
-Package pdftex.def Info: diagrams/results_final_trade-witness-proof-mem.png  used on input line 72.
+Package pdftex.def Info: diagrams/results_final_trade-witness-proof-mem.png  used on input line 100.
 (pdftex.def)             Requested size: 168.51146pt x 134.80898pt.
-<diagrams/results_final_dep-witness-proof-mem.png, id=131, 722.7pt x 578.16pt>
+<diagrams/results_final_dep-witness-proof-mem.png, id=139, 722.7pt x 578.16pt>
 File: diagrams/results_final_dep-witness-proof-mem.png Graphic file (type png)
 <use diagrams/results_final_dep-witness-proof-mem.png>
-Package pdftex.def Info: diagrams/results_final_dep-witness-proof-mem.png  used on input line 74.
+Package pdftex.def Info: diagrams/results_final_dep-witness-proof-mem.png  used on input line 102.
 (pdftex.def)             Requested size: 168.51146pt x 134.80898pt.
- [28 </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_trade-compile-setup-mem.png> </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_dep-compile-setup-mem.png> </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_trade-witness-proof-mem.png> </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_dep-witness-proof-mem.png>]
-<diagrams/results_final_trade-constraints.png, id=139, 688.5725pt x 551.05875pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[30 </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_trade-witness-proof-time.png> </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_dep-witness-proof-time.png>]
+<diagrams/results_final_trade-constraints.png, id=145, 688.5725pt x 551.05875pt>
 File: diagrams/results_final_trade-constraints.png Graphic file (type png)
 <use diagrams/results_final_trade-constraints.png>
-Package pdftex.def Info: diagrams/results_final_trade-constraints.png  used on input line 84.
+Package pdftex.def Info: diagrams/results_final_trade-constraints.png  used on input line 112.
 (pdftex.def)             Requested size: 168.51146pt x 134.85501pt.
-<diagrams/results_final_dep-constraints.png, id=140, 688.5725pt x 551.05875pt>
+<diagrams/results_final_dep-constraints.png, id=146, 688.5725pt x 551.05875pt>
 File: diagrams/results_final_dep-constraints.png Graphic file (type png)
 <use diagrams/results_final_dep-constraints.png>
-Package pdftex.def Info: diagrams/results_final_dep-constraints.png  used on input line 86.
+Package pdftex.def Info: diagrams/results_final_dep-constraints.png  used on input line 114.
 (pdftex.def)             Requested size: 168.51146pt x 134.85501pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[29 </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_trade-constraints.png> </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_dep-constraints.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[31 </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_trade-compile-setup-mem.png> </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_dep-compile-setup-mem.png> </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_trade-witness-proof-mem.png> </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_dep-witness-proof-mem.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[32 </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_trade-constraints.png> </Users/paul/Documents/projects/bachelor/thesis/diagrams/results_final_dep-constraints.png>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 131.
+               Default added (so using `tbp') on input line 159.
 
-) (/Users/paul/Documents/projects/bachelor/thesis/thesis.bbl [30]
+) (/Users/paul/Documents/projects/bachelor/thesis/thesis.bbl [33] [34
+
+]
 Overfull \hbox (44.31873pt too wide) in paragraph at lines 7--8
 []\OT1/cmr/m/n/10.95 Uniswap cum-mu-la-tive vol-ume, \OT1/cmtt/m/n/10.95 https://duneanalytics.com/projects/uniswap 
  []
@@ -724,26 +755,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--44
 []\OT1/cmr/m/n/10.95 Kulechov, S.: The aave pro-to-col v2 (Dec 2020),
  []
 
-) [31
-
-] (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux)
+) [35] (/Users/paul/Documents/projects/bachelor/thesis/thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 15543 strings out of 492649
- 304962 string characters out of 6129622
- 365305 words of memory out of 5000000
- 19082 multiletter control sequences out of 15000+600000
+ 15565 strings out of 492649
+ 305426 string characters out of 6129622
+ 366498 words of memory out of 5000000
+ 19102 multiletter control sequences out of 15000+600000
  12855 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,15n,96p,2022b,889s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/thesis.pdf (31 pages, 657354 bytes).
+Output written on /Users/paul/Documents/projects/bachelor/thesis/thesis.pdf (35 pages, 751742 bytes).
 PDF statistics:
- 203 PDF objects out of 1000 (max. 8388607)
- 119 compressed objects within 2 object streams
+ 219 PDF objects out of 1000 (max. 8388607)
+ 127 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 98 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 108 words of extra memory for PDF output out of 10000 (max. 10000000)
 

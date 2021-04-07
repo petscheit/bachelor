@@ -9,7 +9,7 @@
 \contentsline {paragraph}{Transaction Replay Attacks in zkSwap}{6}
 \contentsline {paragraph}{Proof Verification Replay Attacks}{7}
 \contentsline {subsection}{\numberline {2.7}zk-SNARKs}{7}
-\contentsline {subsection}{\numberline {2.8}gas}{7}
+\contentsline {subsection}{\numberline {2.8}gas amount vs gas price}{7}
 \contentsline {section}{\numberline {3}Approach}{7}
 \contentsline {subsection}{\numberline {3.1}Design}{7}
 \contentsline {subsubsection}{\numberline {3.1.1}zkSwap Smart-contract}{8}
@@ -60,16 +60,21 @@
 \contentsline {paragraph}{Hashing Function}{25}
 \contentsline {paragraph}{Aggregating Deposits and Withdraws}{25}
 \contentsline {section}{\numberline {4}Results}{25}
-\contentsline {subsection}{\numberline {4.1}Gas Usage}{25}
-\contentsline {paragraph}{Trade Aggragation}{25}
-\contentsline {subsection}{\numberline {4.2}zkSNARK Circuit Metrics}{26}
-\contentsline {subsubsection}{\numberline {4.2.1}Execution Time}{26}
-\contentsline {paragraph}{Compilation and Setup}{26}
-\contentsline {paragraph}{Witness Computations and Proof Generation}{26}
-\contentsline {subsubsection}{\numberline {4.2.2}Memory Usage}{27}
-\contentsline {paragraph}{Compilation and Setup}{27}
-\contentsline {paragraph}{Witness Computation and Proof Generation}{28}
-\contentsline {subsubsection}{\numberline {4.2.3}Constraints}{29}
-\contentsline {paragraph}{subsubsection}{29}
-\contentsline {paragraph}{subsubsection}{29}
-\contentsline {paragraph}{subsubsection}{30}
+\contentsline {subsection}{\numberline {4.1}Gas Cost}{25}
+\contentsline {subsubsection}{\numberline {4.1.1}Trade Aggragation}{26}
+\contentsline {subsubsection}{\numberline {4.1.2}Deposits and Withdraws}{27}
+\contentsline {paragraph}{Deposit Aggregation}{27}
+\contentsline {paragraph}{Withdraw Aggregation}{28}
+\contentsline {paragraph}{Combining Deposit and Withdraw Gas Cost}{28}
+\contentsline {paragraph}{Instant Withdraws}{28}
+\contentsline {subsection}{\numberline {4.2}zkSNARK Circuit Metrics}{29}
+\contentsline {subsubsection}{\numberline {4.2.1}Execution Time}{29}
+\contentsline {paragraph}{Compilation and Setup}{29}
+\contentsline {paragraph}{Witness Computations and Proof Generation}{29}
+\contentsline {subsubsection}{\numberline {4.2.2}Memory Usage}{30}
+\contentsline {paragraph}{Compilation and Setup}{30}
+\contentsline {paragraph}{Witness Computation and Proof Generation}{30}
+\contentsline {subsubsection}{\numberline {4.2.3}Constraints}{30}
+\contentsline {paragraph}{Origin of Constraints}{31}
+\contentsline {paragraph}{Hashing and Constraints}{32}
+\contentsline {paragraph}{Constraints Processed per Second}{32}
