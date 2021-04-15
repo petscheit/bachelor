@@ -1,80 +1,123 @@
-\contentsline {section}{\numberline {1}Introduction}{3}
-\contentsline {section}{\numberline {2}Background}{6}
-\contentsline {subsection}{\numberline {2.1}Plasma, Optimistic Rollup and zkRollup}{6}
-\contentsline {subsection}{\numberline {2.2}Data Availability}{6}
-\contentsline {subsection}{\numberline {2.3}layer-2}{6}
-\contentsline {subsection}{\numberline {2.4}Merkle Trees}{6}
-\contentsline {subsection}{\numberline {2.5}mimc}{6}
-\contentsline {subsection}{\numberline {2.6}Replay Attacks}{6}
-\contentsline {paragraph}{Transaction Replay Attacks in zkSwap}{6}
-\contentsline {paragraph}{Proof Verification Replay Attacks}{7}
-\contentsline {subsection}{\numberline {2.7}zk-SNARKs}{7}
-\contentsline {subsection}{\numberline {2.8}gas amount vs gas price}{7}
-\contentsline {section}{\numberline {3}Approach}{7}
-\contentsline {subsection}{\numberline {3.1}Design}{7}
-\contentsline {subsubsection}{\numberline {3.1.1}zkSwap Smart-contract}{8}
-\contentsline {paragraph}{Deposits}{8}
-\contentsline {paragraph}{Withdraws}{8}
-\contentsline {paragraph}{Verification of Aggregated Trades}{9}
-\contentsline {subsubsection}{\numberline {3.1.2}Aggregator}{9}
-\contentsline {paragraph}{Deposits and Withdraws}{9}
-\contentsline {paragraph}{Aggregating Trades}{9}
-\contentsline {paragraph}{Storing Balances in a Merkle Tree}{10}
-\contentsline {paragraph}{PairProxy Smart-contract}{10}
-\contentsline {subsection}{\numberline {3.2}Implementation}{10}
-\contentsline {subsubsection}{\numberline {3.2.1}Storing and Updating Balances}{10}
-\contentsline {paragraph}{Merkle Trees}{11}
-\contentsline {subsubsection}{\numberline {3.2.2}Aggregating Balance Updates}{11}
-\contentsline {paragraph}{Merkle Inclusion Proofs}{11}
-\contentsline {paragraph}{Chaining Inclusion Proofs}{12}
-\contentsline {paragraph}{Authorizing Balance Updates}{13}
-\contentsline {paragraph}{Creating a EdDSA Signature}{13}
-\contentsline {paragraph}{Executing and Reducing On-chain Verification Costs}{13}
-\contentsline {subsubsection}{\numberline {3.2.3}Deposit}{14}
-\contentsline {paragraph}{Movement of Funds}{14}
-\contentsline {paragraph}{Aggregating Deposits}{14}
-\contentsline {paragraph}{Verifying Deposits On-chain}{15}
-\contentsline {subsubsection}{\numberline {3.2.4}Aggregated Withdraws}{15}
-\contentsline {subsubsection}{\numberline {3.2.5}Instant Withdraws}{16}
-\contentsline {paragraph}{Authorizing Instant Withdraws}{17}
-\contentsline {subsubsection}{\numberline {3.2.6}Aggregating Trades}{17}
-\contentsline {paragraph}{Ensuring Correct Pricing}{17}
-\contentsline {paragraph}{Adding an Trade Order}{19}
-\contentsline {paragraph}{Executing Trade and Calculating New Balances}{19}
-\contentsline {paragraph}{Checking Pricing in ZoKrates}{20}
-\contentsline {paragraph}{Verifying Balances and Authorization in ZoKrates}{20}
-\contentsline {paragraph}{Reducing On-chain Verification Costs in ZoKrates}{20}
-\contentsline {paragraph}{Generating Proof and Verifying}{21}
-\contentsline {paragraph}{Verifying the ZoKrates Proof}{21}
-\contentsline {paragraph}{Recreating the DataHash and Ensuring Correct Price}{21}
-\contentsline {paragraph}{Receiving Fund and Refunding Aggregator}{22}
-\contentsline {paragraph}{Updating Root and Emitting Balances}{22}
-\contentsline {subsubsection}{\numberline {3.2.7}PairProxy Smart Contract}{22}
-\contentsline {subsubsection}{\numberline {3.2.8}Client Frontend}{23}
-\contentsline {paragraph}{Deposits and Withdraws}{23}
-\contentsline {paragraph}{Adding a Trade}{24}
-\contentsline {paragraph}{Displaying Account Data}{24}
-\contentsline {subsection}{\numberline {3.3}Limitiations of Current Implementation}{24}
-\contentsline {paragraph}{Signatures}{24}
-\contentsline {paragraph}{Updating Balances According to Effective Price}{24}
-\contentsline {paragraph}{Hashing Function}{25}
-\contentsline {paragraph}{Aggregating Deposits and Withdraws}{25}
-\contentsline {section}{\numberline {4}Results}{25}
-\contentsline {subsection}{\numberline {4.1}Gas Cost}{25}
-\contentsline {subsubsection}{\numberline {4.1.1}Trade Aggragation}{26}
-\contentsline {subsubsection}{\numberline {4.1.2}Deposits and Withdraws}{27}
-\contentsline {paragraph}{Deposit Aggregation}{27}
-\contentsline {paragraph}{Withdraw Aggregation}{28}
-\contentsline {paragraph}{Combining Deposit and Withdraw Gas Cost}{28}
-\contentsline {paragraph}{Instant Withdraws}{28}
-\contentsline {subsection}{\numberline {4.2}zkSNARK Circuit Metrics}{29}
-\contentsline {subsubsection}{\numberline {4.2.1}Execution Time}{29}
-\contentsline {paragraph}{Compilation and Setup}{29}
-\contentsline {paragraph}{Witness Computations and Proof Generation}{29}
-\contentsline {subsubsection}{\numberline {4.2.2}Memory Usage}{30}
-\contentsline {paragraph}{Compilation and Setup}{30}
-\contentsline {paragraph}{Witness Computation and Proof Generation}{30}
-\contentsline {subsubsection}{\numberline {4.2.3}Constraints}{30}
-\contentsline {paragraph}{Origin of Constraints}{31}
-\contentsline {paragraph}{Hashing and Constraints}{32}
-\contentsline {paragraph}{Constraints Processed per Second}{32}
+\contentsline {section}{\numberline {1}Introduction}{4}
+\contentsline {section}{\numberline {2}Background}{7}
+\contentsline {subsection}{\numberline {2.1}Decentralized Exchanges}{7}
+\contentsline {subsection}{\numberline {2.2}Types of layer-2 systems}{8}
+\contentsline {subsubsection}{\numberline {2.2.1}Plasma}{8}
+\contentsline {subsubsection}{\numberline {2.2.2}Optimistic rollup}{8}
+\contentsline {subsubsection}{\numberline {2.2.3}Validium}{8}
+\contentsline {subsubsection}{\numberline {2.2.4}zk-rollup}{8}
+\contentsline {subsection}{\numberline {2.3}Merkle Trees}{8}
+\contentsline {subsection}{\numberline {2.4}MiMC hash function}{8}
+\contentsline {subsection}{\numberline {2.5}zkSNARK}{8}
+\contentsline {subsubsection}{\numberline {2.5.1}brief explaination of how it works}{8}
+\contentsline {subsubsection}{\numberline {2.5.2}what can be achived}{8}
+\contentsline {subsubsection}{\numberline {2.5.3}Why its interesting in the blockchain context}{8}
+\contentsline {subsubsection}{\numberline {2.5.4}Why zkSNARK was chosen for this usecase}{8}
+\contentsline {subsection}{\numberline {2.6}Explaining Gas}{8}
+\contentsline {subsubsection}{\numberline {2.6.1}Difference gas amount / gas price}{8}
+\contentsline {subsection}{\numberline {2.7}Replay Attacks}{8}
+\contentsline {subsubsection}{\numberline {2.7.1}Transaction Replay Attacks in zkSwap}{9}
+\contentsline {subsubsection}{\numberline {2.7.2}Proof Verification Replay Attacks}{9}
+\contentsline {section}{\numberline {3}Approach}{9}
+\contentsline {subsection}{\numberline {3.1}Design}{10}
+\contentsline {subsubsection}{\numberline {3.1.1}zkSwap Smart-contract}{10}
+\contentsline {paragraph}{Deposits}{10}
+\contentsline {paragraph}{Withdraws}{11}
+\contentsline {paragraph}{Verification of Aggregated Trades}{11}
+\contentsline {subsubsection}{\numberline {3.1.2}Aggregator}{11}
+\contentsline {paragraph}{Deposits and Withdraws}{11}
+\contentsline {paragraph}{Aggregating Trades}{11}
+\contentsline {paragraph}{Storing Balances in a Merkle Tree}{12}
+\contentsline {paragraph}{PairProxy Smart-contract}{12}
+\contentsline {subsection}{\numberline {3.2}Implementation}{12}
+\contentsline {subsubsection}{\numberline {3.2.1}Storing and Updating Balances}{12}
+\contentsline {paragraph}{Merkle Trees}{13}
+\contentsline {subsubsection}{\numberline {3.2.2}Aggregating Balance Updates}{13}
+\contentsline {paragraph}{Merkle Inclusion Proofs}{13}
+\contentsline {paragraph}{Chaining Inclusion Proofs}{14}
+\contentsline {paragraph}{Authorizing Balance Updates}{14}
+\contentsline {paragraph}{Creating a EdDSA Signature}{15}
+\contentsline {paragraph}{Executing and Reducing On-chain Verification Costs}{16}
+\contentsline {subsubsection}{\numberline {3.2.3}Deposits}{16}
+\contentsline {paragraph}{Movement of Funds}{16}
+\contentsline {paragraph}{Aggregating Deposits}{16}
+\contentsline {paragraph}{Verifying Deposits On-chain}{17}
+\contentsline {subsubsection}{\numberline {3.2.4}Withdraws}{17}
+\contentsline {subsubsection}{\numberline {3.2.5}Instant Withdraws}{18}
+\contentsline {paragraph}{Authorizing Instant Withdraws}{19}
+\contentsline {subsubsection}{\numberline {3.2.6}Aggregating Trades}{20}
+\contentsline {paragraph}{Ensuring Correct Pricing}{20}
+\contentsline {paragraph}{Adding an Trade Order}{21}
+\contentsline {paragraph}{Executing Trade and Calculating New Balances}{21}
+\contentsline {paragraph}{Checking Pricing in ZoKrates}{22}
+\contentsline {paragraph}{Verifying Balances and Authorization in ZoKrates}{22}
+\contentsline {paragraph}{Reducing On-chain Verification Costs in ZoKrates}{23}
+\contentsline {paragraph}{Generating Proof and Verifying}{23}
+\contentsline {paragraph}{Verifying the ZoKrates Proof}{23}
+\contentsline {paragraph}{Recreating the DataHash and Ensuring Correct Price}{24}
+\contentsline {paragraph}{Receiving Fund and Refunding Aggregator}{24}
+\contentsline {paragraph}{Updating Root and Emitting Balances}{24}
+\contentsline {subsubsection}{\numberline {3.2.7}PairProxy Smart Contract}{25}
+\contentsline {subsubsection}{\numberline {3.2.8}Client Frontend}{25}
+\contentsline {paragraph}{Deposits and Withdraws}{26}
+\contentsline {paragraph}{Adding a Trade}{26}
+\contentsline {paragraph}{Displaying Account Data}{26}
+\contentsline {subsection}{\numberline {3.3}Limitiations of Current Implementation}{26}
+\contentsline {paragraph}{Signatures}{26}
+\contentsline {paragraph}{Updating Balances According to Effective Price}{27}
+\contentsline {paragraph}{Hashing Function}{27}
+\contentsline {paragraph}{Aggregating Deposits and Withdraws}{27}
+\contentsline {section}{\numberline {4}Results}{27}
+\contentsline {subsection}{\numberline {4.1}Gas Cost}{28}
+\contentsline {subsubsection}{\numberline {4.1.1}Trade Aggragation}{28}
+\contentsline {subsubsection}{\numberline {4.1.2}Deposits and Withdraws}{28}
+\contentsline {paragraph}{Deposit Aggregation}{29}
+\contentsline {paragraph}{Withdraw Aggregation}{29}
+\contentsline {paragraph}{Combining Deposit and Withdraw Gas Cost}{30}
+\contentsline {paragraph}{Instant Withdraws}{31}
+\contentsline {subsection}{\numberline {4.2}zkSNARK Circuit Metrics}{31}
+\contentsline {subsubsection}{\numberline {4.2.1}Execution Time}{31}
+\contentsline {paragraph}{Compilation and Setup}{31}
+\contentsline {paragraph}{Witness Computations and Proof Generation}{32}
+\contentsline {subsubsection}{\numberline {4.2.2}Memory Usage}{32}
+\contentsline {paragraph}{Compilation and Setup}{32}
+\contentsline {paragraph}{Witness Computation and Proof Generation}{32}
+\contentsline {subsubsection}{\numberline {4.2.3}Constraints}{33}
+\contentsline {paragraph}{Origin of Constraints}{33}
+\contentsline {paragraph}{Hashing and Constraints}{34}
+\contentsline {paragraph}{Constraints Processed per Second}{35}
+\contentsline {section}{\numberline {5}Discussion}{35}
+\contentsline {subsection}{\numberline {5.1}Interpretation of results}{35}
+\contentsline {subsubsection}{\numberline {5.1.1}Gas results Trades}{36}
+\contentsline {subsubsection}{\numberline {5.1.2}Gas results Deposits and Withdraws}{36}
+\contentsline {subsubsection}{\numberline {5.1.3}Circuit results}{36}
+\contentsline {paragraph}{Execution Times}{37}
+\contentsline {paragraph}{Memory Requirements}{37}
+\contentsline {subsubsection}{\numberline {5.1.4}Results overall}{37}
+\contentsline {subsubsection}{\numberline {5.1.5}Usability of the System}{38}
+\contentsline {subsection}{\numberline {5.2}Limitations}{38}
+\contentsline {subsubsection}{\numberline {5.2.1}Fixed Batch Size in Circuit}{38}
+\contentsline {subsubsection}{\numberline {5.2.2}Running Aggregation Blocking State Updates}{39}
+\contentsline {subsubsection}{\numberline {5.2.3}Trusted Setup Phase}{39}
+\contentsline {subsection}{\numberline {5.3}Open Problems}{39}
+\contentsline {subsubsection}{\numberline {5.3.1}Canceled Aggregations}{39}
+\contentsline {subsubsection}{\numberline {5.3.2}Empty Aggregation Batch}{40}
+\contentsline {subsubsection}{\numberline {5.3.3}Ignoring Deposits}{40}
+\contentsline {subsubsection}{\numberline {5.3.4}Ensuring Correct Effective Price Reporting by Aggregator}{40}
+\contentsline {subsubsection}{\numberline {5.3.5}Sandwich Attacks}{40}
+\contentsline {section}{\numberline {6}Related Work and Outlook}{41}
+\contentsline {subsection}{\numberline {6.1}Prover optimizations}{41}
+\contentsline {subsubsection}{\numberline {6.1.1}Parallelizing the Prover}{41}
+\contentsline {subsubsection}{\numberline {6.1.2}Reducing Memory Usage}{42}
+\contentsline {subsection}{\numberline {6.2}Hashing Algorithms}{42}
+\contentsline {subsubsection}{\numberline {6.2.1}MiMC on Ethereum}{42}
+\contentsline {subsubsection}{\numberline {6.2.2}Poseidon Hashes}{43}
+\contentsline {subsection}{\numberline {6.3}PLONK}{43}
+\contentsline {subsection}{\numberline {6.4}zkSync and the Zinc Programing Language}{44}
+\contentsline {subsection}{\numberline {6.5}Cross zk-rollup Transactions}{44}
+\contentsline {subsection}{\numberline {6.6}Aggregator Fee Structure and Jobs}{45}
+\contentsline {section}{\numberline {7}Conclusion}{45}
+\contentsline {subsection}{\numberline {7.1}zkSwap}{45}
+\contentsline {paragraph}{Reducing Constraint Count}{45}
+\contentsline {paragraph}{Increasing Constraint Throughput}{46}
+\contentsline {paragraph}{ZK-rollup as a Whole}{46}

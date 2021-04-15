@@ -3,8 +3,26 @@
 \providecommand{\urlprefix}{URL }
 \providecommand{\doi}[1]{https://doi.org/#1}
 
+\bibitem{zincCurve}
+Curve on zinc,
+  \url{https://medium.com/matter-labs/curve-zksync-l2-ethereums-first-user-defined-zk-rollup-smart-contract-5a72c496b350}
+
 \bibitem{cummulative_vol}
 Uniswap cummulative volume, \url{https://duneanalytics.com/projects/uniswap}
+
+\bibitem{zinc}
+zinc, \url{https://zinc.zksync.io/}
+
+\bibitem{zcash_2019}
+What are zk-snarks? (Sep 2019), \url{https://z.cash/technology/zksnarks/}
+
+\bibitem{zkSync_2019}
+zksync (Dec 2019),
+  \url{https://medium.com/matter-labs/introducing-zk-sync-the-missing-link-to-mass-adoption-of-ethereum-14c9cea83f58}
+
+\bibitem{loopring_2020}
+Loopring's zksnark prover optimizations (Mar 2020),
+  \url{https://blogs.loopring.org/looprings-zksnark-prover-optimizations/}
 
 \bibitem{adams2020uniswap}
 Adams, H., Zinsmeister, N., Robinson, D.: Uniswap v2 core. URl:
@@ -31,12 +49,26 @@ Deml, S.: Efficient ecc in zksnarks using zokrates (Aug 2019),
 \bibitem{eth_gas_guzzlers}
 Ethereum gas guzzlers, \url{https://ethgasstation.info/gasguzzlers.php}
 
+\bibitem{eip_1108}
+Ethereum: eip-1108 (Sep 2020),
+  \url{https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1108.md}
+
 \bibitem{gasprice}
 Ethereum gas price, \url{https://etherscan.io/chart/gasprice}
 
 \bibitem{uniswap_tx_fees}
 Uniswap total fees used,
   \url{https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d}
+
+\bibitem{gabizon2019plonk}
+Gabizon, A., Williamson, Z.J., Ciobotaru, O.: Plonk: Permutations over
+  lagrange-bases for oecumenical noninteractive arguments of knowledge. IACR
+  Cryptol. ePrint Arch.  \textbf{2019}, ~953 (2019)
+
+\bibitem{grassi2020poseidon}
+Grassi, L., Khovratovich, D., Rechberger, C., Roy, A., Schofnegger, M.:
+  Poseidon: A new hash function for zero-knowledge proof systems. In:
+  Proceedings of the 30th USENIX Security Symposium. USENIX Association (2020)
 
 \bibitem{kulechov_2020}
 Kulechov, S.: The aave protocol v2 (Dec 2020),
@@ -47,8 +79,24 @@ Szydlo, M.: Merkle tree traversal in log space and time. In: International
   Conference on the Theory and Applications of Cryptographic Techniques. pp.
   541--554. Springer (2004)
 
+\bibitem{udovenko2020optimized}
+Udovenko, A.: Optimized collision search for stark-friendly hash challenge
+  candidates  (2020)
+
+\bibitem{whinfrey2021hop}
+Whinfrey, C.: Hop: Send tokens across rollups  (2021)
+
 \bibitem{wood2014ethereum}
 Wood, G., et~al.: Ethereum: A secure decentralised generalised transaction
   ledger. Ethereum project yellow paper  \textbf{151}(2014),  1--32 (2014)
+
+\bibitem{wu2018dizk}
+Wu, H., Zheng, W., Chiesa, A., Popa, R.A., Stoica, I.: $\{$DIZK$\}$: A
+  distributed zero knowledge proof system. In: 27th $\{$USENIX$\}$ Security
+  Symposium ($\{$USENIX$\}$ Security 18). pp. 675--692 (2018)
+
+\bibitem{zhou2020high}
+Zhou, L., Qin, K., Torres, C.F., Le, D.V., Gervais, A.: High-frequency trading
+  on decentralized on-chain exchanges. arXiv preprint arXiv:2009.14021  (2020)
 
 \end{thebibliography}

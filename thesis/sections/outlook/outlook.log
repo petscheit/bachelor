@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  13 APR 2021 11:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  14 APR 2021 13:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.tex
-(/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.tex
+**/Users/paul/Documents/projects/bachelor/thesis/sections/outlook/outlook.tex
+(/Users/paul/Documents/projects/bachelor/thesis/sections/outlook/outlook.tex
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/subfiles/subfiles.cls
@@ -16,7 +16,7 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@in@stream=\read1
 )
 Preamble taken from file `../../thesis.tex'
-(/Users/paul/Documents/projects/bachelor/thesis/sections/approach/../../thesis.tex (/usr/local/texlive/2018/texmf-dist/tex/latex/base/book.cls
+(/Users/paul/Documents/projects/bachelor/thesis/sections/outlook/../../thesis.tex (/usr/local/texlive/2018/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/bk11.clo
 File: bk11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
@@ -445,21 +445,21 @@ Package: relsize 2013/03/29 ver 4.1
 \c@algocf=\count144
 \algocf@algoframe=\box45
 \algocf@algobox=\box46
-))) (/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.aux)
-\openout1 = `approach.aux'.
+))) (/Users/paul/Documents/projects/bachelor/thesis/sections/outlook/outlook.aux)
+\openout1 = `outlook.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -549,99 +549,72 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-<diagrams/architecture.png, id=4, 760.8425pt x 663.47874pt>
-File: diagrams/architecture.png Graphic file (type png)
-<use diagrams/architecture.png>
-Package pdftex.def Info: diagrams/architecture.png  used on input line 13.
-(pdftex.def)             Requested size: 261.02814pt x 227.62204pt.
- [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
- <./diagrams/architecture.png>]
-Overfull \hbox (11.04578pt too wide) in paragraph at lines 40--41
-\OT1/cmr/m/n/10.95 choos-ing the ag-gre-gated type, the user sends a sig-na-ture of the de-posit/withdraw
- []
 
-[2]
-Underfull \vbox (badness 3049) has occurred while \output is active []
+LaTeX Warning: Citation `loopring_2020' on page 1 undefined on input line 7.
+
+
+LaTeX Warning: Citation `wu2018dizk' on page 1 undefined on input line 10.
+
+[1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+]
+
+LaTeX Warning: Reference `hashing_const' on page 2 undefined on input line 19.
+
+
+LaTeX Warning: Citation `eip_1108' on page 2 undefined on input line 21.
+
+
+LaTeX Warning: Citation `grassi2020poseidon' on page 2 undefined on input line 24.
+
+
+Underfull \vbox (badness 3701) has occurred while \output is active []
+
+ [2]
+
+LaTeX Warning: Citation `udovenko2020optimized' on page 3 undefined on input line 26.
+
+
+LaTeX Warning: Citation `gabizon2019plonk' on page 3 undefined on input line 29.
+
+
+LaTeX Warning: Citation `zkSync_2019' on page 3 undefined on input line 32.
+
+
+Underfull \vbox (badness 1888) has occurred while \output is active []
 
  [3]
 
-LaTeX Warning: Citation `szydlo2004merkle' on page 4 undefined on input line 59.
-
-[4]
-
-LaTeX Warning: Citation `albrecht2016mimc' on page 5 undefined on input line 65.
+LaTeX Warning: Citation `zinc' on page 4 undefined on input line 34.
 
 
-LaTeX Warning: Citation `deml_2019' on page 5 undefined on input line 115.
-
-[5] [6] [7]
-Overfull \hbox (9.03278pt too wide) in paragraph at lines 130--131
- \OT1/cmr/bx/n/10.95 Ag-gre-gat-ing De-posits[] \OT1/cmr/m/n/10.95 Af-ter the funds have been sent to the smart-contract,
- []
-
-[8] [9]
-<diagrams/depWith.png, id=44, 891.33pt x 439.6425pt>
-File: diagrams/depWith.png Graphic file (type png)
-<use diagrams/depWith.png>
-Package pdftex.def Info: diagrams/depWith.png  used on input line 139.
-(pdftex.def)             Requested size: 461.46779pt x 227.62204pt.
- [10 <./diagrams/depWith.png>]
-<diagrams/instantWithdraw.png, id=49, 532.99126pt x 272.01625pt>
-File: diagrams/instantWithdraw.png Graphic file (type png)
-<use diagrams/instantWithdraw.png>
-Package pdftex.def Info: diagrams/instantWithdraw.png  used on input line 151.
-(pdftex.def)             Requested size: 278.76733pt x 142.26378pt.
- [11 <./diagrams/instantWithdraw.png>]
-<diagrams/priceing.png, id=54, 419.5675pt x 174.6525pt>
-File: diagrams/priceing.png Graphic file (type png)
-<use diagrams/priceing.png>
-Package pdftex.def Info: diagrams/priceing.png  used on input line 180.
-(pdftex.def)             Requested size: 205.05849pt x 85.35826pt.
- [12 <./diagrams/priceing.png>] [13] [14]
-<diagrams/zokrates.png, id=70, 643.40375pt x 164.615pt>
-File: diagrams/zokrates.png Graphic file (type png)
-<use diagrams/zokrates.png>
-Package pdftex.def Info: diagrams/zokrates.png  used on input line 210.
-(pdftex.def)             Requested size: 333.6294pt x 85.35826pt.
- [15 <./diagrams/zokrates.png>] [16]
-
-LaTeX Warning: Citation `benet2014ipfs' on page 17 undefined on input line 241.
-
-[17]
-
-LaTeX Warning: Reference `aggregator' on page 18 undefined on input line 247.
+LaTeX Warning: Citation `zincCurve' on page 4 undefined on input line 36.
 
 
-LaTeX Warning: Reference `zokrates' on page 18 undefined on input line 247.
+LaTeX Warning: Citation `whinfrey2021hop' on page 4 undefined on input line 40.
 
 
-LaTeX Warning: Reference `aggregation_server' on page 18 undefined on input line 256.
+LaTeX Warning: Reference `limitiations' on page 4 undefined on input line 45.
 
-
-LaTeX Warning: Citation `hermez_docs' on page 18 undefined on input line 256.
-
-
-LaTeX Warning: Citation `baylinaeddsa' on page 18 undefined on input line 256.
-
-[18] [19] (/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.aux)
+[4] [5] (/Users/paul/Documents/projects/bachelor/thesis/sections/outlook/outlook.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 15417 strings out of 492649
- 300695 string characters out of 6129622
- 366149 words of memory out of 5000000
- 18990 multiletter control sequences out of 15000+600000
- 10338 words of font info for 37 fonts, out of 8000000 for 9000
+ 15269 strings out of 492649
+ 297417 string characters out of 6129622
+ 359460 words of memory out of 5000000
+ 18851 multiletter control sequences out of 15000+600000
+ 9683 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,15n,98p,2005b,704s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.pdf (19 pages, 292871 bytes).
+ 71i,8n,98p,1701b,156s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
+Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/outlook/outlook.pdf (5 pages, 91898 bytes).
 PDF statistics:
- 124 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
+ 47 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

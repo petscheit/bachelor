@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{subfig}
 \usepackage{booktabs}
+\setcounter{tocdepth}{3}
 \usepackage[linesnumbered,ruled]{algorithm2e}
 \renewcommand{\thesection}{\arabic{section}}
 
@@ -36,11 +37,14 @@
 \section{Results}
 \subfile{sections/results/results}
 
-% \begin{figure}[h]
-%     \centerline{\includegraphics[totalheight=6cm]{diagrams/trade_cost.png}}
-%     \caption{Gas cost per trade and breakeven point}
-%     \label{fig:cost_trade}
-% \end{figure}
+\section{Discussion}
+\subfile{sections/discussion/discussion}
+
+\section{Related Work and Outlook}
+\subfile{sections/outlook/outlook}
+
+\section{Conclusion}
+\subfile{sections/conclusion/conclusion}
 
 \bibliographystyle{splncs04}
 \bibliography{mybibliography}

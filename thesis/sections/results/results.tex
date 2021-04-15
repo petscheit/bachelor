@@ -135,9 +135,10 @@ Both circuits can be broken down into three different main segments, that add a 
     Data hash                     & 55970      & 184806              \\ \hline
     \bottomrule
     \end{tabular}
-\end{table}
+\end{table}  \label{constraint_source}
+\todo{update constraints for depoist}
 
-\paragraph{Hashing and Constraints}
+\paragraph{Hashing and Constraints} \label{hashing_const}
 The MiMC hashing algorithm was used for hashing the merkle tree, as it’s more efficient to use in zkSNARK circuits. The most common hashing operation used in the system is the pair hashing of the merkle tree. Every balance update requires 34 pair hashes in total, 1 for hashing the old balance, 16 for the merkle inclusion proof, 1 for hashing the new balance and 16 for updating the merkle tree. We must also remember, that the pair elements need to be sorted according to their position (left, right), which doubles the constraints in a zkSNARK circuit. On the other hand, we also need to hash the balances in the zkSwap smart-contract for recreating the data hash. In Solidity the sha256 hashing algorithm is a lot cheaper than MiMC. Since we have to recreate the data hash for every batch we want to verify on-chain, the data hash is computed with the SHA256 hashing algorithm. 
 
 \begin{table}[h]
@@ -145,10 +146,10 @@ The MiMC hashing algorithm was used for hashing the merkle tree, as it’s more 
     \toprule
     Hashing Op         & Constraints & Gas Usage \\  \hline
     \midrule
-    MiMC pair          & 2642        & 94052    \\  \hline
-    MiMC pair sorted   & 5285        & 94052    \\  \hline
-    SHA256 pair        & 56227       & 1722     \\  \hline
-    SHA256 pair sorted & 112453      & 1722     \\  \hline
+    MiMC pair          & 2642        & 38840    \\  \hline
+    MiMC pair sorted   & 5285        & 38840    \\  \hline
+    SHA256 pair        & 56227       & 2179     \\  \hline
+    SHA256 pair sorted & 112453      & 2179     \\  \hline
     \bottomrule
     \end{tabular}
 \end{table}
@@ -159,7 +160,7 @@ As last metric we want to take a look at, is constraints processed per second in
 \begin{table}[]
     \begin{tabular}{lll}
     \toprule
-    batch\_size & Witness constraints / sec & Proof constraints / sec \\
+    batch\_size & Witness: constraints / sec & Proof: constraints / sec \\
     \midrule
     5           & 27604                     & 9685                    \\
     15          & 29615                     & 8417                    \\
@@ -169,4 +170,6 @@ As last metric we want to take a look at, is constraints processed per second in
     Average     & 28526                     & 9024                    \\
     \bottomrule 
     \end{tabular}
-\end{table}
+\end{table}\label{const_per_sec}
+
+\paragraph{Constraints per GB Memory}
