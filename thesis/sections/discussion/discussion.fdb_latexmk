@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1618409148 "/Users/paul/Documents/projects/bachelor/thesis/sections/discussion/discussion.tex" "/Users/paul/Documents/projects/bachelor/thesis/sections/discussion/discussion.pdf" "discussion" 1618409258
-  "/Users/paul/Documents/projects/bachelor/thesis/sections/discussion/discussion.aux" 1618409149 1862 6b427c324fd127048ae8da0793f9e7db ""
-  "/Users/paul/Documents/projects/bachelor/thesis/sections/discussion/discussion.tex" 1618409256 14596 9961c1e4c15defbe2db697f11fe5d72c ""
+["pdflatex"] 1618841221 "/Users/paul/Documents/projects/bachelor/thesis/sections/discussion/discussion.tex" "/Users/paul/Documents/projects/bachelor/thesis/sections/discussion/discussion.pdf" "discussion" 1618841272
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/discussion/discussion.aux" 1618841221 2089 98f06daa5fb2fdcf599a3388f1442881 ""
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/discussion/discussion.tex" 1618841271 14641 c3ae4602561d7c1af398210c1beea594 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1480098701 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -126,15 +126,15 @@
   "/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1523934492 2717033 f61a5287d9c22a39a74f1979fe3f905c ""
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1536670549 4220280 2a5cb8bb4f1e8cc32525b85dfe3ef429 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "sections/discussion/../../thesis.tex" 1618401493 1166 b58efb93d46f121da57cdd06046d4ad3 ""
-  "sections/discussion/discussion.aux" 1618409149 1862 6b427c324fd127048ae8da0793f9e7db ""
-  "sections/discussion/discussion.tex" 1618409256 14596 9961c1e4c15defbe2db697f11fe5d72c ""
+  "sections/discussion/../../thesis.tex" 1618825214 1166 b58efb93d46f121da57cdd06046d4ad3 ""
+  "sections/discussion/discussion.aux" 1618841221 2089 98f06daa5fb2fdcf599a3388f1442881 ""
+  "sections/discussion/discussion.tex" 1618841271 14641 c3ae4602561d7c1af398210c1beea594 ""
   (generated)
+  "sections/discussion/discussion.log"
+  "discussion.pdf"
+  "discussion.log"
   "/Users/paul/Documents/projects/bachelor/thesis/sections/discussion/discussion.pdf"
-  "sections/discussion/discussion.aux"
   "discussion.aux"
   "sections/discussion/discussion.pdf"
   "/Users/paul/Documents/projects/bachelor/thesis/sections/discussion/discussion.log"
-  "discussion.log"
-  "discussion.pdf"
-  "sections/discussion/discussion.log"
+  "sections/discussion/discussion.aux"

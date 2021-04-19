@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1618306289 "/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.tex" "/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.pdf" "approach" 1618306290
-  "/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.aux" 1618306290 6297 71e25074249fb23fc5d421d6e2fef9ce ""
+["pdflatex"] 1618841274 "/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.tex" "/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.pdf" "approach" 1618841275
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.aux" 1618841275 6297 71e25074249fb23fc5d421d6e2fef9ce ""
   "/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.tex" 1618306287 49927 7c6b9064d1c7ed79c105db5ec6ec8765 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
@@ -156,12 +156,12 @@
   "diagrams/instantWithdraw.png" 1617539202 34655 da7468c213b5b3c078ff7a776336e93c ""
   "diagrams/priceing.png" 1616495511 12927 92b0407a80b17bdacec7d00732e3a10b ""
   "diagrams/zokrates.png" 1616495511 28250 37f850519b574ccf2ba07f517d936dda ""
-  "sections/approach/../../thesis.tex" 1618230702 1149 4569cd54015455bdcfb7e0596300e2b8 ""
-  "sections/approach/approach.aux" 1618306290 6297 71e25074249fb23fc5d421d6e2fef9ce ""
+  "sections/approach/../../thesis.tex" 1618825214 1166 b58efb93d46f121da57cdd06046d4ad3 ""
+  "sections/approach/approach.aux" 1618841275 6297 71e25074249fb23fc5d421d6e2fef9ce ""
   "sections/approach/approach.tex" 1618306287 49927 7c6b9064d1c7ed79c105db5ec6ec8765 ""
   (generated)
-  "/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.pdf"
-  "sections/approach/approach.aux"
   "/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.log"
+  "sections/approach/approach.aux"
+  "/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.pdf"
   "sections/approach/approach.log"
   "sections/approach/approach.pdf"

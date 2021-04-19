@@ -5,6 +5,7 @@ The style file: splncs04.bst
 Database file #1: mybibliography.bib
 Warning--I didn't find a database entry for "hermez_docs"
 Warning--to sort, need author or key in cummulative_vol
+Warning--to sort, need author or key in vitalik2020rollup
 Warning--to sort, need author or key in zcash_2019
 Warning--to sort, need author or key in loopring_2020
 Warning--to sort, need author or key in zkSync_2019
@@ -14,45 +15,45 @@ Warning--empty journal in baylinaeddsa
 Warning--empty year in baylinaeddsa
 Warning--empty journal in udovenko2020optimized
 Warning--empty journal in whinfrey2021hop
-You've used 24 entries,
+You've used 39 entries,
             2850 wiz_defined-function locations,
-            709 strings with 7785 characters,
-and the built_in function-call counts, 9236 in all, are:
-= -- 689
-> -- 224
-< -- 7
-+ -- 99
-- -- 74
-* -- 542
-:= -- 1104
-add.period$ -- 15
-call.type$ -- 24
-change.case$ -- 119
+            794 strings with 10483 characters,
+and the built_in function-call counts, 17431 in all, are:
+= -- 1366
+> -- 465
+< -- 21
++ -- 202
+- -- 158
+* -- 1047
+:= -- 2120
+add.period$ -- 36
+call.type$ -- 39
+change.case$ -- 215
 chr.to.int$ -- 0
-cite$ -- 34
-duplicate$ -- 871
-empty$ -- 1003
-format.name$ -- 82
-if$ -- 2036
+cite$ -- 50
+duplicate$ -- 1597
+empty$ -- 1771
+format.name$ -- 177
+if$ -- 3851
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 164
-newline$ -- 78
-num.names$ -- 30
-pop$ -- 423
+int.to.str$ -- 39
+missing$ -- 305
+newline$ -- 123
+num.names$ -- 60
+pop$ -- 716
 preamble$ -- 1
-purify$ -- 87
+purify$ -- 158
 quote$ -- 0
-skip$ -- 294
+skip$ -- 534
 stack$ -- 0
-substring$ -- 435
-swap$ -- 382
-text.length$ -- 7
+substring$ -- 902
+swap$ -- 779
+text.length$ -- 21
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 96
-warning$ -- 10
-while$ -- 61
-width$ -- 26
-write$ -- 195
-(There were 11 warnings)
+type$ -- 156
+warning$ -- 11
+while$ -- 131
+width$ -- 41
+write$ -- 339
+(There were 12 warnings)
