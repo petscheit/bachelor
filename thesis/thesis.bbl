@@ -125,6 +125,11 @@ Groth, J.: On the size of pairing-based non-interactive arguments. In:
 Kulechov, S.: The aave protocol v2 (Dec 2020),
   \url{https://medium.com/aave/the-aave-protocol-v2-f06f299cee04}
 
+\bibitem{nakamoto2009bitcoin}
+Nakamoto, S.: Bitcoin: A peer-to-peer electronic cash system bitcoin: A
+  peer-to-peer electronic cash system. Bitcoin. org. Disponible en
+  https://bitcoin. org/en/bitcoin-paper  (2009)
+
 \bibitem{parno2013pinocchio}
 {Parno}, B., {Howell}, J., {Gentry}, C., {Raykova}, M.: Pinocchio: Nearly
   practical verifiable computation. In: 2013 IEEE Symposium on Security and

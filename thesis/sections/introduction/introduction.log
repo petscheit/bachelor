@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  8 MAR 2021 13:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  22 APR 2021 16:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/paul/Documents/projects/bachelor/thesis/sections/introduction.tex
-(/Users/paul/Documents/projects/bachelor/thesis/sections/introduction.tex
+**/Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.tex
+(/Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.tex
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/subfiles/subfiles.cls
@@ -15,21 +15,20 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks15
 \verbatim@in@stream=\read1
 )
-Preamble taken from file `../thesis.tex'
-(/Users/paul/Documents/projects/bachelor/thesis/sections/../thesis.tex (/usr/local/texlive/2018/texmf-dist/tex/latex/base/book.cls
-Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2018/texmf-dist/tex/latex/base/bk11.clo
-File: bk11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+Preamble taken from file `../../thesis.tex'
+(/Users/paul/Documents/projects/bachelor/thesis/sections/introduction/../../thesis.tex (/usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count80
-\c@chapter=\count81
-\c@section=\count82
-\c@subsection=\count83
-\c@subsubsection=\count84
-\c@paragraph=\count85
-\c@subparagraph=\count86
-\c@figure=\count87
-\c@table=\count88
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
@@ -46,9 +45,9 @@ Package ifvtex Info: VTeX not detected.
 ) (/usr/local/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count89
-\Gm@cntv=\count90
-\c@Gm@tempcnt=\count91
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
 \Gm@bindingoffset=\dimen103
 \Gm@wd@mp=\dimen104
 \Gm@odd@mp=\dimen105
@@ -88,7 +87,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks18
 \XKV@tempa@toks=\toks19
 )
-\XKV@depth=\count92
+\XKV@depth=\count91
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (/usr/local/texlive/2018/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
@@ -135,10 +134,10 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 \pgf@yc=\dimen122
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count93
-\c@pgf@countb=\count94
-\c@pgf@countc=\count95
-\c@pgf@countd=\count96
+\c@pgf@counta=\count92
+\c@pgf@countb=\count93
+\c@pgf@countc=\count94
+\c@pgf@countd=\count95
 \t@pgf@toka=\toks24
 \t@pgf@tokb=\toks25
 \t@pgf@tokc=\toks26
@@ -152,21 +151,21 @@ File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
 File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 ))) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count97
-\pgfsyssoftpath@bigbuffer@items=\count98
+\pgfsyssoftpath@smallbuffer@items=\count96
+\pgfsyssoftpath@bigbuffer@items=\count97
 ) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
 )) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
  (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen123
-\pgfmath@count=\count99
+\pgfmath@count=\count98
 \pgfmath@box=\box27
 \pgfmath@toks=\toks27
 \pgfmath@stack@operand=\toks28
 \pgfmath@stack@operation=\toks29
 ) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count100
+\c@pgfmathroundto@lastzeros=\count99
 )) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
 \pgf@picminx=\dimen124
@@ -196,7 +195,7 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box28
 \pgf@hbox=\box29
 \pgf@layerbox@main=\box30
-\pgf@picture@serial@count=\count101
+\pgf@picture@serial@count=\count100
 ) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
 \pgflinewidth=\dimen142
@@ -217,7 +216,7 @@ File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 ) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen147
-\pgf@sys@shading@range@num=\count102
+\pgf@sys@shading@range@num=\count101
 ) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
  (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
@@ -251,7 +250,7 @@ Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
  (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count103
+\pgf@plot@mark@count=\count102
 \pgfplotmarksize=\dimen152
 )
 \tikz@lastx=\dimen153
@@ -264,38 +263,206 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikz@figbox@bg=\box34
 \tikz@tempbox=\box35
 \tikz@tempbox@bg=\box36
-\tikztreelevel=\count104
-\tikznumberofchildren=\count105
-\tikznumberofcurrentchild=\count106
-\tikz@fig@count=\count107
+\tikztreelevel=\count103
+\tikznumberofchildren=\count104
+\tikznumberofcurrentchild=\count105
+\tikz@fig@count=\count106
  (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count108
-\pgfmatrixcurrentcolumn=\count109
-\pgf@matrix@numberofcolumns=\count110
+\pgfmatrixcurrentrow=\count107
+\pgfmatrixcurrentcolumn=\count108
+\pgf@matrix@numberofcolumns=\count109
 )
-\tikz@expandcount=\count111
+\tikz@expandcount=\count110
  (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 ))) (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count112
-\calc@Bcount=\count113
+\calc@Acount=\count111
+\calc@Bcount=\count112
 \calc@Adimen=\dimen159
 \calc@Bdimen=\dimen160
 \calc@Askip=\skip43
 \calc@Bskip=\skip44
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count114
+\calc@Ccount=\count113
 \calc@Cskip=\skip45
 )
-\c@@todonotes@numberoftodonotes=\count115
+\c@@todonotes@numberoftodonotes=\count114
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2012/05/23 Federico Garcia
-))) (/Users/paul/Documents/projects/bachelor/thesis/sections/introduction.aux)
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks32
+\ex@=\dimen161
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen162
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count115
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count116
+\leftroot@=\count117
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count118
+\DOTSCASE@=\count119
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box37
+\strutbox@=\box38
+\big@size=\dimen163
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count120
+\c@MaxMatrixCols=\count121
+\dotsspace@=\muskip10
+\c@parentequation=\count122
+\dspbrk@lvl=\count123
+\tag@help=\toks33
+\row@=\count124
+\column@=\count125
+\maxfields@=\count126
+\andhelp@=\toks34
+\eqnshift@=\dimen164
+\alignsep@=\dimen165
+\tagshift@=\dimen166
+\tagwidth@=\dimen167
+\totwidth@=\dimen168
+\lineht@=\dimen169
+\@envbody=\toks35
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks36
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen170
+\captionmargin@=\dimen171
+\captionwidth=\dimen172
+\caption@tempdima=\dimen173
+\caption@indent=\dimen174
+\caption@parindent=\dimen175
+\caption@hangindent=\dimen176
+)
+\c@ContinuedFloat=\count127
+)
+\c@KVtest=\count128
+\sf@farskip=\skip49
+\sf@captopadj=\dimen177
+\sf@capskip=\skip50
+\sf@nearskip=\skip51
+\c@subfigure=\count129
+\c@subfigure@save=\count130
+\c@lofdepth=\count131
+\c@subtable=\count132
+\c@subtable@save=\count133
+\c@lotdepth=\count134
+\sf@top=\skip52
+\sf@bottom=\skip53
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
+\heavyrulewidth=\dimen178
+\lightrulewidth=\dimen179
+\cmidrulewidth=\dimen180
+\belowrulesep=\dimen181
+\belowbottomsep=\dimen182
+\aboverulesep=\dimen183
+\abovetopsep=\dimen184
+\cmidrulesep=\dimen185
+\cmidrulekern=\dimen186
+\defaultaddspace=\dimen187
+\@cmidla=\count135
+\@cmidlb=\count136
+\@aboverulesep=\dimen188
+\@belowrulesep=\dimen189
+\@thisruleclass=\count137
+\@lastruleclass=\count138
+\@thisrulewidth=\dimen190
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footers
+\f@nch@headwidth=\skip54
+\f@nch@O@elh=\skip55
+\f@nch@O@erh=\skip56
+\f@nch@O@olh=\skip57
+\f@nch@O@orh=\skip58
+\f@nch@O@elf=\skip59
+\f@nch@O@erf=\skip60
+\f@nch@O@olf=\skip61
+\f@nch@O@orf=\skip62
+)
+
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 14.
+
+
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 15.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count139
+\algocf@hangindent=\skip63
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count140
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip64
+\skiplinenumber=\skip65
+\skiprule=\skip66
+\skiphlne=\skip67
+\skiptext=\skip68
+\skiplength=\skip69
+\algomargin=\skip70
+\skipalgocfslide=\skip71
+\algowidth=\dimen191
+\inoutsize=\dimen192
+\inoutindent=\dimen193
+\interspacetitleruled=\dimen194
+\interspacealgoruled=\dimen195
+\interspacetitleboxruled=\dimen196
+\algocf@ruledwidth=\skip72
+\algocf@inoutbox=\box39
+\algocf@inputbox=\box40
+\AlCapSkip=\skip73
+\AlCapHSkip=\skip74
+\algoskipindent=\skip75
+\algocf@nlbox=\box41
+\algocf@hangingbox=\box42
+\algocf@untilbox=\box43
+\algocf@skipuntil=\skip76
+\algocf@capbox=\box44
+\algocf@lcaptionbox=\skip77
+\algoheightruledefault=\skip78
+\algoheightrule=\skip79
+\algotitleheightruledefault=\skip80
+\algotitleheightrule=\skip81
+\c@algocfline=\count141
+\c@algocfproc=\count142
+\c@algocf=\count143
+\algocf@algoframe=\box45
+\algocf@algobox=\box46
+))) (/Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.aux)
 \openout1 = `introduction.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
@@ -318,7 +485,7 @@ LaTeX Font Info:    ... okay on input line 4.
 * paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: twoside 
+* modes: 
 * h-part:(L,W,R)=(115.63243pt, 366.24301pt, 115.63243pt)
 * v-part:(T,H,B)=(115.63243pt, 613.78198pt, 115.63243pt)
 * \paperwidth=597.50787pt
@@ -327,37 +494,37 @@ LaTeX Font Info:    ... okay on input line 4.
 * \textheight=613.78198pt
 * \oddsidemargin=43.36244pt
 * \evensidemargin=43.36244pt
-* \topmargin=11.48865pt
+* \topmargin=6.36244pt
 * \headheight=12.0pt
-* \headsep=19.8738pt
+* \headsep=25.0pt
 * \topskip=11.0pt
-* \footskip=27.46295pt
-* \marginparwidth=106.0pt
-* \marginparsep=7.0pt
+* \footskip=30.0pt
+* \marginparwidth=50.0pt
+* \marginparsep=10.0pt
 * \columnsep=10.0pt
 * \skip\footins=10.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
+* \@twosidefalse
+* \@mparswitchfalse
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count116
-\scratchdimen=\dimen161
-\scratchbox=\box37
-\nofMPsegments=\count117
-\nofMParguments=\count118
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count119
-\MPscratchDim=\dimen162
-\MPnumerator=\count120
-\makeMPintoPDFobject=\count121
-\everyMPtoPDFconversion=\toks33
+\scratchcounter=\count144
+\scratchdimen=\dimen197
+\scratchbox=\box47
+\nofMPsegments=\count145
+\nofMParguments=\count146
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count147
+\MPscratchDim=\dimen198
+\MPnumerator=\count148
+\makeMPintoPDFobject=\count149
+\everyMPtoPDFconversion=\toks38
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
  (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
@@ -396,80 +563,75 @@ Package grfext Info: Graphics extension search list:
  (/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) ABD: EveryShipout initializing macros
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+
 
 LaTeX Warning: Citation `wood2014ethereum' on page 1 undefined on input line 5.
 
 
-LaTeX Warning: Citation `kulechov_2020' on page 1 undefined on input line 13.
+LaTeX Warning: Citation `nakamoto2009bitcoin' on page 1 undefined on input line 5.
 
 
-LaTeX Warning: Citation `adams2020uniswap' on page 1 undefined on input line 13.
+LaTeX Warning: Citation `kulechov_2020' on page 1 undefined on input line 33.
 
 
-LaTeX Warning: Citation `kulechov_2020' on page 1 undefined on input line 13.
+LaTeX Warning: Citation `adams2020uniswap' on page 1 undefined on input line 33.
 
 
-LaTeX Warning: Citation `adams2020uniswap' on page 1 undefined on input line 13.
+LaTeX Warning: Citation `kulechov_2020' on page 1 undefined on input line 33.
 
 
-LaTeX Warning: Citation `adams2020uniswap' on page 1 undefined on input line 13.
+LaTeX Warning: Citation `adams2020uniswap' on page 1 undefined on input line 33.
 
 
-LaTeX Warning: Citation `gasprice' on page 1 undefined on input line 13.
+LaTeX Warning: Citation `adams2020uniswap' on page 1 undefined on input line 33.
 
 
-LaTeX Warning: Citation `adams2020uniswap' on page 1 undefined on input line 15.
+LaTeX Warning: Citation `gasprice' on page 1 undefined on input line 33.
 
-[1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
-]
+LaTeX Warning: Marginpar on page 1 moved.
+
+[1
+
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Citation `adams2020uniswap' on page 2 undefined on input line 35.
+
 <diagrams/gas_volume.png, id=11, 722.7pt x 289.08pt>
 File: diagrams/gas_volume.png Graphic file (type png)
 <use diagrams/gas_volume.png>
-Package pdftex.def Info: diagrams/gas_volume.png  used on input line 18.
+Package pdftex.def Info: diagrams/gas_volume.png  used on input line 38.
 (pdftex.def)             Requested size: 398.33534pt x 159.3356pt.
 
-
-LaTeX Warning: Citation `gasprice' on page 2 undefined on input line 23.
-
-
-LaTeX Warning: Citation `eth_gas_guzzlers' on page 2 undefined on input line 23.
+LaTeX Warning: Citation `gasprice' on page 2 undefined on input line 43.
 
 
-LaTeX Warning: Citation `uniswap_tx_fees' on page 2 undefined on input line 23.
+LaTeX Warning: Citation `eth_gas_guzzlers' on page 2 undefined on input line 43.
 
 
-LaTeX Warning: Citation `cummulative_vol' on page 2 undefined on input line 23.
+LaTeX Warning: Citation `uniswap_tx_fees' on page 2 undefined on input line 43.
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 25.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 25.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 25.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 25.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 25.
-[2 <./diagrams/gas_volume.png>]
 
-LaTeX Warning: Marginpar on page 3 moved.
+LaTeX Warning: Citation `cummulative_vol' on page 2 undefined on input line 43.
 
-[3] (/Users/paul/Documents/projects/bachelor/thesis/sections/introduction.aux)
+[2 <./diagrams/gas_volume.png>] [3] (/Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 12535 strings out of 492649
- 254639 string characters out of 6129622
- 303725 words of memory out of 5000000
- 16163 multiletter control sequences out of 15000+600000
- 7952 words of font info for 28 fonts, out of 8000000 for 9000
+ 15472 strings out of 492649
+ 301072 string characters out of 6129622
+ 367356 words of memory out of 5000000
+ 19050 multiletter control sequences out of 15000+600000
+ 8725 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,9n,76p,1197b,700s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,12n,98p,1210b,704s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/introduction.pdf (3 pages, 110947 bytes).
+Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.pdf (3 pages, 111665 bytes).
 PDF statistics:
  40 PDF objects out of 1000 (max. 8388607)
  27 compressed objects within 1 object stream

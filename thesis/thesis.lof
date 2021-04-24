@@ -1,0 +1,25 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Combined daily Uniswap trading volume in million USD and average daily Ethereum gas price\relax }}{4}
+\contentsline {figure}{\numberline {2}{\ignorespaces High level architecture of the system\relax }}{17}
+\contentsline {figure}{\numberline {3}{\ignorespaces Interaction diagram of aggregated deposits and withdraws\relax }}{25}
+\contentsline {figure}{\numberline {4}{\ignorespaces Interaction diagram of aggregated deposits and withdraws\relax }}{26}
+\contentsline {figure}{\numberline {5}{\ignorespaces Pseudocode of instant withdraw steps\relax }}{27}
+\contentsline {figure}{\numberline {6}{\ignorespaces Bid-ask spread and zkSwap price range\relax }}{29}
+\contentsline {figure}{\numberline {7}{\ignorespaces Steps of a trade aggregation batch.\relax }}{31}
+\contentsline {figure}{\numberline {8}{\ignorespaces Gas cost per trade and breakeven point\relax }}{36}
+\contentsline {figure}{\numberline {9}{\ignorespaces Gas cost per deposit assuming different share of Ether deposits\relax }}{37}
+\contentsline {figure}{\numberline {10}{\ignorespaces Gas cost per withdraws assuming different share of Ether withdraws in batch\relax }}{38}
+\contentsline {figure}{\numberline {11}{\ignorespaces Compilation and setup execution times\relax }}{39}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{39}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{39}
+\contentsline {figure}{\numberline {12}{\ignorespaces Witness computation and proof generation\relax }}{40}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{40}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{40}
+\contentsline {figure}{\numberline {13}{\ignorespaces Compilation and setup memory consumption\relax }}{41}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{41}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{41}
+\contentsline {figure}{\numberline {14}{\ignorespaces Witness computation and proof generation memory consumption\relax }}{41}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{41}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{41}
+\contentsline {figure}{\numberline {15}{\ignorespaces Constraint count for the circuits in different batch sizes\relax }}{42}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{42}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{42}

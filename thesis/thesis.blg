@@ -15,45 +15,45 @@ Warning--empty journal in baylinaeddsa
 Warning--empty year in baylinaeddsa
 Warning--empty journal in udovenko2020optimized
 Warning--empty journal in whinfrey2021hop
-You've used 39 entries,
+You've used 40 entries,
             2850 wiz_defined-function locations,
-            794 strings with 10483 characters,
-and the built_in function-call counts, 17431 in all, are:
-= -- 1366
-> -- 465
+            799 strings with 10681 characters,
+and the built_in function-call counts, 17763 in all, are:
+= -- 1390
+> -- 472
 < -- 21
-+ -- 202
-- -- 158
-* -- 1047
-:= -- 2120
-add.period$ -- 36
-call.type$ -- 39
-change.case$ -- 215
++ -- 205
+- -- 160
+* -- 1063
+:= -- 2168
+add.period$ -- 37
+call.type$ -- 40
+change.case$ -- 219
 chr.to.int$ -- 0
-cite$ -- 50
-duplicate$ -- 1597
-empty$ -- 1771
-format.name$ -- 177
-if$ -- 3851
+cite$ -- 51
+duplicate$ -- 1633
+empty$ -- 1807
+format.name$ -- 179
+if$ -- 3921
 int.to.chr$ -- 0
-int.to.str$ -- 39
-missing$ -- 305
-newline$ -- 123
-num.names$ -- 60
-pop$ -- 716
+int.to.str$ -- 40
+missing$ -- 312
+newline$ -- 126
+num.names$ -- 62
+pop$ -- 731
 preamble$ -- 1
-purify$ -- 158
+purify$ -- 161
 quote$ -- 0
-skip$ -- 534
+skip$ -- 542
 stack$ -- 0
-substring$ -- 902
-swap$ -- 779
+substring$ -- 915
+swap$ -- 791
 text.length$ -- 21
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 156
+type$ -- 160
 warning$ -- 11
-while$ -- 131
-width$ -- 41
-write$ -- 339
+while$ -- 134
+width$ -- 42
+write$ -- 348
 (There were 12 warnings)
