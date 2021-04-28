@@ -34,6 +34,7 @@ contract ZkSwap {
 
 	event BalanceUpdate(address _from, uint64 ethAmount, uint64 tokenAmount, uint64 nonce);
 	event Success(bytes32 yeah);
+	event Balance(uint amount);
 
 	function verifyTrade(
 		SharedTypes.Balance[] memory incomingBalances,
@@ -63,6 +64,7 @@ contract ZkSwap {
 		balances = newRoot; // reassigns
 		setTokenAmount(); // is called and updates
 	}
+		
 
 	function hashTradeData(SharedTypes.Balance[] memory incomingBalances, bytes32 newRoot, uint64 deltaEth, uint64 deltaToken, uint64 direction) // reimplement for dynamic array size
 		public
@@ -81,8 +83,8 @@ contract ZkSwap {
 		returns (bool)
 	{
 		if(direction == 0) { // Receiving tokens
-			require(_receiveToken(deltaToken * 1000000, msg.sender), "Tokens couldn't be received!");
-			require(_sendEth(deltaEth * 1000000, payable(msg.sender)), "Eth payment couldn't be sent!");
+			require(_receiveToken(uint(deltaToken) * 1000000, msg.sender), "Tokens couldn't be received!");
+			require(_sendEth(uint(deltaEth) * 1000000, payable(msg.sender)), "Eth payment couldn't be sent!");
 		} else if(direction == 1) { // receiving ETH
 			require((msg.value / 1000000) >= deltaEth, "Amount of Eth received to small!");
 			require(_sendToken(deltaToken * 1000000, msg.sender), "Token payment couldn't be sent!");
@@ -110,6 +112,7 @@ contract ZkSwap {
 		private
 		returns (bool)
 	{
+		emit Balance(amountWei);
 		return IERC20(erc20).transfer(_to, amountWei);
 	}
 
@@ -117,6 +120,7 @@ contract ZkSwap {
 		private
 		returns (bool)
 	{
+		emit Balance(amountWei);
 		return IERC20(erc20).transferFrom(sender, address(this), amountWei);
 	}
 
@@ -142,7 +146,7 @@ contract ZkSwap {
 		external
 		canUpdateBalance(0x0000000000000000000000000000000000000000, balanceProof, uint64(0), uint64(0), uint64(0)) // ensures we're taking an empty leaf
 	{
-		require(_receiveToken(depositAmount * 1000000, msg.sender));
+		require(_receiveToken(uint(depositAmount) * 1000000, msg.sender));
 		updateBalanceMerkle(balanceProof, hashBalance(msg.sender, uint64(0), depositAmount, uint64(1)));
 		emit BalanceUpdate(msg.sender, uint64(0), depositAmount, uint64(1));
 	}
@@ -151,7 +155,8 @@ contract ZkSwap {
 		external
 		canUpdateBalance(msg.sender, balanceProof, ethAmount, tokenAmount, nonce)
 	{
-		require(_receiveToken(depositAmount * 1000000, msg.sender));
+		emit Balance(depositAmount);
+		require(_receiveToken(uint(depositAmount) * 1000000, msg.sender));
 		updateBalanceMerkle(balanceProof, hashBalance(msg.sender, ethAmount, tokenAmount + depositAmount, nonce + 1));
 		emit BalanceUpdate(msg.sender, ethAmount, tokenAmount + depositAmount, nonce + 1);
 	}
@@ -163,7 +168,7 @@ contract ZkSwap {
 		require(ethAmount >= withdrawAmount);
 		updateBalanceMerkle(balanceProof, hashBalance(msg.sender, ethAmount - withdrawAmount, tokenAmount, nonce + 1));
 		emit BalanceUpdate(msg.sender, ethAmount - withdrawAmount, tokenAmount, nonce + 1);
-		require(_sendEth(withdrawAmount * 1000000, payable(msg.sender)));
+		require(_sendEth(uint(withdrawAmount) * 1000000, payable(msg.sender)));
 	}
 
 	function withdrawERC20(bytes32[] memory balanceProof, uint64 ethAmount, uint64 tokenAmount, uint64 nonce, uint64 withdrawAmount)
@@ -171,7 +176,8 @@ contract ZkSwap {
 		canUpdateBalance(msg.sender, balanceProof, ethAmount, tokenAmount, nonce)
 	{
 		require(tokenAmount >= withdrawAmount);
-		require(_sendToken(withdrawAmount * 1000000, msg.sender));
+		emit Balance(withdrawAmount);
+		require(_sendToken(uint(withdrawAmount) * 1000000, msg.sender));
 		updateBalanceMerkle(balanceProof, hashBalance(msg.sender, ethAmount, tokenAmount - withdrawAmount, nonce + 1));
 		emit BalanceUpdate(msg.sender, ethAmount, tokenAmount - withdrawAmount, nonce + 1);
 	}
