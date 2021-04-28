@@ -48,14 +48,6 @@ const getERC20Instance = async (address) => {
 const verifyTradeOnchain = async (balanceTxObject, proofObject, direction, deltaEth, deltaToken, oldRoot, newRoot) => {
     const web3 = await getWeb3(chain);
     let instance = await getProxyInstance();
-    console.log(balanceTxObject)
-    console.log(proofObject)
-    console.log(oldRoot)
-    console.log(newRoot)
-    console.log(direction)
-    console.log(deltaEth)
-    console.log(deltaToken)
-    console.log("______________________________")
     const data = instance.methods.verifyTrade(
         balanceTxObject,
         direction,
@@ -75,14 +67,6 @@ const verifyTradeOnchain = async (balanceTxObject, proofObject, direction, delta
         })
     console.log("Verification complete")
 }
-
-// route eth->token: 1000000000000000000 -> 2260641686129749542390
-// 	tokenPrice: 1000000000000000000 / 2260641686129749542390 = 0,0004423522782
-// 	ethPrice: 2260641686129749542390/1000000000000000000 = 2260,6416861297
-
-// token -> eth: 1000000000000000000 -> 419516425224156
-// 	tokenPrice: 419516425224156/1000000000000000000 = 0,0004195164252
-// 	ethPrice: 1000000000000000000/419516425224156 = 2383,6968945034
 
 const getLatestPrice = async function() {
   let instance = await getContractInstance();

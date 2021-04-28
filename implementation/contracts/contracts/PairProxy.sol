@@ -78,7 +78,6 @@ contract PairProxy {
 		uint64 direction,
 		uint64 ethDelta,
 		uint64 tokenDelta,
-        bytes32 oldRoot,
 		bytes32 newRoot,
 		uint[2] calldata a,
 		uint[2][2] calldata b,
@@ -89,10 +88,10 @@ contract PairProxy {
     {
         if(direction == 0){ // we're sending tokens that we bought. Must approve before verifying
             IERC20(token1).approve(address(zkSwap), tokenDelta * 1000000);
-            zkSwap.verifyTrade(incomingBalances, direction, ethDelta, tokenDelta, oldRoot, newRoot, a, b, c, dataHash);
+            zkSwap.verifyTrade(incomingBalances, direction, ethDelta, tokenDelta, newRoot, a, b, c, dataHash);
             // zkSwap.verifyTrade(direction, ethDelta, tokenDelta, newRoot, a, b, c, dataHash);
         } else { // we're sending eth, can send with TX
-            zkSwap.verifyTrade{value: ethDelta * 1000000}(incomingBalances, direction, ethDelta, tokenDelta, oldRoot, newRoot, a, b, c, dataHash);
+            zkSwap.verifyTrade{value: ethDelta * 1000000}(incomingBalances, direction, ethDelta, tokenDelta, newRoot, a, b, c, dataHash);
             // zkSwap.verifyTrade{value: ethDelta * 1000000}(direction, ethDelta, tokenDelta, newRoot, a, b, c, dataHash);
         }
     }

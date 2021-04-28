@@ -30,13 +30,6 @@ export const invokeListener = async function() {
         }
     )
 }
-// route eth->token: 1000000000000000000 -> 2260641686129749542390
-// 	tokenPrice: 1000000000000000000 / 2260641686129749542390 = 0,0004423522782
-// 	ethPrice: 2260641686129749542390/1000000000000000000 = 2260,6416861297
-
-// token -> eth: 1000000000000000000 -> 419516425224156
-// 	tokenPrice: 419516425224156/1000000000000000000 = 0,0004195164252
-// 	ethPrice: 1000000000000000000/419516425224156 = 2383,6968945034
 
 export const getLatestPrice = async function() {
   const instance = store.getState().contract.instance;
@@ -67,7 +60,7 @@ const depositERC20 = async function(amount) {
   const erc20Instance = store.getState().contract.erc;
   const registered = store.getState().user.registered;
   console.log("registered", registered)
-  console.log(amount)
+
   let proof;
   if(registered){
     proof = store.getState().contract.stateManager.getDepositProof(address)
@@ -78,6 +71,7 @@ const depositERC20 = async function(amount) {
   .send({
     from: address,
   })
+
   if(registered) {
     return instance.methods.depositERC20(proof[0], proof[1], proof[2], proof[3], amount).send({
       from: address,

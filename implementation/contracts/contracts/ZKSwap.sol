@@ -41,7 +41,6 @@ contract ZkSwap {
 		uint64 direction,
 		uint64 deltaEth,
 		uint64 deltaToken,
-		bytes32 oldRoot, 
 		bytes32 newRoot,
 		uint[2] calldata a,
 		uint[2][2] calldata b,
@@ -51,7 +50,6 @@ contract ZkSwap {
 		external
 		payable
 	{	
-		require(oldRoot == balances);
 		require(Verifier(verifier).verifyTx(a, b, c, dataHash), "Proof verification failed!"); // passes
 		require(handleTransactorPayment(direction, deltaEth, deltaToken), "Transactor payment failed!"); // passes
 		bytes32 result = hashTradeData(incomingBalances, newRoot, deltaEth, deltaToken, direction);
@@ -226,9 +224,6 @@ contract ZkSwap {
 		return computedHash;
 	}
 	
-	receive() external payable { // for testing...
-    }
-
 	function concatHashes(uint a, uint b)
         private
 		pure
@@ -240,14 +235,3 @@ contract ZkSwap {
        return bytes32(result);
     }
 }
-
-
-
-
-// route eth->token: 1000000000000000000 -> 2260641686129749542390
-// 	tokenPrice: 1000000000000000000 / 2260641686129749542390 = 0,0004423522782
-// 	ethPrice: 2260641686129749542390/1000000000000000000 = 2260,6416861297
-
-// token -> eth: 1000000000000000000 -> 419516425224156
-// 	tokenPrice: 419516425224156/1000000000000000000 = 0,0004195164252
-// 	ethPrice: 1000000000000000000/419516425224156 = 2383,6968945034
