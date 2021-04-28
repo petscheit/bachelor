@@ -71,41 +71,22 @@ class TransactorMerkle extends ZkMerkleTree {
     getMerklePaths(indices, balanceUpdates) {
         const tree = super.getTree("Balance"); 
         const oldRoot = tree.getHexRoot() //first store current root
-
         this.balancesTemp = this.balances; // copy state to temp balances
         let newRoot = null;
         for(let i = 0; i < indices.length; i++) {
             const tree = this.getTempTree();
             newRoot = tree.getRoot().toString('hex')
             let leaf = soliditySha256([this.balancesTemp[indices[i]].address, this.balancesTemp[indices[i]].ethAmount, this.balancesTemp[indices[i]].tokenAmount, this.balancesTemp[indices[i]].nonce])
-            let proof = tree.getHexProof(leaf)
-            console.log("Verified Locally:", tree.verify(proof, leaf, newRoot)) // true
+            // let proof = tree.getHexProof(leaf)
             let path = tree.getHexProof(leaf).map(elem => this.hexTo128bitInt(elem))
-            console.log(path)
+            
             balanceUpdates[i].merklePath = path;
             this.updateNewBalanceTemp(balanceUpdates[i].address, balanceUpdates[i].newEthAmount, balanceUpdates[i].newTokenAmount, balanceUpdates[i].newNonce)
-        }
-        return [balanceUpdates, this.hexTo128bitInt(oldRoot), "0x" + oldRoot, "0x" + newRoot]
-    }
-
-    getMerklePathsDepWith(indices, balanceUpdates) {
-        const tree = super.getTree("Balance"); 
-        const oldRoot = tree.getHexRoot() //first store current root
-
-        this.balancesTemp = this.balances; // copy state to temp balances
-        let newRoot = null;
-        for(let i = 0; i < indices.length; i++) {
-            const tree = this.getTempTree();
             newRoot = tree.getRoot().toString('hex')
-            let leaf = soliditySha256([this.balancesTemp[indices[i]].address, this.balancesTemp[indices[i]].ethAmount, this.balancesTemp[indices[i]].tokenAmount, this.balancesTemp[indices[i]].nonce])
-            let proof = tree.getHexProof(leaf)
-            console.log("Verified Locally:", tree.verify(proof, leaf, newRoot)) // true
-            let path = tree.getHexProof(leaf).map(elem => this.hexTo128bitInt(elem))
-            console.log(path)
-            balanceUpdates[i].merklePath = path;
-            this.updateNewBalanceTemp(balanceUpdates[i].address, balanceUpdates[i].newEthAmount, balanceUpdates[i].newTokenAmount, balanceUpdates[i].newNonce)
         }
-        return [balanceUpdates, this.hexTo128bitInt(oldRoot), "0x" + oldRoot, "0x" + newRoot]
+        const tempTree = this.getTempTree();
+        newRoot = tempTree.getRoot().toString('hex')
+        return [balanceUpdates, this.hexTo128bitInt(oldRoot), "0x" + newRoot]
     }
 
     getMulti(indices) {

@@ -94,16 +94,13 @@ class Transactor {
     console.log(updateObject.balanceUpdates)
     updateObject.balanceUpdates = proofData[0]
     const oldRootInt = proofData[1]
-    const oldRoot = proofData[2]
-    const newRoot = proofData[3]
+    const newRoot = proofData[2]
 
     this.zokratesHelper.prepareTrade(updateObject.balanceUpdates, oldRootInt)
-    // const newRoot = this.merkle.calcNewRoot(balances[1])
     this.zokratesHelper.computeWitness(this.latestPrices.ethToToken, this.latestPrices.tokenToEth)
       .then(proofObject => {
-        console.log(proofObject)
         const balancesTxObject = this.aggregator.buildBalanceTxObject(updateObject.balanceUpdates)
-        verifyTradeOnchain(balancesTxObject, proofObject, updateObject.direction, updateObject.deltaEth, updateObject.deltaToken, oldRoot, newRoot)
+        verifyTradeOnchain(balancesTxObject, proofObject, updateObject.direction, updateObject.deltaEth, updateObject.deltaToken, newRoot)
         .then(() => {
           
           console.log("Eagle has landed")

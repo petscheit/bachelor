@@ -45,7 +45,7 @@ const getERC20Instance = async (address) => {
 }
 
 
-const verifyTradeOnchain = async (balanceTxObject, proofObject, direction, deltaEth, deltaToken, oldRoot, newRoot) => {
+const verifyTradeOnchain = async (balanceTxObject, proofObject, direction, deltaEth, deltaToken, newRoot) => {
     const web3 = await getWeb3(chain);
     let instance = await getProxyInstance();
     const data = instance.methods.verifyTrade(
