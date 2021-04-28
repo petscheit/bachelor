@@ -1,7 +1,9 @@
 \relax 
+\catcode `"\active 
 \providecommand \oddpage@label [2]{}
+\babel@aux{english}{}
 \@writefile{toc}{\contentsline {subsection}{\numberline {0.1}Design}{1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces High level architecture of the system\relax }}{1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces High level architecture of zkSwap\relax }}{1}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:architecture}{{1}{1}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {0.1.1}zkSwap Smart-Contract}{2}}
@@ -14,65 +16,68 @@
 \@writefile{toc}{\contentsline {paragraph}{Aggregating Trades}{3}}
 \@writefile{toc}{\contentsline {paragraph}{Storing Balances in a Merkle Tree}{3}}
 \citation{benet2014ipfs}
-\citation{szydlo2004merkle}
 \@writefile{toc}{\contentsline {paragraph}{PairProxy Smart-Contract}{4}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {0.1.3}Client Frontend}{4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {0.2}Implementation}{4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.1}Storing and Updating Balances}{4}}
-\newlabel{balances}{{0.2.1}{4}}
-\@writefile{toc}{\contentsline {paragraph}{Merkle Trees}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.1}Technologies Used}{4}}
+\citation{szydlo2004merkle}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.2}Storing and Updating Balances}{5}}
+\newlabel{balances}{{0.2.2}{5}}
+\@writefile{toc}{\contentsline {paragraph}{Merkle Trees}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.3}Aggregating Balance Updates}{5}}
+\newlabel{aggr_balance}{{0.2.3}{5}}
 \citation{albrecht2016mimc}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.2}Aggregating Balance Updates}{5}}
-\newlabel{aggr_balance}{{0.2.2}{5}}
-\@writefile{toc}{\contentsline {paragraph}{Merkle Inclusion Proofs}{5}}
-\newlabel{chain_inclusion}{{0.2.2}{5}}
-\@writefile{toc}{\contentsline {paragraph}{Chaining Inclusion Proofs}{6}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Chained merkle inclusion proofs for verifying and updating balances\relax }}{6}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Computes merkle root of given parameters\relax }}{6}}
 \citation{deml_2019}
 \citation{baylinaeddsa}
-\@writefile{toc}{\contentsline {paragraph}{Authorizing Balance Updates}{7}}
-\@writefile{toc}{\contentsline {paragraph}{Creating a EdDSA Signature}{7}}
-\newlabel{exec_and_reduce}{{10}{7}}
-\@writefile{toc}{\contentsline {paragraph}{Reducing On-chain Verification Costs}{7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.3}Deposits}{8}}
-\@writefile{toc}{\contentsline {paragraph}{Movement of Funds}{8}}
-\newlabel{aggr_deps}{{0.2.3}{8}}
-\@writefile{toc}{\contentsline {paragraph}{Aggregating Deposits}{8}}
-\@writefile{toc}{\contentsline {paragraph}{Verifying Deposits On-chain}{9}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Interaction diagram of aggregated deposits and withdraws\relax }}{10}}
-\newlabel{fig:depWithAggr}{{2}{10}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.4}Withdraws}{10}}
-\newlabel{with}{{0.2.4}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Interaction diagram of aggregated deposits and withdraws\relax }}{11}}
-\newlabel{fig:depWithFlow}{{3}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.5}Instant Withdraws}{11}}
-\@writefile{toc}{\contentsline {paragraph}{Authorizing Instant Withdraws}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Pseudocode of instant withdraw steps\relax }}{12}}
-\newlabel{fig:instWith}{{4}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.6}Aggregating Trades}{12}}
-\@writefile{toc}{\contentsline {paragraph}{Ensuring Correct Pricing}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Bid-ask spread and zkSwap price range\relax }}{13}}
-\newlabel{fig:price}{{5}{13}}
-\@writefile{toc}{\contentsline {paragraph}{Adding an Trade Order}{14}}
-\@writefile{toc}{\contentsline {paragraph}{Executing Trade and Calculating New Balances}{14}}
-\@writefile{toc}{\contentsline {paragraph}{Checking Pricing in ZoKrates}{15}}
-\@writefile{toc}{\contentsline {paragraph}{Verifying Balances and Authorization in ZoKrates}{15}}
+\@writefile{toc}{\contentsline {paragraph}{Merkle Inclusion Proofs}{6}}
+\newlabel{chain_inclusion}{{0.2.3}{6}}
+\@writefile{toc}{\contentsline {paragraph}{Chaining Inclusion Proofs}{6}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Chained merkle inclusion proofs for verifying and updating balances\relax }}{7}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Computes merkle root of given parameters\relax }}{7}}
+\@writefile{toc}{\contentsline {paragraph}{Authorizing Balance Updates}{8}}
+\newlabel{signature}{{10}{8}}
+\@writefile{toc}{\contentsline {paragraph}{Creating a EdDSA Signature}{8}}
+\newlabel{exec_and_reduce}{{10}{8}}
+\@writefile{toc}{\contentsline {paragraph}{Reducing On-chain Verification Costs}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.4}Deposits}{9}}
+\@writefile{toc}{\contentsline {paragraph}{Movement of Funds}{9}}
+\newlabel{aggr_deps}{{0.2.4}{9}}
+\@writefile{toc}{\contentsline {paragraph}{Aggregating Deposits}{9}}
+\@writefile{toc}{\contentsline {paragraph}{Verifying Deposits On-chain}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Interaction diagram of aggregated deposits and withdraws\relax }}{11}}
+\newlabel{fig:depWithAggr}{{2}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.5}Withdraws}{11}}
+\newlabel{with}{{0.2.5}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Aggregated deposits and withdrawals in detail\relax }}{12}}
+\newlabel{fig:depWithFlow}{{3}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.6}Instant Withdraws}{12}}
+\@writefile{toc}{\contentsline {paragraph}{Authorizing Instant Withdraws}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Instant withdrawals in detail\relax }}{13}}
+\newlabel{fig:instWith}{{4}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.7}Aggregating Trades}{13}}
+\@writefile{toc}{\contentsline {paragraph}{Ensuring Correct Pricing}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Bid-ask spread and zkSwap price range\relax }}{14}}
+\newlabel{fig:price}{{5}{14}}
+\@writefile{toc}{\contentsline {paragraph}{Adding an Trade Order}{15}}
+\@writefile{toc}{\contentsline {paragraph}{Executing Trade and Calculating New Balances}{15}}
+\@writefile{toc}{\contentsline {paragraph}{Checking Pricing in ZoKrates}{16}}
+\@writefile{toc}{\contentsline {paragraph}{Verifying Balances and Authorization in ZoKrates}{16}}
 \@writefile{toc}{\contentsline {paragraph}{Reducing On-chain Verification Costs in ZoKrates}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Steps of a trade aggregation batch.\relax }}{16}}
-\newlabel{fig:zokrates}{{6}{16}}
-\@writefile{toc}{\contentsline {paragraph}{Generating Proof and Verifying}{16}}
-\@writefile{toc}{\contentsline {paragraph}{Recreating the Data Hash}{16}}
-\@writefile{toc}{\contentsline {paragraph}{Verifying the ZoKrates Proof}{17}}
-\@writefile{toc}{\contentsline {paragraph}{Exchanging Traded Funds}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Interaction diagram of aggregated trades\relax }}{17}}
+\newlabel{fig:zokrates}{{6}{17}}
+\@writefile{toc}{\contentsline {paragraph}{Generating Proof and Verifying}{17}}
+\@writefile{toc}{\contentsline {paragraph}{Recreating the Data Hash}{17}}
+\@writefile{toc}{\contentsline {paragraph}{Verifying the ZoKrates Proof}{18}}
+\@writefile{toc}{\contentsline {paragraph}{Exchanging Traded Funds}{18}}
 \@writefile{toc}{\contentsline {paragraph}{Updating Root and Emitting Balances}{18}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.7}PairProxy Smart Contract}{18}}
-\newlabel{pairProxy}{{0.2.7}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Aggregated trades in detail\relax }}{19}}
+\newlabel{fig:trade_aggr}{{7}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.8}PairProxy Smart Contract}{19}}
+\newlabel{pairProxy}{{0.2.8}{19}}
 \citation{hermez_docs}
 \citation{baylinaeddsa}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {0.2.8}Technologies Used}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {0.3}Limitiations of Current Implementation}{19}}
-\@writefile{toc}{\contentsline {paragraph}{Signatures}{19}}
-\@writefile{toc}{\contentsline {paragraph}{Updating Balances According to Effective Price}{19}}
-\@writefile{toc}{\contentsline {paragraph}{Hashing Function}{20}}
-\@writefile{toc}{\contentsline {paragraph}{Aggregating Deposits and Withdraws}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {0.3}Limitiations of Current Implementation}{20}}
+\@writefile{toc}{\contentsline {paragraph}{Signatures}{20}}
+\@writefile{toc}{\contentsline {paragraph}{Updating Balances According to Effective Price}{20}}
+\@writefile{toc}{\contentsline {paragraph}{Hashing Function}{21}}
+\@writefile{toc}{\contentsline {paragraph}{Aggregating Deposits and Withdraws}{21}}

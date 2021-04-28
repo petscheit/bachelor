@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  22 APR 2021 16:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  27 APR 2021 18:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -378,25 +378,49 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \c@lotdepth=\count134
 \sf@top=\skip52
 \sf@bottom=\skip53
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/02/14 3.18 The Babel package
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/babel-german/ngerman.ldf
+Language: ngerman 2018/03/29 v2.10 German support for babel (post-1996 orthography)
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/babel-german/ngermanb.ldf
+Language: ngermanb 2018/03/29 v2.10 German support for babel (post-1996 orthography)
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/02/14 3.18 Babel common definitions
+\babel@savecnt=\count135
+\U@D=\dimen178
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count136
+)
+Package babel Info: Making " an active character on input line 121.
+)) (/usr/local/texlive/2018/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2016/04/27 v1.618033 publication quality tables
-\heavyrulewidth=\dimen178
-\lightrulewidth=\dimen179
-\cmidrulewidth=\dimen180
-\belowrulesep=\dimen181
-\belowbottomsep=\dimen182
-\aboverulesep=\dimen183
-\abovetopsep=\dimen184
-\cmidrulesep=\dimen185
-\cmidrulekern=\dimen186
-\defaultaddspace=\dimen187
-\@cmidla=\count135
-\@cmidlb=\count136
-\@aboverulesep=\dimen188
-\@belowrulesep=\dimen189
-\@thisruleclass=\count137
-\@lastruleclass=\count138
-\@thisrulewidth=\dimen190
+\heavyrulewidth=\dimen179
+\lightrulewidth=\dimen180
+\cmidrulewidth=\dimen181
+\belowrulesep=\dimen182
+\belowbottomsep=\dimen183
+\aboverulesep=\dimen184
+\abovetopsep=\dimen185
+\cmidrulesep=\dimen186
+\cmidrulekern=\dimen187
+\defaultaddspace=\dimen188
+\@cmidla=\count137
+\@cmidlb=\count138
+\@aboverulesep=\dimen189
+\@belowrulesep=\dimen190
+\@thisruleclass=\count139
+\@lastruleclass=\count140
+\@thisrulewidth=\dimen191
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footers
 \f@nch@headwidth=\skip54
@@ -410,18 +434,18 @@ Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footers
 \f@nch@O@orf=\skip62
 )
 
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 14.
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 17.
 
 
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 15.
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 18.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count139
+\c@AlgoLine=\count141
 \algocf@hangindent=\skip63
  (/usr/local/texlive/2018/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count140
+\c@checkoddpage=\count142
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/relsize/relsize.sty
@@ -435,12 +459,12 @@ Package: relsize 2013/03/29 ver 4.1
 \skiplength=\skip69
 \algomargin=\skip70
 \skipalgocfslide=\skip71
-\algowidth=\dimen191
-\inoutsize=\dimen192
-\inoutindent=\dimen193
-\interspacetitleruled=\dimen194
-\interspacealgoruled=\dimen195
-\interspacetitleboxruled=\dimen196
+\algowidth=\dimen192
+\inoutsize=\dimen193
+\inoutindent=\dimen194
+\interspacetitleruled=\dimen195
+\interspacealgoruled=\dimen196
+\interspacetitleboxruled=\dimen197
 \algocf@ruledwidth=\skip72
 \algocf@inoutbox=\box39
 \algocf@inputbox=\box40
@@ -457,9 +481,9 @@ Package: relsize 2013/03/29 ver 4.1
 \algoheightrule=\skip79
 \algotitleheightruledefault=\skip80
 \algotitleheightrule=\skip81
-\c@algocfline=\count141
-\c@algocfproc=\count142
-\c@algocf=\count143
+\c@algocfline=\count143
+\c@algocfproc=\count144
+\c@algocf=\count145
 \algocf@algoframe=\box45
 \algocf@algobox=\box46
 ))) (/Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.aux)
@@ -514,16 +538,16 @@ LaTeX Font Info:    ... okay on input line 4.
 
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count144
-\scratchdimen=\dimen197
+\scratchcounter=\count146
+\scratchdimen=\dimen198
 \scratchbox=\box47
-\nofMPsegments=\count145
-\nofMParguments=\count146
+\nofMPsegments=\count147
+\nofMParguments=\count148
 \everyMPshowfont=\toks37
-\MPscratchCnt=\count147
-\MPscratchDim=\dimen198
-\MPnumerator=\count148
-\makeMPintoPDFobject=\count149
+\MPscratchCnt=\count149
+\MPscratchDim=\dimen199
+\MPnumerator=\count150
+\makeMPintoPDFobject=\count151
 \everyMPtoPDFconversion=\toks38
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -574,67 +598,43 @@ LaTeX Warning: Citation `wood2014ethereum' on page 1 undefined on input line 5.
 LaTeX Warning: Citation `nakamoto2009bitcoin' on page 1 undefined on input line 5.
 
 
-LaTeX Warning: Citation `kulechov_2020' on page 1 undefined on input line 33.
+LaTeX Warning: Citation `erc20' on page 1 undefined on input line 8.
 
 
-LaTeX Warning: Citation `adams2020uniswap' on page 1 undefined on input line 33.
+LaTeX Warning: Citation `kulechov_2020' on page 1 undefined on input line 11.
 
 
-LaTeX Warning: Citation `kulechov_2020' on page 1 undefined on input line 33.
+LaTeX Warning: Citation `adams2020uniswap' on page 1 undefined on input line 11.
 
 
-LaTeX Warning: Citation `adams2020uniswap' on page 1 undefined on input line 33.
-
-
-LaTeX Warning: Citation `adams2020uniswap' on page 1 undefined on input line 33.
-
-
-LaTeX Warning: Citation `gasprice' on page 1 undefined on input line 33.
-
-
-LaTeX Warning: Marginpar on page 1 moved.
+LaTeX Warning: Citation `adams2020uniswap' on page 1 undefined on input line 13.
 
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Citation `adams2020uniswap' on page 2 undefined on input line 35.
-
 <diagrams/gas_volume.png, id=11, 722.7pt x 289.08pt>
 File: diagrams/gas_volume.png Graphic file (type png)
 <use diagrams/gas_volume.png>
-Package pdftex.def Info: diagrams/gas_volume.png  used on input line 38.
+Package pdftex.def Info: diagrams/gas_volume.png  used on input line 16.
 (pdftex.def)             Requested size: 398.33534pt x 159.3356pt.
-
-LaTeX Warning: Citation `gasprice' on page 2 undefined on input line 43.
-
-
-LaTeX Warning: Citation `eth_gas_guzzlers' on page 2 undefined on input line 43.
-
-
-LaTeX Warning: Citation `uniswap_tx_fees' on page 2 undefined on input line 43.
-
-
-LaTeX Warning: Citation `cummulative_vol' on page 2 undefined on input line 43.
-
-[2 <./diagrams/gas_volume.png>] [3] (/Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.aux)
+ [2 <./diagrams/gas_volume.png>] (/Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 15472 strings out of 492649
- 301072 string characters out of 6129622
- 367356 words of memory out of 5000000
- 19050 multiletter control sequences out of 15000+600000
- 8725 words of font info for 32 fonts, out of 8000000 for 9000
+ 15997 strings out of 492649
+ 307530 string characters out of 6129622
+ 376988 words of memory out of 5000000
+ 19559 multiletter control sequences out of 15000+600000
+ 4248 words of font info for 16 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,12n,98p,1210b,704s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.pdf (3 pages, 111665 bytes).
+ 71i,11n,98p,1227b,334s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/introduction/introduction.pdf (2 pages, 88150 bytes).
 PDF statistics:
- 40 PDF objects out of 1000 (max. 8388607)
- 27 compressed objects within 1 object stream
+ 25 PDF objects out of 1000 (max. 8388607)
+ 16 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

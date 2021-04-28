@@ -1,3012 +1,1508 @@
 [
   {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "0",
-    "dailyVolumeUSD": "0",
-    "date": 1588636800,
-    "id": "18387",
-    "totalLiquidityETH": "0.004908523513507407",
-    "totalLiquidityUSD": "0.9889999999999999999999999999999999",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "0",
-    "dailyVolumeUSD": "0",
-    "date": 1588723200,
-    "id": "18388",
-    "totalLiquidityETH": "0.015921362843758435",
-    "totalLiquidityUSD": "3.205901078245611864832838471153563",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "0",
-    "dailyVolumeUSD": "0",
-    "date": 1588809600,
-    "id": "18389",
-    "totalLiquidityETH": "0.015921362843772577",
-    "totalLiquidityUSD": "3.205904320817102476152628363677479",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "0",
-    "dailyVolumeUSD": "0",
-    "date": 1588896000,
-    "id": "18390",
-    "totalLiquidityETH": "0.08871273859619242700000000000000001",
-    "totalLiquidityUSD": "18.81567240547130278983503413202888",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "0",
-    "dailyVolumeUSD": "0",
-    "date": 1589155200,
-    "id": "18393",
-    "totalLiquidityETH": "0.08877624195043786799999999999999999",
-    "totalLiquidityUSD": "18.75575726469834827925495451505825",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "0",
-    "dailyVolumeUSD": "0",
-    "date": 1589241600,
-    "id": "18394",
-    "totalLiquidityETH": "0.109178364964656712",
-    "totalLiquidityUSD": "14.13387998608355303556432554349372",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "0",
-    "dailyVolumeUSD": "0",
-    "date": 1589328000,
-    "id": "18395",
-    "totalLiquidityETH": "1.141321666883393337",
-    "totalLiquidityUSD": "231.9551243481523569026624342940402",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "0",
-    "dailyVolumeUSD": "0",
-    "date": 1589414400,
-    "id": "18396",
-    "totalLiquidityETH": "1.451668709835434226",
-    "totalLiquidityUSD": "314.3108566667041741638726302054363",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "0",
-    "dailyVolumeUSD": "0",
-    "date": 1589500800,
-    "id": "18397",
-    "totalLiquidityETH": "3.891071608996935154",
-    "totalLiquidityUSD": "757.3190631929862369568789660206656",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "0",
-    "dailyVolumeUSD": "0",
-    "date": 1589587200,
-    "id": "18398",
-    "totalLiquidityETH": "4.449025676102634987679590048566458",
-    "totalLiquidityUSD": "887.7901627703700927445429200041315",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "0",
-    "dailyVolumeUSD": "0",
-    "date": 1589673600,
-    "id": "18399",
-    "totalLiquidityETH": "5.579078228391374395557769896605064",
-    "totalLiquidityUSD": "1140.413904579444321761507300707686",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "0",
-    "dailyVolumeUSD": "0",
-    "date": 1589760000,
-    "id": "18400",
-    "totalLiquidityETH": "5987.47100239512282267917416589942",
-    "totalLiquidityUSD": "1274553.968036319064976753141039091",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "180.1697260549419070073137224094182",
-    "dailyVolumeUSD": "38046.08279573811780469315816796765",
-    "date": 1589846400,
-    "id": "18401",
-    "totalLiquidityETH": "21794.33232516459046761092261484141",
-    "totalLiquidityUSD": "4653179.148398675313960193675396653",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "1191.623753308619909303119754781879",
-    "dailyVolumeUSD": "250868.9786409112923188348137041577",
-    "date": 1589932800,
-    "id": "18402",
-    "totalLiquidityETH": "52489.83572216583650859879941401455",
-    "totalLiquidityUSD": "11029530.02592271861497236468080272",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "2427.884499328500089148779194077835",
-    "dailyVolumeUSD": "484247.5073567982749741933030150663",
-    "date": 1590019200,
-    "id": "18403",
-    "totalLiquidityETH": "54273.49971071456368351513229571396",
-    "totalLiquidityUSD": "10804628.66042090736199884602964983",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "1700.43231851591982980466976058506",
-    "dailyVolumeUSD": "345799.2098251617882037966692502722",
-    "date": 1590105600,
-    "id": "18404",
-    "totalLiquidityETH": "69104.30868671824861577632746403738",
-    "totalLiquidityUSD": "14325076.41669783716387373842739254",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "1434.864573536069025996729520927508",
-    "dailyVolumeUSD": "297187.985685403972211136533315452",
-    "date": 1590192000,
-    "id": "18405",
-    "totalLiquidityETH": "72562.93222364381743633157059174092",
-    "totalLiquidityUSD": "15019692.80229503240796964534320076",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "2849.536761796660812510233319933598",
-    "dailyVolumeUSD": "592574.4187574118252510970579276793",
-    "date": 1590278400,
-    "id": "18406",
-    "totalLiquidityETH": "72970.16505691527493206221121233125",
-    "totalLiquidityUSD": "14662086.96740211496533233567886485",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "1283.487100277850012018103806419823",
-    "dailyVolumeUSD": "259997.6435459063358162348286195723",
-    "date": 1590364800,
-    "id": "18407",
-    "totalLiquidityETH": "74255.5491393912889652723513436969",
-    "totalLiquidityUSD": "15143861.19101359651397832442289169",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "1704.015936859986321249847062429364",
-    "dailyVolumeUSD": "341621.0455902896700361406269865978",
-    "date": 1590451200,
-    "id": "18408",
-    "totalLiquidityETH": "75556.63132237872863717281286837612",
-    "totalLiquidityUSD": "15115680.08698123829795186908746421",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "1420.701763706970665994526798997153",
-    "dailyVolumeUSD": "291084.4230521146559875367886487162",
-    "date": 1590537600,
-    "id": "18409",
-    "totalLiquidityETH": "76177.02576404993503383661459666414",
-    "totalLiquidityUSD": "15758985.57723786591441709711111717",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "2793.194116733842737452677515054845",
-    "dailyVolumeUSD": "590599.9952291688450878540066150006",
-    "date": 1590624000,
-    "id": "18410",
-    "totalLiquidityETH": "75426.58522131235056654877135996276",
-    "totalLiquidityUSD": "16489302.58989777360593842309274893",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "6767.782238615009442897887365424172",
-    "dailyVolumeUSD": "1509136.735707609530976388759181288",
-    "date": 1590710400,
-    "id": "18411",
-    "totalLiquidityETH": "78050.92351225742260443089294047729",
-    "totalLiquidityUSD": "17170617.96019677642252677059182023",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "5321.776149602894108153974632341172",
-    "dailyVolumeUSD": "1244635.995674471460774856164418695",
-    "date": 1590796800,
-    "id": "18412",
-    "totalLiquidityETH": "93614.98732224547349338048242726972",
-    "totalLiquidityUSD": "22804649.48538440744597242597345201",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "4740.548334706612721239014638863987",
-    "dailyVolumeUSD": "1121430.564857197956392252963551924",
-    "date": 1590883200,
-    "id": "18413",
-    "totalLiquidityETH": "94726.42191115876916232724273559074",
-    "totalLiquidityUSD": "21925534.29693277790541405783777569",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "5503.827077801214271011800891313857",
-    "dailyVolumeUSD": "1318285.874495932521309331634074773",
-    "date": 1590969600,
-    "id": "18414",
-    "totalLiquidityETH": "96184.09712304523492405682293264963",
-    "totalLiquidityUSD": "23850510.42026095524124588979619873",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "7910.691329498091009901419104088439",
-    "dailyVolumeUSD": "1900322.269080958058008220660707098",
-    "date": 1591056000,
-    "id": "18415",
-    "totalLiquidityETH": "99989.5475560977057045300052054829",
-    "totalLiquidityUSD": "23612283.3374128325869605135251966",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "4344.432731138983578354662473652463",
-    "dailyVolumeUSD": "1039106.39495485101942637329203056",
-    "date": 1591142400,
-    "id": "18416",
-    "totalLiquidityETH": "100477.6787271135353180624736157527",
-    "totalLiquidityUSD": "24442060.56494985675844180979239773",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "4575.658261710009074305085226521366",
-    "dailyVolumeUSD": "1109304.035337771422988974384476794",
-    "date": 1591228800,
-    "id": "18417",
-    "totalLiquidityETH": "100737.7132323717600783027913663428",
-    "totalLiquidityUSD": "24450309.29580494734314759793777182",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "3931.968542964587883646887214258301",
-    "dailyVolumeUSD": "949848.4938664432925873364446968647",
-    "date": 1591315200,
-    "id": "18418",
-    "totalLiquidityETH": "103932.3787690505562483557979566427",
-    "totalLiquidityUSD": "24908974.02666251488545103088415116",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "4006.08502188581515380654413164939",
-    "dailyVolumeUSD": "962560.2956703705140576841928042209",
-    "date": 1591401600,
-    "id": "18419",
-    "totalLiquidityETH": "104919.5953396866478606022227851561",
-    "totalLiquidityUSD": "25378138.37963002515746985473660584",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "5468.48659602770121026723041248974",
-    "dailyVolumeUSD": "1313947.499944241342392713463370677",
-    "date": 1591488000,
-    "id": "18420",
-    "totalLiquidityETH": "106864.2842274874023120220952817448",
-    "totalLiquidityUSD": "26051204.80134943825142063145013911",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "6889.443321098546078177315739963067",
-    "dailyVolumeUSD": "1668961.870390980863524695283665411",
-    "date": 1591574400,
-    "id": "18421",
-    "totalLiquidityETH": "102362.1853976062735090789431700382",
-    "totalLiquidityUSD": "25135723.97898280452851776434123345",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "13026.93928796120813804366210678244",
-    "dailyVolumeUSD": "3157435.228062021027511336853863307",
-    "date": 1591660800,
-    "id": "18422",
-    "totalLiquidityETH": "113257.6927335461860968644808019319",
-    "totalLiquidityUSD": "27582094.86863907518798252299788109",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "10143.69293387313710492435227261219",
-    "dailyVolumeUSD": "2467230.855036461988308727681239701",
-    "date": 1591747200,
-    "id": "18423",
-    "totalLiquidityETH": "112693.5594415426779701116330933935",
-    "totalLiquidityUSD": "27915763.74018904417117853491568911",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "20144.86486690759927003779317320383",
-    "dailyVolumeUSD": "4839095.476555666445011747654751358",
-    "date": 1591833600,
-    "id": "18424",
-    "totalLiquidityETH": "116234.9657328183938038135097916806",
-    "totalLiquidityUSD": "26712141.97547473603976588218294349",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "6724.44168232117467393155152611103",
-    "dailyVolumeUSD": "1579740.286965294191114062956808165",
-    "date": 1591920000,
-    "id": "18425",
-    "totalLiquidityETH": "119179.9988260495708078399238010294",
-    "totalLiquidityUSD": "28335733.5445618982051089267450814",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "5991.028649900971688295421665161003",
     "dailyVolumeUSD": "1418871.906819682028085036433513494",
     "date": 1592006400,
-    "id": "18426",
-    "totalLiquidityETH": "121236.6188482245548874962713929588",
-    "totalLiquidityUSD": "28860160.68909876470704661212176381",
-    "totalVolumeUSD": "0"
+    "id": "18426"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "5237.446854552343250036867619474061",
     "dailyVolumeUSD": "1224525.983167023999006534025640577",
     "date": 1592092800,
-    "id": "18427",
-    "totalLiquidityETH": "121288.0324839126123965638471521177",
-    "totalLiquidityUSD": "27865413.16679300912498109027415969",
-    "totalVolumeUSD": "0"
+    "id": "18427"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "22040.32869538725132264507762510099",
     "dailyVolumeUSD": "4958816.581208096996542499124343877",
     "date": 1592179200,
-    "id": "18428",
-    "totalLiquidityETH": "142251.2912922245605670317601983044",
-    "totalLiquidityUSD": "32648286.88289223278844882611935708",
-    "totalVolumeUSD": "0"
+    "id": "18428"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "13674.79361990532996852785683220579",
     "dailyVolumeUSD": "3165249.121357308232431531325272427",
     "date": 1592265600,
-    "id": "18429",
-    "totalLiquidityETH": "142692.092633910738735784701920644",
-    "totalLiquidityUSD": "33397529.47693046461585456896859981",
-    "totalVolumeUSD": "0"
+    "id": "18429"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "222233.54930360633346253460077041",
     "dailyVolumeUSD": "51186700.02758505782144574760289977",
     "date": 1592352000,
-    "id": "18430",
-    "totalLiquidityETH": "146301.6487762243126905894246288479",
-    "totalLiquidityUSD": "33770036.75596695936367596474497311",
-    "totalVolumeUSD": "0"
+    "id": "18430"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "131014.501035037842163577740412354",
     "dailyVolumeUSD": "30157969.40589540972083493236775747",
     "date": 1592438400,
-    "id": "18431",
-    "totalLiquidityETH": "156497.9483492439336747572146996223",
-    "totalLiquidityUSD": "36036436.74851076423828664630662351",
-    "totalVolumeUSD": "0"
+    "id": "18431"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "137609.4096631391926377051728056161",
     "dailyVolumeUSD": "31332805.1052955108584346462466281",
     "date": 1592524800,
-    "id": "18432",
-    "totalLiquidityETH": "159887.426502451231131557546769401",
-    "totalLiquidityUSD": "36304247.50749232843797585547489444",
-    "totalVolumeUSD": "0"
+    "id": "18432"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "27701.86335198206706744945039215164",
     "dailyVolumeUSD": "6276776.810766834160194532545837436",
     "date": 1592611200,
-    "id": "18433",
-    "totalLiquidityETH": "165158.6950799746064188999283941259",
-    "totalLiquidityUSD": "37512301.62099254524638569285517753",
-    "totalVolumeUSD": "0"
+    "id": "18433"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "51376.20654291901801412540298762644",
     "dailyVolumeUSD": "11744645.26068259076498679400887298",
     "date": 1592697600,
-    "id": "18434",
-    "totalLiquidityETH": "153085.992537308182207672529851638",
-    "totalLiquidityUSD": "34820980.97955848477532662719573276",
-    "totalVolumeUSD": "0"
+    "id": "18434"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "52979.06071599067788938076538850118",
     "dailyVolumeUSD": "12534928.53022864039189309044026679",
     "date": 1592784000,
-    "id": "18435",
-    "totalLiquidityETH": "155971.1647470084457558868285768919",
-    "totalLiquidityUSD": "37744651.88071115191174652388420319",
-    "totalVolumeUSD": "0"
+    "id": "18435"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "46483.93168080664999099381852252177",
     "dailyVolumeUSD": "11369317.08081295951164691527179655",
     "date": 1592870400,
-    "id": "18436",
-    "totalLiquidityETH": "161338.3484016882092564349213730701",
-    "totalLiquidityUSD": "39018142.16875800545894209083849789",
-    "totalVolumeUSD": "0"
+    "id": "18436"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "43718.81030498987926511384260744563",
     "dailyVolumeUSD": "10414574.9619022444516457429594583",
     "date": 1592956800,
-    "id": "18437",
-    "totalLiquidityETH": "150146.8579870013358129118274251157",
-    "totalLiquidityUSD": "35007735.17577470773822564312539521",
-    "totalVolumeUSD": "0"
+    "id": "18437"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "63884.1047791516947656053796233322",
     "dailyVolumeUSD": "14839110.563221309271304644728159",
     "date": 1593043200,
-    "id": "18438",
-    "totalLiquidityETH": "142165.8699275781374647511500186436",
-    "totalLiquidityUSD": "33024210.79473586603673509218382137",
-    "totalVolumeUSD": "0"
+    "id": "18438"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "51497.43626522714819936665264636914",
     "dailyVolumeUSD": "11842435.59812208958892629427227824",
     "date": 1593129600,
-    "id": "18439",
-    "totalLiquidityETH": "148570.8636347662437159415059893154",
-    "totalLiquidityUSD": "34083242.79628353649702858321582842",
-    "totalVolumeUSD": "0"
+    "id": "18439"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "55240.39246576327592053805994054454",
     "dailyVolumeUSD": "12477834.74929568205658342947889148",
     "date": 1593216000,
-    "id": "18440",
-    "totalLiquidityETH": "159077.2101699357066086070879345598",
-    "totalLiquidityUSD": "35007427.46983781567080301019022526",
-    "totalVolumeUSD": "0"
+    "id": "18440"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "32489.17873011993150258785960812686",
     "dailyVolumeUSD": "7242226.663779236472656450338460536",
     "date": 1593302400,
-    "id": "18441",
-    "totalLiquidityETH": "160772.2018099642000441185745005708",
-    "totalLiquidityUSD": "36070565.24158173813543398007311118",
-    "totalVolumeUSD": "0"
+    "id": "18441"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "46264.98833468695226032088320112489",
     "dailyVolumeUSD": "10362642.17423020486586961389752003",
     "date": 1593388800,
-    "id": "18442",
-    "totalLiquidityETH": "172699.6006276377328053698362406622",
-    "totalLiquidityUSD": "39147419.14885634034860114637379212",
-    "totalVolumeUSD": "0"
+    "id": "18442"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "43954.47294625228488341165165773371",
     "dailyVolumeUSD": "9899112.54358922544973586734776073",
     "date": 1593475200,
-    "id": "18443",
-    "totalLiquidityETH": "183632.4352411614687847562884465159",
-    "totalLiquidityUSD": "41228806.62875165232137213442980313",
-    "totalVolumeUSD": "0"
+    "id": "18443"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "58505.28359985305918731509056778485",
     "dailyVolumeUSD": "13235159.38011935337909869690280192",
     "date": 1593561600,
-    "id": "18444",
-    "totalLiquidityETH": "193460.8876947630817608088399447174",
-    "totalLiquidityUSD": "44263527.44594519597342091649031659",
-    "totalVolumeUSD": "0"
+    "id": "18444"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "66556.33640367487382200388462827162",
     "dailyVolumeUSD": "15048457.35436460015893209999898522",
     "date": 1593648000,
-    "id": "18445",
-    "totalLiquidityETH": "187852.0180259653221777806479540861",
-    "totalLiquidityUSD": "42126488.49152743401402654766342694",
-    "totalVolumeUSD": "0"
+    "id": "18445"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "58645.73361980912700735130971632176",
     "dailyVolumeUSD": "13153208.0626500661114683286007902",
     "date": 1593734400,
-    "id": "18446",
-    "totalLiquidityETH": "189684.9786168621251653866246664152",
-    "totalLiquidityUSD": "42319921.57814770418065676619776634",
-    "totalVolumeUSD": "0"
+    "id": "18446"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "40403.39974811190826314407083215562",
     "dailyVolumeUSD": "9072502.165199885307936763263533544",
     "date": 1593820800,
-    "id": "18447",
-    "totalLiquidityETH": "190550.6116545210005261284630494684",
-    "totalLiquidityUSD": "43250568.72805395264674060660840533",
-    "totalVolumeUSD": "0"
+    "id": "18447"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "34850.46567330114782670148665838004",
     "dailyVolumeUSD": "7830160.503173699329646896609769715",
     "date": 1593907200,
-    "id": "18448",
-    "totalLiquidityETH": "196219.6948478816530686224377904194",
-    "totalLiquidityUSD": "44228644.39023232734932878104964591",
-    "totalVolumeUSD": "0"
+    "id": "18448"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "43933.65929031933934999526759039617",
     "dailyVolumeUSD": "10229539.22308357286517851353572265",
     "date": 1593993600,
-    "id": "18449",
-    "totalLiquidityETH": "196059.3326742038448153873716609608",
-    "totalLiquidityUSD": "46994407.21840321709783905114045407",
-    "totalVolumeUSD": "0"
+    "id": "18449"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "37218.62865248919207704057143180523",
     "dailyVolumeUSD": "8814589.564116453049033830844257749",
     "date": 1594080000,
-    "id": "18450",
-    "totalLiquidityETH": "202809.6225459573338603812673590827",
-    "totalLiquidityUSD": "48089679.07610271567377562997646073",
-    "totalVolumeUSD": "0"
+    "id": "18450"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "55302.73296570254766278711677697632",
     "dailyVolumeUSD": "13377561.58446938391017783506560422",
     "date": 1594166400,
-    "id": "18451",
-    "totalLiquidityETH": "215795.5120848953869114282977859462",
-    "totalLiquidityUSD": "52934211.38952396165493807763647641",
-    "totalVolumeUSD": "0"
+    "id": "18451"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "67444.52194710932060955190106813087",
     "dailyVolumeUSD": "16307568.11288973984322648028401117",
     "date": 1594252800,
-    "id": "18452",
-    "totalLiquidityETH": "240837.0506467777570053928979957942",
-    "totalLiquidityUSD": "57987434.12034136574325350062893423",
-    "totalVolumeUSD": "0"
+    "id": "18452"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "63991.08409561648073131254246028198",
     "dailyVolumeUSD": "15183316.39765225217936781865837454",
     "date": 1594339200,
-    "id": "18453",
-    "totalLiquidityETH": "239824.0644040881070928867536348941",
-    "totalLiquidityUSD": "57554450.73992879703673722263405899",
-    "totalVolumeUSD": "0"
+    "id": "18453"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "71338.22606193397299921320815971954",
     "dailyVolumeUSD": "16975695.65103953642783959730731237",
     "date": 1594425600,
-    "id": "18454",
-    "totalLiquidityETH": "257417.8916395589638120446894102252",
-    "totalLiquidityUSD": "61112860.48241779314795925476845318",
-    "totalVolumeUSD": "0"
+    "id": "18454"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "101957.54326123824692686950934507",
     "dailyVolumeUSD": "24242082.57519387496718893247663951",
     "date": 1594512000,
-    "id": "18455",
-    "totalLiquidityETH": "262145.2436687660646583895747222741",
-    "totalLiquidityUSD": "62899079.78483313189645154250008811",
-    "totalVolumeUSD": "0"
+    "id": "18455"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "170663.4214234795803470871227112319",
     "dailyVolumeUSD": "41127410.393594307088439049147417",
     "date": 1594598400,
-    "id": "18456",
-    "totalLiquidityETH": "266483.1495599067391115510218512418",
-    "totalLiquidityUSD": "63251278.37868732365700761321537401",
-    "totalVolumeUSD": "0"
+    "id": "18456"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "95627.64879233261901887909816390884",
     "dailyVolumeUSD": "22752133.08697555058659328116581235",
     "date": 1594684800,
-    "id": "18457",
-    "totalLiquidityETH": "273732.2145282712301552695834638602",
-    "totalLiquidityUSD": "65487660.89871151819249474934369144",
-    "totalVolumeUSD": "0"
+    "id": "18457"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "103205.4567438267988086324091142375",
     "dailyVolumeUSD": "24522542.11737812316045412715802121",
     "date": 1594771200,
-    "id": "18458",
-    "totalLiquidityETH": "291707.7835480100353323741847415926",
-    "totalLiquidityUSD": "69151180.43476393786521890315470908",
-    "totalVolumeUSD": "0"
+    "id": "18458"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "95959.70232445905824907206799655757",
     "dailyVolumeUSD": "22297678.974408237161947344942369",
     "date": 1594857600,
-    "id": "18459",
-    "totalLiquidityETH": "317653.564394641507467627648998128",
-    "totalLiquidityUSD": "73915518.00551315667370119665612931",
-    "totalVolumeUSD": "0"
+    "id": "18459"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "157963.9064497726510224281659451221",
     "dailyVolumeUSD": "36627200.06280198731001079387125411",
     "date": 1594944000,
-    "id": "18460",
-    "totalLiquidityETH": "337777.7669607823575629036961688353",
-    "totalLiquidityUSD": "78303207.87651608344587256618746051",
-    "totalVolumeUSD": "0"
+    "id": "18460"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "160884.0552914700433832065232752278",
     "dailyVolumeUSD": "37473255.37319175136533339485719804",
     "date": 1595030400,
-    "id": "18461",
-    "totalLiquidityETH": "346299.4739992330653234910481431746",
-    "totalLiquidityUSD": "81133072.61924081797347090989651268",
-    "totalVolumeUSD": "0"
+    "id": "18461"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "155738.3073862750379861920000184137",
     "dailyVolumeUSD": "36369103.49404724075430112248159093",
     "date": 1595116800,
-    "id": "18462",
-    "totalLiquidityETH": "365826.2256411795757066356473412948",
-    "totalLiquidityUSD": "87421688.32004066681421096400907992",
-    "totalVolumeUSD": "0"
+    "id": "18462"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "184902.7595375763422344927656160601",
     "dailyVolumeUSD": "43793966.16703667224911518764962037",
     "date": 1595203200,
-    "id": "18463",
-    "totalLiquidityETH": "370834.5796801301299200798019747732",
-    "totalLiquidityUSD": "86912474.68091359960781002571785279",
-    "totalVolumeUSD": "0"
+    "id": "18463"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "186641.0137429453019649016533384471",
     "dailyVolumeUSD": "44970349.96825035984676373945799094",
     "date": 1595289600,
-    "id": "18464",
-    "totalLiquidityETH": "378804.6319426423490699262582713222",
-    "totalLiquidityUSD": "92334982.44098744224578401212559089",
-    "totalVolumeUSD": "0"
+    "id": "18464"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "218905.0123314722965526676462770915",
     "dailyVolumeUSD": "53855098.36742540617666331072123041",
     "date": 1595376000,
-    "id": "18465",
-    "totalLiquidityETH": "363996.534958337402868003284432226",
-    "totalLiquidityUSD": "95317421.92790913579069451712016198",
-    "totalVolumeUSD": "0"
+    "id": "18465"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "230781.2323204961587500367597642859",
     "dailyVolumeUSD": "61389083.353381046182834233259676",
     "date": 1595462400,
-    "id": "18466",
-    "totalLiquidityETH": "363945.6746689386113772153350511144",
-    "totalLiquidityUSD": "99630803.7870102538836226159175724",
-    "totalVolumeUSD": "0"
+    "id": "18466"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "224297.6455912755090378175598427722",
     "dailyVolumeUSD": "61508740.1572541338277466161276655",
     "date": 1595548800,
-    "id": "18467",
-    "totalLiquidityETH": "392247.3825148021084081747549332358",
-    "totalLiquidityUSD": "108275550.0422301471236242709099112",
-    "totalVolumeUSD": "0"
+    "id": "18467"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "297059.33013445696990941043903809",
     "dailyVolumeUSD": "85029056.61613093141866560681538325",
     "date": 1595635200,
-    "id": "18468",
-    "totalLiquidityETH": "416181.1775250486695905227211098894",
-    "totalLiquidityUSD": "126667689.2580766688149414676339243",
-    "totalVolumeUSD": "0"
+    "id": "18468"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "298242.8352417973773854923078077261",
     "dailyVolumeUSD": "91366557.6954057232854437207570144",
     "date": 1595721600,
-    "id": "18469",
-    "totalLiquidityETH": "436085.0448482159022159724252643951",
-    "totalLiquidityUSD": "135311595.8420970569292921099475002",
-    "totalVolumeUSD": "0"
+    "id": "18469"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "379149.8289643814732194710376780646",
     "dailyVolumeUSD": "121947686.1277959740674151498646315",
     "date": 1595808000,
-    "id": "18470",
-    "totalLiquidityETH": "450072.6632545396950432789712069061",
-    "totalLiquidityUSD": "143633269.295414513051203025587553",
-    "totalVolumeUSD": "0"
+    "id": "18470"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "254660.4997806777833079360040212301",
     "dailyVolumeUSD": "80368942.10480424246230228973068087",
     "date": 1595894400,
-    "id": "18471",
-    "totalLiquidityETH": "459500.6397277735637260377806409621",
-    "totalLiquidityUSD": "144754211.5400200230825593821236857",
-    "totalVolumeUSD": "0"
+    "id": "18471"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "287362.6986052874411230517056119348",
     "dailyVolumeUSD": "91026691.33999592199313792278178982",
     "date": 1595980800,
-    "id": "18472",
-    "totalLiquidityETH": "449765.1774743348747732722873176939",
-    "totalLiquidityUSD": "141334131.5810294656777099788604398",
-    "totalVolumeUSD": "0"
+    "id": "18472"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "354529.5216902222983272275715083964",
     "dailyVolumeUSD": "112485532.6851007202671503882158928",
     "date": 1596067200,
-    "id": "18473",
-    "totalLiquidityETH": "428066.7894912347756770400081258233",
-    "totalLiquidityUSD": "141945870.4204441682234191322897725",
-    "totalVolumeUSD": "0"
+    "id": "18473"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "317206.3990502193110952760607649549",
     "dailyVolumeUSD": "107058142.6948724150909429880627923",
     "date": 1596153600,
-    "id": "18474",
-    "totalLiquidityETH": "441528.3804578496344175481332816426",
-    "totalLiquidityUSD": "151853908.7251311385609958495785803",
-    "totalVolumeUSD": "0"
+    "id": "18474"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "243097.772033253302499649881631561",
     "dailyVolumeUSD": "87169571.74065541811290405979340083",
     "date": 1596240000,
-    "id": "18475",
-    "totalLiquidityETH": "443323.5925937298942944089224792597",
-    "totalLiquidityUSD": "170021688.1563219736460564175632367",
-    "totalVolumeUSD": "0"
+    "id": "18475"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "210740.2686055916796484731623825811",
     "dailyVolumeUSD": "79203153.16888192650869577905729029",
     "date": 1596326400,
-    "id": "18476",
-    "totalLiquidityETH": "435362.8500309245073259832062435811",
-    "totalLiquidityUSD": "160305044.0390734918536281384532746",
-    "totalVolumeUSD": "0"
+    "id": "18476"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "193932.5726013109710433345313750808",
     "dailyVolumeUSD": "74710425.90698079049818043386936128",
     "date": 1596412800,
-    "id": "18477",
-    "totalLiquidityETH": "451030.4306239159399495990662515972",
-    "totalLiquidityUSD": "173454249.6495061871297934731402847",
-    "totalVolumeUSD": "0"
+    "id": "18477"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "189448.393725138787292820958747833",
     "dailyVolumeUSD": "73637769.19133816700147127415931943",
     "date": 1596499200,
-    "id": "18478",
-    "totalLiquidityETH": "463409.8171089179346860136899737413",
-    "totalLiquidityUSD": "179890793.8229454542387660214897682",
-    "totalVolumeUSD": "0"
+    "id": "18478"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "161447.4983380280815035972661601271",
     "dailyVolumeUSD": "63357952.69160542415705457898050088",
     "date": 1596585600,
-    "id": "18479",
-    "totalLiquidityETH": "471161.7703640172045452705713081862",
-    "totalLiquidityUSD": "187698717.9554959015809777985246133",
-    "totalVolumeUSD": "0"
+    "id": "18479"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "170657.8214753910130848018551721964",
     "dailyVolumeUSD": "67398943.07465475368129583716911553",
     "date": 1596672000,
-    "id": "18480",
-    "totalLiquidityETH": "491164.4321976212177824862204017035",
-    "totalLiquidityUSD": "192848785.2080146965803210132348403",
-    "totalVolumeUSD": "0"
+    "id": "18480"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "273113.7133519797650566811522226322",
     "dailyVolumeUSD": "104808969.2924003168424312449238769",
     "date": 1596758400,
-    "id": "18481",
-    "totalLiquidityETH": "530378.7876373169337819627913281657",
-    "totalLiquidityUSD": "199910842.955310017577592607238294",
-    "totalVolumeUSD": "0"
+    "id": "18481"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "271365.270476644642342342607754862",
     "dailyVolumeUSD": "104331084.2295901345639203467518129",
     "date": 1596844800,
-    "id": "18482",
-    "totalLiquidityETH": "546602.0320952933589422779394602249",
-    "totalLiquidityUSD": "214765081.240390771279533989712949",
-    "totalVolumeUSD": "0"
+    "id": "18482"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "302155.8285211535287206422452798844",
     "dailyVolumeUSD": "117812450.4880267515646216699196361",
     "date": 1596931200,
-    "id": "18483",
-    "totalLiquidityETH": "569742.5082268621958713094191543577",
-    "totalLiquidityUSD": "221720086.5120670820721678561565023",
-    "totalVolumeUSD": "0"
+    "id": "18483"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "480044.8588888155665603820738850736",
     "dailyVolumeUSD": "193357472.4745183303408011625615743",
     "date": 1597017600,
-    "id": "18484",
-    "totalLiquidityETH": "579989.5446895363046883126689469617",
-    "totalLiquidityUSD": "228329167.1021986732902932146845606",
-    "totalVolumeUSD": "0"
+    "id": "18484"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "381906.0805514361739347409714735512",
     "dailyVolumeUSD": "146898572.5335872434848310892524393",
     "date": 1597104000,
-    "id": "18485",
-    "totalLiquidityETH": "620673.2251566422779300435516465923",
-    "totalLiquidityUSD": "234843106.6106005617476954077249623",
-    "totalVolumeUSD": "0"
+    "id": "18485"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "627311.9561690826582993014280456176",
     "dailyVolumeUSD": "238234901.291406941179904324529595",
     "date": 1597190400,
-    "id": "18486",
-    "totalLiquidityETH": "758374.4472521592326990458538708324",
-    "totalLiquidityUSD": "291950348.1074752968149388145462796",
-    "totalVolumeUSD": "0"
+    "id": "18486"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "626504.4591296459386174396551102572",
     "dailyVolumeUSD": "245038626.3316443297964399722340145",
     "date": 1597276800,
-    "id": "18487",
-    "totalLiquidityETH": "650089.0380283545059274124845763566",
-    "totalLiquidityUSD": "275424161.2035959357898205012492144",
-    "totalVolumeUSD": "0"
+    "id": "18487"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "398169.0557480346763400546060651578",
     "dailyVolumeUSD": "170342877.0373047381334660017959754",
     "date": 1597363200,
-    "id": "18488",
-    "totalLiquidityETH": "611286.6341074725384671591063067133",
-    "totalLiquidityUSD": "266207197.2839702200750167227159478",
-    "totalVolumeUSD": "0"
+    "id": "18488"
   },
   {
-    "__typename": "UniswapDayData",
     "dailyVolumeETH": "342738.5914205251921917768264723023",
     "dailyVolumeUSD": "149100194.9363764041571153479251799",
     "date": 1597449600,
-    "id": "18489",
-    "totalLiquidityETH": "630610.7103066381718655256931774961",
-    "totalLiquidityUSD": "271542457.8543349693673540700129463",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18489"
+  }, {
     "dailyVolumeETH": "357441.1578626304026393148031632442",
     "dailyVolumeUSD": "152527582.6946288475283887019273307",
     "date": 1597536000,
-    "id": "18490",
-    "totalLiquidityETH": "632754.6277354806045014201624522695",
-    "totalLiquidityUSD": "273377195.8865479799227363158989239",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18490"
+  }, {
     "dailyVolumeETH": "381498.4980021829782446324183892083",
     "dailyVolumeUSD": "164134108.5949529901696328644003031",
     "date": 1597622400,
-    "id": "18491",
-    "totalLiquidityETH": "634412.451942891136323650427542254",
-    "totalLiquidityUSD": "272635035.585708714310482351954977",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18491"
+  }, {
     "dailyVolumeETH": "489219.5676695829933123873595457275",
     "dailyVolumeUSD": "208431565.0574647710862654521565562",
     "date": 1597708800,
-    "id": "18492",
-    "totalLiquidityETH": "700891.2464854116105623206749691501",
-    "totalLiquidityUSD": "295587149.8223939012065908288870801",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18492"
+  }, {
     "dailyVolumeETH": "473172.0251447908691359193863784354",
     "dailyVolumeUSD": "193692626.4827590096315188761343834",
     "date": 1597795200,
-    "id": "18493",
-    "totalLiquidityETH": "758315.4928220371372745705205640002",
-    "totalLiquidityUSD": "307269112.7967763230625187027244135",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18493"
+  }, {
     "dailyVolumeETH": "490467.8167097447526374751207362458",
     "dailyVolumeUSD": "201266205.9379236418070170876211658",
     "date": 1597881600,
-    "id": "18494",
-    "totalLiquidityETH": "719194.6957475441769440836435282438",
-    "totalLiquidityUSD": "298284850.420941086987792468630328",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18494"
+  }, {
     "dailyVolumeETH": "552579.9625518023385686512008722846",
     "dailyVolumeUSD": "223719947.582909260544384110928213",
     "date": 1597968000,
-    "id": "18495",
-    "totalLiquidityETH": "703413.7408093773032285748689423126",
-    "totalLiquidityUSD": "270385459.6588152029149246015797476",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18495"
+  }, {
     "dailyVolumeETH": "355431.2975372435202789431764615051",
     "dailyVolumeUSD": "138001432.8850919628282384533020973",
     "date": 1598054400,
-    "id": "18496",
-    "totalLiquidityETH": "726375.6570284793767462215354586036",
-    "totalLiquidityUSD": "286499943.7891331467767344072794022",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18496"
+  }, {
     "dailyVolumeETH": "317856.4377101570050691875663885643",
     "dailyVolumeUSD": "123940422.6533878560027202423728586",
     "date": 1598140800,
-    "id": "18497",
-    "totalLiquidityETH": "738305.3873654663035687784643792931",
-    "totalLiquidityUSD": "288331462.606502829650862378253363",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18497"
+  }, {
     "dailyVolumeETH": "417411.6346320242790883281820538377",
     "dailyVolumeUSD": "166662454.2305592086096650353007554",
     "date": 1598227200,
-    "id": "18498",
-    "totalLiquidityETH": "744059.8580163621030733977985402004",
-    "totalLiquidityUSD": "303055932.0335492124983424922090559",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18498"
+  }, {
     "dailyVolumeETH": "420661.511824797091464761895796706",
     "dailyVolumeUSD": "163349457.1290971374235063377563145",
     "date": 1598313600,
-    "id": "18499",
-    "totalLiquidityETH": "761438.9235338888502420303613280487",
-    "totalLiquidityUSD": "290831042.7992716329916670593862618",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18499"
+  }, {
     "dailyVolumeETH": "465685.3934214186408605342342957406",
     "dailyVolumeUSD": "179149552.2757146659405322328188445",
     "date": 1598400000,
-    "id": "18500",
-    "totalLiquidityETH": "801278.7935317199285526457667984827",
-    "totalLiquidityUSD": "307997536.2453660179950567752004313",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18500"
+  }, {
     "dailyVolumeETH": "370121.958085572932865775056275205",
     "dailyVolumeUSD": "141164818.5737460841519485934876562",
     "date": 1598486400,
-    "id": "18501",
-    "totalLiquidityETH": "810189.455497425431026697129580325",
-    "totalLiquidityUSD": "307608887.6103323999193269951355326",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18501"
+  }, {
     "dailyVolumeETH": "531236.5178424794388980294987887453",
     "dailyVolumeUSD": "207807264.4129975196480540542180958",
     "date": 1598572800,
-    "id": "18502",
-    "totalLiquidityETH": "1320047.762770277945982075299775114",
-    "totalLiquidityUSD": "520438147.8161752263673062178350106",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18502"
+  }, {
     "dailyVolumeETH": "752282.2731895926294209937822417079",
     "dailyVolumeUSD": "299746454.111570642919180338371132",
     "date": 1598659200,
-    "id": "18503",
-    "totalLiquidityETH": "1598892.297511337293222830363606959",
-    "totalLiquidityUSD": "636450250.1474629205833730169147434",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18503"
+  }, {
     "dailyVolumeETH": "1226114.003744017853488261362012374",
     "dailyVolumeUSD": "502833582.4274665349399402780551656",
     "date": 1598745600,
-    "id": "18504",
-    "totalLiquidityETH": "2205061.531112779854774049835111852",
-    "totalLiquidityUSD": "937243780.0935083712737881605090573",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18504"
+  }, {
     "dailyVolumeETH": "1362100.405762656866688751727381087",
     "dailyVolumeUSD": "585359604.5211177150974253012404394",
     "date": 1598832000,
-    "id": "18505",
-    "totalLiquidityETH": "3154328.077586148525799494879563707",
-    "totalLiquidityUSD": "1372699891.197773539685987568314153",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18505"
+  }, {
     "dailyVolumeETH": "2058122.328991621220171917091048034",
     "dailyVolumeUSD": "953587764.8661316772830110447676957",
     "date": 1598918400,
-    "id": "18506",
-    "totalLiquidityETH": "4077166.650639761099660492255610102",
-    "totalLiquidityUSD": "1951875081.122476251948840347704649",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18506"
+  }, {
     "dailyVolumeETH": "2057491.433838360682180076931625724",
     "dailyVolumeUSD": "934740761.1109588730938838964633235",
     "date": 1599004800,
-    "id": "18507",
-    "totalLiquidityETH": "4333829.203894746535389773564923479",
-    "totalLiquidityUSD": "1916371778.009794858862485555588635",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18507"
+  }, {
     "dailyVolumeETH": "2054680.085307097807138027671038784",
     "dailyVolumeUSD": "859738318.0475494733276697717941245",
     "date": 1599091200,
-    "id": "18508",
-    "totalLiquidityETH": "4680547.928949960103596846693669283",
-    "totalLiquidityUSD": "1782857778.598692183104438703074268",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18508"
+  }, {
     "dailyVolumeETH": "1510314.723500385666272513809339118",
     "dailyVolumeUSD": "581979884.60987991811142154025221",
     "date": 1599177600,
-    "id": "18509",
-    "totalLiquidityETH": "5088010.069968803036547013253541293",
-    "totalLiquidityUSD": "1960374158.728607656877242728544032",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18509"
+  }, {
     "dailyVolumeETH": "2354858.429802854033385853336267216",
     "dailyVolumeUSD": "829799711.3839527563049569134483031",
     "date": 1599264000,
-    "id": "18510",
-    "totalLiquidityETH": "3733971.11228066802614384221314936",
-    "totalLiquidityUSD": "1239325978.597204627330321667466909",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18510"
+  }, {
     "dailyVolumeETH": "1847539.034310367458530857802172245",
     "dailyVolumeUSD": "631079294.229738236704662276288217",
     "date": 1599350400,
-    "id": "18511",
-    "totalLiquidityETH": "4594460.209539656059186327392863838",
-    "totalLiquidityUSD": "1619656305.259388994983256042672777",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18511"
+  }, {
     "dailyVolumeETH": "1286117.453936405846649047435808081",
     "dailyVolumeUSD": "439468429.8317833312042200562653995",
     "date": 1599436800,
-    "id": "18512",
-    "totalLiquidityETH": "4905249.460300812005123601739604645",
-    "totalLiquidityUSD": "1719625560.054760178308987059135655",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18512"
+  }, {
     "dailyVolumeETH": "1120049.81436685278994135561087553",
     "dailyVolumeUSD": "379227867.8925349494067722050018184",
     "date": 1599523200,
-    "id": "18513",
-    "totalLiquidityETH": "4718597.157919595782414391634484854",
-    "totalLiquidityUSD": "1570234423.746290154485682461794161",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18513"
+  }, {
     "dailyVolumeETH": "1245396.225237071665723463039601302",
     "dailyVolumeUSD": "428506946.8284904344506242854193326",
     "date": 1599609600,
-    "id": "18514",
-    "totalLiquidityETH": "1482198.213691545687625534966644718",
-    "totalLiquidityUSD": "518148235.202453349265973311846514",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18514"
+  }, {
     "dailyVolumeETH": "1126561.947378402574551190055140646",
     "dailyVolumeUSD": "409466421.8579633446692597362490936",
     "date": 1599696000,
-    "id": "18515",
-    "totalLiquidityETH": "2955101.307882414409420371941022173",
-    "totalLiquidityUSD": "1070554797.844775715750321605980041",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18515"
+  }, {
     "dailyVolumeETH": "865124.7761993362901659807932202296",
     "dailyVolumeUSD": "313101833.8964040612560977523760627",
     "date": 1599782400,
-    "id": "18516",
-    "totalLiquidityETH": "2034197.258307626581371458997527966",
-    "totalLiquidityUSD": "754425203.5735846797104589754798646",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18516"
+  }, {
     "dailyVolumeETH": "825438.9004597579802379908504672337",
     "dailyVolumeUSD": "306357022.3411631396981058001871408",
     "date": 1599868800,
-    "id": "18517",
-    "totalLiquidityETH": "1829093.149678430154048502586247793",
-    "totalLiquidityUSD": "702141892.7784381732854775089931527",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18517"
+  }, {
     "dailyVolumeETH": "1097688.05923558580535425042003905",
     "dailyVolumeUSD": "405845173.3386954781042378767025403",
     "date": 1599955200,
-    "id": "18518",
-    "totalLiquidityETH": "2892281.903479440060934834052605644",
-    "totalLiquidityUSD": "1054600411.721711713651693519241586",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18518"
+  }, {
     "dailyVolumeETH": "1271267.994027017635216639777496072",
     "dailyVolumeUSD": "468278241.6044253352948783919633654",
     "date": 1600041600,
-    "id": "18519",
-    "totalLiquidityETH": "2992983.764681517831801096562789812",
-    "totalLiquidityUSD": "1120351107.147078652038999028388052",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18519"
+  }, {
     "dailyVolumeETH": "1074717.329142529126753760186911606",
     "dailyVolumeUSD": "396960687.9519979037020886890809614",
     "date": 1600128000,
-    "id": "18520",
-    "totalLiquidityETH": "2635207.046378459730585206317757623",
-    "totalLiquidityUSD": "951963235.861550228024979821507154",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18520"
+  }, {
     "dailyVolumeETH": "981845.4435806428808397829320058798",
     "dailyVolumeUSD": "355975612.3761654071477104101390867",
     "date": 1600214400,
-    "id": "18521",
-    "totalLiquidityETH": "2505874.834982001830697495842959308",
-    "totalLiquidityUSD": "916622034.2086795487557318995267672",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18521"
+  }, {
     "dailyVolumeETH": "1527067.334744265204346090749799395",
     "dailyVolumeUSD": "582878441.5090518489968500589338672",
     "date": 1600300800,
-    "id": "18522",
-    "totalLiquidityETH": "3611992.299863570294587362309812417",
-    "totalLiquidityUSD": "1399178939.982817136276104823814034",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18522"
+  }, {
     "dailyVolumeETH": "1619397.725316733050043021592496881",
     "dailyVolumeUSD": "617164437.9103654229709926915218114",
     "date": 1600387200,
-    "id": "18523",
-    "totalLiquidityETH": "5016481.026408301050703029934463149",
-    "totalLiquidityUSD": "1908368639.258173362527244096879076",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18523"
+  }, {
     "dailyVolumeETH": "1229005.993763178645119943806403987",
     "dailyVolumeUSD": "469105606.2098791133121347436623518",
     "date": 1600473600,
-    "id": "18524",
-    "totalLiquidityETH": "5571893.35175295128260307269297275",
-    "totalLiquidityUSD": "2133980088.937688065710619649964939",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18524"
+  }, {
     "dailyVolumeETH": "999485.5758048747568872950469079104",
     "dailyVolumeUSD": "373934283.8276619355413409444550987",
     "date": 1600560000,
-    "id": "18525",
-    "totalLiquidityETH": "5846200.204114849456319563020740051",
-    "totalLiquidityUSD": "2157183491.010108733577688021178961",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18525"
+  }, {
     "dailyVolumeETH": "1280595.349245606280563716470819488",
     "dailyVolumeUSD": "449626743.1253845514055498732104779",
     "date": 1600646400,
-    "id": "18526",
-    "totalLiquidityETH": "5778387.076058204280396276750651955",
-    "totalLiquidityUSD": "1970948884.870090797248003389995314",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18526"
+  }, {
     "dailyVolumeETH": "921392.8157949708154117229448585082",
     "dailyVolumeUSD": "314225123.2094177015383915217615528",
     "date": 1600732800,
-    "id": "18527",
-    "totalLiquidityETH": "5814336.283233768621001711510603116",
-    "totalLiquidityUSD": "1991305267.369494694988141064375641",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18527"
+  }, {
     "dailyVolumeETH": "1018795.124185065818958341546186887",
     "dailyVolumeUSD": "339701177.2747003181204689537262148",
     "date": 1600819200,
-    "id": "18528",
-    "totalLiquidityETH": "5977459.630955032400422111235883684",
-    "totalLiquidityUSD": "1906147555.665215339816735717910723",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18528"
+  }, {
     "dailyVolumeETH": "778071.3155706402232655469294027059",
     "dailyVolumeUSD": "260116672.6595706424730839085035712",
     "date": 1600905600,
-    "id": "18529",
-    "totalLiquidityETH": "5979719.658658438470664061385646001",
-    "totalLiquidityUSD": "2087440168.651147520756353944335509",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18529"
+  }, {
     "dailyVolumeETH": "695974.2190106021560921894764038261",
     "dailyVolumeUSD": "241210759.7091838614734379177664342",
     "date": 1600992000,
-    "id": "18530",
-    "totalLiquidityETH": "6062466.214829089808511871014524339",
-    "totalLiquidityUSD": "2130815393.324027846332744764861646",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18530"
+  }, {
     "dailyVolumeETH": "652777.3187022781022701568214815072",
     "dailyVolumeUSD": "229387996.1205890573916033056334267",
     "date": 1601078400,
-    "id": "18531",
-    "totalLiquidityETH": "6199716.373528997185011175866385515",
-    "totalLiquidityUSD": "2189263324.690772661172305035312231",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18531"
+  }, {
     "dailyVolumeETH": "823367.3608438205322651469201678085",
     "dailyVolumeUSD": "292024513.853300140152042419317245",
     "date": 1601164800,
-    "id": "18532",
-    "totalLiquidityETH": "6279808.463901172036518256614297576",
-    "totalLiquidityUSD": "2228795009.574374734863215085663572",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18532"
+  }, {
     "dailyVolumeETH": "782349.9429971126148361582148390357",
     "dailyVolumeUSD": "281159580.1566453610393429153503595",
     "date": 1601251200,
-    "id": "18533",
-    "totalLiquidityETH": "6449224.563612942213180374589902856",
-    "totalLiquidityUSD": "2277040800.958547119148527858215367",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18533"
+  }, {
     "dailyVolumeETH": "1003240.24447030265586869158651069",
     "dailyVolumeUSD": "354333085.570244778660221329700026",
     "date": 1601337600,
-    "id": "18534",
-    "totalLiquidityETH": "6474468.584569311537359306782725585",
-    "totalLiquidityUSD": "2318825276.842966109827100587837938",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18534"
+  }, {
     "dailyVolumeETH": "746362.645378770278595141284950208",
     "dailyVolumeUSD": "264900309.3789115607506499894586545",
     "date": 1601424000,
-    "id": "18535",
-    "totalLiquidityETH": "6690204.687033021264998722488601923",
-    "totalLiquidityUSD": "2399844585.134516074108437901444228",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18535"
+  }, {
     "dailyVolumeETH": "1023564.684601144535040911708357391",
     "dailyVolumeUSD": "365097426.1289603940769852165087757",
     "date": 1601510400,
-    "id": "18536",
-    "totalLiquidityETH": "6888188.084340875071777594407258049",
-    "totalLiquidityUSD": "2417777667.163418968259257658603903",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18536"
+  }, {
     "dailyVolumeETH": "1279769.427410130029691208773905787",
     "dailyVolumeUSD": "438869497.6753449704705443771019682",
     "date": 1601596800,
-    "id": "18537",
-    "totalLiquidityETH": "6956863.580808223055726361149766663",
-    "totalLiquidityUSD": "2395190418.494782167912684270984904",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18537"
+  }, {
     "dailyVolumeETH": "765091.225862791423789081448334798",
     "dailyVolumeUSD": "264989053.4235504018127255758089048",
     "date": 1601683200,
-    "id": "18538",
-    "totalLiquidityETH": "7043542.408424326747367537627094125",
-    "totalLiquidityUSD": "2440433487.072365269147882308565157",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18538"
+  }, {
     "dailyVolumeETH": "841874.8202743361453841467700713633",
     "dailyVolumeUSD": "292176299.5875724435600815339245139",
     "date": 1601769600,
-    "id": "18539",
-    "totalLiquidityETH": "7038908.172680904881469669210066102",
-    "totalLiquidityUSD": "2470945819.963632221243667386999369",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18539"
+  }, {
     "dailyVolumeETH": "714107.2092768157263301395064173175",
     "dailyVolumeUSD": "250755805.811317177612452671357372",
     "date": 1601856000,
-    "id": "18540",
-    "totalLiquidityETH": "7091284.495876652070982245901076648",
-    "totalLiquidityUSD": "2495394378.47387270767295184680505",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18540"
+  }, {
     "dailyVolumeETH": "1193511.383239150845682242807827795",
     "dailyVolumeUSD": "412127415.4160108103180424582488786",
     "date": 1601942400,
-    "id": "18541",
-    "totalLiquidityETH": "7132435.947833943127187451589085969",
-    "totalLiquidityUSD": "2412707107.309212662779977976328125",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18541"
+  }, {
     "dailyVolumeETH": "951936.2731276360783794374716753724",
     "dailyVolumeUSD": "321807581.2330394978031959438983688",
     "date": 1602028800,
-    "id": "18542",
-    "totalLiquidityETH": "7141923.343214764351595849250356491",
-    "totalLiquidityUSD": "2432532790.640792376598321839287221",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18542"
+  }, {
     "dailyVolumeETH": "891436.1459925226462749959070361963",
     "dailyVolumeUSD": "306299782.3830146860293309019848585",
     "date": 1602115200,
-    "id": "18543",
-    "totalLiquidityETH": "7325344.184823534740392807746278224",
-    "totalLiquidityUSD": "2564611072.488584911954864931647707",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18543"
+  }, {
     "dailyVolumeETH": "744452.2266633090227552279801887042",
     "dailyVolumeUSD": "265800089.495061329506908331298883",
     "date": 1602201600,
-    "id": "18544",
-    "totalLiquidityETH": "7355288.417381431546617200439616144",
-    "totalLiquidityUSD": "2680119427.487507379559746567246872",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18544"
+  }, {
     "dailyVolumeETH": "626492.6874069365358301147874406964",
     "dailyVolumeUSD": "233287470.15603928734263122594429",
     "date": 1602288000,
-    "id": "18545",
-    "totalLiquidityETH": "7534624.295010324596325427724286842",
-    "totalLiquidityUSD": "2791544711.590758107694006753278097",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18545"
+  }, {
     "dailyVolumeETH": "513849.6026452913010321586272824933",
     "dailyVolumeUSD": "191261050.4159191181916388359452103",
     "date": 1602374400,
-    "id": "18546",
-    "totalLiquidityETH": "7738824.925555385233621845768125328",
-    "totalLiquidityUSD": "2884189190.727339075429561118928668",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18546"
+  }, {
     "dailyVolumeETH": "679538.3496203585614272741773460295",
     "dailyVolumeUSD": "257743940.5832313045878304866792069",
     "date": 1602460800,
-    "id": "18547",
-    "totalLiquidityETH": "7532298.752096704912573979467739024",
-    "totalLiquidityUSD": "2912014112.671882503915817293389093",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18547"
+  }, {
     "dailyVolumeETH": "530709.3245382406601410307700713363",
     "dailyVolumeUSD": "202117760.6105140083255799842879242",
     "date": 1602547200,
-    "id": "18548",
-    "totalLiquidityETH": "7538283.608232372590927865699445977",
-    "totalLiquidityUSD": "2869853122.806925422689460763967185",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18548"
+  }, {
     "dailyVolumeETH": "571016.105859119208024608618852543",
     "dailyVolumeUSD": "216330563.1373860255310090307077644",
     "date": 1602633600,
-    "id": "18549",
-    "totalLiquidityETH": "7921657.953224152040610944431030985",
-    "totalLiquidityUSD": "2988045162.937850534973751569208927",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18549"
+  }, {
     "dailyVolumeETH": "581419.9708294418868957521027643238",
     "dailyVolumeUSD": "218528878.2740115869540452367894428",
     "date": 1602720000,
-    "id": "18550",
-    "totalLiquidityETH": "8029980.27073329726701681347016268",
-    "totalLiquidityUSD": "3029384251.403892341529082939800475",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18550"
+  }, {
     "dailyVolumeETH": "500224.9707636223745175592589255821",
     "dailyVolumeUSD": "184340099.4461044552547640487533724",
     "date": 1602806400,
-    "id": "18551",
-    "totalLiquidityETH": "8007550.818622358323552040988468695",
-    "totalLiquidityUSD": "2923304051.034725394441361869733436",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18551"
+  }, {
     "dailyVolumeETH": "369023.8955806669474022922299750568",
     "dailyVolumeUSD": "135150987.0620541268099635956474351",
     "date": 1602892800,
-    "id": "18552",
-    "totalLiquidityETH": "7972620.696288639198196129754945625",
-    "totalLiquidityUSD": "2922963144.292518886693384667469017",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18552"
+  }, {
     "dailyVolumeETH": "383069.3607798633535979755513827141",
     "dailyVolumeUSD": "142536540.5636438007742508134621091",
     "date": 1602979200,
-    "id": "18553",
-    "totalLiquidityETH": "7913259.693114723063124793138210382",
-    "totalLiquidityUSD": "2978223456.31581224498022848779348",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18553"
+  }, {
     "dailyVolumeETH": "428878.9534360691923143469887233148",
     "dailyVolumeUSD": "161626747.6465313498257220867172509",
     "date": 1603065600,
-    "id": "18554",
-    "totalLiquidityETH": "7929187.024155053843311147207174964",
-    "totalLiquidityUSD": "2999032246.033659205057962814246046",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18554"
+  }, {
     "dailyVolumeETH": "527099.6842940290966683962299649383",
     "dailyVolumeUSD": "196065945.0453447817584829984724815",
     "date": 1603152000,
-    "id": "18555",
-    "totalLiquidityETH": "7931014.03518891379195793481482529",
-    "totalLiquidityUSD": "2917072068.490134873019093117843235",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18555"
+  }, {
     "dailyVolumeETH": "713207.2773405095981890866626364483",
     "dailyVolumeUSD": "274714346.6144682434354061107824951",
     "date": 1603238400,
-    "id": "18556",
-    "totalLiquidityETH": "7561328.460462939511765439553263798",
-    "totalLiquidityUSD": "2959303815.997625093170699614157301",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18556"
+  }, {
     "dailyVolumeETH": "576087.1382475611174944147063373334",
     "dailyVolumeUSD": "234055912.8082492279442204977611522",
     "date": 1603324800,
-    "id": "18557",
-    "totalLiquidityETH": "7140582.20667273617678070999953546",
-    "totalLiquidityUSD": "2953195914.282845779263336458332967",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18557"
+  }, {
     "dailyVolumeETH": "511191.7166477510744582064702009914",
     "dailyVolumeUSD": "209934623.8883072816385660897486069",
     "date": 1603411200,
-    "id": "18558",
-    "totalLiquidityETH": "6963825.51340775192186553345127311",
-    "totalLiquidityUSD": "2840686438.16238882010530889625513",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18558"
+  }, {
     "dailyVolumeETH": "316917.2465158196606311387013388531",
     "dailyVolumeUSD": "130394813.3413628093496496540850261",
     "date": 1603497600,
-    "id": "18559",
-    "totalLiquidityETH": "7132810.199381088363570587432047678",
-    "totalLiquidityUSD": "2928663017.297646956800482799308955",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18559"
+  }, {
     "dailyVolumeETH": "362731.2427089844485728941454599266",
     "dailyVolumeUSD": "148218689.2401536189781566397840069",
     "date": 1603584000,
-    "id": "18560",
-    "totalLiquidityETH": "7325897.612732640731391802379797218",
-    "totalLiquidityUSD": "2970058069.937108942876283829992309",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18560"
+  }, {
     "dailyVolumeETH": "5362827.767007339733430554291980635",
     "dailyVolumeUSD": "2186995122.592419631677599025375195",
     "date": 1603670400,
-    "id": "18561",
-    "totalLiquidityETH": "7609826.042458182167245720064799693",
-    "totalLiquidityUSD": "2991066558.810915906473756754100888",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18561"
+  }, {
     "dailyVolumeETH": "486810.4668457596631208902385227992",
     "dailyVolumeUSD": "194414960.3674372084360620210274286",
     "date": 1603756800,
-    "id": "18562",
-    "totalLiquidityETH": "7549470.531071291938475819414643104",
-    "totalLiquidityUSD": "3045274370.3220332397030298599077",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18562"
+  }, {
     "dailyVolumeETH": "987736.3266505891328362018384411737",
     "dailyVolumeUSD": "385042473.2250403670150037884986515",
     "date": 1603843200,
-    "id": "18563",
-    "totalLiquidityETH": "7643053.745486137653077517476926178",
-    "totalLiquidityUSD": "2960554006.529874369820406848875319",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18563"
+  }, {
     "dailyVolumeETH": "827644.1165095006464404245238836983",
     "dailyVolumeUSD": "321120296.9954366620330099927255493",
     "date": 1603929600,
-    "id": "18564",
-    "totalLiquidityETH": "7600502.406751668671504982101400367",
-    "totalLiquidityUSD": "2927337476.403273050310664839227085",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18564"
+  }, {
     "dailyVolumeETH": "875430.0961171125967664797236467889",
     "dailyVolumeUSD": "333904545.0410090786127980101039124",
     "date": 1604016000,
-    "id": "18565",
-    "totalLiquidityETH": "7600111.218125919896929383634699375",
-    "totalLiquidityUSD": "2911503162.527768405762092681277002",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18565"
+  }, {
     "dailyVolumeETH": "565535.0214096571589607777798694527",
     "dailyVolumeUSD": "218318748.0513960446106957492836914",
     "date": 1604102400,
-    "id": "18566",
-    "totalLiquidityETH": "7739147.148469471692970159564589092",
-    "totalLiquidityUSD": "2986486848.520409110470541015337189",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18566"
+  }, {
     "dailyVolumeETH": "402194.6004404424983688747418997611",
     "dailyVolumeUSD": "156264802.6989238230902776526492797",
     "date": 1604188800,
-    "id": "18567",
-    "totalLiquidityETH": "7619513.946443241081624453113926647",
-    "totalLiquidityUSD": "3005262445.988328042241231335300248",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18567"
+  }, {
     "dailyVolumeETH": "527846.5689680049452986556059134273",
     "dailyVolumeUSD": "205837745.2898646322821980647830003",
     "date": 1604275200,
-    "id": "18568",
-    "totalLiquidityETH": "7544849.520666910205883578923587794",
-    "totalLiquidityUSD": "2886130662.929654115985047930387961",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18568"
+  }, {
     "dailyVolumeETH": "557823.8906366759392115046327732732",
     "dailyVolumeUSD": "211277062.0264111190816828802432052",
     "date": 1604361600,
-    "id": "18569",
-    "totalLiquidityETH": "7396367.23752959532146650577313773",
-    "totalLiquidityUSD": "2863897332.232401090751921625570591",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18569"
+  }, {
     "dailyVolumeETH": "570359.3502882333248437203544144856",
     "dailyVolumeUSD": "222743651.9041430980415495966913181",
     "date": 1604448000,
-    "id": "18570",
-    "totalLiquidityETH": "7325987.049395954535098458523113548",
-    "totalLiquidityUSD": "2936498153.75718398680226255228058",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18570"
+  }, {
     "dailyVolumeETH": "706141.3854101855050130609812223864",
     "dailyVolumeUSD": "287866490.9147965202024973297531166",
     "date": 1604534400,
-    "id": "18571",
-    "totalLiquidityETH": "7188113.656449684690448167023231249",
-    "totalLiquidityUSD": "2981025160.296372102770079442279756",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18571"
+  }, {
     "dailyVolumeETH": "807830.3533961963180865423653242367",
     "dailyVolumeUSD": "353091514.6366875213158756804449356",
     "date": 1604620800,
-    "id": "18572",
-    "totalLiquidityETH": "6785831.019222096554642043950690193",
-    "totalLiquidityUSD": "3087776140.132299029228513442959506",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18572"
+  }, {
     "dailyVolumeETH": "902556.0407380790473240020178051224",
     "dailyVolumeUSD": "405550496.3281552305603782979441735",
     "date": 1604707200,
-    "id": "18573",
-    "totalLiquidityETH": "6904460.325370326738776298739624614",
-    "totalLiquidityUSD": "3008206770.80507897779845726687936",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18573"
+  }, {
     "dailyVolumeETH": "436740.6533610344738540004041894203",
     "dailyVolumeUSD": "194745953.5488289251777881893893971",
     "date": 1604793600,
-    "id": "18574",
-    "totalLiquidityETH": "6823567.081822477691612461914460294",
-    "totalLiquidityUSD": "3102172380.373376414536808537728267",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18574"
+  }, {
     "dailyVolumeETH": "540143.5967901681409070012645870985",
     "dailyVolumeUSD": "241667695.8637598029495189446474713",
     "date": 1604880000,
-    "id": "18575",
-    "totalLiquidityETH": "7232812.138950874043921516238775724",
-    "totalLiquidityUSD": "3206689524.857964239888724615440829",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18575"
+  }, {
     "dailyVolumeETH": "503149.0623317481585269072744348346",
     "dailyVolumeUSD": "225087481.8945923420723102096897053",
     "date": 1604966400,
-    "id": "18576",
-    "totalLiquidityETH": "7193833.480032265426780255315254432",
-    "totalLiquidityUSD": "3239244467.079700220379679111796318",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18576"
+  }, {
     "dailyVolumeETH": "503994.5493693780209125567457558741",
     "dailyVolumeUSD": "233224092.4965460107048287960681101",
     "date": 1605052800,
-    "id": "18577",
-    "totalLiquidityETH": "7149378.621320772330313665847558053",
-    "totalLiquidityUSD": "3315712480.961712644369219782946553",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18577"
+  }, {
     "dailyVolumeETH": "489691.011872198457211315997873871",
     "dailyVolumeUSD": "224834050.1173569709461882295039905",
     "date": 1605139200,
-    "id": "18578",
-    "totalLiquidityETH": "7086695.334219982022589244282620378",
-    "totalLiquidityUSD": "3274636232.795256026388077475336408",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18578"
+  }, {
     "dailyVolumeETH": "530492.6554545680886378794759948692",
     "dailyVolumeUSD": "247705509.925656325630860354303532",
     "date": 1605225600,
-    "id": "18579",
-    "totalLiquidityETH": "7072181.103116312748266030087596119",
-    "totalLiquidityUSD": "3361836517.95036026928116188501726",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18579"
+  }, {
     "dailyVolumeETH": "865669.5480130154161064393585806144",
     "dailyVolumeUSD": "395867935.4348938683346614012178987",
     "date": 1605312000,
-    "id": "18580",
-    "totalLiquidityETH": "7179416.69163233804639914191352645",
-    "totalLiquidityUSD": "3309699924.062936618728389519825725",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18580"
+  }, {
     "dailyVolumeETH": "494186.7018289725206181804408166403",
     "dailyVolumeUSD": "223879415.65136840252817545220902",
     "date": 1605398400,
-    "id": "18581",
-    "totalLiquidityETH": "7126651.342142332088631362682998373",
-    "totalLiquidityUSD": "3192155743.818585843339257502872984",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18581"
+  }, {
     "dailyVolumeETH": "603821.5449461078100440060822701339",
     "dailyVolumeUSD": "275380246.5257859256539885583668672",
     "date": 1605484800,
-    "id": "18582",
-    "totalLiquidityETH": "6581924.332439478387795064303831822",
-    "totalLiquidityUSD": "3035143313.100551366633455595417527",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18582"
+  }, {
     "dailyVolumeETH": "841821.7534815851328878970914099214",
     "dailyVolumeUSD": "392268754.8398047759711386250858731",
     "date": 1605571200,
-    "id": "18583",
-    "totalLiquidityETH": "3617941.6764757627631959617987679",
-    "totalLiquidityUSD": "1745831100.857048048055934528493663",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18583"
+  }, {
     "dailyVolumeETH": "600496.7057718233747096212345566876",
     "dailyVolumeUSD": "287037735.2903450688048493810583164",
     "date": 1605657600,
-    "id": "18584",
-    "totalLiquidityETH": "3414769.801965837697955854166166991",
-    "totalLiquidityUSD": "1634824205.754899789566028169300199",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18584"
+  }, {
     "dailyVolumeETH": "534606.9823404306482115503398152437",
     "dailyVolumeUSD": "253310961.8377928864128011727370102",
     "date": 1605744000,
-    "id": "18585",
-    "totalLiquidityETH": "3417757.990021620285933796269254713",
-    "totalLiquidityUSD": "1605114049.931540387008320981925248",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18585"
+  }, {
     "dailyVolumeETH": "603994.1068361903314007624553889926",
     "dailyVolumeUSD": "300224530.7698532419792089012112584",
     "date": 1605830400,
-    "id": "18586",
-    "totalLiquidityETH": "3298309.027821181300397668487528042",
-    "totalLiquidityUSD": "1675581471.487839546797961393645401",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18586"
+  }, {
     "dailyVolumeETH": "713936.731461565023346143956387205",
     "dailyVolumeUSD": "375943734.0819670585640858536952813",
     "date": 1605916800,
-    "id": "18587",
-    "totalLiquidityETH": "3074292.053108383389192858542168278",
-    "totalLiquidityUSD": "1693917108.205479446349475091649576",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
+    "id": "18587"
+  }, {
     "dailyVolumeETH": "809765.9681090636445232175932440675",
     "dailyVolumeUSD": "442888548.0322517036816271718208347",
     "date": 1606003200,
-    "id": "18588",
-    "totalLiquidityETH": "3083519.014985807235548994974717584",
-    "totalLiquidityUSD": "1723471805.366473007807212113298637",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "644672.519237450124343770615363584",
-    "dailyVolumeUSD": "378486996.0145548845225873710158711",
-    "date": 1606089600,
-    "id": "18589",
-    "totalLiquidityETH": "2951368.638211471605094612959919562",
-    "totalLiquidityUSD": "1792133756.675268872352702005143216",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "700796.9489316796939637992702675223",
-    "dailyVolumeUSD": "425319795.5031115885442198045542677",
-    "date": 1606176000,
-    "id": "18590",
-    "totalLiquidityETH": "2824291.805223451416282074792546742",
-    "totalLiquidityUSD": "1706004626.826943725903771725466585",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "503848.2690173341557217493665928362",
-    "dailyVolumeUSD": "296133987.752080720984899337316279",
-    "date": 1606262400,
-    "id": "18591",
-    "totalLiquidityETH": "2863805.20709772264335183300996898",
-    "totalLiquidityUSD": "1630388650.261457817289562025423982",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "1409892.633963646794951462646439234",
-    "dailyVolumeUSD": "717162523.4608256556798770872601809",
-    "date": 1606348800,
-    "id": "18592",
-    "totalLiquidityETH": "2940260.615993444858079263359787306",
-    "totalLiquidityUSD": "1522949805.847787847101568560989064",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "441055.3147223440333373102966567294",
-    "dailyVolumeUSD": "226181702.0502531568239715526463216",
-    "date": 1606435200,
-    "id": "18593",
-    "totalLiquidityETH": "3069498.334181202699792080438243656",
-    "totalLiquidityUSD": "1586039117.557500639047073222980949",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "333956.3635705945310566116085676541",
-    "dailyVolumeUSD": "175112139.6267855738883313646088081",
-    "date": 1606521600,
-    "id": "18594",
-    "totalLiquidityETH": "3021578.174713676420550251183850025",
-    "totalLiquidityUSD": "1623594892.518802903408480360437364",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "351676.7760149894398929902194363077",
-    "dailyVolumeUSD": "193454443.9392832339281351368765795",
-    "date": 1606608000,
-    "id": "18595",
-    "totalLiquidityETH": "2926957.386406698325995363376580405",
-    "totalLiquidityUSD": "1678876450.300422407253879936305827",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "528961.3484507347239247029765645222",
-    "dailyVolumeUSD": "313542132.95577745873653577146675",
-    "date": 1606694400,
-    "id": "18596",
-    "totalLiquidityETH": "2806453.090703303528987694498243309",
-    "totalLiquidityUSD": "1727558688.818324434264882788284006",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "580168.8800529778137720942085277099",
-    "dailyVolumeUSD": "348384888.313922028363997092247304",
-    "date": 1606780800,
-    "id": "18597",
-    "totalLiquidityETH": "2817997.916493856376773090348700898",
-    "totalLiquidityUSD": "1652703281.596434217938909997490768",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "437354.0418107385905739882761560248",
-    "dailyVolumeUSD": "258920295.0016247150296717432691175",
-    "date": 1606867200,
-    "id": "18598",
-    "totalLiquidityETH": "2795774.003193419273114163022883155",
-    "totalLiquidityUSD": "1672462087.228473426033617742477419",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "488477.5733311639528575378880555159",
-    "dailyVolumeUSD": "295779902.4476984518213703739395383",
-    "date": 1606953600,
-    "id": "18599",
-    "totalLiquidityETH": "2782137.114586636392593161651422917",
-    "totalLiquidityUSD": "1717229108.355304019032533002794001",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "505272.1177171162245573474151332018",
-    "dailyVolumeUSD": "300303754.2715895012362326369503986",
-    "date": 1607040000,
-    "id": "18600",
-    "totalLiquidityETH": "2788840.956521615583719394051093181",
-    "totalLiquidityUSD": "1585348675.544120995681240033369421",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "443451.9776612135781211835408040944",
-    "dailyVolumeUSD": "260131036.6014056962159013523002563",
-    "date": 1607126400,
-    "id": "18601",
-    "totalLiquidityETH": "2829887.22762250590665292629104202",
-    "totalLiquidityUSD": "1683938485.009918851142143120050933",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "624814.0404131122059339351554158389",
-    "dailyVolumeUSD": "371805370.1183847077407758003348931",
-    "date": 1607212800,
-    "id": "18602",
-    "totalLiquidityETH": "2804380.251359354417149924054510402",
-    "totalLiquidityUSD": "1685352127.294334783538166872544543",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "486059.8643534794384623194973281676",
-    "dailyVolumeUSD": "288029750.0877941217497397229234935",
-    "date": 1607299200,
-    "id": "18603",
-    "totalLiquidityETH": "2840844.52823483480965466320811218",
-    "totalLiquidityUSD": "1675965648.3207632649663591028992",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "651403.5117058838107636771506768119",
-    "dailyVolumeUSD": "374535866.7993156448841871356616703",
-    "date": 1607385600,
-    "id": "18604",
-    "totalLiquidityETH": "2862680.701117033213545255764760548",
-    "totalLiquidityUSD": "1584382182.962421309522508619738695",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "621436.2724408538350344517470676212",
-    "dailyVolumeUSD": "346893644.0768337894190022689546688",
-    "date": 1607472000,
-    "id": "18605",
-    "totalLiquidityETH": "2863145.313531964353400097086776298",
-    "totalLiquidityUSD": "1642402333.175077706594145755893284",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "532401.8051094532797085658425503548",
-    "dailyVolumeUSD": "298647924.4181979273921894386896475",
-    "date": 1607558400,
-    "id": "18606",
-    "totalLiquidityETH": "2820918.626247888805374075298445323",
-    "totalLiquidityUSD": "1576170863.613605759247744173661848",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "538814.1520254170444203639575454615",
-    "dailyVolumeUSD": "293822886.6526474114842777705798563",
-    "date": 1607644800,
-    "id": "18607",
-    "totalLiquidityETH": "2854194.493077921457020580030041595",
-    "totalLiquidityUSD": "1555241297.663018504684585289934499",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "406414.4994385944825237667290065702",
-    "dailyVolumeUSD": "226806450.6829128434237198989298696",
-    "date": 1607731200,
-    "id": "18608",
-    "totalLiquidityETH": "2839425.928887871757786765086159613",
-    "totalLiquidityUSD": "1612951220.966070027377904648597431",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "383064.6197016016624007269397331308",
-    "dailyVolumeUSD": "222809588.719032959987785715396462",
-    "date": 1607817600,
-    "id": "18609",
-    "totalLiquidityETH": "2832920.968415342044603907582410989",
-    "totalLiquidityUSD": "1668114880.987701806022187571161349",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "409603.0341609360540691261366865983",
-    "dailyVolumeUSD": "239182278.812678637676263011184532",
-    "date": 1607904000,
-    "id": "18610",
-    "totalLiquidityETH": "2834851.786085977611742781644856951",
-    "totalLiquidityUSD": "1661506246.034258111188943208344711",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "485268.0220117158303908635436763942",
-    "dailyVolumeUSD": "284811413.9270177060416642824791215",
-    "date": 1607990400,
-    "id": "18611",
-    "totalLiquidityETH": "2856962.526754408857802842477508208",
-    "totalLiquidityUSD": "1680754443.568764477869259395542933",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "511446.2644155001617682015769175239",
-    "dailyVolumeUSD": "310071240.3668406246539065003229334",
-    "date": 1608076800,
-    "id": "18612",
-    "totalLiquidityETH": "2730127.019534686524554583005470763",
-    "totalLiquidityUSD": "1737716722.886236613902652580828296",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "2181545.218733178804869520914758454",
-    "dailyVolumeUSD": "997832807.6766922265724168569305732",
-    "date": 1608163200,
-    "id": "18613",
-    "totalLiquidityETH": "2717805.228353310843396724320456962",
-    "totalLiquidityUSD": "1746867614.299854214875937265797987",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "500023.1450274542711380962946993537",
-    "dailyVolumeUSD": "322593543.226974165273833201184304",
-    "date": 1608249600,
-    "id": "18614",
-    "totalLiquidityETH": "2721340.767317017525128162341890178",
-    "totalLiquidityUSD": "1774738475.022616942349060751366198",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "527688.7226632899736246947744245094",
-    "dailyVolumeUSD": "346453595.4273951812866952050182962",
-    "date": 1608336000,
-    "id": "18615",
-    "totalLiquidityETH": "2712448.712435123092833286812844409",
-    "totalLiquidityUSD": "1787496172.717604522441359347513862",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "517554.1206558380014548257585184062",
-    "dailyVolumeUSD": "335305227.7009976326410559229606431",
-    "date": 1608422400,
-    "id": "18616",
-    "totalLiquidityETH": "2759365.405586412876891629430732162",
-    "totalLiquidityUSD": "1761553851.964187130161541582149862",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "695490.3333267359881107707199861347",
-    "dailyVolumeUSD": "432693447.7963102537131039399928667",
-    "date": 1608508800,
-    "id": "18617",
-    "totalLiquidityETH": "2921299.570312528129467029117475727",
-    "totalLiquidityUSD": "1776577204.356723538722310887665418",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "638997.1891305902834524249533482435",
-    "dailyVolumeUSD": "392071410.6085358189556810965909317",
-    "date": 1608595200,
-    "id": "18618",
-    "totalLiquidityETH": "2919171.435241882933212735854125797",
-    "totalLiquidityUSD": "1854127070.436694972240787605795713",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "689089.9960630791049201451069622154",
-    "dailyVolumeUSD": "417761887.6036549573365488942943444",
-    "date": 1608681600,
-    "id": "18619",
-    "totalLiquidityETH": "3104741.533816299939692047320145391",
-    "totalLiquidityUSD": "1809013741.027709617602282313479773",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "632637.0633966041722314431624448307",
-    "dailyVolumeUSD": "369885494.2688417155666933001147924",
-    "date": 1608768000,
-    "id": "18620",
-    "totalLiquidityETH": "3135959.398547166356180521725583999",
-    "totalLiquidityUSD": "1920743476.126488882618899978307514",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "565974.6360002986641478454222601597",
-    "dailyVolumeUSD": "348650999.6722983360964920040454209",
-    "date": 1608854400,
-    "id": "18621",
-    "totalLiquidityETH": "3108869.670587178405728230263559443",
-    "totalLiquidityUSD": "1944498863.706765113556257429522072",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "540160.2488554299461178853126760312",
-    "dailyVolumeUSD": "341268056.8071330905648532741676664",
-    "date": 1608940800,
-    "id": "18622",
-    "totalLiquidityETH": "3038267.877731143192898996652329073",
-    "totalLiquidityUSD": "1930139537.379343961956985862200466",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "741832.1891279863229688272205245338",
-    "dailyVolumeUSD": "492740183.4249550097669932881184939",
-    "date": 1609027200,
-    "id": "18623",
-    "totalLiquidityETH": "2872678.941347631609831090713330904",
-    "totalLiquidityUSD": "1963372935.001374932132621727594143",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "612949.8061362925582979553853032101",
-    "dailyVolumeUSD": "442887937.9115225756629006781376596",
-    "date": 1609113600,
-    "id": "18624",
-    "totalLiquidityETH": "2769474.448920859508167410747197448",
-    "totalLiquidityUSD": "2020836215.210923709713886368497946",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "764838.1357516739172333459098815551",
-    "dailyVolumeUSD": "549896602.8931521733925109723859065",
-    "date": 1609200000,
-    "id": "18625",
-    "totalLiquidityETH": "2824771.432013395792492181435826711",
-    "totalLiquidityUSD": "2069862628.946913777188550331984427",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "727128.7875374345115584895757330999",
-    "dailyVolumeUSD": "534413838.5078308544907939439875618",
-    "date": 1609286400,
-    "id": "18626",
-    "totalLiquidityETH": "2761650.095529430297057297152071237",
-    "totalLiquidityUSD": "2074880952.438617760387222450223633",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "736182.969764685526658837936474821",
-    "dailyVolumeUSD": "545177043.2946447528392625881224337",
-    "date": 1609372800,
-    "id": "18627",
-    "totalLiquidityETH": "2937287.21742960162866002523361118",
-    "totalLiquidityUSD": "2162114168.734418624568697822473825",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "673365.766780165174374025505223915",
-    "dailyVolumeUSD": "495037034.9347513901644270964168994",
-    "date": 1609459200,
-    "id": "18628",
-    "totalLiquidityETH": "2951569.29926032759364370082419082",
-    "totalLiquidityUSD": "2152993561.681865753914447167501372",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "734568.9678189111665982320860780834",
-    "dailyVolumeUSD": "552131361.4284785332808944541828935",
-    "date": 1609545600,
-    "id": "18629",
-    "totalLiquidityETH": "2872234.962635214756256330107350804",
-    "totalLiquidityUSD": "2226885549.137003281853818028285265",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "907735.0027475402602553657062186848",
-    "dailyVolumeUSD": "794629867.4769042906855511805621378",
-    "date": 1609632000,
-    "id": "18630",
-    "totalLiquidityETH": "2615831.384053556484245911626462796",
-    "totalLiquidityUSD": "2552857902.086215321702353963374693",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "997396.5239674485450218828584817967",
-    "dailyVolumeUSD": "1009680672.323911398450248930438412",
-    "date": 1609718400,
-    "id": "18631",
-    "totalLiquidityETH": "2638953.646608109936862731401214809",
-    "totalLiquidityUSD": "2745613113.618372239395428009925924",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "738804.6192346983429912713631604737",
-    "dailyVolumeUSD": "782551312.7384816784144154718714723",
-    "date": 1609804800,
-    "id": "18632",
-    "totalLiquidityETH": "2648192.582625351195485126402753603",
-    "totalLiquidityUSD": "2917629853.358533059709609395909549",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "665969.8301497826647490079303190918",
-    "dailyVolumeUSD": "758628552.5271642005976956882793891",
-    "date": 1609891200,
-    "id": "18633",
-    "totalLiquidityETH": "2582232.707140769938214832200388601",
-    "totalLiquidityUSD": "3125726437.915952513251083419576488",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "608835.6193036519298719238848279845",
-    "dailyVolumeUSD": "741951482.5538580420287574822425044",
-    "date": 1609977600,
-    "id": "18634",
-    "totalLiquidityETH": "2624938.729573893916862481806771887",
-    "totalLiquidityUSD": "3206846493.995482044342257101832709",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "687002.9482838700234165405764465515",
-    "dailyVolumeUSD": "820815873.1591924469401064875557982",
-    "date": 1610064000,
-    "id": "18635",
-    "totalLiquidityETH": "2637804.266396306344383903726276603",
-    "totalLiquidityUSD": "3214397727.85286911040128944019289",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "635921.2021180015271651157533872622",
-    "dailyVolumeUSD": "779005002.0160106308728255286375639",
-    "date": 1610150400,
-    "id": "18636",
-    "totalLiquidityETH": "2576715.993947488122887203655955057",
-    "totalLiquidityUSD": "3306588537.685196063072467952040524",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "621449.1286769944340127349888413551",
-    "dailyVolumeUSD": "802902397.0368336201763448729671088",
-    "date": 1610236800,
-    "id": "18637",
-    "totalLiquidityETH": "2541083.229923326406590525139177657",
-    "totalLiquidityUSD": "3201112229.712834378376383632590499",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "1225692.284101857510362454125818213",
-    "dailyVolumeUSD": "1298199616.679412560789176966371747",
-    "date": 1610323200,
-    "id": "18638",
-    "totalLiquidityETH": "2614759.433158754046944348548334355",
-    "totalLiquidityUSD": "2845519855.298078472244829330742357",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "640437.1186306764625559251818478077",
-    "dailyVolumeUSD": "692443355.7199973474545055804052875",
-    "date": 1610409600,
-    "id": "18639",
-    "totalLiquidityETH": "2708702.799538573060425208398424226",
-    "totalLiquidityUSD": "2833318880.829944389725179749212289",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "534651.1370986779308064009670030843",
-    "dailyVolumeUSD": "570399311.3406938628503779789567011",
-    "date": 1610496000,
-    "id": "18640",
-    "totalLiquidityETH": "2692543.616471033956661031977613284",
-    "totalLiquidityUSD": "3038143823.789392388921273010726605",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "547620.5378627577383842624901292136",
-    "dailyVolumeUSD": "640605403.3918599017394099457559164",
-    "date": 1610582400,
-    "id": "18641",
-    "totalLiquidityETH": "2607366.618068306878694699732820415",
-    "totalLiquidityUSD": "3196278397.063876131252596678371737",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "632877.9267078668536429009309473573",
-    "dailyVolumeUSD": "748939396.9632414200501990839433858",
-    "date": 1610668800,
-    "id": "18642",
-    "totalLiquidityETH": "2681626.403675675442256054344205547",
-    "totalLiquidityUSD": "3137774830.307628677547402532275274",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "579284.8253741605365968883470474256",
-    "dailyVolumeUSD": "707933139.3473321050177842732768638",
-    "date": 1610755200,
-    "id": "18643",
-    "totalLiquidityETH": "2608918.813091364470221263710970665",
-    "totalLiquidityUSD": "3214791849.077745128439809976421216",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "545136.6346342827129489326190299434",
-    "dailyVolumeUSD": "667466484.563696593645457764452349",
-    "date": 1610841600,
-    "id": "18644",
-    "totalLiquidityETH": "2631249.195689729078157480538138781",
-    "totalLiquidityUSD": "3236378356.071979783124620785467341",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "563823.3734809231086424817128351663",
-    "dailyVolumeUSD": "691337609.0229001937743163509620283",
-    "date": 1610928000,
-    "id": "18645",
-    "totalLiquidityETH": "2625607.122720324368490969915900078",
-    "totalLiquidityUSD": "3297483118.454284629676567241538872",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "737747.2420346412163281437109237975",
-    "dailyVolumeUSD": "1008768657.629016690411757371438169",
-    "date": 1611014400,
-    "id": "18646",
-    "totalLiquidityETH": "2480550.078704624766791961991624572",
-    "totalLiquidityUSD": "3410284732.174813110802300615066828",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "580350.1334300129947868273554796963",
-    "dailyVolumeUSD": "769832172.8477491717937401378025647",
-    "date": 1611100800,
-    "id": "18647",
-    "totalLiquidityETH": "2500689.754986279524697861963441901",
-    "totalLiquidityUSD": "3447823722.745867492355633402300152",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "740220.9164597102680994161475994344",
-    "dailyVolumeUSD": "913283712.9665465081968594934830857",
-    "date": 1611187200,
-    "id": "18648",
-    "totalLiquidityETH": "2621375.934906687041372791680545618",
-    "totalLiquidityUSD": "2923939740.820937428572696741216922",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "728394.8299374926163718844184110496",
-    "dailyVolumeUSD": "858199697.9514782492154781374354887",
-    "date": 1611273600,
-    "id": "18649",
-    "totalLiquidityETH": "2611377.240858377695456188910100906",
-    "totalLiquidityUSD": "3225425876.772384181200928005623133",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "536817.0068595218546753548161392761",
-    "dailyVolumeUSD": "666108814.1536457090747442213533199",
-    "date": 1611360000,
-    "id": "18650",
-    "totalLiquidityETH": "2575949.920777408653475843690617834",
-    "totalLiquidityUSD": "3167283093.848591547298021881984736",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "580497.6633966096471029153943946307",
-    "dailyVolumeUSD": "767705046.3765130383799039598375029",
-    "date": 1611446400,
-    "id": "18651",
-    "totalLiquidityETH": "2532015.18064673597222716233772977",
-    "totalLiquidityUSD": "3531265629.607110224587501813918708",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "648483.3319143231875973534028070364",
-    "dailyVolumeUSD": "909029690.3753087617210778830948931",
-    "date": 1611532800,
-    "id": "18652",
-    "totalLiquidityETH": "2538264.756754378239309392502764648",
-    "totalLiquidityUSD": "3351733763.279225337632130326983624",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "578166.2988425392425136192148901464",
-    "dailyVolumeUSD": "764980252.2082097562132989157816692",
-    "date": 1611619200,
-    "id": "18653",
-    "totalLiquidityETH": "2521665.819452735009317157068320196",
-    "totalLiquidityUSD": "3435191486.291613962078345997669509",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "618628.7405491108112570393967861594",
-    "dailyVolumeUSD": "788962261.9689318554280807209642966",
-    "date": 1611705600,
-    "id": "18654",
-    "totalLiquidityETH": "2606267.327204725102290574793848683",
-    "totalLiquidityUSD": "3242548912.235491457578565652639422",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "524181.4402695654194443389474487369",
-    "dailyVolumeUSD": "687787282.6498524450707608898855924",
-    "date": 1611792000,
-    "id": "18655",
-    "totalLiquidityETH": "2538859.582739281927298274140839625",
-    "totalLiquidityUSD": "3384614844.141425930913484698672693",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "751557.2556779924802494261128758198",
-    "dailyVolumeUSD": "1025187342.936460687412128814625927",
-    "date": 1611878400,
-    "id": "18656",
-    "totalLiquidityETH": "2491038.542926701605105624807897496",
-    "totalLiquidityUSD": "3446534371.370236656541187373172163",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "538134.100560255410175510786633285",
-    "dailyVolumeUSD": "732611230.5941484722053894479561035",
-    "date": 1611964800,
-    "id": "18657",
-    "totalLiquidityETH": "2530341.240399640310203670929314001",
-    "totalLiquidityUSD": "3484539974.860921985161586255107137",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "547451.1323582417308703083125927543",
-    "dailyVolumeUSD": "731289978.4670885351722008597520528",
-    "date": 1612051200,
-    "id": "18658",
-    "totalLiquidityETH": "2563887.733877270687230203352370398",
-    "totalLiquidityUSD": "3367125932.185697049738300594399841",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "616100.5229011025720882919824230192",
-    "dailyVolumeUSD": "816231293.6863843549781272332823476",
-    "date": 1612137600,
-    "id": "18659",
-    "totalLiquidityETH": "2564898.676970306453023875930229005",
-    "totalLiquidityUSD": "3515864828.730813829216538126057656",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "639938.8855765791220482428805317372",
-    "dailyVolumeUSD": "922666029.5178032057925177326922846",
-    "date": 1612224000,
-    "id": "18660",
-    "totalLiquidityETH": "2424725.76605397042691830048159557",
-    "totalLiquidityUSD": "3672878011.641534272698507761157662",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "554202.1262399098040623414745754757",
-    "dailyVolumeUSD": "874152304.998205551295182073337647",
-    "date": 1612310400,
-    "id": "18661",
-    "totalLiquidityETH": "2384145.817461874220664453591504383",
-    "totalLiquidityUSD": "3967035693.440906269997266609965997",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "783883.1032559247846499518895212955",
-    "dailyVolumeUSD": "1290813273.935195917395471601226941",
-    "date": 1612396800,
-    "id": "18662",
-    "totalLiquidityETH": "2419734.139199521880823708791224356",
-    "totalLiquidityUSD": "3863840513.878716396793050286632281",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "664367.8521211615160470997121853344",
-    "dailyVolumeUSD": "1117545505.245341711643568289110168",
-    "date": 1612483200,
-    "id": "18663",
-    "totalLiquidityETH": "2354161.403688573556544110280219068",
-    "totalLiquidityUSD": "4045901803.520425416270745000496617",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "575457.42003796742591277657327575",
-    "dailyVolumeUSD": "971622885.5105145852988012228690101",
-    "date": 1612569600,
-    "id": "18664",
-    "totalLiquidityETH": "2349490.727873128079232307575764091",
-    "totalLiquidityUSD": "3944237958.111483622372337930833366",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "581242.7455441594648352256265243196",
-    "dailyVolumeUSD": "928875410.6556990152385112035724921",
-    "date": 1612656000,
-    "id": "18665",
-    "totalLiquidityETH": "2400551.272576070349285225377438217",
-    "totalLiquidityUSD": "3885341760.899307943124402681352976",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "635485.1712909630304161563276328385",
-    "dailyVolumeUSD": "1066804052.535519916632071537300253",
-    "date": 1612742400,
-    "id": "18666",
-    "totalLiquidityETH": "2374589.49658760033442528681256958",
-    "totalLiquidityUSD": "4147174537.569691754336363666146469",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "603103.2408193416665821139428774996",
-    "dailyVolumeUSD": "1056728614.611178744798049018286327",
-    "date": 1612828800,
-    "id": "18667",
-    "totalLiquidityETH": "2391779.6157130618640727157065721",
-    "totalLiquidityUSD": "4234289476.072844950832195500282328",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "599942.66640298627232155386132915",
-    "dailyVolumeUSD": "1059389630.207590357805850716972686",
-    "date": 1612915200,
-    "id": "18668",
-    "totalLiquidityETH": "2415933.699444617721893655437561174",
-    "totalLiquidityUSD": "4218766611.025725246017280639519398",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "521340.9360258746479280831191931174",
-    "dailyVolumeUSD": "922367831.9992102926908387006250618",
-    "date": 1613001600,
-    "id": "18669",
-    "totalLiquidityETH": "2462684.090959274695245687312921705",
-    "totalLiquidityUSD": "4387993746.131363799002469327276331",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "575359.9455035791491605451594497432",
-    "dailyVolumeUSD": "1034077552.214151627903657093954107",
-    "date": 1613088000,
-    "id": "18670",
-    "totalLiquidityETH": "2436456.74878192999718674327455255",
-    "totalLiquidityUSD": "4483606496.141841006152019891560235",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "564760.9810597834292250743964866791",
-    "dailyVolumeUSD": "1026887020.333174876730356665325958",
-    "date": 1613174400,
-    "id": "18671",
-    "totalLiquidityETH": "2460792.751462052035893343712944498",
-    "totalLiquidityUSD": "4456485719.037842972216205015045636",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "543226.5040140030306571351696043916",
-    "dailyVolumeUSD": "989113608.4664426938599163393441098",
-    "date": 1613260800,
-    "id": "18672",
-    "totalLiquidityETH": "2450049.334798201455453542979559931",
-    "totalLiquidityUSD": "4425859880.251318750394160112620992",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "652505.9902221951033644956533424584",
-    "dailyVolumeUSD": "1156696196.87353676526569888226736",
-    "date": 1613347200,
-    "id": "18673",
-    "totalLiquidityETH": "2468862.466992974239242264907098343",
-    "totalLiquidityUSD": "4386220400.474933360280085059528294",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "545480.3714093196081588040728893077",
-    "dailyVolumeUSD": "969910865.6147053134266563114391",
-    "date": 1613433600,
-    "id": "18674",
-    "totalLiquidityETH": "2498198.37876483555449451615886776",
-    "totalLiquidityUSD": "4442760967.032310402684527610355185",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "606941.7035673830489808464691284245",
-    "dailyVolumeUSD": "1093431735.935902557783195472251104",
-    "date": 1613520000,
-    "id": "18675",
-    "totalLiquidityETH": "2507820.152690504579963736141594756",
-    "totalLiquidityUSD": "4632472434.162283787926176069984663",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "578468.3481815799591259906597061342",
-    "dailyVolumeUSD": "1103045386.420095954350542865331302",
-    "date": 1613606400,
-    "id": "18676",
-    "totalLiquidityETH": "2455530.883084199589992628063565224",
-    "totalLiquidityUSD": "4747075522.049657813483888411896209",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "524356.7029681319363468854762724826",
-    "dailyVolumeUSD": "1014670568.224920501337541443925647",
-    "date": 1613692800,
-    "id": "18677",
-    "totalLiquidityETH": "2450220.973144348638058630362999315",
-    "totalLiquidityUSD": "4794719318.912734997438593922628675",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "634667.6848055938972724498705215332",
-    "dailyVolumeUSD": "1259519248.750829930121527113113021",
-    "date": 1613779200,
-    "id": "18678",
-    "totalLiquidityETH": "2467358.318816039568717056553783983",
-    "totalLiquidityUSD": "4725472328.805263666278564683429286",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "503849.7831363687635831449246593377",
-    "dailyVolumeUSD": "978781666.3269792656606214105848518",
-    "date": 1613865600,
-    "id": "18679",
-    "totalLiquidityETH": "2515490.818960348516818812209375326",
-    "totalLiquidityUSD": "4850807050.515919460969152926587955",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "838228.0703468171931026226352401557",
-    "dailyVolumeUSD": "1492567617.494786313806114308792441",
-    "date": 1613952000,
-    "id": "18680",
-    "totalLiquidityETH": "2476801.710702263062982461727885924",
-    "totalLiquidityUSD": "4403776960.717333678469062221348472",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "1154377.907461906903406838298936342",
-    "dailyVolumeUSD": "1766569766.416555835439026043545966",
-    "date": 1614038400,
-    "id": "18681",
-    "totalLiquidityETH": "2518466.934509503815938856609474053",
-    "totalLiquidityUSD": "3953850431.836415563608363952086079",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "709303.0113655425054320830563968102",
-    "dailyVolumeUSD": "1159603530.795321523545131459048617",
-    "date": 1614124800,
-    "id": "18682",
-    "totalLiquidityETH": "2577393.080706764827829839340404947",
-    "totalLiquidityUSD": "4180868242.483060461439017439290294",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "638008.9209058863782958847743495883",
-    "dailyVolumeUSD": "1019762419.497605879806798975852962",
-    "date": 1614211200,
-    "id": "18683",
-    "totalLiquidityETH": "2665062.468141245567292267821752786",
-    "totalLiquidityUSD": "3942072999.9554640142276337414656",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "697917.1280639444058737441453199148",
-    "dailyVolumeUSD": "1032715140.190771477125130660315205",
-    "date": 1614297600,
-    "id": "18684",
-    "totalLiquidityETH": "2644043.125830000429810669337506507",
-    "totalLiquidityUSD": "3812430024.035465723857231842632333",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "504157.3666828215322111870433036989",
-    "dailyVolumeUSD": "748422479.8133876124689992931393508",
-    "date": 1614384000,
-    "id": "18685",
-    "totalLiquidityETH": "2674168.436228749011658686356710106",
-    "totalLiquidityUSD": "3907392661.209706450575865690450212",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "712751.6751409645780470340860719457",
-    "dailyVolumeUSD": "977896476.6325769873808949935407549",
-    "date": 1614470400,
-    "id": "18686",
-    "totalLiquidityETH": "2685998.619230360485058820340697944",
-    "totalLiquidityUSD": "3811788135.616994388972984399662527",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "552566.082082157632161438733388302",
-    "dailyVolumeUSD": "827937061.6175291449453602128090423",
-    "date": 1614556800,
-    "id": "18687",
-    "totalLiquidityETH": "2642894.17210847467964778625454945",
-    "totalLiquidityUSD": "4143005177.452719621225774987379606",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "526823.0895793647131362628368561283",
-    "dailyVolumeUSD": "810078202.4925747029079943311533729",
-    "date": 1614643200,
-    "id": "18688",
-    "totalLiquidityETH": "2682606.769019880970488498151313578",
-    "totalLiquidityUSD": "3999833018.032124374879076185723924",
-    "totalVolumeUSD": "0"
-  },
-  {
-    "__typename": "UniswapDayData",
-    "dailyVolumeETH": "535612.0313459507602630880509785585",
-    "dailyVolumeUSD": "847889645.5943688533032094859261161",
-    "date": 1614729600,
-    "id": "18689",
-    "totalLiquidityETH": "2640352.370003943366599763525830918",
-    "totalLiquidityUSD": "4153856227.701263811187448091176231",
-    "totalVolumeUSD": "0"
-  }
+    "id": "18588"
+  },
+    {
+      "dailyVolumeETH": "644672.519237450124343770615363584",
+      "dailyVolumeUSD": "378486996.0145548845225873710158711",
+      "date": 1606089600,
+      "id": "18589"
+    }, {
+      "dailyVolumeETH": "700796.9489316796939637992702675223",
+      "dailyVolumeUSD": "425319795.5031115885442198045542677",
+      "date": 1606176000,
+      "id": "18590"
+    }, {
+      "dailyVolumeETH": "503848.2690173341557217493665928362",
+      "dailyVolumeUSD": "296133987.752080720984899337316279",
+      "date": 1606262400,
+      "id": "18591"
+    }, {
+      "dailyVolumeETH": "1409892.633963646794951462646439234",
+      "dailyVolumeUSD": "717162523.4608256556798770872601809",
+      "date": 1606348800,
+      "id": "18592"
+    }, {
+      "dailyVolumeETH": "441055.3147223440333373102966567294",
+      "dailyVolumeUSD": "226181702.0502531568239715526463216",
+      "date": 1606435200,
+      "id": "18593"
+    }, {
+      "dailyVolumeETH": "333956.3635705945310566116085676541",
+      "dailyVolumeUSD": "175112139.6267855738883313646088081",
+      "date": 1606521600,
+      "id": "18594"
+    }, {
+      "dailyVolumeETH": "351676.7760149894398929902194363077",
+      "dailyVolumeUSD": "193454443.9392832339281351368765795",
+      "date": 1606608000,
+      "id": "18595"
+    }, {
+      "dailyVolumeETH": "528961.3484507347239247029765645222",
+      "dailyVolumeUSD": "313542132.95577745873653577146675",
+      "date": 1606694400,
+      "id": "18596"
+    }, {
+      "dailyVolumeETH": "580168.8800529778137720942085277099",
+      "dailyVolumeUSD": "348384888.313922028363997092247304",
+      "date": 1606780800,
+      "id": "18597"
+    }, {
+      "dailyVolumeETH": "437354.0418107385905739882761560248",
+      "dailyVolumeUSD": "258920295.0016247150296717432691175",
+      "date": 1606867200,
+      "id": "18598"
+    }, {
+      "dailyVolumeETH": "488477.5733311639528575378880555159",
+      "dailyVolumeUSD": "295779902.4476984518213703739395383",
+      "date": 1606953600,
+      "id": "18599"
+    }, {
+      "dailyVolumeETH": "505272.1177171162245573474151332018",
+      "dailyVolumeUSD": "300303754.2715895012362326369503986",
+      "date": 1607040000,
+      "id": "18600"
+    }, {
+      "dailyVolumeETH": "443451.9776612135781211835408040944",
+      "dailyVolumeUSD": "260131036.6014056962159013523002563",
+      "date": 1607126400,
+      "id": "18601"
+    }, {
+      "dailyVolumeETH": "624814.0404131122059339351554158389",
+      "dailyVolumeUSD": "371805370.1183847077407758003348931",
+      "date": 1607212800,
+      "id": "18602"
+    }, {
+      "dailyVolumeETH": "486059.8643534794384623194973281676",
+      "dailyVolumeUSD": "288029750.0877941217497397229234935",
+      "date": 1607299200,
+      "id": "18603"
+    }, {
+      "dailyVolumeETH": "651403.5117058838107636771506768119",
+      "dailyVolumeUSD": "374535866.7993156448841871356616703",
+      "date": 1607385600,
+      "id": "18604"
+    }, {
+      "dailyVolumeETH": "621436.2724408538350344517470676212",
+      "dailyVolumeUSD": "346893644.0768337894190022689546688",
+      "date": 1607472000,
+      "id": "18605"
+    }, {
+      "dailyVolumeETH": "532401.8051094532797085658425503548",
+      "dailyVolumeUSD": "298647924.4181979273921894386896475",
+      "date": 1607558400,
+      "id": "18606"
+    }, {
+      "dailyVolumeETH": "538814.1520254170444203639575454615",
+      "dailyVolumeUSD": "293822886.6526474114842777705798563",
+      "date": 1607644800,
+      "id": "18607"
+    }, {
+      "dailyVolumeETH": "406414.4994385944825237667290065702",
+      "dailyVolumeUSD": "226806450.6829128434237198989298696",
+      "date": 1607731200,
+      "id": "18608"
+    }, {
+      "dailyVolumeETH": "383064.6197016016624007269397331308",
+      "dailyVolumeUSD": "222809588.719032959987785715396462",
+      "date": 1607817600,
+      "id": "18609"
+    }, {
+      "dailyVolumeETH": "409603.0341609360540691261366865983",
+      "dailyVolumeUSD": "239182278.812678637676263011184532",
+      "date": 1607904000,
+      "id": "18610"
+    }, {
+      "dailyVolumeETH": "485268.0220117158303908635436763942",
+      "dailyVolumeUSD": "284811413.9270177060416642824791215",
+      "date": 1607990400,
+      "id": "18611"
+    }, {
+      "dailyVolumeETH": "511446.2644155001617682015769175239",
+      "dailyVolumeUSD": "310071240.3668406246539065003229334",
+      "date": 1608076800,
+      "id": "18612"
+    }, {
+      "dailyVolumeETH": "2181545.218733178804869520914758454",
+      "dailyVolumeUSD": "997832807.6766922265724168569305732",
+      "date": 1608163200,
+      "id": "18613"
+    }, {
+      "dailyVolumeETH": "500023.1450274542711380962946993537",
+      "dailyVolumeUSD": "322593543.226974165273833201184304",
+      "date": 1608249600,
+      "id": "18614"
+    }, {
+      "dailyVolumeETH": "527688.7226632899736246947744245094",
+      "dailyVolumeUSD": "346453595.4273951812866952050182962",
+      "date": 1608336000,
+      "id": "18615"
+    }, {
+      "dailyVolumeETH": "517554.1206558380014548257585184062",
+      "dailyVolumeUSD": "335305227.7009976326410559229606431",
+      "date": 1608422400,
+      "id": "18616"
+    }, {
+      "dailyVolumeETH": "695490.3333267359881107707199861347",
+      "dailyVolumeUSD": "432693447.7963102537131039399928667",
+      "date": 1608508800,
+      "id": "18617"
+    }, {
+      "dailyVolumeETH": "638997.1891305902834524249533482435",
+      "dailyVolumeUSD": "392071410.6085358189556810965909317",
+      "date": 1608595200,
+      "id": "18618"
+    }, {
+      "dailyVolumeETH": "689089.9960630791049201451069622154",
+      "dailyVolumeUSD": "417761887.6036549573365488942943444",
+      "date": 1608681600,
+      "id": "18619"
+    }, {
+      "dailyVolumeETH": "632637.0633966041722314431624448307",
+      "dailyVolumeUSD": "369885494.2688417155666933001147924",
+      "date": 1608768000,
+      "id": "18620"
+    }, {
+      "dailyVolumeETH": "565974.6360002986641478454222601597",
+      "dailyVolumeUSD": "348650999.6722983360964920040454209",
+      "date": 1608854400,
+      "id": "18621"
+    }, {
+      "dailyVolumeETH": "540160.2488554299461178853126760312",
+      "dailyVolumeUSD": "341268056.8071330905648532741676664",
+      "date": 1608940800,
+      "id": "18622"
+    }, {
+      "dailyVolumeETH": "741832.1891279863229688272205245338",
+      "dailyVolumeUSD": "492740183.4249550097669932881184939",
+      "date": 1609027200,
+      "id": "18623"
+    }, {
+      "dailyVolumeETH": "612949.8061362925582979553853032101",
+      "dailyVolumeUSD": "442887937.9115225756629006781376596",
+      "date": 1609113600,
+      "id": "18624"
+    }, {
+      "dailyVolumeETH": "764838.1357516739172333459098815551",
+      "dailyVolumeUSD": "549896602.8931521733925109723859065",
+      "date": 1609200000,
+      "id": "18625"
+    }, {
+      "dailyVolumeETH": "727128.7875374345115584895757330999",
+      "dailyVolumeUSD": "534413838.5078308544907939439875618",
+      "date": 1609286400,
+      "id": "18626"
+    }, {
+      "dailyVolumeETH": "736182.969764685526658837936474821",
+      "dailyVolumeUSD": "545177043.2946447528392625881224337",
+      "date": 1609372800,
+      "id": "18627"
+    }, {
+      "dailyVolumeETH": "673365.766780165174374025505223915",
+      "dailyVolumeUSD": "495037034.9347513901644270964168994",
+      "date": 1609459200,
+      "id": "18628"
+    }, {
+      "dailyVolumeETH": "734568.9678189111665982320860780834",
+      "dailyVolumeUSD": "552131361.4284785332808944541828935",
+      "date": 1609545600,
+      "id": "18629"
+    }, {
+      "dailyVolumeETH": "907735.0027475402602553657062186848",
+      "dailyVolumeUSD": "794629867.4769042906855511805621378",
+      "date": 1609632000,
+      "id": "18630"
+    }, {
+      "dailyVolumeETH": "997396.5239674485450218828584817967",
+      "dailyVolumeUSD": "1009680672.323911398450248930438412",
+      "date": 1609718400,
+      "id": "18631"
+    }, {
+      "dailyVolumeETH": "738804.6192346983429912713631604737",
+      "dailyVolumeUSD": "782551312.7384816784144154718714723",
+      "date": 1609804800,
+      "id": "18632"
+    }, {
+      "dailyVolumeETH": "665969.8301497826647490079303190918",
+      "dailyVolumeUSD": "758628552.5271642005976956882793891",
+      "date": 1609891200,
+      "id": "18633"
+    }, {
+      "dailyVolumeETH": "608835.6193036519298719238848279845",
+      "dailyVolumeUSD": "741951482.5538580420287574822425044",
+      "date": 1609977600,
+      "id": "18634"
+    }, {
+      "dailyVolumeETH": "687002.9482838700234165405764465515",
+      "dailyVolumeUSD": "820815873.1591924469401064875557982",
+      "date": 1610064000,
+      "id": "18635"
+    }, {
+      "dailyVolumeETH": "635921.2021180015271651157533872622",
+      "dailyVolumeUSD": "779005002.0160106308728255286375639",
+      "date": 1610150400,
+      "id": "18636"
+    }, {
+      "dailyVolumeETH": "621449.1286769944340127349888413551",
+      "dailyVolumeUSD": "802902397.0368336201763448729671088",
+      "date": 1610236800,
+      "id": "18637"
+    }, {
+      "dailyVolumeETH": "1225692.284101857510362454125818213",
+      "dailyVolumeUSD": "1298199616.679412560789176966371747",
+      "date": 1610323200,
+      "id": "18638"
+    }, {
+      "dailyVolumeETH": "640437.1186306764625559251818478077",
+      "dailyVolumeUSD": "692443355.7199973474545055804052875",
+      "date": 1610409600,
+      "id": "18639"
+    }, {
+      "dailyVolumeETH": "534651.1370986779308064009670030843",
+      "dailyVolumeUSD": "570399311.3406938628503779789567011",
+      "date": 1610496000,
+      "id": "18640"
+    }, {
+      "dailyVolumeETH": "547620.5378627577383842624901292136",
+      "dailyVolumeUSD": "640605403.3918599017394099457559164",
+      "date": 1610582400,
+      "id": "18641"
+    }, {
+      "dailyVolumeETH": "632877.9267078668536429009309473573",
+      "dailyVolumeUSD": "748939396.9632414200501990839433858",
+      "date": 1610668800,
+      "id": "18642"
+    }, {
+      "dailyVolumeETH": "579284.8253741605365968883470474256",
+      "dailyVolumeUSD": "707933139.3473321050177842732768638",
+      "date": 1610755200,
+      "id": "18643"
+    }, {
+      "dailyVolumeETH": "545136.6346342827129489326190299434",
+      "dailyVolumeUSD": "667466484.563696593645457764452349",
+      "date": 1610841600,
+      "id": "18644"
+    }, {
+      "dailyVolumeETH": "563823.3734809231086424817128351663",
+      "dailyVolumeUSD": "691337609.0229001937743163509620283",
+      "date": 1610928000,
+      "id": "18645"
+    }, {
+      "dailyVolumeETH": "737747.2420346412163281437109237975",
+      "dailyVolumeUSD": "1008768657.629016690411757371438169",
+      "date": 1611014400,
+      "id": "18646"
+    }, {
+      "dailyVolumeETH": "580350.1334300129947868273554796963",
+      "dailyVolumeUSD": "769832172.8477491717937401378025647",
+      "date": 1611100800,
+      "id": "18647"
+    }, {
+      "dailyVolumeETH": "740220.9164597102680994161475994344",
+      "dailyVolumeUSD": "913283712.9665465081968594934830857",
+      "date": 1611187200,
+      "id": "18648"
+    }, {
+      "dailyVolumeETH": "728394.8299374926163718844184110496",
+      "dailyVolumeUSD": "858199697.9514782492154781374354887",
+      "date": 1611273600,
+      "id": "18649"
+    }, {
+      "dailyVolumeETH": "536817.0068595218546753548161392761",
+      "dailyVolumeUSD": "666108814.1536457090747442213533199",
+      "date": 1611360000,
+      "id": "18650"
+    }, {
+      "dailyVolumeETH": "580497.6633966096471029153943946307",
+      "dailyVolumeUSD": "767705046.3765130383799039598375029",
+      "date": 1611446400,
+      "id": "18651"
+    }, {
+      "dailyVolumeETH": "648483.3319143231875973534028070364",
+      "dailyVolumeUSD": "909029690.3753087617210778830948931",
+      "date": 1611532800,
+      "id": "18652"
+    }, {
+      "dailyVolumeETH": "578166.2988425392425136192148901464",
+      "dailyVolumeUSD": "764980252.2082097562132989157816692",
+      "date": 1611619200,
+      "id": "18653"
+    }, {
+      "dailyVolumeETH": "618628.7405491108112570393967861594",
+      "dailyVolumeUSD": "788962261.9689318554280807209642966",
+      "date": 1611705600,
+      "id": "18654"
+    }, {
+      "dailyVolumeETH": "524181.4402695654194443389474487369",
+      "dailyVolumeUSD": "687787282.6498524450707608898855924",
+      "date": 1611792000,
+      "id": "18655"
+    }, {
+      "dailyVolumeETH": "751557.2556779924802494261128758198",
+      "dailyVolumeUSD": "1025187342.936460687412128814625927",
+      "date": 1611878400,
+      "id": "18656"
+    }, {
+      "dailyVolumeETH": "538134.100560255410175510786633285",
+      "dailyVolumeUSD": "732611230.5941484722053894479561035",
+      "date": 1611964800,
+      "id": "18657"
+    }, {
+      "dailyVolumeETH": "547451.1323582417308703083125927543",
+      "dailyVolumeUSD": "731289978.4670885351722008597520528",
+      "date": 1612051200,
+      "id": "18658"
+    }, {
+      "dailyVolumeETH": "616100.5229011025720882919824230192",
+      "dailyVolumeUSD": "816231293.6863843549781272332823476",
+      "date": 1612137600,
+      "id": "18659"
+    }, {
+      "dailyVolumeETH": "639938.8855765791220482428805317372",
+      "dailyVolumeUSD": "922666029.5178032057925177326922846",
+      "date": 1612224000,
+      "id": "18660"
+    }, {
+      "dailyVolumeETH": "554202.1262399098040623414745754757",
+      "dailyVolumeUSD": "874152304.998205551295182073337647",
+      "date": 1612310400,
+      "id": "18661"
+    }, {
+      "dailyVolumeETH": "783883.1032559247846499518895212955",
+      "dailyVolumeUSD": "1290813273.935195917395471601226941",
+      "date": 1612396800,
+      "id": "18662"
+    }, {
+      "dailyVolumeETH": "664367.8521211615160470997121853344",
+      "dailyVolumeUSD": "1117545505.245341711643568289110168",
+      "date": 1612483200,
+      "id": "18663"
+    }, {
+      "dailyVolumeETH": "575457.42003796742591277657327575",
+      "dailyVolumeUSD": "971622885.5105145852988012228690101",
+      "date": 1612569600,
+      "id": "18664"
+    }, {
+      "dailyVolumeETH": "581242.7455441594648352256265243196",
+      "dailyVolumeUSD": "928875410.6556990152385112035724921",
+      "date": 1612656000,
+      "id": "18665"
+    }, {
+      "dailyVolumeETH": "635485.1712909630304161563276328385",
+      "dailyVolumeUSD": "1066804052.535519916632071537300253",
+      "date": 1612742400,
+      "id": "18666"
+    }, {
+      "dailyVolumeETH": "603103.2408193416665821139428774996",
+      "dailyVolumeUSD": "1056728614.611178744798049018286327",
+      "date": 1612828800,
+      "id": "18667"
+    }, {
+      "dailyVolumeETH": "599942.66640298627232155386132915",
+      "dailyVolumeUSD": "1059389630.207590357805850716972686",
+      "date": 1612915200,
+      "id": "18668"
+    }, {
+      "dailyVolumeETH": "521340.9360258746479280831191931174",
+      "dailyVolumeUSD": "922367831.9992102926908387006250618",
+      "date": 1613001600,
+      "id": "18669"
+    }, {
+      "dailyVolumeETH": "575359.9455035791491605451594497432",
+      "dailyVolumeUSD": "1034077552.214151627903657093954107",
+      "date": 1613088000,
+      "id": "18670"
+    }, {
+      "dailyVolumeETH": "564760.9810597834292250743964866791",
+      "dailyVolumeUSD": "1026887020.333174876730356665325958",
+      "date": 1613174400,
+      "id": "18671"
+    }, {
+      "dailyVolumeETH": "543226.5040140030306571351696043916",
+      "dailyVolumeUSD": "989113608.4664426938599163393441098",
+      "date": 1613260800,
+      "id": "18672"
+    }, {
+      "dailyVolumeETH": "652505.9902221951033644956533424584",
+      "dailyVolumeUSD": "1156696196.87353676526569888226736",
+      "date": 1613347200,
+      "id": "18673"
+    }, {
+      "dailyVolumeETH": "545480.3714093196081588040728893077",
+      "dailyVolumeUSD": "969910865.6147053134266563114391",
+      "date": 1613433600,
+      "id": "18674"
+    }, {
+      "dailyVolumeETH": "606941.7035673830489808464691284245",
+      "dailyVolumeUSD": "1093431735.935902557783195472251104",
+      "date": 1613520000,
+      "id": "18675"
+    }, {
+      "dailyVolumeETH": "578468.3481815799591259906597061342",
+      "dailyVolumeUSD": "1103045386.420095954350542865331302",
+      "date": 1613606400,
+      "id": "18676"
+    }, {
+      "dailyVolumeETH": "524356.7029681319363468854762724826",
+      "dailyVolumeUSD": "1014670568.224920501337541443925647",
+      "date": 1613692800,
+      "id": "18677"
+    }, {
+      "dailyVolumeETH": "634667.6848055938972724498705215332",
+      "dailyVolumeUSD": "1259519248.750829930121527113113021",
+      "date": 1613779200,
+      "id": "18678"
+    }, {
+      "dailyVolumeETH": "503849.7831363687635831449246593377",
+      "dailyVolumeUSD": "978781666.3269792656606214105848518",
+      "date": 1613865600,
+      "id": "18679"
+    }, {
+      "dailyVolumeETH": "838228.0703468171931026226352401557",
+      "dailyVolumeUSD": "1492567617.494786313806114308792441",
+      "date": 1613952000,
+      "id": "18680"
+    }, {
+      "dailyVolumeETH": "1154377.907461906903406838298936342",
+      "dailyVolumeUSD": "1766569766.416555835439026043545966",
+      "date": 1614038400,
+      "id": "18681"
+    }, {
+      "dailyVolumeETH": "709303.0113655425054320830563968102",
+      "dailyVolumeUSD": "1159603530.795321523545131459048617",
+      "date": 1614124800,
+      "id": "18682"
+    }, {
+      "dailyVolumeETH": "638008.9209058863782958847743495883",
+      "dailyVolumeUSD": "1019762419.497605879806798975852962",
+      "date": 1614211200,
+      "id": "18683"
+    }, {
+      "dailyVolumeETH": "697917.1280639444058737441453199148",
+      "dailyVolumeUSD": "1032715140.190771477125130660315205",
+      "date": 1614297600,
+      "id": "18684"
+    }, {
+      "dailyVolumeETH": "504157.3666828215322111870433036989",
+      "dailyVolumeUSD": "748422479.8133876124689992931393508",
+      "date": 1614384000,
+      "id": "18685"
+    }, {
+      "dailyVolumeETH": "712751.6751409645780470340860719457",
+      "dailyVolumeUSD": "977896476.6325769873808949935407549",
+      "date": 1614470400,
+      "id": "18686"
+    }, {
+      "dailyVolumeETH": "552566.082082157632161438733388302",
+      "dailyVolumeUSD": "827937061.6175291449453602128090423",
+      "date": 1614556800,
+      "id": "18687"
+    }, {
+      "dailyVolumeETH": "526823.0895793647131362628368561283",
+      "dailyVolumeUSD": "810078202.4925747029079943311533729",
+      "date": 1614643200,
+      "id": "18688"
+    },
+    {
+      "dailyVolumeETH": "535612.0313459507602630880509785585",
+      "dailyVolumeUSD": "847889645.5943688533032094859261161",
+      "date": 1614729600,
+      "id": "18689"
+    }, {
+      "dailyVolumeETH": "527283.5276617506337353881840613894",
+      "dailyVolumeUSD": "821780624.510205619216828095969383",
+      "date": 1614816000,
+      "id": "18690"
+    }, {
+      "dailyVolumeETH": "630877.9233589107132587013729677857",
+      "dailyVolumeUSD": "939288740.5991186572153011240347646",
+      "date": 1614902400,
+      "id": "18691"
+    }, {
+      "dailyVolumeETH": "479318.2444839456837183820261218754",
+      "dailyVolumeUSD": "757560680.5420877896008065395763826",
+      "date": 1614988800,
+      "id": "18692"
+    }, {
+      "dailyVolumeETH": "666186.6723603821765101925530959035",
+      "dailyVolumeUSD": "1110417162.30028238696744957379278",
+      "date": 1615075200,
+      "id": "18693"
+    }, {
+      "dailyVolumeETH": "647660.1239837568959827124742274155",
+      "dailyVolumeUSD": "1124796883.954656889749411288778766",
+      "date": 1615161600,
+      "id": "18694"
+    }, {
+      "dailyVolumeETH": "615690.868990602036266518844494523",
+      "dailyVolumeUSD": "1124265745.759810588673633940282094",
+      "date": 1615248000,
+      "id": "18695"
+    }, {
+      "dailyVolumeETH": "531396.1952628612405172673370917113",
+      "dailyVolumeUSD": "967509358.2055477563985868324364479",
+      "date": 1615334400,
+      "id": "18696"
+    }, {
+      "dailyVolumeETH": "551722.6392620563269722756661962792",
+      "dailyVolumeUSD": "988538426.8044691358764531263949258",
+      "date": 1615420800,
+      "id": "18697"
+    }, {
+      "dailyVolumeETH": "620880.4438194399395412498761879755",
+      "dailyVolumeUSD": "1104978110.309624724481583998351902",
+      "date": 1615507200,
+      "id": "18698"
+    }, {
+      "dailyVolumeETH": "563467.7998267320365200772967067015",
+      "dailyVolumeUSD": "1039593018.453540874699349489610142",
+      "date": 1615593600,
+      "id": "18699"
+    }, {
+      "dailyVolumeETH": "545702.2257964676280498031310902769",
+      "dailyVolumeUSD": "1026368981.092691112306286490153194",
+      "date": 1615680000,
+      "id": "18700"
+    }, {
+      "dailyVolumeETH": "609063.1245366769098678861534587614",
+      "dailyVolumeUSD": "1097466084.493311962674764744084368",
+      "date": 1615766400,
+      "id": "18701"
+    }, {
+      "dailyVolumeETH": "562207.3890335037507039860459476487",
+      "dailyVolumeUSD": "1000312732.81476559423578126957121",
+      "date": 1615852800,
+      "id": "18702"
+    }, {
+      "dailyVolumeETH": "552362.4004718304138413322535376742",
+      "dailyVolumeUSD": "985825734.7525509691917810037945696",
+      "date": 1615939200,
+      "id": "18703"
+    }, {
+      "dailyVolumeETH": "495432.6173606813232492973139861555",
+      "dailyVolumeUSD": "896049632.7668993750902597402874761",
+      "date": 1616025600,
+      "id": "18704"
+    }, {
+      "dailyVolumeETH": "571496.0347311816840650292562983304",
+      "dailyVolumeUSD": "1030755375.107485656111002527574274",
+      "date": 1616112000,
+      "id": "18705"
+    }, {
+      "dailyVolumeETH": "515162.8199004578252607696658845362",
+      "dailyVolumeUSD": "944398649.9028874354276405656360781",
+      "date": 1616198400,
+      "id": "18706"
+    }, {
+      "dailyVolumeETH": "472131.2048079417184943709555599238",
+      "dailyVolumeUSD": "842716716.321097237421920055826022",
+      "date": 1616284800,
+      "id": "18707"
+    }, {
+      "dailyVolumeETH": "740041.3201268555831782354901129927",
+      "dailyVolumeUSD": "1300195827.219541483851238096002685",
+      "date": 1616371200,
+      "id": "18708"
+    }, {
+      "dailyVolumeETH": "636095.4040298950810836992076434101",
+      "dailyVolumeUSD": "1076011539.800315100123637414564157",
+      "date": 1616457600,
+      "id": "18709"
+    }, {
+      "dailyVolumeETH": "746533.2586102363030495699964362081",
+      "dailyVolumeUSD": "1244106730.254446324478873587835829",
+      "date": 1616544000,
+      "id": "18710"
+    }, {
+      "dailyVolumeETH": "659966.3114091889208921652205181357",
+      "dailyVolumeUSD": "1049626191.514234731385930777152258",
+      "date": 1616630400,
+      "id": "18711"
+    }, {
+      "dailyVolumeETH": "575363.0441663858585417960713097056",
+      "dailyVolumeUSD": "944524781.8379899218929622206134437",
+      "date": 1616716800,
+      "id": "18712"
+    }, {
+      "dailyVolumeETH": "552421.8108803490820111677410871038",
+      "dailyVolumeUSD": "938119515.5876543830628126194081914",
+      "date": 1616803200,
+      "id": "18713"
+    }
 ]

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  24 APR 2021 13:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  27 APR 2021 19:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -378,25 +378,49 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \c@lotdepth=\count134
 \sf@top=\skip52
 \sf@bottom=\skip53
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/02/14 3.18 The Babel package
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/babel-german/ngerman.ldf
+Language: ngerman 2018/03/29 v2.10 German support for babel (post-1996 orthography)
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/babel-german/ngermanb.ldf
+Language: ngermanb 2018/03/29 v2.10 German support for babel (post-1996 orthography)
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/02/14 3.18 Babel common definitions
+\babel@savecnt=\count135
+\U@D=\dimen178
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count136
+)
+Package babel Info: Making " an active character on input line 121.
+)) (/usr/local/texlive/2018/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2016/04/27 v1.618033 publication quality tables
-\heavyrulewidth=\dimen178
-\lightrulewidth=\dimen179
-\cmidrulewidth=\dimen180
-\belowrulesep=\dimen181
-\belowbottomsep=\dimen182
-\aboverulesep=\dimen183
-\abovetopsep=\dimen184
-\cmidrulesep=\dimen185
-\cmidrulekern=\dimen186
-\defaultaddspace=\dimen187
-\@cmidla=\count135
-\@cmidlb=\count136
-\@aboverulesep=\dimen188
-\@belowrulesep=\dimen189
-\@thisruleclass=\count137
-\@lastruleclass=\count138
-\@thisrulewidth=\dimen190
+\heavyrulewidth=\dimen179
+\lightrulewidth=\dimen180
+\cmidrulewidth=\dimen181
+\belowrulesep=\dimen182
+\belowbottomsep=\dimen183
+\aboverulesep=\dimen184
+\abovetopsep=\dimen185
+\cmidrulesep=\dimen186
+\cmidrulekern=\dimen187
+\defaultaddspace=\dimen188
+\@cmidla=\count137
+\@cmidlb=\count138
+\@aboverulesep=\dimen189
+\@belowrulesep=\dimen190
+\@thisruleclass=\count139
+\@lastruleclass=\count140
+\@thisrulewidth=\dimen191
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footers
 \f@nch@headwidth=\skip54
@@ -410,18 +434,18 @@ Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footers
 \f@nch@O@orf=\skip62
 )
 
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 14.
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 17.
 
 
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 15.
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 18.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count139
+\c@AlgoLine=\count141
 \algocf@hangindent=\skip63
  (/usr/local/texlive/2018/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count140
+\c@checkoddpage=\count142
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/relsize/relsize.sty
@@ -435,12 +459,12 @@ Package: relsize 2013/03/29 ver 4.1
 \skiplength=\skip69
 \algomargin=\skip70
 \skipalgocfslide=\skip71
-\algowidth=\dimen191
-\inoutsize=\dimen192
-\inoutindent=\dimen193
-\interspacetitleruled=\dimen194
-\interspacealgoruled=\dimen195
-\interspacetitleboxruled=\dimen196
+\algowidth=\dimen192
+\inoutsize=\dimen193
+\inoutindent=\dimen194
+\interspacetitleruled=\dimen195
+\interspacealgoruled=\dimen196
+\interspacetitleboxruled=\dimen197
 \algocf@ruledwidth=\skip72
 \algocf@inoutbox=\box39
 \algocf@inputbox=\box40
@@ -457,9 +481,9 @@ Package: relsize 2013/03/29 ver 4.1
 \algoheightrule=\skip79
 \algotitleheightruledefault=\skip80
 \algotitleheightrule=\skip81
-\c@algocfline=\count141
-\c@algocfproc=\count142
-\c@algocf=\count143
+\c@algocfline=\count143
+\c@algocfproc=\count144
+\c@algocf=\count145
 \algocf@algoframe=\box45
 \algocf@algobox=\box46
 ))) (/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.aux)
@@ -514,16 +538,16 @@ LaTeX Font Info:    ... okay on input line 4.
 
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count144
-\scratchdimen=\dimen197
+\scratchcounter=\count146
+\scratchdimen=\dimen198
 \scratchbox=\box47
-\nofMPsegments=\count145
-\nofMParguments=\count146
+\nofMPsegments=\count147
+\nofMParguments=\count148
 \everyMPshowfont=\toks37
-\MPscratchCnt=\count147
-\MPscratchDim=\dimen198
-\MPnumerator=\count148
-\makeMPintoPDFobject=\count149
+\MPscratchCnt=\count149
+\MPscratchDim=\dimen199
+\MPnumerator=\count150
+\makeMPintoPDFobject=\count151
 \everyMPtoPDFconversion=\toks38
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -569,101 +593,104 @@ Package caption Info: End \AtBeginDocument code.
 <diagrams/architecture.png, id=4, 800.9925pt x 663.47874pt>
 File: diagrams/architecture.png Graphic file (type png)
 <use diagrams/architecture.png>
-Package pdftex.def Info: diagrams/architecture.png  used on input line 22.
-(pdftex.def)             Requested size: 274.80272pt x 227.62204pt.
+Package pdftex.def Info: diagrams/architecture.png  used on input line 11.
+(pdftex.def)             Requested size: 343.5034pt x 284.52756pt.
  [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./diagrams/architecture.png>] [2]
-Overfull \hbox (11.04578pt too wide) in paragraph at lines 47--48
+Overfull \hbox (11.04578pt too wide) in paragraph at lines 36--37
 \OT1/cmr/m/n/10.95 choos-ing the ag-gre-gated type, the user sends a sig-na-ture of the de-posit/withdraw
  []
 
 [3]
 
-LaTeX Warning: Citation `benet2014ipfs' on page 4 undefined on input line 59.
-
-
-LaTeX Warning: Citation `szydlo2004merkle' on page 4 undefined on input line 70.
+LaTeX Warning: Citation `benet2014ipfs' on page 4 undefined on input line 48.
 
 [4]
 
-LaTeX Warning: Citation `albrecht2016mimc' on page 5 undefined on input line 76.
+LaTeX Warning: Citation `szydlo2004merkle' on page 5 undefined on input line 60.
 
-[5] [6]
+[5]
 
-LaTeX Warning: Citation `deml_2019' on page 7 undefined on input line 126.
+LaTeX Warning: Citation `albrecht2016mimc' on page 6 undefined on input line 66.
 
 
-LaTeX Warning: Citation `baylinaeddsa' on page 7 undefined on input line 126.
+LaTeX Warning: Citation `deml_2019' on page 6 undefined on input line 116.
 
-[7]
-Overfull \hbox (9.03278pt too wide) in paragraph at lines 149--150
+
+LaTeX Warning: Citation `baylinaeddsa' on page 6 undefined on input line 116.
+
+[6] [7] [8]
+Overfull \hbox (9.03278pt too wide) in paragraph at lines 139--140
  \OT1/cmr/bx/n/10.95 Ag-gre-gat-ing De-posits[] \OT1/cmr/m/n/10.95 Af-ter the funds have been sent to the smart-contract,
  []
 
 
-Overfull \hbox (21.35707pt too wide) in paragraph at lines 149--150
+Overfull \hbox (21.35707pt too wide) in paragraph at lines 139--140
 \OT1/cmr/m/n/10.95 the user cre-ates a sig-na-ture con-tain-ing the type of ag-gre-ga-tion (de-posit/withdraw),
  []
 
-[8] [9]
-<diagrams/depositWithdrawAggregated.png, id=47, 1186.4325pt x 743.77875pt>
+[9] [10]
+<diagrams/depositWithdrawAggregated.png, id=50, 1165.35374pt x 683.55376pt>
 File: diagrams/depositWithdrawAggregated.png Graphic file (type png)
 <use diagrams/depositWithdrawAggregated.png>
-Package pdftex.def Info: diagrams/depositWithdrawAggregated.png  used on input line 187.
-(pdftex.def)             Requested size: 408.4869pt x 256.0748pt.
- [10 <./diagrams/depositWithdrawAggregated.png>]
-<diagrams/depWithFlow.png, id=52, 834.11626pt x 482.80376pt>
+Package pdftex.def Info: diagrams/depositWithdrawAggregated.png  used on input line 177.
+(pdftex.def)             Requested size: 436.57982pt x 256.0748pt.
+ [11 <./diagrams/depositWithdrawAggregated.png>]
+<diagrams/depWithFlow.png, id=55, 862.22125pt x 519.9425pt>
 File: diagrams/depWithFlow.png Graphic file (type png)
 <use diagrams/depWithFlow.png>
-Package pdftex.def Info: diagrams/depWithFlow.png  used on input line 196.
-(pdftex.def)             Requested size: 393.24382pt x 227.62204pt.
- [11 <./diagrams/depWithFlow.png>]
-<diagrams/instantWithdraw.png, id=57, 532.99126pt x 272.01625pt>
+Package pdftex.def Info: diagrams/depWithFlow.png  used on input line 186.
+(pdftex.def)             Requested size: 377.45769pt x 227.62204pt.
+ [12 <./diagrams/depWithFlow.png>]
+<diagrams/instantWithdraw.png, id=60, 904.37875pt x 273.02pt>
 File: diagrams/instantWithdraw.png Graphic file (type png)
 <use diagrams/instantWithdraw.png>
-Package pdftex.def Info: diagrams/instantWithdraw.png  used on input line 208.
-(pdftex.def)             Requested size: 278.76733pt x 142.26378pt.
- [12 <./diagrams/instantWithdraw.png>]
-<diagrams/priceing.png, id=62, 419.5675pt x 174.6525pt>
+Package pdftex.def Info: diagrams/instantWithdraw.png  used on input line 198.
+(pdftex.def)             Requested size: 348.71819pt x 105.2751pt.
+ [13 <./diagrams/instantWithdraw.png>]
+<diagrams/priceing.png, id=66, 419.5675pt x 174.6525pt>
 File: diagrams/priceing.png Graphic file (type png)
 <use diagrams/priceing.png>
-Package pdftex.def Info: diagrams/priceing.png  used on input line 237.
+Package pdftex.def Info: diagrams/priceing.png  used on input line 227.
 (pdftex.def)             Requested size: 205.05849pt x 85.35826pt.
- [13 <./diagrams/priceing.png>] [14] [15]
-<diagrams/tradeAggrFlow.png, id=75, 773.89125pt x 663.47874pt>
+ [14 <./diagrams/priceing.png>] [15] [16]
+<diagrams/tradeAggrFlow.png, id=78, 773.89125pt x 663.47874pt>
 File: diagrams/tradeAggrFlow.png Graphic file (type png)
 <use diagrams/tradeAggrFlow.png>
-Package pdftex.def Info: diagrams/tradeAggrFlow.png  used on input line 281.
+Package pdftex.def Info: diagrams/tradeAggrFlow.png  used on input line 271.
 (pdftex.def)             Requested size: 331.8811pt x 284.52756pt.
- [16 <./diagrams/tradeAggrFlow.png>] [17] [18]
+ [17 <./diagrams/tradeAggrFlow.png>] [18]
+<diagrams/tradeAggregated.png, id=86, 1195.46625pt x 754.82pt>
+File: diagrams/tradeAggregated.png Graphic file (type png)
+<use diagrams/tradeAggregated.png>
+Package pdftex.def Info: diagrams/tradeAggregated.png  used on input line 301.
+(pdftex.def)             Requested size: 360.50325pt x 227.62204pt.
+ [19 <./diagrams/tradeAggregated.png>]
 
-LaTeX Warning: Reference `aggregation_server' on page 19 undefined on input line 327.
+LaTeX Warning: Citation `hermez_docs' on page 20 undefined on input line 320.
 
 
-LaTeX Warning: Citation `hermez_docs' on page 19 undefined on input line 327.
+LaTeX Warning: Citation `baylinaeddsa' on page 20 undefined on input line 320.
 
-
-LaTeX Warning: Citation `baylinaeddsa' on page 19 undefined on input line 327.
-
-[19] [20] (/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.aux)
+[20] [21] (/Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 15430 strings out of 492649
- 299883 string characters out of 6129622
- 361049 words of memory out of 5000000
- 18999 multiletter control sequences out of 15000+600000
+ 16084 strings out of 492649
+ 308980 string characters out of 6129622
+ 382134 words of memory out of 5000000
+ 19624 multiletter control sequences out of 15000+600000
  9985 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,15n,98p,1380b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,15n,98p,1380b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.pdf (20 pages, 400413 bytes).
+Output written on /Users/paul/Documents/projects/bachelor/thesis/sections/approach/approach.pdf (21 pages, 496532 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
+ 134 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 48 words of extra memory for PDF output out of 10000 (max. 10000000)
 

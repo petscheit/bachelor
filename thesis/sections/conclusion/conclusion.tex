@@ -2,56 +2,11 @@
 \graphicspath{{\subfix{diagrams/}}}
 
 \begin{document}
-We will now conclude on the findings of this work, looking at the viablility of trade aggregation, but also of the scaling implications for other dapps or usecases. 
+This work suggests that Uniswap trades can be aggregated with zk-rollup, reducing the gas amount per trade. The proposed design is non-custodial, trustless and the data availability problem has been solved by storing state in the event log. Increasing the batch size will further reduce the gas cost per trade while reducing strain on the Ethereum network. The overall efficiency of the proving steps has to be improved to allow bigger batch sizes. The batch size can be increased by several improvements, like utilizing more efficient hashing functions and parallelizing the proving steps. 
 
-\subsection{zkSwap}
-In general, the approach explored in this work seems to be viable. We were able to build a trustless system, that successfully reduces the gas required for trading. The entire system is also non-custodial, mirroring the properties of decentralized exchanges. The data availability problem has also been solved, reaching the goals set for this work. The gas savings also look encouraging. We're able to reduce the cost per trade in this implementation, increasing the batch size can reduce the gas cost per trade even further. While the smart-contract logic used for verifying aggregation batches can still be optimized for gas efficiency, it could process much larger batch sizes, without many changes. It can not be considered a bottleneck in this system, and is only limited by the Ethereums block gas limit. The bottleneck of the system is the aggregator, and the complexity of computing the proofs for each batch. The approaches to scale the aggregation batches can broadly be separated into two groups.
+This work was also aimed at exploring the viability of integrating a zk-rollup based application with third-party smart-contracts. As described in S. \ref{correct_price}, one core problem that has been identified is ensuring the correct return values of the third-party smart-contract interaction are used in the aggregation. In our case, that results in custodial issues of assets. Other problems in other scenarios can be expected as well. Solving this problem would make integrating third-party smart-contracts into a zk-roll application a viable solution.
 
-\paragraph{Reducing Constraint Count}
-The main source of constraints in this system originate from hashing functions, that we mainly need to utilize a Merkle tree to store the systems state. The properties of the Merkle tree data structure (compressed state representation and \textit{O(log(N))} inclusion proofs) make it an ideal match for representing state in layer-2, so its a universal problem that all zk-rollup enabled applications face. New hashing functions like Poseidon look promising in reducing the constraint count per hashing operation, but the security of these functions is still being researched. In some cases hashing needs to be done in a zkSNARK circuit, but also on-chain in a smart-contract. Currently no hashing function exists that is efficient in zkSNARK circuits and also on-chain. In this system we opted to use SHA256 in these cases, as it can be executed cheaply on-chain. This however results in the doubling of the constraints, resulting in longer runtimes of witness computation and proof generation.
+Projects like zkSync have shown the technological potential of zk-rollup. However, one core difference to our system is that aggregation batches are not dependant on external smart-contract interactions to be executed. As described above, being dependant on other smart-contracts adds complexities to the system that are difficult to overcome. While zkSync is an isolated application that interacts with no third-party smart-contract, rollup to rollup transactions preserve composability between rollup enabled applications. Another development worth mentioning is the prospect of recursive PLONK proofs. Recursive PLONK proofs could enable different smart-contract-like applications to be deployed into a zk-rollup based applications layer-2, secured by its on-chain verification. The idea, proposed by Matterlabs, envisions a zkSNARK based sidechain essentially, securing correct execution with a recursive proof construction, verified on Ethereums mainnet. 
 
-\paragraph{Increasing Constraint Throughput}
-The throughput of an aggregation batch can also be increased by speeding up the proving steps. A large speed up could be achived by parallelizing the proving steps, which would make larger batch sizes viable. As shown by Loopring, there seem to be a number of areas where large efficency gains can be achived. 
-
-\paragraph{ZK-rollup as a Whole}
-Considering that there is a clear path for improvement, zk-rollup is a strong contender to scale the Ethereum blockchain to process orders of magnitude more transactions. This work has also shown, that zk-rollup based applications can be integrated with third-party smart-contracts. While this adds complexities and creates a number of inefficiencies, it has proven to be an effective approach to reduce transaction costs for users and strain on the Ethereum blockchain. An important factor for the viablility are rollup to rollup transactions, which have been conceptualized and are in development at the time of writing. Preserving composability of smart-contracts further strengthens the case for zk-rollups. Proven to be a viable scaling approach, zk-rollups are poised to be adopted more in the future. Continouse improvements of zkSNARK are also to be expected in the future, given that a lot of research is ongoing. A particular development to watch are recursive PLONK constructs, as they would allow an entirly new generation of zk-rollup based applications, enabling interoperability between arbitrary circuits. 
-
-
-% A particular development to watch are recursive PLONK constructs, as they would enable a new generation of zk-rollup based applications, if  
-
-
-% The development of recursive PLONK constructs is also something to watch, as it would enable a next generation of zk-rollup enabled applications.
-
-
-
-% This preserves composability of smart-contracts, 
-
-% Rollup to rollup transactions are possible, preserving composability of smart-contracts. 
-
-
-% Given that rollup to rollup transactions are possible, composability of smart-contracts is not impacted, even when in different layer-2 networks.
-
-
-% The technology seems poised to be adopted more in the future, proven to be a viable scaling approach. The development of recursive PLONK constructs is also something to watch, as it would enable a next generation of zk-rollup enabled applications.
-
-
-% The outlook for zk-rollup is looking encouraging, also with ongoing research for recursive proof construction. 
-
-
-% A developement to watch are recursive proof constructs, as they enable 
-
-
-% A development that shows great promise is the recursive PLONK proof construction, as mentioned by \cite{zinc}. 
-
-
-% The ongoing research of recursive proofs is also set to impact the 
-
-
-% The ongoing research of zero knowlege proof protocols wil
-
-
-
-
-% This work has also shown, that it is viable to aggregate user transactions for existing smart-contracts. Having to interact with other smart-contracts to execute an aggregation batch does add complexities and requires more gas to verify on-chain. The gas savings that can be achived still make it a viable approach. Another thing to consider when working with other smart-contracts in a zk-rollup application are the return values from those smart-contracts. In our case for example, the amount received when executing a Uniswap trade can't be predicted. While solving these issues add even more complexities and inefficiencies to the protocol, they can be solved with current technologies. However, it remains to be seen how much the technology continues to develop. The potential of recursive PLONK proofs cant be understated here. Being able to recursivly prove arbitrary circuits, resulting in only one on-chain verification transaction could enable scaling solutions, far superior to the approach presented here. Entire smart-contract ecosystems can potentially be brought to layer-2, Ethereums blockchain only being used to commit and emit state. Different zk-rollup systems can also interact with each other in a trustless and decentralized manner, ensuring composability among smart-contracts, even if deployed on different zk-rollup systems. The literatur on Zinc and the utilization of recursive PLONK is far from ideal, so it must be taken with a grain of salt. Given that Matterlabs, the company behind zkSync and Zinc, is experienced in this field and the potential implications of this technology, its worth mentioning at this point. A testnet utilizing early versions are also online, with an example app being deployed.
-
+Zk-Rollup shows great promise to reduce strain on the Ethereum blockchain. Trustless and permissionless applications can be built with zk-rollup that do not rely on external data availability. Transaction costs can also be reduced significantly, saving users money and reducing strain on the Ethereum blockchain. Some issues remain and need to be resolved, but in general, zk-rollup is a promising scaling solution. Failing to resolve these problems would lead to applications being rebuilt as a zk-rollup native application. Projects like zkSync have shown this to be viable. The ongoing development of zero-knowledge protocols is expected to make the technology a foundation for scaling the Ethereuem blockchain in the near future.
 \end{document}
