@@ -3,9 +3,6 @@
 \providecommand{\urlprefix}{URL }
 \providecommand{\doi}[1]{https://doi.org/#1}
 
-\bibitem{hermez_docs}
-\url{https://docs.hermez.io/#/}
-
 \bibitem{zincCurve}
 Curve on zinc,
   \url{https://medium.com/matter-labs/curve-zksync-l2-ethereums-first-user-defined-zk-rollup-smart-contract-5a72c496b350}
@@ -14,8 +11,11 @@ Curve on zinc,
 Erc-20 token standard,
   \url{https://ethereum.org/en/developers/docs/standards/tokens/erc-20/#:~:text=What%20is%20ERC%2D20%3F,to%20all%20the%20other%20Tokens.}
 
+\bibitem{hermez_docs}
+Hermez documentation, \url{https://docs.hermez.io/#/}
+
 \bibitem{zinc}
-zinc, \url{https://zinc.zksync.io/}
+Introduction - zinc v0.2.3, \url{https://zinc.zksync.io/}
 
 \bibitem{zcash_2019}
 What are zk-snarks? (Sep 2019), \url{https://z.cash/technology/zksnarks/}
@@ -73,7 +73,7 @@ Deml, S.: Efficient ecc in zksnarks using zokrates (Aug 2019),
   \url{https://medium.com/zokrates/efficient-ecc-in-zksnarks-using-zokrates-bd9ae37b8186}
 
 \bibitem{ethereum2018data}
-Ethereum: ethereum/research,
+Ethereum: Ethereum research: Data availabity,
   \url{https://github.com/ethereum/research/wiki/A-note-on-data-availability-and-erasure-coding}
 
 \bibitem{eip_1108}

@@ -9,12 +9,12 @@ struct BalanceUpdate {
 	field[8] merklePath
 }
 
-def main(BalanceUpdate[3] balances, field ethToToken, field tokenToEth) -> (field[3]):
+def main(BalanceUpdate[1] balances, field ethToToken, field tokenToEth) -> (field[3]):
 	field boughtEth = 0
 	field soldEth = 0
 	field boughtToken = 0
 	field soldToken = 0
-	for field i in 0..3 do
+	for field i in 0..1 do
 		assert(balances[i].oldNonce == balances[i].oldNonce) // makes sure the nonce is incremented
 		field tradeDirection = if balances[i].oldEthAmount >= balances[i].newEthAmount then 0 else 1 fi
 		field deltaEth = if tradeDirection == 0 then balances[i].oldEthAmount - balances[i].newEthAmount else balances[i].newEthAmount - balances[i].oldEthAmount fi

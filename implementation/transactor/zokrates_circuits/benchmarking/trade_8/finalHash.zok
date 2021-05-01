@@ -2,26 +2,47 @@ import "utils/pack/bool/nonStrictUnpack256.zok" as field_to_bool
 import "hashes/sha256/embed/512bitPadded" as sha256
 import "utils/pack/bool/pack128.zok" as pack128
 import "hashes/sha256/embed/1024bitPadded" as sha256_4
+import "utils/casts/u32_8_to_bool_256.zok" as u32_8_to_bool_256
 import "EMBED/unpack" as unpack
+
+struct BalanceMovementObject {
+	field oldEthAmount
+	field oldTokenAmount
+	field oldNonce
+	field newEthAmount
+	field newTokenAmount
+	field newNonce
+	u32[5] address
+	field[16][2] merklePath
+}
 
 def field_to_64bit(field i) -> bool[64]:
     bool[254] b = unpack(i)
     assert(b[0..190] == [false; 190])
     return b[190..254]
 
-def main(field[4] newBalancesHash, field ethToToken, field tokenToEth, field deltaEth, field deltaToken, field direction, field oldRoot, field newRoot) -> (field[2]): //194615 const
-	bool[256] rootPrice = sha256_4(field_to_bool(oldRoot), field_to_bool(newRoot), [...field_to_64bit(ethToToken), ...field_to_64bit(tokenToEth), ...field_to_64bit(deltaEth), ...field_to_64bit(deltaToken)], field_to_bool(direction))
-	bool[256] res = [false;256]
-	for field i in 0..4 do
-		res = sha256(res, field_to_bool(newBalancesHash[i]))
+def main(BalanceMovementObject[2] balances, field ethToToken, field tokenToEth, field deltaEth, field deltaToken, field direction, field oldRoot, field newRoot) -> (field[2]): //194615 const
+	bool[256] res = sha256_4(field_to_bool(oldRoot), field_to_bool(newRoot), [...field_to_64bit(ethToToken), ...field_to_64bit(tokenToEth), ...field_to_64bit(deltaEth), ...field_to_64bit(deltaToken)], field_to_bool(direction))
+	for field i in 0..2 do
+		bool[256] addrs = u32_8_to_bool_256([...balances[i].address, 0x00000000, 0x00000000, 0x00000000])
+	    bool[256] amounts = [...field_to_64bit(balances[i].newEthAmount), ...field_to_64bit(balances[i].newTokenAmount), ...field_to_64bit(balances[i].newNonce), ...field_to_64bit(0)]
+        res = sha256(res, sha256(addrs, amounts))
 	endfor
-	res = sha256(res, rootPrice) // hacky
 	return [pack128(res[0..128]), pack128(res[128..256])]
 
+	// def main(BalanceMovementObject[3] balances, field oldRoot, field newRoot) -> (field[2]):
+    // bool[256] res = sha256(field_to_bool(oldRoot), field_to_bool(newRoot))
+    // for field i in 0..3 do
+    //     bool[256] addrs = u32_8_to_bool_256([...balances[i].address, 0x00000000, 0x00000000, 0x00000000])
+	//     bool[256] amounts = [...field_to_64bit(balances[i].newEthAmount), ...field_to_64bit(balances[i].newTokenAmount), ...field_to_64bit(balances[i].newNonce), ...field_to_64bit(0)]
+    //     res = sha256(res, sha256(addrs, amounts))
+    // endfor
+    // return [pack128(res[0..128]), pack128(res[128..256])]
 
-// 0: 237712 <- fixed cost, aditional 55713 per balance
-// 1: 293425
-// 2: 349138
+
+// 0: 182254 <- fixed cost, aditional 184806 per balance
+// 1: 367060
+// 2: 551866
 // 3: 404851
 // 4: 460564
 

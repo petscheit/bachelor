@@ -16,37 +16,37 @@ Warning--empty journal in udovenko2020optimized
 Warning--empty journal in whinfrey2021hop
 You've used 38 entries,
             2850 wiz_defined-function locations,
-            791 strings with 10526 characters,
-and the built_in function-call counts, 17384 in all, are:
-= -- 1367
+            792 strings with 10563 characters,
+and the built_in function-call counts, 17393 in all, are:
+= -- 1369
 > -- 476
 < -- 21
 + -- 205
 - -- 162
-* -- 1049
-:= -- 2155
+* -- 1050
+:= -- 2156
 add.period$ -- 37
 call.type$ -- 38
-change.case$ -- 210
+change.case$ -- 211
 chr.to.int$ -- 0
 cite$ -- 49
-duplicate$ -- 1592
-empty$ -- 1742
+duplicate$ -- 1593
+empty$ -- 1743
 format.name$ -- 181
-if$ -- 3824
+if$ -- 3827
 int.to.chr$ -- 0
 int.to.str$ -- 38
 missing$ -- 305
 newline$ -- 120
 num.names$ -- 64
-pop$ -- 703
+pop$ -- 702
 preamble$ -- 1
 purify$ -- 155
 quote$ -- 0
-skip$ -- 511
+skip$ -- 509
 stack$ -- 0
 substring$ -- 905
-swap$ -- 778
+swap$ -- 779
 text.length$ -- 21
 text.prefix$ -- 0
 top$ -- 0
@@ -54,5 +54,5 @@ type$ -- 152
 warning$ -- 11
 while$ -- 136
 width$ -- 40
-write$ -- 336
+write$ -- 337
 (There were 11 warnings)

@@ -16,10 +16,13 @@ struct BalanceMovementObject {
     field newNonce
     field movementType // 0: deposit, 1: withdraw
     u32[5] address
-    field[8][2] merklePath
+    field[16][2] merklePath
+    field deltaEth
+    field deltaToken
 }
-def main(BalanceMovementObject[3] balances) -> (bool):
-    for field i in 0..3 do
+
+def main(BalanceMovementObject[1] balances) -> (bool):
+    for field i in 0..1 do
         assert(balances[i].oldNonce == balances[i].newNonce - 1) // makes sure the nonce is incremented
         assert(balances[i].newEthAmount >= 0)
         assert(balances[i].oldEthAmount >= 0)

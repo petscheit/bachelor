@@ -13,8 +13,12 @@ def mimc(field[2] ins) -> field:
 	endfor
 	return S[nInputs - 1][0]
 
-def mainn(field a, field b) -> (field): //6451 constraints -> Hash: 2641, compare: 3810
-	return if a > b then mimc([a, b]) else mimc([b, a]) fi
+def mainn(field a, bool a_left, field b) -> (field): //6451 constraints -> Hash: 2641, compare: 3810
+	return mimc([a, b])
+	// return if a_left == true then mimc([a, b]) else mimc([b, a]) fi
 
-def main(bool[256] a, bool[256] b) -> (bool[256]): //217151 constraints, Hash: 562256, compare: 160925
-	return if pack128(a[0..128]) <= pack128(b[0..128]) then sha256(a, b) else sha256(b, a) fi
+def main(bool[256] a, bool a_left, bool[256] b) -> (bool[256]): //217151 constraints, Hash: 562256, compare: 160925
+	return sha256(a, b)
+	// return if a_left == true then sha256(a, b) else sha256(b, a) fi
+
+
