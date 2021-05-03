@@ -9,7 +9,6 @@ class Balance extends React.Component {
     }
 
     render() {
-        console.log(this.props.etherBalance)
         return (
             <Typography style={{ flex: 1, textAlign: 'right' }}>
                 Balance:  { mweiToEth(this.props.etherBalance)} Eth,  { mweiToEth(this.props.tokenBalance) } ZKS   
@@ -27,7 +26,3 @@ const mapStateToProps = (state) => {
 export default connect(
     mapStateToProps
 )(Balance);
-
-
-
-// 10000000000000000000

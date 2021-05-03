@@ -10,14 +10,14 @@ out.ztf
 witness
 abi.json
 
-transactor/contracts/*
-transactor/shared/*
+aggregator/contracts/*
+aggregator/shared/*
 
-transactor/zokrates_circuits/out
-transactor/zokrates_circuits/out.ztf
-transactor/zokrates_circuits/proof.json
-transactor/zokrates_circuits/proving.key
-transactor/zokrates_circuits/verification.key
-transactor/zokrates_circuits/abi.json
-transactor/zokrates_circuits/witness
+aggregator/zokrates_circuits/out
+aggregator/zokrates_circuits/out.ztf
+aggregator/zokrates_circuits/proof.json
+aggregator/zokrates_circuits/proving.key
+aggregator/zokrates_circuits/verification.key
+aggregator/zokrates_circuits/abi.json
+aggregator/zokrates_circuits/witness
 presentation/

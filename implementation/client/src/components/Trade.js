@@ -14,13 +14,13 @@ import { broadcastTrade } from "../helpers/transactor";
 import { ethIntToWeiBN, ethToWei, toBN, ethToMwei, mweiToEth } from "../shared/conversion";
 
 class Trade extends React.Component {
-    state = { amount: 0, token: 0, baseRate: 0 }; // Baserate: Ether to token in WEI
+    state = { amount: 0, direction: 0, ethPrice: [0,0], tokenPrice: [0,0], ethToToken: 0, tokenToEth: 0}; // Baserate: Ether to token in WEI
 
     constructor(props) {
         super(props);
         getLatestPrice()
             .then(res => {
-                this.setState({baseRate: res})
+                this.setState({ethPrice: res.ethPrice, tokenPrice: res.tokenPrice, ethToToken: res.ethToToken, tokenToEth: res.tokenToEth})
             })
     }
 
@@ -37,18 +37,18 @@ class Trade extends React.Component {
     }
     
     handleTokenChange = (e) => this.setState({ 
-		token: Number(e.target.value)
+		direction: Number(e.target.value)
     }) 
     
     buildTradeObject = () => {
-        if(this.state.token === 0) {
+        if(this.state.direction === 0) {
             const ethDelta = toBN(this.state.amount); //Mwei
-            const tokenDelta = toBN((this.state.amount * this.state.baseRate).toFixed(0));
+            const tokenDelta = toBN((this.state.amount * this.state.ethPrice[0]).toFixed(0));
             return {
                 ethAmount: this.props.balance.ethAmount.toJSON(), 
                 tokenAmount: this.props.balance.tokenAmount.toJSON(), 
                 nonce: this.props.balance.nonce, 
-                direction: this.state.token,
+                direction: this.state.direction,
                 deltaEth: ethDelta.toJSON(), //wei
                 deltaToken: tokenDelta.toJSON(),
                 address: this.props.address,
@@ -56,16 +56,12 @@ class Trade extends React.Component {
         } else {
             
             const tokenDelta = toBN(this.state.amount); 
-            console.log(this.state.amount)
-            console.log(this.state.baseRate)
-            console.log(toBN((this.state.amount / this.state.baseRate).toFixed()))
-            const ethDelta = toBN((this.state.amount / this.state.baseRate).toFixed());
-            console.log(ethDelta.toString())
+            const ethDelta = toBN((this.state.amount * this.state.tokenPrice[0]).toFixed(0));
             return {
                 ethAmount: this.props.balance.ethAmount.toJSON(), 
                 tokenAmount: this.props.balance.tokenAmount.toJSON(), 
                 nonce: this.props.balance.nonce,
-                direction: this.state.token,
+                direction: this.state.direction,
                 deltaEth: ethDelta.toJSON(), 
                 deltaToken: tokenDelta.toJSON(),
                 address: this.props.address,
@@ -85,7 +81,7 @@ class Trade extends React.Component {
                     <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    value={this.state.token}
+                    value={this.state.direction}
                     onChange={this.handleTokenChange}
                     >
                         <MenuItem value={0}>Ether</MenuItem>
@@ -99,8 +95,11 @@ class Trade extends React.Component {
                     value={mweiToEth(this.state.amount)} 
 				    onChange={this.handleAmountChange}
                 />
-                <Typography component="div" style={{ padding: 8 * 3 }}>
-                    Min received: { this.state.token === 0 ? mweiToEth((this.state.amount * this.state.baseRate).toFixed()) : mweiToEth((this.state.amount / this.state.baseRate).toFixed()) }
+                <Typography component="div" style={{ padding: 8 * 3}}>
+                    Min received: { this.state.direction === 0 ? mweiToEth((this.state.amount * this.state.ethPrice[0]).toFixed(0)) : mweiToEth((this.state.amount * this.state.tokenPrice[0]).toFixed()) }
+                </Typography>
+                <Typography component="div" style={{ padding: 8 * 3}}>
+                    Max received: { this.state.direction === 0 ? mweiToEth((this.state.amount * this.state.ethPrice[1]).toFixed(0)) : mweiToEth((this.state.amount * this.state.tokenPrice[1]).toFixed()) }
                 </Typography>
                 <Button 
                     onClick={() => { broadcastTrade(this.buildTradeObject())}}

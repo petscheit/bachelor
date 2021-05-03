@@ -1,0 +1,5 @@
+file, batch_size, compile_opt_sec, memusg_compile_KiB, setup_opt_sec, memusg_setup_KiB, witness_opt_sec, memusg_witness_KiB, proof_opt_sec, memusg_proof_KiB, constr_opt
+05_16_trade, 5, 628, 8270212, 723, 8225316, 53, 7393360, 172, 23243380, 1674759
+15_16_trade, 15, 2002, 23196084, 2299, 25177144, 196, 22042808, 553, 69583488, 4850459
+25_16_trade, 25, 3688, 8225316, 3422, 40825944, 321, 36692068, 824, 115056032, 8026159
+35_16_trade, 35, 4865, 23243380, 5241, 58141008, 473, 51342512, 1332, 161657984, 11201859

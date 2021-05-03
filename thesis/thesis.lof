@@ -1,0 +1,30 @@
+\babel@toc {english}{}
+\babel@toc {english}{}
+\babel@toc {ngerman}{}
+\babel@toc {english}{}
+\contentsline {figure}{\numberline {1}{\ignorespaces Combined daily Uniswap trading volume average daily Ethereum gas price\relax }}{6}{figure.caption.5}
+\contentsline {figure}{\numberline {2}{\ignorespaces High level architecture of zkSwap\relax }}{18}{figure.caption.26}
+\contentsline {figure}{\numberline {3}{\ignorespaces Aggregated deposits and withdrawals in detail\relax }}{27}{figure.caption.46}
+\contentsline {figure}{\numberline {4}{\ignorespaces Interaction diagram of aggregated deposits and withdraws\relax }}{28}{figure.caption.47}
+\contentsline {figure}{\numberline {5}{\ignorespaces Instant withdrawals in detail\relax }}{29}{figure.caption.49}
+\contentsline {figure}{\numberline {6}{\ignorespaces Bid-ask spread and zkSwap price range\relax }}{30}{figure.caption.51}
+\contentsline {figure}{\numberline {7}{\ignorespaces Interaction diagram of aggregated trades\relax }}{33}{figure.caption.57}
+\contentsline {figure}{\numberline {8}{\ignorespaces Aggregated trades in detail\relax }}{35}{figure.caption.63}
+\contentsline {figure}{\numberline {9}{\ignorespaces Gas cost: per trade and breakeven point\relax }}{38}{figure.caption.68}
+\contentsline {figure}{\numberline {10}{\ignorespaces Gas cost: per deposit assuming different share of Ether deposits\relax }}{39}{figure.caption.70}
+\contentsline {figure}{\numberline {11}{\ignorespaces Gas cost: per withdraws assuming different share of Ether withdrawals\relax }}{40}{figure.caption.72}
+\contentsline {figure}{\numberline {12}{\ignorespaces Execution time: Compilation and setup\relax }}{41}{figure.caption.76}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{41}{subfigure.12.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{41}{subfigure.12.2}
+\contentsline {figure}{\numberline {13}{\ignorespaces Execution time: Witness computation and proof generation\relax }}{41}{figure.caption.78}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{41}{subfigure.13.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{41}{subfigure.13.2}
+\contentsline {figure}{\numberline {14}{\ignorespaces Memory consumption: compilation and setup \relax }}{42}{figure.caption.80}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{42}{subfigure.14.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{42}{subfigure.14.2}
+\contentsline {figure}{\numberline {15}{\ignorespaces Memory consumption: witness computation and proof generation\relax }}{43}{figure.caption.82}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{43}{subfigure.15.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{43}{subfigure.15.2}
+\contentsline {figure}{\numberline {16}{\ignorespaces Constraint count of circuits for different batch sizes\relax }}{43}{figure.caption.83}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{43}{subfigure.16.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{43}{subfigure.16.2}

@@ -1,0 +1,100 @@
+\documentclass[11pt,a4paper,final]{article}
+\usepackage[left=1.6in,right=1.6in,top=1.6in,bottom=1.6in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyphenat}
+\usepackage{todonotes}
+\usepackage{subfiles}
+\usepackage{amsmath}
+\usepackage{subfig}
+\usepackage[ngerman,english]{babel}
+\usepackage{booktabs}
+	
+\usepackage{hyphenat}
+% \usepackage{keywords}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{breaklinks=true}
+\urlstyle{same}
+\setcounter{tocdepth}{3}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[CE,CO]{\leftmark}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\footrulewidth}{0.5pt}
+\usepackage[linesnumbered,ruled]{algorithm2e}
+\renewcommand{\thesection}{\arabic{section}}
+\providecommand{\keywords}[1]
+{
+  \small	
+  \textbf{\textit{Keywords---}} #1
+}
+
+\title{zkSwap - Scaling Decentralized Exchanges through Transaction Aggregation}
+\author{Paul Etscheit}
+\date{April 2021}
+\setcounter{secnumdepth}{3}
+\newcommand{\var}{\texttt}
+\begin{document}
+    \begin{titlepage}
+        \maketitle
+    \end{titlepage}
+    \section{Statutory Declaration}
+    I hereby declare that the thesis submitted is my own, unaided work, completed without any unpermitted external help. Only the sources and resources listed were used. 
+    
+    % \\~\\
+    The independent and unaided completion of the thesis is affirmed by affidavit:
+    
+    \vspace{3cm}
+    
+    \noindent Berlin, 28.04.2021
+    \vspace{1.5cm}
+     
+    \noindent\dotfill\\
+    \noindent(Paul Etscheit)
+    \clearpage
+
+    
+
+    \selectlanguage{english} 
+    \begin{abstract}
+        The rising popularity of decentralized applications is quickly pushing the Ethereum blockchain to its capacity. With longer-term scaling solutions expected to take years to complete, and the popularity of decentralized applications not looking to slow down, a shorter-term solution is needed. Zk-rollup is one of these scaling solutions, developing quickly and promising to scale the blockchain. Zk-rollup utilizes zkSNARK proofs to enable trustless, off-chain transaction aggregation that is verified on-chain as on transaction. In this work, we build a system capable of aggregating numerous decentralized exchange trade transactions to be executed as one while remaining trustless and permissionless. Aggregating numerous trade transactions benefit the Ethereum blockchain, as less transaction needs to be processed. Users also benefit as the transaction fees are reduced. We will explore the problems that arise when integrating with third-party decentralized applications, the benefits of applying this technology, and the promising outlook of the technology. 
+    \end{abstract}
+
+    \selectlanguage{ngerman} 
+    \begin{abstract}
+        Die Popularität von dezentralen Anwendungen bringt die Ethereum Blockchain schnell an ihre Kapazitätsgrenzen. Da längerfristige Skalierungslösungen voraussichtlich noch Jahre in der Entwicklung sind, werden kurzfristige Lösungen benötigt. Zk-rollup ist einer dieser Skalierungstechnologien, die mit fortschreitender Geschwindigkeit entwickelt wird, und das Potential hat maßgeblich bei der Skalierung eingesetzt zu werden. Zk-rollup basieren auf zkSNARK-Beweisen, die eine Off-Chain Aggregation der Transaktionen ermöglicht, ohne der aggregierenden Partei zu vertrauen. In dieser Arbeit bauen wir ein System, das in der Lage ist, Handelstransaktionen von Dezentralen Krypto-börsen zu aggregieren. Das resultiert in einer Verminderung der Transaktionen auf der Ethereum Blockchain, was das Netzwerk entlastet und zu niedrigeren transaktionsgebühren der Nutzer führt. In dieser Arbeit analysieren wir die Probleme, die durch eine Integration mit öffentlichen dezentralen Anwendungen auftreten, der potentielle Nutzen der Technology und die generellen Aussichten.
+    \end{abstract}
+    \selectlanguage{english}
+    {\bf Keywords:} Zk-Rollup , zkSNARK, Off-chaining, Ethereum
+
+    \tableofcontents
+    \listoffigures
+    \section{Introduction}
+    \subfile{sections/introduction/introduction}
+
+    \section{Background}
+    \subfile{sections/background/background}
+
+    \section{zkSwap}
+    \subfile{sections/approach/approach}
+
+    \section{Results}
+    \subfile{sections/results/results}
+
+    \section{Discussion}
+    \subfile{sections/discussion/discussion}
+
+    \section{Related Work and Outlook} \label{outlook}
+    \subfile{sections/outlook/outlook}
+
+    \section{Conclusion}
+    \subfile{sections/conclusion/conclusion}
+
+    \section{Acknowledgements}
+    I thank Jacob Eberhardt for the support in this work, years of fruitful collaboration, and the countless hours spent explaining new concepts to me over the years. 
+
+    \bibliography{mybibliography}
+    \bibliographystyle{splncs04}
+\end{document}
+

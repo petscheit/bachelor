@@ -1,0 +1,5 @@
+file, batch_size, compile_opt_sec, memusg_compile_KiB, setup_opt_sec, memusg_setup_KiB, witness_opt_sec, memusg_witness_KiB, proof_opt_sec, memusg_proof_KiB, constr_opt
+3_8_trade, 3, 193, 9006596, 291, 3103608, 18, 2775784, 72, 8731232, 598889
+5_8_trade, 5, 331, 28142756, 411, 5005616, 31, 4555768, 108, 14251116, 903237
+10_8_trade, 10, 624, 17647300, 785, 9927364, 62, 9006596, 210, 28142756, 1664107
+20_8_trade, 20, 1428, 9927364, 1541, 19792968, 127, 17907040, 419, 55926144, 3185847

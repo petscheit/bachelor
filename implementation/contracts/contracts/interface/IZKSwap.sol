@@ -2,42 +2,27 @@
 pragma experimental ABIEncoderV2;
 pragma solidity ^0.7.6;
 
-interface SharedTypes {
+library SharedTypes {
     struct Balance {
-		uint ethAmount;
-		uint tokenAmount;
-		uint nonce;
+		uint64 ethAmount;
+		uint64 tokenAmount;
+		uint64 nonce;
 		address from;
 	}
 }
 
-interface IZkSwap is SharedTypes {
+interface IZkSwap {
 	event BalanceUpdate(address _from, uint ethAmount, uint tokenAmount, uint nonce);
-	event Length(uint len);
-
-
+	event Success(bool yeah); 
 	function verifyTrade(
 		SharedTypes.Balance[] memory incomingBalances,
-		uint direction,
-		uint ethDelta,
-		uint tokenDelta,
+		uint64 direction,
+		uint64 ethDelta,
+		uint64 tokenDelta,
+		bytes32 newRoot,
 		uint[2] calldata a,
 		uint[2][2] calldata b,
 		uint[2] calldata c, 
-		uint[2] calldata input
+		uint[2] memory dataHash
 	) external payable;
-	
-	function depositEth(bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce) external payable;
-
-	function firstDepositEth(bytes32[] memory balanceProof) external payable;
-
-	function depositERC20(bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint depositAmount) external;
-
-	function firstDepositERC20(bytes32[] memory balanceProof, uint depositAmount) external;
-
-	function withdrawEth(bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount) external;
-
-	function withdrawERC20(bytes32[] memory balanceProof, uint ethAmount, uint tokenAmount, uint nonce, uint withdrawAmount) external;
-	
-	receive() external payable;
 }

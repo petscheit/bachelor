@@ -1,0 +1,172 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{zincCurve}
+Curve on zinc,
+  \url{https://medium.com/matter-labs/curve-zksync-l2-ethereums-first-user-defined-zk-rollup-smart-contract-5a72c496b350}
+
+\bibitem{erc20}
+Erc-20 token standard,
+  \url{https://ethereum.org/en/developers/docs/standards/tokens/erc-20/#:~:text=What%20is%20ERC%2D20%3F,to%20all%20the%20other%20Tokens.}
+
+\bibitem{hermez_docs}
+Hermez documentation, \url{https://docs.hermez.io/#/}
+
+\bibitem{zinc}
+Introduction - zinc v0.2.3, \url{https://zinc.zksync.io/}
+
+\bibitem{zcash_2019}
+What are zk-snarks? (Sep 2019), \url{https://z.cash/technology/zksnarks/}
+
+\bibitem{zkSync_2019}
+zksync (Dec 2019),
+  \url{https://medium.com/matter-labs/introducing-zk-sync-the-missing-link-to-mass-adoption-of-ethereum-14c9cea83f58}
+
+\bibitem{loopring_2020}
+Loopring's zksnark prover optimizations (Mar 2020),
+  \url{https://blogs.loopring.org/looprings-zksnark-prover-optimizations/}
+
+\bibitem{adams2020uniswap}
+Adams, H., Zinsmeister, N., Robinson, D.: Uniswap v2 core. URl:
+  https://uniswap.org/whitepaper.pdf  (2020)
+
+\bibitem{albrecht2016mimc}
+Albrecht, M., Grassi, L., Rechberger, C., Roy, A., Tiessen, T.: Mimc: Efficient
+  encryption and cryptographic hashing with minimal multiplicative complexity.
+  In: International Conference on the Theory and Application of Cryptology and
+  Information Security. pp. 191--219. Springer (2016)
+
+\bibitem{angeris2019analysis}
+Angeris, G., Kao, H.T., Chiang, R., Noyes, C., Chitra, T.: An analysis of
+  uniswap markets. arXiv preprint arXiv:1911.03380  (2019)
+
+\bibitem{baylinaeddsa}
+Baylina, J., Bell{\'e}s, M.: Eddsa for baby jubjub elliptic curve with mimc-7
+  hash
+
+\bibitem{ben2018scalable}
+Ben-Sasson, E., Bentov, I., Horesh, Y., Riabzev, M.: Scalable, transparent, and
+  post-quantum secure computational integrity. IACR Cryptol. ePrint Arch.
+  \textbf{2018}, ~46 (2018)
+
+\bibitem{benet2014ipfs}
+Benet, J.: Ipfs-content addressed, versioned, p2p file system. arXiv preprint
+  arXiv:1407.3561  (2014)
+
+\bibitem{bunz2018bulletproofs}
+B{\"u}nz, B., Bootle, J., Boneh, D., Poelstra, A., Wuille, P., Maxwell, G.:
+  Bulletproofs: Short proofs for confidential transactions and more. In: 2018
+  IEEE Symposium on Security and Privacy (SP). pp. 315--334. IEEE (2018)
+
+\bibitem{vitalik2020rollup}
+Buterin, V.: An incomplete guide to rollups,
+  \url{https://vitalik.ca/general/2021/01/05/rollup.html}
+
+\bibitem{coleman2015state}
+Coleman, J.: State channels - an explanation (Nov 2015),
+  \url{https://www.jeffcoleman.ca/state-channels/}
+
+\bibitem{deml_2019}
+Deml, S.: Efficient ecc in zksnarks using zokrates (Aug 2019),
+  \url{https://medium.com/zokrates/efficient-ecc-in-zksnarks-using-zokrates-bd9ae37b8186}
+
+\bibitem{ethereum2018data}
+Ethereum: Ethereum research: Data availabity,
+  \url{https://github.com/ethereum/research/wiki/A-note-on-data-availability-and-erasure-coding}
+
+\bibitem{eip_1108}
+Ethereum: eip-1108 (Sep 2020),
+  \url{https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1108.md}
+
+\bibitem{gabizon2019plonk}
+Gabizon, A., Williamson, Z.J., Ciobotaru, O.: Plonk: Permutations over
+  lagrange-bases for oecumenical noninteractive arguments of knowledge. IACR
+  Cryptol. ePrint Arch.  \textbf{2019}, ~953 (2019)
+
+\bibitem{gennaro2013quadratic}
+Gennaro, R., Gentry, C., Parno, B., Raykova, M.: Quadratic span programs and
+  succinct nizks without pcps. In: Annual International Conference on the
+  Theory and Applications of Cryptographic Techniques. pp. 626--645. Springer
+  (2013)
+
+\bibitem{goldreich1991proofs}
+Goldreich, O., Micali, S., Wigderson, A.: Proofs that yield nothing but their
+  validity or all languages in np have zero-knowledge proof systems. Journal of
+  the ACM (JACM)  \textbf{38}(3),  690--728 (1991)
+
+\bibitem{goldreich1994definitions}
+Goldreich, O., Oren, Y.: Definitions and properties of zero-knowledge proof
+  systems. Journal of Cryptology  \textbf{7}(1),  1--32 (1994)
+
+\bibitem{goldwasser1989knowledge}
+Goldwasser, S., Micali, S., Rackoff, C.: The knowledge complexity of
+  interactive proof systems. SIAM Journal on computing  \textbf{18}(1),
+  186--208 (1989)
+
+\bibitem{grassi2020poseidon}
+Grassi, L., Khovratovich, D., Rechberger, C., Roy, A., Schofnegger, M.:
+  Poseidon: A new hash function for zero-knowledge proof systems. In:
+  Proceedings of the 30th USENIX Security Symposium. USENIX Association (2020)
+
+\bibitem{groth16}
+Groth, J.: On the size of pairing-based non-interactive arguments. In:
+  Fischlin, M., Coron, J.S. (eds.) Advances in Cryptology -- EUROCRYPT 2016.
+  pp. 305--326. Springer Berlin Heidelberg, Berlin, Heidelberg (2016)
+
+\bibitem{kulechov_2020}
+Kulechov, S.: The aave protocol v2 (Dec 2020),
+  \url{https://medium.com/aave/the-aave-protocol-v2-f06f299cee04}
+
+\bibitem{nakamoto2009bitcoin}
+Nakamoto, S.: Bitcoin: A peer-to-peer electronic cash system bitcoin: A
+  peer-to-peer electronic cash system. Bitcoin. org. Disponible en
+  https://bitcoin. org/en/bitcoin-paper  (2009)
+
+\bibitem{parno2013pinocchio}
+{Parno}, B., {Howell}, J., {Gentry}, C., {Raykova}, M.: Pinocchio: Nearly
+  practical verifiable computation. In: 2013 IEEE Symposium on Security and
+  Privacy. pp. 238--252 (2013). \doi{10.1109/SP.2013.47}
+
+\bibitem{poon2017plasma}
+Poon, J., Buterin, V.: Plasma: Scalable autonomous smart contracts. White paper
+  pp. 1--47 (2017)
+
+\bibitem{silva2020comparison}
+Silva, F., Alonso, A., Pereira, J., Oliveira, R.: A comparison of message
+  exchange patterns in bft protocols. In: IFIP International Conference on
+  Distributed Applications and Interoperable Systems. pp. 104--120. Springer
+  (2020)
+
+\bibitem{szydlo2004merkle}
+Szydlo, M.: Merkle tree traversal in log space and time. In: International
+  Conference on the Theory and Applications of Cryptographic Techniques. pp.
+  541--554. Springer (2004)
+
+\bibitem{udovenko2020optimized}
+Udovenko, A.: Optimized collision search for stark-friendly hash challenge
+  candidates  (2020)
+
+\bibitem{vbuterin2018zkrollup}
+Vbuterin: On-chain scaling to potentially ~500 tx/sec through mass tx
+  validation (Sep 2018),
+  \url{https://ethresear.ch/t/on-chain-scaling-to-potentially-500-tx-sec-through-mass-tx-validation/3477}
+
+\bibitem{whinfrey2021hop}
+Whinfrey, C.: Hop: Send tokens across rollups  (2021)
+
+\bibitem{wood2014ethereum}
+Wood, G., et~al.: Ethereum: A secure decentralised generalised transaction
+  ledger. Ethereum project yellow paper  \textbf{151}(2014),  1--32 (2014)
+
+\bibitem{wu2018dizk}
+Wu, H., Zheng, W., Chiesa, A., Popa, R.A., Stoica, I.: $\{$DIZK$\}$: A
+  distributed zero knowledge proof system. In: 27th $\{$USENIX$\}$ Security
+  Symposium ($\{$USENIX$\}$ Security 18). pp. 675--692 (2018)
+
+\bibitem{zhou2020high}
+Zhou, L., Qin, K., Torres, C.F., Le, D.V., Gervais, A.: High-frequency trading
+  on decentralized on-chain exchanges. arXiv preprint arXiv:2009.14021  (2020)
+
+\end{thebibliography}

@@ -33,10 +33,16 @@ export const invokeListener = async function() {
 
 export const getLatestPrice = async function() {
   const instance = store.getState().contract.instance;
-  return instance.methods.setTokenAmount().call()
-    .then(res => {
-      console.log("Calced price:", (res / 1000000000000000000).toFixed(6))
-      return (res / 1000000000000000000).toFixed(6)
+  return instance.methods.ethToToken().call()
+    .then(async (res) => {
+      let tokenToEth = await instance.methods.tokenToEth().call()
+      //min to max price
+      return {
+        ethPrice: [(res / 10000000000000000).toFixed(12), (10000000000000000 / tokenToEth).toFixed(12)],
+        tokenPrice: [(tokenToEth / 10000000000000000).toFixed(12), (10000000000000000 / res).toFixed(12)],
+        ethToToken: (res / 1000000).toFixed(0),
+        tokenToEth: (tokenToEth / 10000).toFixed(0)
+      }
     })
 }
 
@@ -54,7 +60,7 @@ const depositERC20 = async function(amount) {
   const erc20Instance = store.getState().contract.erc;
   const registered = store.getState().user.registered;
   console.log("registered", registered)
-  console.log(amount)
+
   let proof;
   if(registered){
     proof = store.getState().contract.stateManager.getDepositProof(address)
@@ -65,6 +71,7 @@ const depositERC20 = async function(amount) {
   .send({
     from: address,
   })
+
   if(registered) {
     return instance.methods.depositERC20(proof[0], proof[1], proof[2], proof[3], amount).send({
       from: address,
