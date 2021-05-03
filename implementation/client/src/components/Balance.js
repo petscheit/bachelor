@@ -26,7 +26,3 @@ const mapStateToProps = (state) => {
 export default connect(
     mapStateToProps
 )(Balance);
-
-
-
-// 10000000000000000000

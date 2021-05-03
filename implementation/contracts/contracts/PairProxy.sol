@@ -35,7 +35,7 @@ contract PairProxy {
             address(this),
             block.timestamp + 600
         );
-        emit TradeComplete(0, res[0], res[1], 777);
+        emit TradeComplete(0, res[0] / 1000000, res[1] / 1000000, 777);
     }
     
     function tokenForEth(uint minAmountOut, uint tokenAmount)
@@ -89,10 +89,8 @@ contract PairProxy {
         if(direction == 0){ // we're sending tokens that we bought. Must approve before verifying
             IERC20(token1).approve(address(zkSwap), tokenDelta * 1000000);
             zkSwap.verifyTrade(incomingBalances, direction, ethDelta, tokenDelta, newRoot, a, b, c, dataHash);
-            // zkSwap.verifyTrade(direction, ethDelta, tokenDelta, newRoot, a, b, c, dataHash);
         } else { // we're sending eth, can send with TX
             zkSwap.verifyTrade{value: ethDelta * 1000000}(incomingBalances, direction, ethDelta, tokenDelta, newRoot, a, b, c, dataHash);
-            // zkSwap.verifyTrade{value: ethDelta * 1000000}(direction, ethDelta, tokenDelta, newRoot, a, b, c, dataHash);
         }
     }
     
